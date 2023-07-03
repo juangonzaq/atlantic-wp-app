@@ -33,9 +33,9 @@
                         if ($aux == 1) {
                             ?>
                             <div class="w-full mt-5 flex items-center justify-center md:justify-start my-4 md:my-4">
-                                <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/Captura de Pantalla 2022-07-01 a la(s) 17.15 1.png" alt=""></div>
-                                <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/XMgroup1.png" alt=""></div>
-                                <div class="max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/x34 4 18Plus movie.png" alt=""></div>
+                                <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/Captura de Pantalla 2022-07-01 a la(s) 17.15 1.png" alt="Atlantic"></div>
+                                <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/XMgroup1.png" alt="Atlantic"></div>
+                                <div class="max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/x34 4 18Plus movie.png" alt="Atlantic"></div>
                             </div>
                             <?php
                         }
