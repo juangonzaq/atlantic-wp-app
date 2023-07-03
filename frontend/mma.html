@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header con Navbar Responsivo</title>
+  <link href="assets/plugins/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/plugins/material-icons/materialdesignicons.min.css" rel="stylesheet">
+  <link href="assets/css/tailwind.min.css" rel="stylesheet">
+  <!-- <link href="assets/css/tailwindv2.min.css" rel="stylesheet"> -->
+  <link href="assets/css/app.css" rel="stylesheet">
+</head>
+<body >
+	<div class="main-header z-30 w-full fixed top-0 left-0">
+		<header class="bg-gray h-header">
+			<nav class="bg-gray h-full flex items-center">
+				<div class="mx-auto px-4 md:px-8 w-full h-full">
+					<div class="relative flex h-16 items-center justify-between h-full">
+						<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+						<!-- Mobile menu button-->
+						<button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md p-0 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white cursor-pointer" aria-controls="mobile-menu" aria-expanded="false">
+							<!--
+							Icon when menu is closed.
+				
+							Menu open: "hidden", Menu closed: "block"
+							-->
+							<svg class="i-open h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+							</svg>
+							<!--
+							Icon when menu is open.
+				
+							Menu open: "block", Menu closed: "hidden"
+							-->
+							<svg class="i-close h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						</button>
+						</div>
+						<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+						<div class="flex flex-shrink-0 items-center">
+							<a href="index.html">
+								<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="assets/img/logo.svg">
+								<img class="hidden h-8 w-auto lg:block w-180px mxw-180px" src="assets/img/logo.svg">
+							</a>
+						</div>
+					</div>
+						<div class="flex items-center pr-2 h-full">
+							<!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 h-full"> -->
+							<div class="hidden sm:ml-6 sm:block mr-5 h-full">
+								<ul class="flex space-x-4 h-full">
+								<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+								<!-- <a href="#" class="bg-dark text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Pronósticos y estadísticas</a> -->
+									<li class="flex at-menu-nav active">
+										<a role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
+											Pronósticos y estadísticas
+											<span class="mdi mdi-chevron-down text-xl flex pt-1"></span>
+										</a>
+										<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
+											<div class="bg-gray py-5 at-menu-nav-content-body">
+												<ul>
+													<li class="text-white font-regular py-1.5">
+														<a href="futbol-internacional.html" class="hover:underline">Fútbol internacional</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="futbol-peruano.html" class="hover:underline">Fútbol peruano</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="promociones-y-torneos.html" class="hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">MMA (UFC, Bellator y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Más deportes</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="flex at-menu-nav">
+										<a role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
+											Fútbol
+											<span class="mdi mdi-chevron-down text-xl flex pt-1"></span>
+										</a>
+										<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
+											<div class="bg-gray py-5 at-menu-nav-content-body">
+												<ul>
+													<li class="text-white font-regular py-1.5">
+														<a href="futbol-internacional.html" class="hover:underline">Fútbol internacional</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="futbol-peruano.html" class="hover:underline">Fútbol peruano</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="flex at-menu-nav">
+										<a role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
+											Polideportivo
+											<span class="mdi mdi-chevron-down text-xl flex pt-1"></span>
+										</a>
+										<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
+											<div class="bg-gray py-5 at-menu-nav-content-body">
+												<ul>
+													<li class="text-white font-regular py-1.5">
+														<a href="promociones-y-torneos.html" class="hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Tenis</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="mma.html" class="hover:underline">MMA(UFC, Bellator y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Más deportes</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Espectáculos</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="flex at-menu-nav">
+										<a role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
+											Promociones y  torneos
+											<span class="mdi mdi-chevron-down text-xl flex pt-1"></span>
+										</a>
+										<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
+											<div class="bg-gray py-5 at-menu-nav-content-body">
+												<ul>
+													<li class="text-white font-regular py-1.5">
+														<a href="promociones-y-torneos.html" class="hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Tenis</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="mma.html" class="hover:underline">MMA(UFC, Bellator y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Más deportes</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Espectáculos</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="flex at-menu-nav">
+										<a role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
+											Guía de apuestas
+											<span class="mdi mdi-chevron-down text-xl flex pt-1"></span>
+										</a>
+										<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
+											<div class="bg-gray py-5 at-menu-nav-content-body">
+												<ul>
+													<li class="text-white font-regular py-1.5">
+														<a href="promociones-y-torneos.html" class="hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Tenis</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="mma.html" class="hover:underline">MMA(UFC, Bellator y otros)</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Más deportes</a>
+													</li>
+													<li class="text-white font-regular py-1.5">
+														<a href="" class="hover:underline">Espectáculos</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+									<li class="flex at-menu-nav">
+										<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white hover:text-primary h-full z-20">
+											<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+													<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
+												</svg>
+											</span>
+										</span>
+										<!-- style="display: flex !important; max-height: calc(100vh - var(--h-main-menu) - var(--height-header));" -->
+										<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
+											<div class="bg-black py-5 w-full h-24">
+												<div class="md:w-1/2 mx-auto">
+													<div class="block-input relative">
+														<input type="text" placeholder="Deportes americanos (NBA, NFL, MLB y otros)" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light">
+														<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center">
+															<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="h-full bg-gray px-8">
+												<div class="container  mx-auto flex flex-col w-full py-3">
+													<div class="w-full flex items-end  px-5">
+														<span class=" text-primary flex items-center w-full">
+															<div class="text-sm font-medium text-center text-gray-500 w-full">
+																<ul class="flex flex-wrap -mb-px border-gray-light border-b border-solid">
+																	<!-- border-b border-gray-200 dark:text-gray-400 dark:border-gray-700  -->
+																	<li class="relative">
+																		<a class="inline-block py-4 pr-8 text-white text-base font-medium">45 Resultados</a>
+																		<span class="absolute bottom-4 right-0 h-2/5 border border-solid border-gray-border border-r flex"></span>
+																	</li>
+																	<li class="relative">
+																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light active">Todos</a>
+																	</li>
+																	<li class="relative">
+																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light ">Noticias</a>
+																	</li>
+																	<li class="relative">
+																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light ">Videos</a>
+																	</li>
+																	<li class="relative">
+																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light ">Galería de fotos</a>
+																	</li>
+																</ul>
+															</div>
+														</span>
+													</div>
+													<div class="flex flex-wrap w-full gap-y-8 mt-8">
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+														<div class="w-2/6 px-4">
+															<article class="w-full notice">
+																<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+																	<img src="assets/img/post/16805944063973 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+																	<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+													
+																	<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+																		<div class="flex items-center gap-x-2 text-white">
+																			<span class="text-warning leading-none text-sm">Fútbol internacional</span>|<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																		<h3 class="mt-2  leading-6 text-white">
+																			<span class="text-lg font-medium">
+																				A dos semanas del clásico, te contamos como vienen los dos equipos.
+																			</span>
+																		</h3>
+																	</div>
+																</a>
+															</article>
+														</div>
+													</div>
+													<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
+														<button type="button" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="flex items-center hidden">
+								<span>
+									<a href="login.html" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">Iniciar sesión</a>
+								</span>
+							</div>
+						<!-- <button href="#" class="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-3">Iniciar sesión</button> -->
+							
+							<!-- SEARCH MOBILE -->
+							<div class="flex md:hidden">
+								<span class="flex at-menu-nav">
+									<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white hover:text-primary h-full z-20">
+										<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+												<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
+											</svg>
+										</span>
+									</span>
+									<!-- style="display: flex !important; max-height: calc(100vh - var(--h-main-menu) - var(--height-header));" -->
+									<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto hidden">
+										<div class="bg-black py-5 w-full h-24">
+											<div class="w-full mx-auto px-12">
+												<div class="block-input relative">
+													<input type="text" placeholder="Deportes americanos (NBA, NFL, MLB y otros)" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis">
+													<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center">
+														<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
+													</span>
+												</div>
+											</div>
+										</div>
+										<div class="h-full bg-dark">
+											<div class="main-container  mx-auto flex flex-col w-full py-3">
+												<div class="w-full flex items-end  px-5">
+													<span class=" text-primary flex items-center w-full">
+														<div class="text-sm font-medium text-center text-gray-500 w-full">
+															<span class="inline-block py-4 text-white text-base font-medium px-8">45 Resultados</span>
+
+															<ul class="flex flex-wrap justify-between -mb-px border-gray-light border-b border-solid w-full">
+																<!-- border-b border-gray-200 dark:text-gray-400 dark:border-gray-700  -->
+																<li class="relative">
+																	<a href="#" class="nav-link-search inline-block py-4 pr-3 text-white text-base font-light active">Todos</a>
+																</li>
+																<li class="relative">
+																	<a href="#" class="nav-link-search inline-block py-4 px-3 text-white text-base font-light ">Noticias</a>
+																</li>
+																<li class="relative">
+																	<a href="#" class="nav-link-search inline-block py-4 px-3 text-white text-base font-light ">Videos</a>
+																</li>
+																<li class="relative">
+																	<a href="#" class="nav-link-search inline-block py-4 pl-3 text-white text-base font-light ">Galería de fotos</a>
+																</li>
+															</ul>
+														</div>
+													</span>
+												</div>
+												<div class="flex flex-wrap w-full gap-y-4 mt-8">
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+													<div class="w-full px-4">
+														<article class="w-full notice">
+															<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+																<div class="w-2/5 relative">
+																	<img src="assets/img/post/Coke 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+																</div>
+																<div class="w-3/5">
+																	<div class="h-full w-full flex flex-col justify-between p-7">
+																		<div class="w-full">
+																			<div class="flex items-center gap-x-2 ">
+																				<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+																			</div>
+																			<h3 class="mt-2 leading-6 text-white">
+																				<span class="text-xl font-medium">
+																					Lorem Ipsum is simply dummy of the printing.
+																				</span>
+																			</h3>
+																		</div>
+																		<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																			<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+																		</div>
+																	</div>
+																</div>
+															</a>
+														</article>
+													</div>
+												</div>
+												<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
+													<button type="button" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</span>
+							</div>
+
+							<!-- Profile dropdown -->
+							<div class="relative ml-3">
+								<div>
+									<button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+										<span class="sr-only">Open user menu</span>
+										<img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+									</button>
+									</div>
+						
+									<div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+									<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+									<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+									<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			
+				<!-- Mobile menu, show/hide based on menu state. -->
+				<div class="sm:hidden fixed top-modal-header lef-0 z-30 w-screen bg-dark h-header-screen mobile-menu" id="mobile-menu">
+					<div class="space-y-1 py-8 px-9">
+						<ul>
+							<li>
+								<a href="#" class="menu-item-movil text-white  hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3" aria-current="page">
+									Pronósticos y estadísticas
+									<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+								</a>
+								<div class="menu-content-movil">
+									<ul class="border-b border-gray-light pb-3">
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Fútbol internacional</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Fútbol peruano</a>
+										</li>
+										<li class="py-2">
+											<a href="promociones-y-torneos.html" class="text-white font-light hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">MMA (UFC, Bellator y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Más deportes</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="menu-item-movil text-white  hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3">
+									Fútbol
+									<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+								</a>
+								<div class="menu-content-movil">
+									<ul class="border-b border-gray-light pb-3">
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Fútbol internacional</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Fútbol peruano</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="menu-item-movil text-white hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3">
+									Polideportivo
+									<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+								</a>
+								<div class="menu-content-movil">
+									<ul class="border-b border-gray-light pb-3">
+										<li class="py-2">
+											<a href="promociones-y-torneos.html" class="text-white font-light hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Tenis</a>
+										</li>
+										<li class="py-2">
+											<a href="mma.html" class="text-white font-light hover:underline">MMA(UFC, Bellator y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Más deportes</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Espectáculos</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="menu-item-movil text-white hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3">
+									Promociones y  torneos
+									<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+								</a>
+								<div class="menu-content-movil">
+									<ul class="border-b border-gray-light pb-3">
+										<li class="py-2">
+											<a href="promociones-y-torneos.html" class="text-white font-light hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Tenis</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">MMA(UFC, Bellator y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Más deportes</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Espectáculos</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<a href="#" class="menu-item-movil text-white hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light">
+									Guía de apuestas
+									<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+								</a>
+								<div class="menu-content-movil">
+									<ul class="border-b border-gray-light pb-3">
+										<li class="py-2">
+											<a href="promociones-y-torneos.html" class="text-white font-light hover:underline">Deportes americanos (NBA, NFL, MLB y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Tenis</a>
+										</li>
+										<li class="py-2">
+											<a href="mma.html" class="text-white font-light hover:underline">MMA(UFC, Bellator y otros)</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Más deportes</a>
+										</li>
+										<li class="py-2">
+											<a href="" class="text-white font-light hover:underline">Espectáculos</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+	</div>
+
+	<div class="main-container min-h-full bg-dark px- md:px-8 py-8 margin-top-header">
+		<!-- <div class="container py-8"> -->
+			<div class="w-full px-4 md:px-8 pt-4">
+				<div class="flex w-full border-solid border-b border-gray-light pb-3 justify-center md:justify-start">
+					<h1 class="text-2xl font-semibold text-white">
+						NOTICIAS DE UFC
+					</h1>
+				</div>
+			</div>
+			<div class="flex flex-col md:flex-row gap-x-8 h-full px-4 md:px-8">
+				<main class="w-full md:w-8/12 py-8">
+					<div class="w-full flex flex-col gap-y-8">
+						<div class="w-full">
+							<article class="w-full notice">
+								<a href="comment.html" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-420 rounded-lg">
+									<img src="assets/img/post/que_son_las_mma_o_artes_marciales_mixtas_53095_orig 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+									<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+				
+									<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+										<div class="flex items-center gap-x-2 text-xs text-white">
+											<span class="text-warning leading-none">Fútbol internacional</span>|<span class="leading-none">26/04/2023</span>|<span class="leading-none">15:00 hrs.</span>
+										</div>
+										<h3 class="mt-2  leading-6 text-white">
+											<span class="text-4xl font-semibold">
+												Castillo gano su primera pelea en el segundo round.
+											</span>
+										</h3>
+									</div>
+								</a>
+							</article>
+						</div>
+						<div class="flex flex-col md:flex-row gap-x-8 gap-y-8">
+							<div class="w-full md:w-1/2">
+								<article class="w-full notice">
+									<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+										<div class="w-2/5 relative">
+											<img src="assets/img/post/ufc-1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+										</div>
+										<div class="w-3/5">
+											<div class="h-full w-full flex flex-col justify-between p-7">
+												<div class="w-full">
+													<div class="flex items-center gap-x-2 ">
+														<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+													</div>
+													<h3 class="mt-2 leading-6 text-white">
+														<span class="text-xl font-medium">
+															Lorem Ipsum is simply dummy of the printing.
+														</span>
+													</h3>
+												</div>
+												<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+													<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</article>
+							</div>
+							<div class="w-full md:w-1/2">
+								<article class="w-full notice">
+									<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+										<div class="w-2/5 relative">
+											<img src="assets/img/post/ufc-1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+										</div>
+										<div class="w-3/5">
+											<div class="h-full w-full flex flex-col justify-between p-7">
+												<div class="w-full">
+													<div class="flex items-center gap-x-2 ">
+														<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+													</div>
+													<h3 class="mt-2 leading-6 text-white">
+														<span class="text-xl font-medium">
+															Lorem Ipsum is simply dummy of the printing.
+														</span>
+													</h3>
+												</div>
+												<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+													<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</article>
+							</div>
+						</div>
+						<div class="flex flex-col gap-y-8">
+							<article class="w-full notice">
+								<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
+									<div class="w-5/12 relative">
+										<img src="assets/img/post/ufc-2.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+									</div>
+									<div class="w-7/12">
+										<div class="h-full w-full flex flex-col justify-center p-7">
+											<div class="flex md:hidden">
+												<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+											</div>
+											<h3 class="text-lg font-semibold leading-6 text-white mb-8">
+												<span class="text-2xl font-medium">
+													Lorem Ipsum is simply dummy of the printing.
+												</span>
+											</h3>
+											<div class="flex items-center gap-x-2 text-sm text-white mt-2">
+												<span class="text-warning leading-none text-sm hidden md:flex">Fútbol internacional</span>
+												<span class=" hidden md:flex">|</span>
+												<span class="leading-none text-sm">26/04/2023</span>
+												<span class="">|</span>
+												<span class="leading-none text-sm">15:00 hrs.</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</article>
+						</div>
+						<div class="flex w-full gap-x-8">
+							<article class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+								<img src="assets/img/post/BANNER-HORIZONTAL-----fi 1.jpg" alt="" class="rounded-lg object-cover object-center w-full h-full">
+							</article>
+						</div>
+					</div>
+				</main>
+				<aside class="w-full md:w-4/12">
+					<div class="w-full flex flex-col py-8 gap-y-8">
+						<div class="w-full">
+							<article class="w-full notice">
+								<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+									<div class="w-2/5 relative">
+										<img src="assets/img/post/ufc-3.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+									</div>
+									<div class="w-3/5">
+										<div class="h-full w-full flex flex-col justify-between p-7">
+											<div class="w-full">
+												<div class="flex items-center gap-x-2 ">
+													<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+												</div>
+												<h3 class="mt-2 leading-6 text-white">
+													<span class="text-xl font-medium">
+														Lorem Ipsum is simply dummy of the printing.
+													</span>
+												</h3>
+											</div>
+											<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+												<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</article>
+						</div>
+						<div class="w-full">
+							<article class="w-full notice">
+								<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+									<div class="w-2/5 relative">
+										<img src="assets/img/post/ufc-3.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+									</div>
+									<div class="w-3/5">
+										<div class="h-full w-full flex flex-col justify-between p-7">
+											<div class="w-full">
+												<div class="flex items-center gap-x-2 ">
+													<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+												</div>
+												<h3 class="mt-2 leading-6 text-white">
+													<span class="text-xl font-medium">
+														Lorem Ipsum is simply dummy of the printing.
+													</span>
+												</h3>
+											</div>
+											<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+												<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</article>
+						</div>
+					</div>
+					<div class="w-full">
+						<div class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+							<img src="assets/img/post/banner-3 1.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full">
+							<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+	
+							<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+								<h3 class=" leading-6 text-white mb-12 w-1/2">
+									<a href="#" class="text-2xl font-semibold">
+										Lorem Ipsum is simply dummy of the printing.
+									</a>
+								</h3>
+								<span class="mx-auto">
+									<button type="button" class="outline outline-2 outline-primary text-primary font-medium py-2 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">MÁS INFORMACIÓN</button>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="w-full flex flex-col py-8 gap-y-8">
+						<div class="w-full">
+							<article class="w-full notice">
+								<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+									<div class="w-2/5 relative">
+										<img src="assets/img/post/ufc-3.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+									</div>
+									<div class="w-3/5">
+										<div class="h-full w-full flex flex-col justify-between p-7">
+											<div class="w-full">
+												<div class="flex items-center gap-x-2 ">
+													<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+												</div>
+												<h3 class="mt-2 leading-6 text-white">
+													<span class="text-xl font-medium">
+														Lorem Ipsum is simply dummy of the printing.
+													</span>
+												</h3>
+											</div>
+											<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+												<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</article>
+						</div>
+						<div class="w-full">
+							<article class="w-full notice">
+								<a href="comment.html" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+									<div class="w-2/5 relative">
+										<img src="assets/img/post/ufc-3.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+									</div>
+									<div class="w-3/5">
+										<div class="h-full w-full flex flex-col justify-between p-7">
+											<div class="w-full">
+												<div class="flex items-center gap-x-2 ">
+													<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+												</div>
+												<h3 class="mt-2 leading-6 text-white">
+													<span class="text-xl font-medium">
+														Lorem Ipsum is simply dummy of the printing.
+													</span>
+												</h3>
+											</div>
+											<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+												<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</article>
+						</div>
+						<div class="w-full">
+							<article class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+								<div class="w-2/5 relative">
+									<img src="assets/img/post/ufc-3.jpg" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full">
+								</div>
+								<div class="w-3/5">
+									<div class="h-full w-full flex flex-col justify-between p-7">
+										<div class="w-full">
+											<div class="flex items-center gap-x-2 ">
+												<span class="text-warning leading-none text-sm">Fútbol internacional</span>
+											</div>
+											<h3 class="mt-2 leading-6 text-white">
+												<a href="#" class="text-xl font-medium">
+													Lorem Ipsum is simply dummy of the printing.
+												</a>
+											</h3>
+										</div>
+										<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+											<span class="leading-none text-sm">26/04/2023</span>|<span class="leading-none text-sm">15:00 hrs.</span>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</aside>
+			</div>
+			<div class="flex justify-center flex-col md:flex-row gap-x-8 gap-y-8 items-center mt-24">
+				<a class="outline outline-2 outline-primary text-primary font-medium py-2 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">MOSTRAR NOTICIAS ANTIGUAS</a>
+				<a class="outline outline-2 outline-primary text-primary font-medium py-2 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">ÚLTIMAS NOTICIAS</a>
+			</div>
+		<!-- </div> -->
+	</div>
+
+	<footer class="bg-gray w-full px-8 py-10">
+		<div class="container mx-auto">
+			<div class="md:flex md:justify-between">
+				<div class="w-full md:w-1/4">
+					<a href="index.html" class="flex items-center justify-center md:justify-start">
+						<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="assets/img/logo.svg" alt="Your Company">
+						<img class="hidden h-8 w-auto lg:block w-180px mxw-180px" src="assets/img/logo.svg" alt="Your Company">
+					</a>
+				</div>
+				<div class="w-full md:w-1/4">
+					<h2 class="mb-4 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Sobre nosotros</h2>
+					<ul class="text-gray-600 dark:text-gray-400 font-medium">
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://flowbite.com/" class="underline text-white">Quiénes somos</a>
+						</li>
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://tailwindcss.com/" class="underline text-white">Canales de contacto</a>
+						</li>
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://tailwindcss.com/" class="underline text-white">Preguntas frecuentes</a>
+						</li>
+					</ul>
+				</div>
+				<div class="w-full md:w-1/4">
+					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Seguridad</h2>
+					<ul class="text-gray-600 dark:text-gray-400 ">
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://flowbite.com/" class="underline text-white font-medium">Términos y condiciones</a>
+						</li>
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://tailwindcss.com/" class="underline text-white font-medium">Libro de reclamaciones</a>
+						</li>
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://tailwindcss.com/" class="underline text-white font-medium">Política de privacidad</a>
+						</li>
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://tailwindcss.com/" class="underline text-white font-medium">Política de cookies</a>
+						</li>
+						<li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+							<a href="https://tailwindcss.com/" class="underline text-white font-medium">Reglas de apuestas deportivas</a>
+						</li>
+					</ul>
+					<div class="w-full mt-5 flex items-center justify-center md:justify-start my-4 md:my-4">
+						<div class="mr-2 max-w-36"><img src="assets/img/post/Captura de Pantalla 2022-07-01 a la(s) 17.15 1.png" alt=""></div>
+						<div class="mr-2 max-w-36"><img src="assets/img/post/XM group 1.png" alt=""></div>
+						<div class="max-w-36"><img src="assets/img/post/x34 4 18Plus movie.png" alt=""></div>
+					</div>
+				</div>
+				<div class="w-full md:w-1/4">
+					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Contacto</h2>
+					<ul class="text-gray-600 dark:text-gray-400 font-medium">
+						<li class="mb-1 justify-center md:justify-start flex">
+							<a href="https://flowbite.com/" class="underline text-white">(01) 705-4440</a>
+						</li>
+						<li class="mb-1 justify-center md:justify-start flex">
+							<a href="https://tailwindcss.com/" class="underline text-white">soporte@atlanticcity.com</a>
+						</li>
+					</ul>
+					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Redes sociales</h2>
+					<div class="flex items-center justify-center md:justify-start">
+						<span class=" text-white">
+							<a href="">
+								<span class="mdi mdi-facebook text-4xl"></span>
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<div class="copyrigth w-full">
+		<div class="w-full py-4 px-5 flex justify-center bg-primary-dark">
+			<p class="m-0 text-white font-medium text-center">2022 © Atlantic City. Todos los derechos reservados.</p>
+		</div>
+	</div>
+
+	<!-- Resto del contenido de la página -->
+	<script src="assets/plugins/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+		function loadSwipperCard(width){
+			const swiper = new Swiper(".swiper", {
+              slidesPerView: 1,
+              spaceBetween: 30,
+              loop: true,
+              pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: (index, className) => {
+                  return '<span class="'+className+' flex w-2.5 h-2.5 bg-white rounded-full cursor-pointer z-20"></span>';
+                },
+              },
+              navigation: {
+                nextEl: ".at-swiper-button-next",
+                prevEl: ".at-swiper-button-prev",
+              }
+            });
+			const swiperCard = new Swiper("#swiper-card", {
+				slidesPerView: width,
+				spaceBetween: 4,
+				watchSlidesVisibility: true,
+				watchSlidesProgress: true,
+				loop: true,
+				navigation: {
+					nextEl: "#swiper-card .at-swiper-button-next",
+				},
+				on: {
+					init: function (e) {
+						e.slides.forEach(slide => {
+							slide.classList.remove('slide-cover');
+						});
+
+						let slidesVisibles = e.slides.filter(slide => slide.classList.contains('swiper-slide-visible'));
+						// let slidesHidden = e.slides.filter(slide => !slide.classList.contains('swiper-slide-visible'));
+
+						/* slidesHidden.forEach(slide => {
+							slide.classList.add('slide-cover');
+						}); */
+
+						slidesVisibles.forEach((slide, index) => {
+							if(index == (slidesVisibles.length - 1)){
+								slide.classList.add('slide-cover');
+							}
+						});
+					},
+					slideChange: function(e){
+						e.slides.forEach(slide => {
+							slide.classList.remove('slide-cover');
+						});
+
+						let slidesVisibles = e.slides.filter(slide => slide.classList.contains('swiper-slide-visible'));
+						// let slidesHidden = e.slides.filter(slide => !slide.classList.contains('swiper-slide-visible'));
+
+						/* slidesHidden.forEach(slide => {
+							slide.classList.add('slide-cover');
+						}); */
+
+						slidesVisibles.forEach((slide, index) => {
+							if(index == (slidesVisibles.length - 1)){
+								slide.classList.add('slide-cover');
+							}
+						});
+					}
+				},
+            });
+		}
+
+		window.addEventListener('resize', (e)=>{
+			let width = 1.3;
+			if(document.body.clientWidth > 640){
+				width = 3.5;
+			}
+			loadSwipperCard(width)
+		});
+
+        document.addEventListener('DOMContentLoaded', ()=>{
+            // AVATAR
+            const avatarToggle = document.getElementById('user-menu-button');
+            const dropAvatar = document.querySelector('[aria-labelledby="user-menu-button"]');
+            if(avatarToggle && dropAvatar){
+              avatarToggle.addEventListener('click', ()=>{
+                  dropAvatar.classList.toggle('hidden');
+              });
+
+              document.addEventListener('click', (event) => {
+                  const targetElement = event.target;
+  
+                  if (!dropAvatar.contains(targetElement) && !avatarToggle.contains(targetElement)) {
+                      dropAvatar.classList.add('hidden');
+                  }
+              });
+            }
+
+
+
+            // SUBMENU
+            const menus = document.querySelectorAll('.at-menu');
+            if(menus){
+              menus.forEach(menu => {
+                const menuButton = menu.querySelector('.at-menu-button');
+                const menuContent = menu.querySelector('.at-menu-content');
+
+				if(menuButton){
+					menuButton.addEventListener('click', ()=>{
+					  if(menuContent.classList)
+					  menuContent.classList.toggle('hidden');
+					  menuContent.classList.add('hidden transition ease-out duration-200');
+					});
+				}
+              });
+            }
+            
+			let widthBody = (document.body.clientWidth > 640)?3.5:1.3;
+            loadSwipperCard(widthBody)
+
+			const menuNavs = document.querySelectorAll('.at-menu-nav');
+			if(menuNavs){
+				menuNavs.forEach(menuNav => {
+					let left = menuNav.offsetLeft;
+					const menuNavContent = menuNav.querySelector('.at-menu-nav-content .at-menu-nav-content-body');
+					if(menuNavContent){
+						menuNavContent.style.paddingLeft = (left + 4) + 'px';
+					}
+
+					let button = menuNav.querySelector('.at-menu-nav-button');
+					let content = menuNav.querySelector('.at-menu-nav-content');
+					if(button && content){
+						button.addEventListener('click', ()=>{
+							// content.classList.remove('max-h-0');
+							content.classList.toggle('hidden');
+						});
+					}
+				});
+			}
+
+			let swiperGallery = new Swiper(".swipper-gallery", {
+				slidesPerView: 3.5,
+				spaceBetween: 4,
+				watchSlidesVisibility: true,
+				watchSlidesProgress: true,
+				loop: true,
+				navigation: {
+					nextEl: "#swiper-card .at-swiper-button-next",
+				},
+				on: {
+					init: function (e) {
+						e.slides.forEach(slide => {
+							slide.classList.remove('slide-cover');
+						});
+
+						let slidesVisibles = e.slides.filter(slide => slide.classList.contains('swiper-slide-visible'));
+						// let slidesHidden = e.slides.filter(slide => !slide.classList.contains('swiper-slide-visible'));
+
+						/* slidesHidden.forEach(slide => {
+							slide.classList.add('slide-cover');
+						}); */
+
+						slidesVisibles.forEach((slide, index) => {
+							if(index == (slidesVisibles.length - 1)){
+								slide.classList.add('slide-cover');
+							}
+						});
+					},
+					slideChange: function(e){
+						e.slides.forEach(slide => {
+							slide.classList.remove('slide-cover');
+						});
+
+						let slidesVisibles = e.slides.filter(slide => slide.classList.contains('swiper-slide-visible'));
+						// let slidesHidden = e.slides.filter(slide => !slide.classList.contains('swiper-slide-visible'));
+
+						/* slidesHidden.forEach(slide => {
+							slide.classList.add('slide-cover');
+						}); */
+
+						slidesVisibles.forEach((slide, index) => {
+							if(index == (slidesVisibles.length - 1)){
+								slide.classList.add('slide-cover');
+							}
+						});
+					}
+				},
+			});
+
+			const menuItemMovil = document.querySelectorAll('.menu-item-movil');
+			if(menuItemMovil){
+				menuItemMovil.forEach(menuMovil => {
+					menuMovil.addEventListener('blur', () => {
+						const menuItemMovilAll = document.querySelectorAll('.menu-item-movil');
+						if(menuItemMovilAll){
+							menuItemMovilAll.forEach(item => {
+								item.classList.remove('active');
+							});
+						}
+					});
+
+					menuMovil.addEventListener('click', (e)=>{
+						const menuItemMovilAll = document.querySelectorAll('.menu-item-movil');
+						if(menuItemMovilAll){
+							menuItemMovilAll.forEach(item => {
+								if(item != e.target){
+									item.classList.remove('active');
+								}
+							});
+						}
+
+						if(menuMovil.classList.contains('active')){
+							menuMovil.classList.remove('active');
+						}
+						else{
+							menuMovil.classList.add('active');
+						}
+					});
+				});
+			}
+
+			const mobileMenuButton = document.querySelector('.mobile-menu-button');
+			if(mobileMenuButton){
+				mobileMenuButton.addEventListener('click', (e)=>{
+					mobileMenuButton.classList.toggle('active');
+					let contentClass = mobileMenuButton.getAttribute('aria-controls');
+					let menuMobilecontent = document.querySelector('.'+contentClass);
+					let mainHeader = document.querySelector('.main-header');
+					if(menuMobilecontent){
+						if(mobileMenuButton.classList.contains('active')){
+							menuMobilecontent.classList.add('open');
+							if(mainHeader){
+								mainHeader.classList.add('static-menu');
+							}
+						}
+						else{
+							menuMobilecontent.classList.remove('open');
+							if(mainHeader){
+								mainHeader.classList.remove('static-menu');
+							}
+						}
+					}
+				});
+			}
+        });
+    </script>
+</body>
+</html>
