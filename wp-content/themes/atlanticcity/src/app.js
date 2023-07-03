@@ -329,9 +329,5 @@ import TweenLite from "gsap/TweenLite";
 			}, 500);
 		}
 	});
-
-//credits
-console.log("ღ Blank Theme! ღ \n Dev con Amor por wampy para el mundo");
-
 /* MENU RESPONSIVE */
 
