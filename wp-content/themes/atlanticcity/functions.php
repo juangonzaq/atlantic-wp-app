@@ -7,6 +7,7 @@ add_theme_support('title-tag');
 add_theme_support( 'woocommerce' );
 add_filter('show_admin_bar', '__return_false');
 
+/* functions update 12/7/2023 */
 
 /* Register custom post types and custom taxonomies */
 /*require_once 'inc/register-taxonomy-game.php';*/
