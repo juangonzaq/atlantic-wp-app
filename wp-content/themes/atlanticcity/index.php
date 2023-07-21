@@ -456,7 +456,7 @@ get_header(); ?>
                         if ($category->parent) {
                             $idcropCat2 = $category->parent;
                         }
-                        $lateralCat = get_field( 'lateral', "category_".$idcropCat2 );                                
+                        $lateralCat = get_field( 'lateral', "category_".$idCategory );                           
                         if ($lateralCat) {
                             $lateral = $lateralCat;
                         }
@@ -821,7 +821,8 @@ get_header(); ?>
                         if ($category->parent) {
                             $idcropCat2 = $category->parent;
                         }
-                        $lateralCat = get_field( 'lateral', "category_".$idcropCat2 );                                
+                        $lateralCat = get_field( 'lateral', "category_".$idCategory );    
+                                                   
                         if ($lateralCat) {
                             $lateral = $lateralCat;
                         }
