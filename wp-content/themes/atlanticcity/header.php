@@ -21,7 +21,7 @@
     <div class="main-header z-30 w-full fixed top-0 left-0">
 		<?php if (is_front_page()) { ?>
 		<div class="main-menu px-2 md:px-8 h-main-menu bg-dark flex items-center">
-			<div class="main-container mx-auto w-full py-2 px-0 md:px-5 flex justify-center justify-between">
+			<div class="main-container mx-auto w-full py-2 px-0 md:px-5 hidden md:flex justify-center justify-between">
                 <?php
                     $iconos = get_field('iconos', 'options');
                     $aux = 0;
@@ -39,6 +39,30 @@
                         $aux++;
                     }
                 ?>
+			</div>
+			<div class="main-container mx-auto w-full py-2 px-0 md:px-5 justify-center justify-between realtive flex md:hidden">
+				<div class="w-full realtive flex md:hidden">
+					<div class="swiper h-full w-full" id="swiper-breads">
+						<!-- Additional required wrapper -->
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+							<?php
+								$iconos = get_field('iconos', 'options');
+								$aux = 0;
+								foreach ($iconos as $icon) {
+									?>
+									<div class="swiper-slide px-0 md:px-12">
+										<a class="w-9 h-9 bg-gray rounded-full p-1.5 cursor-pointer flex justify-center items-center" data="<?php echo $aux."-".count($iconos); ?>">
+											<img class="h-6 w-6 max-w-none" src="<?php echo $icon['icon']; ?>" alt="">
+										</a>
+									</div>
+									<?php
+									$aux++;
+								}
+							?>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<?php } ?>

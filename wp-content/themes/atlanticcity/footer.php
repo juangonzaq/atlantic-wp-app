@@ -98,12 +98,54 @@
 		}
 	}
 
+    function toggleMenuSearchMobile(hide = false){
+        let contentSearch = document.querySelector('.at-menu-nav-content-search');
+        let menuActive = document.querySelector('.menu-desktop .at-menu-nav-mobile.active');
+        if(contentSearch){
+            if(hide){
+                if(menuActive){
+                    menuActive.classList.remove('active');
+                }
+                contentSearch.classList.remove('show');
+            }
+            else{
+                contentSearch.classList.toggle('show');
+            }
+        }
+
+        if(!hide){
+            disableMenus(null);
+        }
+    }
+
+    function toggleMenuSearchDesktop(hide = false){
+		let contentSearchDesk = document.querySelector('.at-menu-nav-content-search-desktop');
+        let menuActiveDesk = document.querySelector('.menu-desktop .at-menu-nav-desktop.active');
+        if(contentSearchDesk){
+            if(hide){
+                if(menuActiveDesk){
+                    menuActiveDesk.classList.remove('active');
+                }
+                contentSearchDesk.classList.remove('show');
+            }
+            else{
+                contentSearchDesk.classList.toggle('show');
+            }
+        }
+
+        if(!hide){
+            disableMenus(null);
+        }
+    }
+
 	function loadMenus(){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
 		if(menus){
 			menus.forEach(menu => {
 				menu.addEventListener('click', ()=>{
 					menu.classList.toggle('hover');
+                    toggleMenuSearchMobile(true);
+                    toggleMenuSearchDesktop(true);
 					disableMenus(menu);
 				});
 			});
@@ -112,14 +154,11 @@
 
     function loadMenuSearch(){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav-mobile');
-		let contentSearch = document.querySelector('.at-menu-nav-content-search');
 		if(menus){
 			menus.forEach(menu => {
 				menu.addEventListener('click', ()=>{
                     menu.classList.toggle('active');
-                    if(contentSearch){
-                        contentSearch.classList.toggle('show');
-                    }
+                    toggleMenuSearchMobile();
 				});
 			});
 		}
@@ -127,18 +166,30 @@
 
     function loadMenuSearchDesktop(){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav-desktop');
-		let contentSearch = document.querySelector('.at-menu-nav-content-search-desktop');
 		if(menus){
 			menus.forEach(menu => {
 				menu.addEventListener('click', ()=>{
                     menu.classList.toggle('active');
-                    if(contentSearch){
-                        contentSearch.classList.toggle('show');
-                    }
+                    toggleMenuSearchDesktop();
 				});
 			});
 		}
 	}
+
+    function loadSwipperBreads(){
+        const swiper = new Swiper("#swiper-breads", {
+          slidesPerView: 7.3,
+        //   spaceBetween: 30,
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: false,
+            renderBullet: (index, className) => {
+              return '<span class="'+className+' flex w-2.5 h-2.5 bg-white rounded-full cursor-pointer z-20"></span>';
+            },
+          }
+        });
+    }
 
     function loadSwipperCard(width){
         const swiper = new Swiper("#swiper-banner", {
@@ -321,7 +372,8 @@
             if(document.body.clientWidth > 640){
                 width = 3.5;
             }
-            loadSwipperCard(width)
+            loadSwipperCard(width);
+            loadSwipperBreads();
         });
 
         // AVATAR
@@ -360,7 +412,8 @@
         let widthBody = (document.body.clientWidth > 640)?3.5:1.3;
 
         setTimeout(() => {
-            loadSwipperCard(widthBody)
+            loadSwipperCard(widthBody);
+            loadSwipperBreads();
             // loadSwipperGallery(".swipper-gallery")
         }, 500);
 
