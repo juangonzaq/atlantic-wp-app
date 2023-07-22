@@ -8,7 +8,7 @@ $hora = explode("T", get_the_date('c', $idpost))[1];
 $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
 get_header(); ?>
 <main class="-screen relative flex flex-col bg-dark pb-24">
-    <div class="w-full h-70-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;">
+    <div class="w-full h-80-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;">
         <div class="w-full h-full absolute top-0 lef-0 bg-gradient-dark"></div>
     </div>
     <div class="w-full relative px-4 md:px-0">
@@ -182,7 +182,7 @@ get_header(); ?>
                         $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
                     setup_postdata($post); ?>
                     <div class="w-full w-4/12">
-                        <article class="w-full notice">
+                        <article class="w-full notice bg-gray">
                             <a href="<?php echo get_permalink($relatedid);?>" class="flex bg-gray w-full flex-row md:flex-col items-start justify-between rounded-lg">
                                 <div class="w-full relative overflow-hidden h-56">
                                     <img src="<?php echo get_the_post_thumbnail_url($relatedid);?>" alt="" class="rounded-tl-lg md:rounded-tr-lg rounded-bl-lg md:rounded-bl-none object-cover object-center w-full h-full notice-image">
@@ -193,7 +193,7 @@ get_header(); ?>
                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $relatedid )[0]->name;?></span>
                                     </div>
                                     <h3 class="mt-2  leading-6 text-white">
-                                        <a href="<?php echo get_the_post_thumbnail_url($relatedid);?>" class="text-lg font-normal">
+                                        <a href="<?php echo get_the_post_thumbnail_url($relatedid);?>" class="text-lg font-semibold text-2xl">
                                         <?php echo get_the_title($myid);?>
                                         </a>
                                     </h3>
