@@ -48,7 +48,7 @@
 					<div class="relative flex h-16 items-center justify-between h-full">
 						<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 							<!-- Mobile menu button-->
-							<button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md p-0 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white cursor-pointer" aria-controls="mobile-menu" aria-expanded="false">
+							<button type="button" class="mobile-menu-button inline-flex items-center justify-center rounded-md p-0  hover:bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white cursor-pointer" aria-controls="mobile-menu" aria-expanded="false">
 								<!--
 								Icon when menu is closed.
 					
@@ -67,7 +67,7 @@
 								</svg>
 							</button>
 						</div>
-						<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+						<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start content-logo-mobile mx-24 md:mx-0">
 						<div class="flex flex-shrink-0 items-center">
 							<a href="<?php echo site_url(); ?>">
 								<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
@@ -75,7 +75,7 @@
 							</a>
 						</div>
 					</div>
-						<div class="flex items-center pr-2 h-full">
+						<div class="flex items-center pr-2 h-full menu-desktop">
 							<!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 h-full"> -->
 							<div class="hidden sm:ml-6 sm:block mr-5 h-full">
 								<ul class="flex space-x-4 h-full">
@@ -88,10 +88,18 @@
 											$active = "";
 											$url = $_SERVER['REQUEST_URI'];
 											if ($me['menu']) { foreach ($me['menu'] as $subme) { 
-												$valid = count(explode($url, $subme['id']));
+												$valid = 0;
+												if($subme['id'] && $subme['id'] !="" && $url != "" && $url != "/"){
+													?>
+													<script>console.log(<?php echo json_encode($subme['id']); ?>)</script>
+													<?php
+													$valid = count(explode($url, $subme['id']));
+												}
 												if ($valid > 1) { $active = "active"; }
 											}}
 												?>
+												<!-- <script>console.log(<?php echo json_encode($url); ?>)</script>
+												<script>console.log(<?php echo json_encode($menu); ?>)</script> -->
 										<li class="flex at-menu-nav <?php echo $active; ?>">
 											<a role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
 												<?php echo $me['nombre'];?>
@@ -123,16 +131,148 @@
 											}
 										}
 									?>
-									<li class="flex at-menu-nav">
-										<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white hover:text-primary h-full z-20">
-											<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center">
+									<li class="flex at-menu-nav-desktop">
+										<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white h-full z-20">
+											<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center icon-search">
 												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
 													<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
 												</svg>
 											</span>
 										</span>
 										<!-- style="display: flex !important; max-height: calc(100vh - var(--h-main-menu) - var(--height-header));" -->
-										<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
+										
+									</li>
+								</ul>
+							</div>
+							
+							<!-- SEARCH MOBILE -->
+							<div class="flex md:hidden h-full">
+								<span class="flex at-menu-nav-mobile mr-2">
+									<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white hover:text-primary h-full z-20">
+										<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center icon-search">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+												<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
+											</svg>
+										</span>
+									</span>
+									<!-- style="display: flex !important; max-height: calc(100vh - var(--h-main-menu) - var(--height-header));" -->
+									
+								</span>
+							</div>
+							<?php
+								if (is_user_logged_in()) {
+									$user = wp_get_current_user();
+									?>
+								<!-- Profile dropdown -->
+								<div class="relative ml-3">
+									<div>
+										<button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 button-profile" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+											<span class="sr-only">Open user menu</span>
+											<img class="h-8 w-8 rounded-full" src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" alt="">
+										</button>
+										</div>
+							
+										<div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+										<a href="<?php echo site_url(); ?>/wp-admin/profile.php" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mi perfil</a>
+										<!--<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>-->
+										<a href="<?php echo wp_logout_url( home_url() ); ?>" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Cerrar sesión</a>
+									</div>
+								</div>
+									<?php
+								} else {
+									?>									
+									<div class="flex items-center">
+										<span>
+											<a href="<?php echo site_url();?>/login" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white hidden md:flex">Iniciar sesión</a>
+											<a href="<?php echo site_url();?>/login" type="button" class="w-10 h-10 rounded-full bg-dark p-2 flex md:hidden justify-center text-primary items-center" style="padding-left: 0.65rem;">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6">
+													<path fill-rule="evenodd" d="M8 0.75C5.1084 0.75 2.75 3.1084 2.75 6C2.75 7.80762 3.67285 9.41309 5.07031 10.3594C2.39551 11.5078 0.5 14.1621 0.5 17.25H2C2 13.9277 4.67773 11.25 8 11.25C11.3223 11.25 14 13.9277 14 17.25H15.5C15.5 14.1621 13.6045 11.5078 10.9297 10.3594C12.3271 9.41309 13.25 7.80762 13.25 6C13.25 3.1084 10.8916 0.75 8 0.75ZM8 2.25C10.0801 2.25 11.75 3.91992 11.75 6C11.75 8.08008 10.0801 9.75 8 9.75C5.91992 9.75 4.25 8.08008 4.25 6C4.25 3.91992 5.91992 2.25 8 2.25Z" clip-rule="evenodd"/>
+												</svg>
+
+												<!-- flex justify-center text-primary items-center -->
+											</a>
+										</span>
+									</div>
+									<?php
+								}
+							?>
+						<!-- <button href="#" class="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-3">Iniciar sesión</button> -->
+							
+
+						<div class="at-menu-nav-content-search left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
+										<div class="bg-black py-5 w-full h-24">
+											<div class="w-full mx-auto px-12">
+												<div class="block-input relative">
+													<input type="text" placeholder="Buscar..." id="searchMobile" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis">
+												</div>
+											</div>
+										</div>
+										<div class="h-full bg-dark" id="MySearchcontentMobile" style="display:none">
+											<div class="main-container  mx-auto flex flex-col w-full py-3">
+												<div class="w-full flex items-end  px-5">
+													<span class=" text-primary flex items-center w-full">
+														<div class="text-sm font-medium text-center text-gray-500 w-full">
+															<span class="inline-block py-4 text-white text-base font-medium px-8"><span id="resultados-mobile" ></span> Resultados</span>
+
+															<ul class="flex flex-wrap justify-between -mb-px border-gray-light border-b border-solid w-full">
+																<!-- border-b border-gray-200 dark:text-gray-400 dark:border-gray-700  -->
+																<li class="relative">
+																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 pr-3 text-white text-base font-light active"
+																	data-id="#todos-mobile" data-result="">Todos</a>
+																</li>
+																<li class="relative">
+																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 px-3 text-white text-base font-light "
+																	data-id="#noticias-mobile" data-result="">Noticias</a>
+																</li>
+																<li class="relative">
+																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 px-3 text-white text-base font-light "
+																	data-id="#videos-mobile" data-result="">Videos</a>
+																</li>
+																<li class="relative">
+																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 pl-3 text-white text-base font-light " 
+																	data-id="#galeria-mobile" data-result="">Galería de fotos</a>
+																</li>
+															</ul>
+														</div>
+													</span>
+												</div>
+												<div class="allContent">
+													<div class="itemContentMobile" id="todos-mobile">
+														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
+														</div>
+														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
+															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+														</div>
+													</div>
+													<div class="itemContentMobile" id="noticias-mobile" style="display:none">
+														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
+														</div>
+														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
+															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+														</div>
+													</div>
+													<div class="itemContentMobile" id="videos-mobile" style="display:none">
+														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
+														</div>
+														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
+															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+														</div>
+													</div>
+													<div class="itemContentMobile" id="galeria-mobile" style="display:none">
+														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
+														</div>
+														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
+															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						
+						</div>
+
+						<div class="at-menu-nav-content-search-desktop left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
 											<div class="bg-black py-5 w-full h-24">
 												<div class="md:w-1/2 mx-auto">
 													<div class="block-input relative">
@@ -207,129 +347,6 @@
 												</div>
 											</div>
 										</div>
-									</li>
-								</ul>
-							</div>
-							
-							<!-- SEARCH MOBILE -->
-							<div class="flex md:hidden">
-								<span class="flex at-menu-nav">
-									<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white hover:text-primary h-full z-20">
-										<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-												<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd" />
-											</svg>
-										</span>
-									</span>
-									<!-- style="display: flex !important; max-height: calc(100vh - var(--h-main-menu) - var(--height-header));" -->
-									<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto hidden">
-										<div class="bg-black py-5 w-full h-24">
-											<div class="w-full mx-auto px-12">
-												<div class="block-input relative">
-													<input type="text" placeholder="Buscar..." id="searchMobile" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis">
-												</div>
-											</div>
-										</div>
-										<div class="h-full bg-dark" id="MySearchcontentMobile" style="display:none">
-											<div class="main-container  mx-auto flex flex-col w-full py-3">
-												<div class="w-full flex items-end  px-5">
-													<span class=" text-primary flex items-center w-full">
-														<div class="text-sm font-medium text-center text-gray-500 w-full">
-															<span class="inline-block py-4 text-white text-base font-medium px-8"><span id="resultados-mobile" ></span> Resultados</span>
-
-															<ul class="flex flex-wrap justify-between -mb-px border-gray-light border-b border-solid w-full">
-																<!-- border-b border-gray-200 dark:text-gray-400 dark:border-gray-700  -->
-																<li class="relative">
-																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 pr-3 text-white text-base font-light active"
-																	data-id="#todos-mobile" data-result="">Todos</a>
-																</li>
-																<li class="relative">
-																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 px-3 text-white text-base font-light "
-																	data-id="#noticias-mobile" data-result="">Noticias</a>
-																</li>
-																<li class="relative">
-																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 px-3 text-white text-base font-light "
-																	data-id="#videos-mobile" data-result="">Videos</a>
-																</li>
-																<li class="relative">
-																	<a href="#" class="nav-link-search nav-link-search-mobile inline-block py-4 pl-3 text-white text-base font-light " 
-																	data-id="#galeria-mobile" data-result="">Galería de fotos</a>
-																</li>
-															</ul>
-														</div>
-													</span>
-												</div>
-												<div class="allContent">
-													<div class="itemContentMobile" id="todos-mobile">
-														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
-														</div>
-														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
-														</div>
-													</div>
-													<div class="itemContentMobile" id="noticias-mobile" style="display:none">
-														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
-														</div>
-														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
-														</div>
-													</div>
-													<div class="itemContentMobile" id="videos-mobile" style="display:none">
-														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
-														</div>
-														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
-														</div>
-													</div>
-													<div class="itemContentMobile" id="galeria-mobile" style="display:none">
-														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
-														</div>
-														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</span>
-							</div>
-							<?php
-								if (is_user_logged_in()) {
-									$user = wp_get_current_user();
-									?>
-								<!-- Profile dropdown -->
-								<div class="relative ml-3">
-									<div>
-										<button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-											<span class="sr-only">Open user menu</span>
-											<img class="h-8 w-8 rounded-full" src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" alt="">
-										</button>
-										</div>
-							
-										<div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-										<a href="<?php echo site_url(); ?>/wp-admin/profile.php" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mi perfil</a>
-										<!--<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>-->
-										<a href="<?php echo wp_logout_url( home_url() ); ?>" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Cerrar sesión</a>
-									</div>
-								</div>
-									<?php
-								} else {
-									?>									
-									<div class="flex items-center">
-										<span>
-											<a href="<?php echo site_url();?>/login" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">Iniciar sesión</a>
-										</span>
-									</div>
-									<?php
-								}
-							?>
-						<!-- <button href="#" class="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ml-3">Iniciar sesión</button> -->
-							
-
-							
-						
-						</div>
 					</div>
 				</div>
 			

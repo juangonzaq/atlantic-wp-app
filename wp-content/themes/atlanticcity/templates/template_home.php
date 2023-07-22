@@ -23,7 +23,7 @@ get_header();
                                 <div class="absolute top-0 left-0 w-full md:w-1/3 h-full flex flex-col justify-end md:justify-center px-16 pb-12 md:pb-0">
                                     <h1 class="hidden md:flex text-2xl text-white mb-5 font-bold "><?php echo $ban["title"]; ?></h1>
                                     <span class="mx-auto md:mx-0">
-                                    <a href="<?php echo $ban["link"]; ?>" class="w-full md:w-auto bg-primary text-primary font-semibold py-3 px-8 rounded text-dark hover:bg-primary hover:text-dark"><?php echo $ban["link_text"]; ?></a>
+                                    <a href="<?php echo $ban["link"]; ?>" class="w-full md:w-auto bg-primary text-primary font-semibold py-4 md:py-3 px-10 md:px-8 rounded-lg text-dark hover:bg-primary hover:text-dark text-lg md:text-base"><?php echo $ban["link_text"]; ?></a>
                                     </span>
                                 </div>
                             </div>
@@ -56,12 +56,12 @@ get_header();
         if($builder) {
             foreach ($builder as $item) {
     ?>
-    <section class="main-container mx-auto flex flex-col mt-12 gap-x-8 gap-y-8 px-0 md:px-12">
+    <section class="main-container mx-auto flex flex-col mt-4 gap-x-8 gap-y-8 px-0 md:px-12">
         <?php 
             if ($item['title']) {
                 ?>                
         <div class="flex w-full border-solid border-b border-gray-light py-3">
-            <h1 class="text-2xl font-semibold text-white">
+            <h1 class="text-base md:text-2xl font-semibold text-white">
                 <?php echo $item['title']; ?>
             </h1>
             <span class="border-solid border-l border-primary text-primary ml-5 flex items-center px-5">
@@ -94,7 +94,7 @@ get_header();
                         ?>
                         <article class="w-full notice">
                             <a href="<?php echo get_permalink($idnoticia);?>" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
-                                <img src="<?php echo get_the_post_thumbnail_url($idnoticia);?>" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+                                <img src="<?php echo get_the_post_thumbnail_url($idnoticia);?>" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                 <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
             
                                 <div class="absolute top-0 left-0 w-full md:w-9/12 h-full flex flex-col justify-end p-7">
@@ -134,10 +134,10 @@ get_header();
                                 $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
                                ?>
                                <div class="w-full md:w-1/2">
-                                    <article class="w-full notice">
+                                    <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($idnoticia);?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                                             <div class="w-2/5 relative">
-                                                <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+                                                <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
                                                 <div class="h-full w-full flex flex-col justify-between p-7">
@@ -203,10 +203,10 @@ get_header();
                                     $hora = explode("T", get_the_date('c', $idnoticia))[1];
                                     $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
                                    ?>
-                                   <article class="w-full notice">
+                                   <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($idnoticia);?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                                             <div class="w-2/5 md:w-1/3 relative">
-                                                <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+                                                <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5 md:w-2/3">
                                                 <div class="h-full w-full flex flex-col justify-between p-7">
@@ -235,7 +235,7 @@ get_header();
                             <?php } ?>
                         <?php } ?>
                         <?php if ($r['type'] == "publicidad") {?>
-                            <div class="<?php if ($aux != 0) { echo "mt-8"; } ?>">
+                            <div class="<?php if ($aux != 0) { echo "mt-1"; } ?>">
                                 <div class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                                     <img src="<?php echo $r['imagenpublicidad']; ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full">
                                     <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
@@ -300,7 +300,7 @@ get_header();
 							<div class="swiper-slide pr-3">
 								<article class="notice notice-gallery-open cursor-pointer flex bg-gray w-full flex-col items-start justify-between rounded-lg" data-id="swiper-<?php echo $id; ?>">
 									<div class="w-full relative overflow-hidden ">
-										<img src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="<?php echo get_the_title($id); ?>" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image">
+										<img src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="<?php echo get_the_title($id); ?>" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image ">
 									</div>				
 									<div class="w-full h-full flex flex-col justify-end p-7">
 										<div class="flex items-center gap-x-2 text-white">
@@ -348,7 +348,7 @@ get_header();
                 foreach ($fots as $fot) {
                     $id = $fot['id'];
         ?>                        
-        <div class="modal-gallery fixed z-40 top-modal-header h-with-head left-0 w-screen hidden" id="swiper-<?php echo $id; ?>" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="modal-gallery fixed z-19 top-modal-header h-with-head left-0 w-screen hidden" id="swiper-<?php echo $id; ?>" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <!-- class="gallery-content w-full h-full bg-dark flex justify-center overflow-auto" -->
             <div class="flex flex-col justify-center items-center w-full h-full bg-dark py-4" style="padding-left: 14%;">
                 <div class="relative w-full h-full max-h-full">
@@ -358,10 +358,10 @@ get_header();
                             <span class=" mdi mdi-close text-primary text-xl font-normal hover:underline cursor-pointer ml-2"></span>
                         </button>
                     </div>
-                    <div class="w-full mb-4" style="width: 83.5%;">
+                    <div class="w-full mb-12 md:mb-4 mt-20 md:mt-0" style="width: 83.5%;">
                         <p class="text-base font-medium text-white"><?php echo get_the_title($id); ?></p>
                     </div>
-                    <div class="swiper swipper-gallery max-h-full flex items-center">
+                    <div class="swiper swipper-gallery max-h-full flex items-center" data-modal-id="swiper-<?php echo $id; ?>">
                         <div class="swiper-wrapper h-full max-h-full">
                             <?php 
                                 if (get_field('fotos', $id)) {
@@ -375,19 +375,11 @@ get_header();
                                 }
                             ?>
                         </div>
-                        <!-- <div class="swiper-pagination flex items-center">
-                                <span class="h-10 w-10 rounded-full border-2 border-white border-solid p-2 cursor-pointer swiper-gallery-button-prev flex justify-center items-center">
-                                    <span class="mdi mdi-chevron-left text-white text-4xl font-medium"></span>
-                                </span>
-                                <span class="h-10 w-10 rounded-full border-2 border-white border-solid p-2 cursor-pointer swiper-gallery-button-next flex justify-center items-center">
-                                    <span class="mdi mdi-chevron-right text-white text-4xl font-medium"></span>
-                                </span>
-                        </div> -->
                     </div>
                     <div class="w-full py-8" style="width: 83.5%;">
                         <div class="w-full flex justify-between items-start">
-                            <div class="flex mr-8">
-                                <p class="text-base font-normal text-white">
+                            <div class="flex mr-0 md:mr-8 content-white pr-3 md:pr-80">
+                                <p class="text-base font-normal text-white-modal">
                                     <?php
                                         $my_postid = $id;//This is page id or post id
                                         $content_post = get_post($my_postid);
@@ -398,7 +390,7 @@ get_header();
                                     ?>
                                 </p>
                             </div>
-                            <div class="flex items-start">
+                            <div class="hidden md:flex items-start">
                                 <span class="h-10 w-10 rounded-full border-2 border-white border-solid p-2 cursor-pointer swiper-gallery-button-prev flex justify-center items-center mr-4">
                                     <span class="mdi mdi-chevron-left text-white text-4xl font-medium"></span>
                                 </span>
@@ -407,10 +399,12 @@ get_header();
                                 </span>
                             </div>
                         </div>
-                        <div class="w-full border-b border-solid border-gray-light pt-6 flex items-center justify-end pb-2">
-                            <span class="text-base font-normal text-white">1</span>
+                        <div class="w-full border-b border-solid border-gray-light pt-6 flex items-center justify-end gallery-pagination">
+                            <span class="text-base font-normal text-white gallery-pagination__page">1</span>
                             <span class="w-px mx-2 bg-primary h-4 incline"></span>
-                            <span class="text-base font-normal text-white">0</span>
+                            <span class="text-base font-normal text-white gallery-pagination__pages">0</span>
+                            <div class="gallery-pagination__border">
+                            </div>
                         </div>
                     </div>
                 </div>
