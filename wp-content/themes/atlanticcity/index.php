@@ -17,7 +17,20 @@ get_header(); ?>
                 <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 header-vs">
                     <div class="flex w-full py-5 items-center">
                         <h1 class="text-2xl font-semibold text-white my-auto">
-                            <?php echo $nameCategory; ?>
+                            <?php 
+                                $ancestros = get_ancestors($idCategory, 'category');
+                                if ($category->parent) {
+                                    if (count($ancestros) > 1) {
+                                        $parent = get_term( $ancestros[1], 'category');
+                                        echo $parent->name;
+                                    } else {
+                                        echo get_cat_name($category->parent);
+                                    }
+                                    
+                                } else {
+                                    echo $nameCategory;
+                                }
+                            ?>
                         </h1>
                         <!-- SEPARATION -->
                         <span class="separation bg-primary mx-8 hidden md:flex"></span>
@@ -31,7 +44,7 @@ get_header(); ?>
                                 if ($category->parent) {
                                     $idcropCat = $category->parent;
                                 }
-                                $encuentrosCat = get_field( 'icon', "category_".$idcropCat );                                
+                                $encuentrosCat = get_field( 'encuentros', "category_".$idcropCat );                                
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
                                 }
@@ -69,7 +82,20 @@ get_header(); ?>
                 <div class="w-full md:h-subtitle bg-dark-bold flex items-center px-0 md:px-8 justify-center md:justify-start">
                     <div class="flex flex-col md:flex-row w-full h-full items-center">
                         <h1 class="text-2xl font-semibold text-white my-auto py-5 md:py-0 px-8 md:px-0 uppercase">
-                            <?php echo $nameCategory; ?>
+                            <?php 
+                                $ancestros = get_ancestors($idCategory, 'category');
+                                if ($category->parent) {
+                                    if (count($ancestros) > 1) {
+                                        $parent = get_term( $ancestros[1], 'category');
+                                        echo $parent->name;
+                                    } else {
+                                        echo get_cat_name($category->parent);
+                                    }
+                                    
+                                } else {
+                                    echo $nameCategory;
+                                }
+                            ?>
                         </h1>
                         <!-- SEPARATION -->
                         <span class="hidden md:flex w-px bg-primary h-10 mx-5 my-auto"></span>
@@ -79,20 +105,28 @@ get_header(); ?>
                                 $taxonomy     = 'category';
                                 $orderby      = 'menu_order';
                                 $empty        = 0;
+                                $idcrop = $idCategory;
+                                if ($category->parent) {
+                                    $idcrop = $category->parent;
+                                }
                                 $args = array(
                                     'taxonomy'     => $taxonomy,
                                     'orderby'      => $orderby,
                                     'hide_empty'   => $empty,
-                                    'parent'       => $idCategory,
+                                    'parent'       => $idcrop,
                                 );
                                 $selfcategories = get_categories( $args );
                                 if ($selfcategories) {
                                     foreach ($selfcategories as $self) {
                                         $link = get_term_link($self->slug, 'category');
-                                        $name = $self->name;
+                                        $name = $self->name;      
+                                        $active = false;
+                                        if($self->term_id == $idCategory) {
+                                            $active = true;
+                                        }                                        
                                         ?>
                                         <li class="w-full md:w-auto h-full px-0 md:px-4">
-                                            <a href="<?php echo $link; ?>" class="w-full px-8 md:px-0 py-4 md:py-0 flex items-center h-full font-normal text-base text-white h-full cursor-pointer hover:text-primary nav-link-primary">
+                                            <a href="<?php echo $link; ?>" class="<?php if($active) echo "active"; ?> w-full px-8 md:px-0 py-4 md:py-0 flex items-center h-full font-normal text-base text-white h-full cursor-pointer hover:text-primary nav-link-primary">
                                                 <?php echo $name; ?>
                                             </a>
                                         </li>
@@ -158,7 +192,11 @@ get_header(); ?>
                             <?php 
                                 $idcrop = $idCategory;
                                 if ($category->parent) {
-                                    $idcrop = $category->parent;
+                                    if (count($ancestros) > 1) {                                        
+                                        $idcrop = $ancestros[1];
+                                    } else {
+                                        $idcrop = $category->parent;
+                                    }
                                 }
                                 $taxonomy     = 'category';
                                 $orderby      = 'menu_order';
@@ -199,7 +237,59 @@ get_header(); ?>
                     </div>
                 </aside>
                 <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-7/12"; } else { echo "md:w-12/12"; } ?> px-5 md:px-0">
+                    <?php 
+                            $taxonomy     = 'category';
+                            $orderby      = 'menu_order';
+                            $idcrop = $idCategory;
+                        ?>
                     <div class="flex flex-col w-full py-8 gap-y-8">
+                        <?php                        
+                            if ($category->parent) {
+                                $removeBorder = true;
+                                if (count($ancestros) > 1) {                                        
+                                    $idcrop = $ancestros[0];
+                                    $removeBorder = false;
+                                } else {
+                                    $idcrop = $idCategory;
+                                }
+                                $args = array(
+                                    'taxonomy'     => $taxonomy,
+                                    'orderby'      => $orderby,
+                                    'hide_empty'   => $empty,
+                                    'parent'       => $idcrop,
+                                );
+                                $Newselfcategories = get_categories( $args );
+                                ?>
+                                <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
+                                    <span class="mr-6">
+                                        <img class="w-8" src="<?php echo get_field("icon", "category_".$idcrop); ?>" alt="">
+                                    </span>
+                                    <h1 class="text-xl font-semibold text-white whitespace-nowrap">
+                                        <?php echo get_cat_name($idcrop); ?>
+                                    </h1>
+                                    <div class="w-px h-12 bg-gray-light mx-8"></div>
+                                    <div class="flex items-center">
+                                        <span class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</span>
+                                        <div class="flex items-center gap-x-4">
+                                            <?php if ($Newselfcategories) {
+                                                foreach ($Newselfcategories as $cc) {
+                                                    $active = false;
+                                                    if ($idCategory == $cc->term_id) {
+                                                        $active = true;
+                                                    }
+                                                    ?>                                            
+                                            <a href="<?php echo $link = get_term_link($cc->slug, 'category');; ?>" <?php if($active) { echo "style='background: #121313;'"; } ?> class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
+                                                <img class="w-full max-w-full max-h-full" src="<?php echo get_field( 'icon', "category_".$cc->term_id ); ?>" alt="">
+                                            </a>
+                                                    <?php
+                                                }
+                                            }?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        ?>
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
                             <span class="mr-6">
@@ -567,6 +657,53 @@ get_header(); ?>
                         ?>
                 <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-8/12"; } else { echo "md:w-12/12"; } ?> px-5 md:px-0">
                     <div class="flex flex-col w-full py-8 gap-y-8">
+                        <?php                        
+                            if ($category->parent) {
+                                $removeBorder = true;
+                                if (count($ancestros) > 1) {                                        
+                                    $idcrop = $ancestros[0];
+                                    $removeBorder = false;
+                                } else {
+                                    $idcrop = $idCategory;
+                                }
+                                $args = array(
+                                    'taxonomy'     => $taxonomy,
+                                    'orderby'      => $orderby,
+                                    'hide_empty'   => $empty,
+                                    'parent'       => $idcrop,
+                                );
+                                $Newselfcategories = get_categories( $args );
+                                ?>
+                                <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
+                                    <span class="mr-6">
+                                        <img class="w-8" src="<?php echo get_field("icon", "category_".$idcrop); ?>" alt="">
+                                    </span>
+                                    <h1 class="text-xl font-semibold text-white whitespace-nowrap">
+                                        <?php echo get_cat_name($idcrop); ?>
+                                    </h1>
+                                    <div class="w-px h-12 bg-gray-light mx-8"></div>
+                                    <div class="flex items-center">
+                                        <span class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</span>
+                                        <div class="flex items-center gap-x-4">
+                                            <?php if ($Newselfcategories) {
+                                                foreach ($Newselfcategories as $cc) {
+                                                    $active = false;
+                                                    if ($idCategory == $cc->term_id) {
+                                                        $active = true;
+                                                    }
+                                                    ?>                                            
+                                            <a href="<?php echo $link = get_term_link($cc->slug, 'category');; ?>" <?php if($active) { echo "style='background: #121313;'"; } ?> class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
+                                                <img class="w-full max-w-full max-h-full" src="<?php echo get_field( 'icon', "category_".$cc->term_id ); ?>" alt="">
+                                            </a>
+                                                    <?php
+                                                }
+                                            }?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        ?>
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
                             <span class="mr-6">
@@ -1025,6 +1162,7 @@ get_header(); ?>
                 </aside>
                 <main class="h-full w-full md:w-7/12 px-5 md:px-0">
                     <div class="flex flex-col w-full py-8 gap-y-8">
+                      
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
                             <span class="mr-6">
