@@ -3,7 +3,7 @@
 		<div class="container mx-auto">
 			<div class="md:flex md:justify-between">
 				<div class="w-full md:w-1/4">
-					<a href="<?php echo site_url(); ?> class="flex items-center justify-center md:justify-start">
+					<a href="<?php echo site_url(); ?>" class="flex items-center justify-center md:justify-start">
 						<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
 						<img class="hidden h-8 w-auto lg:block w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
 					</a>
@@ -86,6 +86,111 @@
 <script src="<?php echo site_url()?>/wp-content/themes/atlanticcity/plugins/swiper/swiper-bundle.min.js"></script>
 
 <script>
+
+    function disableMenus(menuSelect){
+		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
+		if(menus){
+			menus.forEach(menu => {
+				if(menu != menuSelect){
+					menu.classList.remove('hover');
+				}
+			});
+		}
+	}
+
+    function toggleMenuSearchMobile(hide = false){
+        let contentSearch = document.querySelector('.at-menu-nav-content-search');
+        let menuActive = document.querySelector('.menu-desktop .at-menu-nav-mobile.active');
+        if(contentSearch){
+            if(hide){
+                if(menuActive){
+                    menuActive.classList.remove('active');
+                }
+                contentSearch.classList.remove('show');
+            }
+            else{
+                contentSearch.classList.toggle('show');
+            }
+        }
+
+        if(!hide){
+            disableMenus(null);
+        }
+    }
+
+    function toggleMenuSearchDesktop(hide = false){
+		let contentSearchDesk = document.querySelector('.at-menu-nav-content-search-desktop');
+        let menuActiveDesk = document.querySelector('.menu-desktop .at-menu-nav-desktop.active');
+        if(contentSearchDesk){
+            if(hide){
+                if(menuActiveDesk){
+                    menuActiveDesk.classList.remove('active');
+                }
+                contentSearchDesk.classList.remove('show');
+            }
+            else{
+                contentSearchDesk.classList.toggle('show');
+            }
+        }
+
+        if(!hide){
+            disableMenus(null);
+        }
+    }
+
+	function loadMenus(){
+		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
+		if(menus){
+			menus.forEach(menu => {
+				menu.addEventListener('click', ()=>{
+					menu.classList.toggle('hover');
+                    toggleMenuSearchMobile(true);
+                    toggleMenuSearchDesktop(true);
+					disableMenus(menu);
+				});
+			});
+		}
+	}
+
+    function loadMenuSearch(){
+		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav-mobile');
+		if(menus){
+			menus.forEach(menu => {
+				menu.addEventListener('click', ()=>{
+                    menu.classList.toggle('active');
+                    toggleMenuSearchMobile();
+				});
+			});
+		}
+	}
+
+    function loadMenuSearchDesktop(){
+		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav-desktop');
+		if(menus){
+			menus.forEach(menu => {
+				menu.addEventListener('click', ()=>{
+                    menu.classList.toggle('active');
+                    toggleMenuSearchDesktop();
+				});
+			});
+		}
+	}
+
+    function loadSwipperBreads(){
+        const swiper = new Swiper("#swiper-breads", {
+          slidesPerView: 7.3,
+        //   spaceBetween: 30,
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: false,
+            renderBullet: (index, className) => {
+              return '<span class="'+className+' flex w-2.5 h-2.5 bg-white rounded-full cursor-pointer z-20"></span>';
+            },
+          }
+        });
+    }
+
     function loadSwipperCard(width){
         const swiper = new Swiper("#swiper-banner", {
           slidesPerView: 1,
@@ -168,20 +273,55 @@
                 if(button && content){
                     button.addEventListener('click', ()=>{
                         // content.classList.remove('max-h-0');
-                        content.classList.toggle('hidden');
+                        // content.classList.toggle('hidden');
                     });
                 }
             });
         }
     }
 
-    function loadSwipperGallery(){
-        let swiperGallery = new Swiper(".swipper-gallery", {
+    function setProgressGallery(id){
+        let progress = document.querySelector('#'+id+' .gallery-pagination .gallery-pagination__border');
+        let page = document.querySelector('#'+id+' .gallery-pagination .gallery-pagination__page');
+        let pages = document.querySelector('#'+id+' .gallery-pagination .gallery-pagination__pages');
+        let slides = document.querySelectorAll('#'+id+' .swiper-wrapper .swiper-slide');
+        let slidesGroup = [];
+        let currentIndex = 0;
+        if(slides){
+            slides.forEach(slide => {
+                if(slide.swiperSlideSize){
+                    slidesGroup.push(slide);
+                }
+            });
+        }
+
+        slidesGroup.forEach((slide, index) => {
+            if(slide.classList.contains('swiper-slide-active')){
+                currentIndex = index;
+            }
+        });
+
+        if(progress){
+            let width = (100/slidesGroup.length) * (currentIndex + 1);
+            progress.style.width = width + '%';
+        }
+
+        if(page){
+            page.innerText = currentIndex + 1;
+        }
+
+        if(pages){
+            pages.innerText = slidesGroup.length;
+        }
+    }
+
+    function loadSwipperGallery(id){
+        let swiperGallery = new Swiper(id, {
             slidesPerView: 1.2,
             spaceBetween: 0,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
-            loop: true,
+            loop: false,
             navigation: {
                 prevEl: ".swiper-gallery-button-prev",
                 nextEl: ".swiper-gallery-button-next",
@@ -198,6 +338,10 @@
                     slidesVisibles.forEach((slide, index) => {
                         slide.classList.remove('slide-cover');
                     });
+
+                    setTimeout(() => {
+                        setProgressGallery(e.el.dataset.modalId);
+                    }, 500);
                 },
                 transitionStart: function(e){
                     e.slides.forEach(slide => {
@@ -210,6 +354,11 @@
                     slidesVisibles.forEach((slide, index) => {
                         slide.classList.remove('slide-cover');
                     });
+
+                    setProgressGallery(e.el.dataset.modalId);
+                },
+                slideChange: function(e){
+                    setProgressGallery(e.el.dataset.modalId);
                 }
             },
         });
@@ -223,7 +372,8 @@
             if(document.body.clientWidth > 640){
                 width = 3.5;
             }
-            loadSwipperCard(width)
+            loadSwipperCard(width);
+            loadSwipperBreads();
         });
 
         // AVATAR
@@ -252,8 +402,9 @@
             if(menuButton){
                 menuButton.addEventListener('click', ()=>{
                   if(menuContent.classList)
-                  menuContent.classList.toggle('hidden');
-                  menuContent.classList.add('hidden transition ease-out duration-200');
+                //   menuContent.classList.toggle('hidden');
+                // hidden 
+                  menuContent.classList.add('transition ease-out duration-200');
                 });
             }
           });
@@ -261,8 +412,9 @@
         let widthBody = (document.body.clientWidth > 640)?3.5:1.3;
 
         setTimeout(() => {
-            loadSwipperCard(widthBody)
-            loadSwipperGallery()
+            loadSwipperCard(widthBody);
+            loadSwipperBreads();
+            // loadSwipperGallery(".swipper-gallery")
         }, 500);
 
         const menuItemMovil = document.querySelectorAll('.menu-item-movil');
@@ -343,14 +495,21 @@
         if(buttonsGallery){
             buttonsGallery.forEach(buttonGallery => {
                 buttonGallery.addEventListener('click', () => {                    
-                    const dataid = buttonGallery.getAttribute("data-id");                    
+                    const dataid = buttonGallery.getAttribute("data-id");      
+                    // const description = buttonGallery.getAttribute("data-description");    
                     let modalGallery = document.getElementById(dataid);
+                    loadSwipperGallery('#'+dataid + ' .swipper-gallery')
                     if(modalGallery){
                         modalGallery.classList.remove('hidden');
                     }
                 });
             });
         }
+
+        // MANUS
+        loadMenus();
+        loadMenuSearch();
+        loadMenuSearchDesktop();
     });
 </script>
 </body>
