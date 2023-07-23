@@ -198,7 +198,7 @@ get_header(); ?>
                         </ul>
                     </div>
                 </aside>
-                <main class="h-full w-full md:w-7/12 px-5 md:px-0">
+                <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-7/12"; } else { echo "md:w-12/12"; } ?> px-5 md:px-0">
                     <div class="flex flex-col w-full py-8 gap-y-8">
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
@@ -448,6 +448,7 @@ get_header(); ?>
                     </div>
                     <?php } ?>
                 </main>
+                <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { ?>
                 <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
                     <div class="w-full flex flex-col py-8 gap-y-8">                        
                     <?php 
@@ -559,11 +560,12 @@ get_header(); ?>
                     ?>
                     </div>
                 </section>
+                <?php } ?>
                         <?php
                     }
                     if ($orderitems == "arriba") {
                         ?>
-                <main class="h-full w-full md:w-8/12 px-5 md:px-0">
+                <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-8/12"; } else { echo "md:w-12/12"; } ?> px-5 md:px-0">
                     <div class="flex flex-col w-full py-8 gap-y-8">
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
@@ -813,6 +815,7 @@ get_header(); ?>
                     </div>
                     <?php } ?>
                 </main>
+                <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { ?> 
                 <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
                     <div class="w-full flex flex-col py-8 gap-y-8">                        
                     <?php 
@@ -925,6 +928,7 @@ get_header(); ?>
                     ?>
                     </div>
                 </section>
+                <?php } ?>
                         <?php
                     }
                 ?>
