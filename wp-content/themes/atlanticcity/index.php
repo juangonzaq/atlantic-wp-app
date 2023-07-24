@@ -380,7 +380,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -408,7 +408,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -440,7 +440,7 @@ get_header(); ?>
                                 <div class="flex flex-col gap-y-8">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
-                                            <div class="w-5/12 relative">
+                                            <div class="w-5/12 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-7/12">
@@ -613,7 +613,7 @@ get_header(); ?>
                                 <div class="w-full">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
@@ -794,7 +794,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -822,7 +822,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -854,7 +854,7 @@ get_header(); ?>
                                 <div class="flex flex-col gap-y-8">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
-                                            <div class="w-5/12 relative">
+                                            <div class="w-5/12 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-7/12">
@@ -1028,7 +1028,7 @@ get_header(); ?>
                                 <div class="w-full">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
@@ -1253,7 +1253,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -1281,7 +1281,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -1313,7 +1313,7 @@ get_header(); ?>
                                 <div class="flex flex-col gap-y-8">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
-                                            <div class="w-5/12 relative">
+                                            <div class="w-5/12 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-7/12">
@@ -1465,7 +1465,7 @@ get_header(); ?>
                                 <div class="w-full">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
