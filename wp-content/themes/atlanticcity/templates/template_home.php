@@ -33,7 +33,7 @@ get_header();
                 ?>
             </div>
             <!-- If we need pagination -->
-            <div class="swiper-pagination z-10 flex justify-center"></div>
+            <div id="swiper-pagination-banner" class="swiper-pagination z-10 flex justify-center"></div>
         
             <!-- If we need navigation buttons -->
             <div class="hidden md:flex at-swiper-button-prev absolute text-white left-2 top-center cursor-pointer z-10">
