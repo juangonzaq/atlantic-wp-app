@@ -214,7 +214,7 @@
             spaceBetween: 4,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
-            loop: true,
+            loop: false,
             navigation: {
                 nextEl: "#swiper-card .at-swiper-button-next",
             },
