@@ -299,7 +299,7 @@ get_header();
                                         ?>                                
 							<div class="swiper-slide pr-3">
 								<article class="notice notice-gallery-open cursor-pointer flex bg-gray w-full flex-col items-start justify-between rounded-lg" data-id="swiper-<?php echo $id; ?>">
-									<div class="w-full relative overflow-hidden ">
+									<div class="w-full relative overflow-hidden h-64">
 										<img src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="<?php echo get_the_title($id); ?>" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image ">
 									</div>				
 									<div class="w-full h-full flex flex-col justify-end p-7">
