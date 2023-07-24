@@ -290,7 +290,6 @@ get_header();
 							<!-- Slides -->
                             <?php 
                                 $fots = get_field("galeria");
-				var_dump($fots);
                                 if($fots) {
                                     foreach ($fots as $fot) {
                                         $id = $fot['id'];
