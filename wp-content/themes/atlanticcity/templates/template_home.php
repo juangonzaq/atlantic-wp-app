@@ -136,7 +136,7 @@ get_header();
                                <div class="w-full md:w-1/2">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($idnoticia);?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
@@ -205,7 +205,7 @@ get_header();
                                    ?>
                                    <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($idnoticia);?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 md:w-1/3 relative">
+                                            <div class="w-2/5 md:w-1/3 relative overflow-hidden">
                                                 <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5 md:w-2/3">
