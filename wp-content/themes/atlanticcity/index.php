@@ -44,7 +44,7 @@ get_header(); ?>
                                 if ($category->parent) {
                                     $idcropCat = $category->parent;
                                 }
-                                $encuentrosCat = get_field( 'encuentros', "category_".$idcropCat );                                
+                                $encuentrosCat = get_field( 'icon', "category_".$idcropCat );                                
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
                                 }
