@@ -308,8 +308,8 @@ input.input-primary:focus,input.input-primary:focus-visible,input.input-primary:
     background-color:rgba(0,0,0,0.75)
 }
 
-.slide-cover:last-child:not(.slide-cover):after{
-    content: none;
+.slide-cover.slide-cover:last-child:after{
+    /* content: none; */
 }
 
 .top-center-5xl{
