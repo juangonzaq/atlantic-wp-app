@@ -21,7 +21,7 @@
     <div class="main-header z-30 w-full fixed top-0 left-0">
 		<?php if (is_front_page()) { ?>
 		<div class="main-menu px-2 md:px-8 h-main-menu bg-dark flex items-center">
-			<div class="main-container mx-auto w-full py-2 px-0 md:px-5 flex justify-center justify-between">
+			<div class="main-container mx-auto w-full py-2 px-0 md:px-5 hidden md:flex justify-center justify-between">
                 <?php
                     $iconos = get_field('iconos', 'options');
                     $aux = 0;
@@ -39,6 +39,30 @@
                         $aux++;
                     }
                 ?>
+			</div>
+			<div class="main-container mx-auto w-full py-2 px-0 md:px-5 justify-center justify-between realtive flex md:hidden">
+				<div class="w-full realtive flex md:hidden">
+					<div class="swiper h-full w-full" id="swiper-breads">
+						<!-- Additional required wrapper -->
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+							<?php
+								$iconos = get_field('iconos', 'options');
+								$aux = 0;
+								foreach ($iconos as $icon) {
+									?>
+									<div class="swiper-slide px-0 md:px-12">
+										<a class="w-9 h-9 bg-gray rounded-full p-1.5 cursor-pointer flex justify-center items-center" data="<?php echo $aux."-".count($iconos); ?>">
+											<img class="h-6 w-6 max-w-none" src="<?php echo $icon['icon']; ?>" alt="">
+										</a>
+									</div>
+									<?php
+									$aux++;
+								}
+							?>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<?php } ?>
@@ -101,9 +125,9 @@
 												<!-- <script>console.log(<?php echo json_encode($url); ?>)</script>
 												<script>console.log(<?php echo json_encode($menu); ?>)</script> -->
 										<li class="flex at-menu-nav <?php echo $active; ?>">
-											<a role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
+											<a role="button" <?php if (!$me["menu"]){ ?> href="<?php echo $me["link_principal"]; ?>" <?php } ?>class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
 												<?php echo $me['nombre'];?>
-												<span class="mdi mdi-chevron-down text-xl flex pt-1"></span>
+												<?php if ($me["menu"]){ ?> <span class="mdi mdi-chevron-down text-xl flex pt-1"></span><?php } ?>
 											</a>
 											<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
 												<div class="bg-gray py-5 at-menu-nav-content-body">
