@@ -1086,6 +1086,14 @@ get_header(); ?>
                         <?php 
                             $aux = 0;
                             $encuentros = get_field('encuentros', 'options');
+                            $idcropCat = $idCategory;
+                            if ($category->parent) {
+                                $idcropCat = $category->parent;
+                            }
+                            $encuentrosCat = get_field( 'icon', "category_".$idcropCat );                                
+                            if ($encuentrosCat) {
+                                $encuentros = $encuentrosCat;
+                            }
                             if ($encuentros) {
                                 foreach ($encuentros as $enc) {
                                     ?>
