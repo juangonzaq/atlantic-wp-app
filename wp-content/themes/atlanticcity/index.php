@@ -44,7 +44,7 @@ get_header(); ?>
                                 if ($category->parent) {
                                     $idcropCat = $category->parent;
                                 }
-                                $encuentrosCat = get_field( 'icon', "category_".$idcropCat );                                
+                                $encuentrosCat = get_field( 'encuentros', "category_".$idcropCat );                                
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
                                 }
@@ -539,7 +539,7 @@ get_header(); ?>
                     <?php } ?>
                 </main>
                 <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { ?>
-                <section class="h-full w-full md:w-5/12 pl-5 md:pl-0 pr-5 md:pr-4">
+                <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
                     <div class="w-full flex flex-col py-8 gap-y-8">                        
                     <?php 
                         $lateral = get_field( 'lateral', 'options');
@@ -953,7 +953,7 @@ get_header(); ?>
                     <?php } ?>
                 </main>
                 <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { ?> 
-                <section class="h-full w-full md:w-5/12 pl-5 md:pl-0 pr-5 md:pr-4">
+                <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
                     <div class="w-full flex flex-col py-8 gap-y-8">                        
                     <?php 
                         $lateral = get_field( 'lateral', 'options');
@@ -1086,14 +1086,6 @@ get_header(); ?>
                         <?php 
                             $aux = 0;
                             $encuentros = get_field('encuentros', 'options');
-                            $idcropCat = $idCategory;
-                            if ($category->parent) {
-                                $idcropCat = $category->parent;
-                            }
-                            $encuentrosCat = get_field( 'icon', "category_".$idcropCat );                                
-                            if ($encuentrosCat) {
-                                $encuentros = $encuentrosCat;
-                            }
                             if ($encuentros) {
                                 foreach ($encuentros as $enc) {
                                     ?>
@@ -1409,7 +1401,7 @@ get_header(); ?>
                     </div>
                    
                 </main>
-                <section class="h-full w-full md:w-5/12 pl-5 md:pl-0 pr-5 md:pr-4">
+                <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
                     <div class="w-full flex flex-col py-8 gap-y-8">                        
                     <?php 
                         $lateral = get_field( 'lateral', 'options');
