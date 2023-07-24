@@ -250,7 +250,7 @@
                     }); */
 
                     slidesVisibles.forEach((slide, index) => {
-                        if(index == (slidesVisibles.length - 1)){
+                        if(index == (slidesVisibles.length - 1) && !e.isEnd){
                             slide.classList.add('slide-cover');
                         }
                     });
