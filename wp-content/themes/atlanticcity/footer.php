@@ -212,7 +212,7 @@
         const swiperCard = new Swiper("#swiper-card", {
             slidesPerView: width,
             spaceBetween: 4,
-            watchSlidesVisibility: true,
+            // watchSlidesVisibility: true,
             watchSlidesProgress: true,
             loop: true,
             navigation: {
