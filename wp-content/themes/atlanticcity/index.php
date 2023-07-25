@@ -52,7 +52,7 @@ get_header(); ?>
                                     foreach ($encuentros as $enc) {
                                         ?>
                                     <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
-                                    <div class="flex items-center h-full px-8">
+                                    <div class="flex items-center h-full px-8" id="bombita11">
                                         <div class="flex flex-col items-center">
                                             <img class="h-7" src="<?php echo $enc['logo_equipo_local']; ?>" alt="">
                                             <span class="text-white text-s text-normal mt-0.5 leading-none"><?php echo $enc['equipo_local']; ?></span>
@@ -148,7 +148,7 @@ get_header(); ?>
                                 if ($category->parent) {
                                     $idcropCat = $category->parent;
                                 }
-                                $encuentrosCat = get_field( 'icon', "category_".$idcropCat );                                
+                                $encuentrosCat = get_field( 'encuentros', "category_".$idCategory );
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
                                 }
@@ -156,7 +156,7 @@ get_header(); ?>
                                     foreach ($encuentros as $enc) {
                                         ?>
                                     <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
-                                    <div class="flex items-center h-full px-8">
+                                    <div class="flex items-center h-full px-8" id="bombita">
                                         <div class="flex flex-col items-center">
                                             <img class="h-7" src="<?php echo $enc['logo_equipo_local']; ?>" alt="">
                                             <span class="text-white text-s text-normal mt-0.5 leading-none"><?php echo $enc['equipo_local']; ?></span>
@@ -270,7 +270,11 @@ get_header(); ?>
                                     </h1>
                                     <div class="w-px h-12 bg-gray-light mx-8"></div>
                                     <div class="flex items-center">
-                                        <span class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</span>
+                                    <?php 
+                                            $myterm = get_term( $idcrop, 'category' );
+                                            $myterm_link = get_term_link( $myterm );
+                                        ?>
+                                        <a href="<?php echo $myterm_link; ?>" class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</a>                                        
                                         <div class="flex items-center gap-x-4">
                                             <?php if ($Newselfcategories) {
                                                 foreach ($Newselfcategories as $cc) {
@@ -684,7 +688,11 @@ get_header(); ?>
                                     </h1>
                                     <div class="w-px h-12 bg-gray-light mx-8"></div>
                                     <div class="flex items-center">
-                                        <span class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</span>
+                                        <?php 
+                                            $myterm = get_term( $idcrop, 'category' );
+                                            $myterm_link = get_term_link( $myterm );
+                                        ?>
+                                        <a href="<?php echo $myterm_link; ?>" class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</a>
                                         <div class="flex items-center gap-x-4">
                                             <?php if ($Newselfcategories) {
                                                 foreach ($Newselfcategories as $cc) {
@@ -1087,11 +1095,19 @@ get_header(); ?>
                         <?php 
                             $aux = 0;
                             $encuentros = get_field('encuentros', 'options');
+                            $idcropCat = $idCategory;
+                            if ($category->parent) {
+                                $idcropCat = $category->parent;
+                            }
+                            $encuentrosCat = get_field( 'encuentros', "category_".$idcropCat );                          
+                            if ($encuentrosCat) {
+                                $encuentros = $encuentrosCat;
+                            }
                             if ($encuentros) {
                                 foreach ($encuentros as $enc) {
                                     ?>
                                 <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
-                                <div class="flex items-center h-full px-8">
+                                <div class="flex items-center h-full px-8" id="bombita22">
                                     <div class="flex flex-col items-center">
                                         <img class="h-7" src="<?php echo $enc['logo_equipo_local']; ?>" alt="">
                                         <span class="text-white text-s text-normal mt-0.5 leading-none"><?php echo $enc['equipo_local']; ?></span>

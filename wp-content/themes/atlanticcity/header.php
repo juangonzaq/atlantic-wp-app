@@ -27,7 +27,7 @@
                     $aux = 0;
                     foreach ($iconos as $icon) {
                         ?>
-                        <a class="w-9 h-9 bg-gray rounded-full p-1.5 cursor-pointer mx-2" data="<?php echo $aux."-".count($iconos); ?>">
+                        <a href="<?php echo $icon['href']; ?>" class="w-9 h-9 bg-gray rounded-full p-1.5 cursor-pointer mx-2" data="<?php echo $aux."-".count($iconos); ?>">
                             <img class="h-6 w-6 max-w-none" src="<?php echo $icon['icon']; ?>" alt="">
                         </a>
                         <?php if ($aux == (count($iconos)/2 - 1)) { ?>
