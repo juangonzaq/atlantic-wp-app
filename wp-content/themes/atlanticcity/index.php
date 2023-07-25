@@ -182,7 +182,8 @@ get_header(); ?>
                 <?php
             }
             ?>
-            <div class="flex flex-col md:flex-row gap-x-8 h-full relative mt-95 pl-aside<?php if ($orderitems == "arriba") { echo "pl-5"; }?>">
+            <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-95"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>
@@ -384,7 +385,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -412,7 +413,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -444,7 +445,7 @@ get_header(); ?>
                                 <div class="flex flex-col gap-y-8">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
-                                            <div class="w-5/12 relative">
+                                            <div class="w-5/12 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-7/12">
@@ -599,7 +600,7 @@ get_header(); ?>
                             </div>
                         <?php } ?>
                         <?php if ($la['type'] == "posts") { ?> 
-                            <div class="w-full flex flex-col py-8 gap-y-8">
+                            <div class="w-full flex flex-col gap-y-8">
                                 <?php
                                     if ( have_posts() ) : ?>
                                     <?php
@@ -617,7 +618,7 @@ get_header(); ?>
                                 <div class="w-full">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
@@ -659,7 +660,7 @@ get_header(); ?>
                     }
                     if ($orderitems == "arriba") {
                         ?>
-                <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-8/12"; } else { echo "md:w-12/12"; } ?> px-5 md:px-0">
+                <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-8/12"; } else { echo "md:w-12/12"; } ?> pr-5 md:pr-0 pl-3">
                     <div class="flex flex-col w-full py-8 gap-y-8">
                         <?php                        
                             if ($category->parent) {
@@ -766,7 +767,7 @@ get_header(); ?>
                             if ($aux == 0) {
                                 ?>
                                 <div class="w-full">
-                                    <article class="w-full notice notice-small">
+                                    <article class="w-full notice">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
                                             <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
@@ -802,7 +803,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -830,7 +831,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -862,7 +863,7 @@ get_header(); ?>
                                 <div class="flex flex-col gap-y-8">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
-                                            <div class="w-5/12 relative">
+                                            <div class="w-5/12 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-7/12">
@@ -1018,7 +1019,7 @@ get_header(); ?>
                             </div>
                         <?php } ?>
                         <?php if ($la['type'] == "posts") { ?> 
-                            <div class="w-full flex flex-col py-8 gap-y-8">
+                            <div class="w-full flex flex-col gap-y-8">
                                 <?php
                                     if ( have_posts() ) : ?>
                                     <?php
@@ -1036,7 +1037,7 @@ get_header(); ?>
                                 <div class="w-full">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
@@ -1269,7 +1270,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -1297,7 +1298,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
+                                                    <div class="w-2/5 relative overflow-hidden">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                                     <div class="w-3/5">
@@ -1329,7 +1330,7 @@ get_header(); ?>
                                 <div class="flex flex-col gap-y-8">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
-                                            <div class="w-5/12 relative">
+                                            <div class="w-5/12 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-7/12">
@@ -1463,7 +1464,7 @@ get_header(); ?>
                             </div>
                         <?php } ?>
                         <?php if ($la['type'] == "posts") { ?> 
-                            <div class="w-full flex flex-col py-8 gap-y-8">
+                            <div class="w-full flex flex-col gap-y-8">
                                 <?php
                                     if ( have_posts() ) : ?>
                                     <?php
@@ -1481,7 +1482,7 @@ get_header(); ?>
                                 <div class="w-full">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">

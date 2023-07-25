@@ -182,7 +182,7 @@
         //   spaceBetween: 30,
           loop: true,
           pagination: {
-            el: ".swiper-pagination",
+            el: "#swiper-breads .swiper-pagination",
             clickable: false,
             renderBullet: (index, className) => {
               return '<span class="'+className+' flex w-2.5 h-2.5 bg-white rounded-full cursor-pointer z-20"></span>';
@@ -194,24 +194,25 @@
     function loadSwipperCard(width){
         const swiper = new Swiper("#swiper-banner", {
           slidesPerView: 1,
-          spaceBetween: 30,
+        //   spaceBetween: 30,
           loop: true,
           pagination: {
-            el: ".swiper-pagination",
+            el: "#swiper-pagination-banner",
             clickable: true,
             renderBullet: (index, className) => {
               return '<span class="'+className+' flex w-2.5 h-2.5 bg-white rounded-full cursor-pointer z-20"></span>';
             },
           },
           navigation: {
-            nextEl: ".at-swiper-button-next",
-            prevEl: ".at-swiper-button-prev",
+            nextEl: "#swiper-banner .at-swiper-button-next",
+            prevEl: "#swiper-banner .at-swiper-button-prev",
           }
         });
+        
         const swiperCard = new Swiper("#swiper-card", {
             slidesPerView: width,
             spaceBetween: 4,
-            watchSlidesVisibility: true,
+            // watchSlidesVisibility: true,
             watchSlidesProgress: true,
             loop: true,
             navigation: {
@@ -249,7 +250,7 @@
                     }); */
 
                     slidesVisibles.forEach((slide, index) => {
-                        if(index == (slidesVisibles.length - 1)){
+                        if(index == (slidesVisibles.length - 1) && !e.isEnd){
                             slide.classList.add('slide-cover');
                         }
                     });

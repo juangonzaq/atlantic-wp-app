@@ -33,7 +33,7 @@ get_header();
                 ?>
             </div>
             <!-- If we need pagination -->
-            <div class="swiper-pagination z-10 flex justify-center"></div>
+            <div id="swiper-pagination-banner" class="swiper-pagination z-10 flex justify-center"></div>
         
             <!-- If we need navigation buttons -->
             <div class="hidden md:flex at-swiper-button-prev absolute text-white left-2 top-center cursor-pointer z-10">
@@ -136,7 +136,7 @@ get_header();
                                <div class="w-full md:w-1/2">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($idnoticia);?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 relative">
+                                            <div class="w-2/5 relative overflow-hidden">
                                                 <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5">
@@ -205,7 +205,7 @@ get_header();
                                    ?>
                                    <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($idnoticia);?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                            <div class="w-2/5 md:w-1/3 relative">
+                                            <div class="w-2/5 md:w-1/3 relative overflow-hidden">
                                                 <img src="<?php echo get_field('imagen_miniatura', $idnoticia);?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-3/5 md:w-2/3">
@@ -298,23 +298,27 @@ get_header();
                                         }                                        
                                         ?>                                
 							<div class="swiper-slide pr-3">
-								<article class="notice notice-gallery-open cursor-pointer flex bg-gray w-full flex-col items-start justify-between rounded-lg" data-id="swiper-<?php echo $id; ?>">
-									<div class="w-full relative overflow-hidden ">
-										<img src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="<?php echo get_the_title($id); ?>" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image ">
-									</div>				
-									<div class="w-full h-full flex flex-col justify-end p-7">
-										<div class="flex items-center gap-x-2 text-white">
-											<span class="text-warning leading-none text-sm">                                                
-                                                <?php 
-                                                    $term_name = get_term( get_field('category', $id) )->name;
-                                                    echo $term_name; ?>
-                                            </span>
-										</div>
-										<h3 class="mt-2  leading-6 text-white">
-											<a href="#" class="text-lg font-normal">
-                                                <?php echo get_the_title($id); ?>
-											</a>
-										</h3>
+								<article class="notice notice-gallery-open cursor-pointer flex bg-gray w-full flex-col items-start justify-between rounded-lg h-full" data-id="swiper-<?php echo $id; ?>">
+                                    <div class="w-full">
+                                        <div class="w-full relative overflow-hidden h-64">
+                                            <img src="<?php echo get_the_post_thumbnail_url($id); ?>" alt="<?php echo get_the_title($id); ?>" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image h-full">
+                                        </div>				
+                                    </div>
+									<div class="w-full h-full flex flex-col justify-between p-7 h-full">
+                                        <div class="w-full">
+                                            <div class="flex items-center gap-x-2 text-white">
+                                                <span class="text-warning leading-none text-sm">                                                
+                                                    <?php 
+                                                        $term_name = get_term( get_field('category', $id) )->name;
+                                                        echo $term_name; ?>
+                                                </span>
+                                            </div>
+                                            <h3 class="mt-2  leading-6 text-white">
+                                                <a href="#" class="text-lg font-normal">
+                                                    <?php echo get_the_title($id); ?>
+                                                </a>
+                                            </h3>
+                                        </div>
                                         <?php
                                             if (get_field('fotos', $id)) {
                                                 ?>
