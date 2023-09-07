@@ -513,5 +513,22 @@
         loadMenuSearchDesktop();
     });
 </script>
+<style>
+    @media (min-width: 768px) {
+        .mt-125 {
+            margin-top: 125px !important;
+        }
+    }
+    .header-vs {
+        height: 125px;
+        max-height: 125px;
+    }
+    .bombita{
+        height: 80px;
+    }
+    .bombita iframe{
+        height: 115px;
+    }
+</style>
 </body>
 </html>
