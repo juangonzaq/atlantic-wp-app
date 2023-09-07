@@ -6,7 +6,6 @@ $myid = get_the_ID();
 $category = get_queried_object();
 $idCategory = $category->term_id;
 $nameCategory = $category->name;
-print_r($category);
 get_header(); ?>
 <!-- section index init -->
 <div class="bg-dark flex flex-col pb-24 w-full margin-top-header">
@@ -187,12 +186,8 @@ get_header(); ?>
                             <?php 
                                 $aux = 0;
                                 $idcropCat = $idCategory;
-                                print_r($idCategory);
                                 $encuentros = get_field('encuentros', "category_".$idcropCat);
-                                print_r($encuentros);
                                 $matchs = get_field('matchs', "category_".$idcropCat);
-                                print_r("matchs");
-                                print_r($matchs);
                                 if ($category->parent != 0) {
                                     $cterms = get_terms( array(
                                         'taxonomy'   => 'category',
