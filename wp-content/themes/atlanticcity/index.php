@@ -6,6 +6,7 @@ $myid = get_the_ID();
 $category = get_queried_object();
 $idCategory = $category->term_id;
 $nameCategory = $category->name;
+print_r($category);
 get_header(); ?>
 <!-- section index init -->
 <div class="bg-dark flex flex-col pb-24 w-full margin-top-header">
@@ -39,16 +40,39 @@ get_header(); ?>
                         <div class="hidden md:flex items-center px-4 h-full">
                             <?php 
                                 $aux = 0;
-                                $encuentros = get_field('encuentros', 'options');
-                                $matchs = get_field('matchs', 'options');
+
                                 $idcropCat = $idCategory;
-                                if ($category->parent) {
-                                    $idcropCat = $category->parent;
+                                $encuentros = get_field('encuentros', "category_".$idcropCat);
+                                $matchs = get_field('matchs', "category_".$idcropCat);
+                                if ($category->parent != 0) {
+                                    $cterms = get_terms( array(
+                                        'taxonomy'   => 'category',
+                                        'hide_empty' => false,
+                                        'fields' => 'ids',
+                                        'parent' => $category->parent
+                                    ) );
+                                    $encuentros = [];
+                                    $matchs = [];
+                                    $encuentros = get_field('encuentros', "category_".$idcropCat);
+                                    $matchs = get_field('matchs', "category_".$idcropCat);
+                                    if(empty($encuentros) || empty($matchs)) {
+                                        foreach ($cterms as $cterm_id) {
+                                            if (empty($encuentros)) {
+                                                $etemp = get_field('encuentros', "category_" . $cterm_id);
+                                                $encuentros = array_merge($encuentros, $etemp);
+                                            }
+                                            if (empty($matchs)) {
+                                                $mtemp = get_field('encuentros', "category_" . $cterm_id);
+                                                $matchs = array_merge($matchs, $mtemp);
+                                            }
+                                        }
+                                    }
+
                                 }
-                                $encuentrosCat = get_field( 'encuentros', "category_".$idcropCat );                                
+                                /*$encuentrosCat = get_field( 'encuentros', "category_".$idcropCat );
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
-                                }
+                                }*/
                                 if ($encuentros && empty($matchs)) {
                                     foreach ($encuentros as $enc) {
                                         ?>
@@ -72,6 +96,7 @@ get_header(); ?>
                                     $aux++;
                                     }
                                 }else if(!empty($matchs)){
+                                    $maux = 0;
                                     $lastitem = count($matchs);
                                     foreach ($matchs as $key => $match) {
                                     ?>
@@ -83,10 +108,10 @@ get_header(); ?>
                                 ?>
                             </div>
                                         <?php
-                                        if(($key-1) != $lastitem) {
+                                        if(($key+1) != $lastitem) {
                                             ?><div class="w-px h-12 bg-gray-light"></div><?php
                                         }
-                                        $aux++;
+                                        $maux++;
                                     }
                                 }
                             ?>
@@ -161,17 +186,37 @@ get_header(); ?>
                         <div class="hidden md:flex items-center px-4 h-full">
                             <?php 
                                 $aux = 0;
-                                $encuentros = get_field('encuentros', 'options');
-                                $matchs = get_field('matchs', 'options');
                                 $idcropCat = $idCategory;
-                                if ($category->parent) {
-                                    $idcropCat = $category->parent;
-                                }
-                                $encuentrosCat = get_field( 'encuentros', "category_".$idCategory );
-                                $matchsCat = get_field( 'matchs', "category_".$idCategory );
-                                if ($encuentrosCat) {
-                                    $encuentros = $encuentrosCat;
-                                    $matchs = $matchsCat;
+                                print_r($idCategory);
+                                $encuentros = get_field('encuentros', "category_".$idcropCat);
+                                print_r($encuentros);
+                                $matchs = get_field('matchs', "category_".$idcropCat);
+                                print_r("matchs");
+                                print_r($matchs);
+                                if ($category->parent != 0) {
+                                    $cterms = get_terms( array(
+                                        'taxonomy'   => 'category',
+                                        'hide_empty' => false,
+                                        'fields' => 'ids',
+                                        'parent' => $category->parent
+                                    ) );
+                                    $encuentros = [];
+                                    $matchs = [];
+                                    $encuentros = get_field('encuentros', "category_".$idcropCat);
+                                    $matchs = get_field('matchs', "category_".$idcropCat);
+                                    if(empty($encuentros) || empty($matchs)) {
+                                        foreach ($cterms as $cterm_id) {
+                                            if (empty($encuentros)) {
+                                                $etemp = get_field('encuentros', "category_" . $cterm_id);
+                                                $encuentros = array_merge($encuentros, $etemp);
+                                            }
+                                            if (empty($matchs)) {
+                                                $mtemp = get_field('encuentros', "category_" . $cterm_id);
+                                                $matchs = array_merge($matchs, $mtemp);
+                                            }
+                                        }
+                                    }
+
                                 }
                                 if ($encuentros && empty($matchs)) {
                                     foreach ($encuentros as $enc) {
@@ -207,7 +252,7 @@ get_header(); ?>
                                             ?>
                                         </div>
                                         <?php
-                                        if(($key-1) != $lastitem) {
+                                        if(($key+1) != $lastitem) {
                                             ?><div class="w-px h-12 bg-gray-light"></div><?php
                                         }
                                         $aux++;
