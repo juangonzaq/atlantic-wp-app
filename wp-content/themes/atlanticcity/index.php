@@ -40,6 +40,7 @@ get_header(); ?>
                             <?php 
                                 $aux = 0;
                                 $encuentros = get_field('encuentros', 'options');
+                                $matchs = get_field('matchs', 'options');
                                 $idcropCat = $idCategory;
                                 if ($category->parent) {
                                     $idcropCat = $category->parent;
@@ -48,11 +49,11 @@ get_header(); ?>
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
                                 }
-                                if ($encuentros) {
+                                if ($encuentros && empty($matchs)) {
                                     foreach ($encuentros as $enc) {
                                         ?>
                                     <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
-                                    <div class="flex items-center h-full px-8" id="bombita11">
+                                    <div class="flex items-center h-full px-8 " id="bombita11">
                                         <div class="flex flex-col items-center">
                                             <img class="h-7" src="<?php echo $enc['logo_equipo_local']; ?>" alt="">
                                             <span class="text-white text-s text-normal mt-0.5 leading-none"><?php echo $enc['equipo_local']; ?></span>
@@ -69,6 +70,23 @@ get_header(); ?>
                                     </div>
                                         <?php
                                     $aux++;
+                                    }
+                                }else if(!empty($matchs)){
+                                    $lastitem = count($matchs);
+                                    foreach ($matchs as $key => $match) {
+                                    ?>
+                            <div class="flex items-center h-full px-4 bombita" id="bombita<?php echo $key; ?>">
+                                <?php
+                                if(!$match['disable']){
+                                    echo $match['iframe'];
+                                }
+                                ?>
+                            </div>
+                                        <?php
+                                        if(($key-1) != $lastitem) {
+                                            ?><div class="w-px h-12 bg-gray-light"></div><?php
+                                        }
+                                        $aux++;
                                     }
                                 }
                             ?>
@@ -144,15 +162,18 @@ get_header(); ?>
                             <?php 
                                 $aux = 0;
                                 $encuentros = get_field('encuentros', 'options');
+                                $matchs = get_field('matchs', 'options');
                                 $idcropCat = $idCategory;
                                 if ($category->parent) {
                                     $idcropCat = $category->parent;
                                 }
                                 $encuentrosCat = get_field( 'encuentros', "category_".$idCategory );
+                                $matchsCat = get_field( 'matchs', "category_".$idCategory );
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
+                                    $matchs = $matchsCat;
                                 }
-                                if ($encuentros) {
+                                if ($encuentros && empty($matchs)) {
                                     foreach ($encuentros as $enc) {
                                         ?>
                                     <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
@@ -174,6 +195,23 @@ get_header(); ?>
                                         <?php
                                     $aux++;
                                     }
+                                }else if(!empty($matchs)){
+                                    $lastitem = count($matchs);
+                                    foreach ($matchs as $key => $match) {
+                                        ?>
+                                        <div class="flex items-center h-full px-4 bombita" id="bombita<?php echo $key; ?>">
+                                            <?php
+                                            if(!$match['disable']){
+                                                echo $match['iframe'];
+                                            }
+                                            ?>
+                                        </div>
+                                        <?php
+                                        if(($key-1) != $lastitem) {
+                                            ?><div class="w-px h-12 bg-gray-light"></div><?php
+                                        }
+                                        $aux++;
+                                    }
                                 }
                             ?>
                         </div>
@@ -183,7 +221,7 @@ get_header(); ?>
             }
             ?>
             <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
-             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-95"; }?>">
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-95 mt-125"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>
