@@ -214,7 +214,7 @@
             spaceBetween: 4,
             // watchSlidesVisibility: true,
             watchSlidesProgress: true,
-            loop: true,
+            loop: false,
             navigation: {
                 nextEl: "#swiper-card .at-swiper-button-next",
             },
@@ -486,6 +486,7 @@
                     let modalGallery = document.getElementById(dataid);
                     if(modalGallery){
                         modalGallery.classList.add('hidden');
+                        document.body.classList.remove('scroll-disabled')
                     }
                 });
             });
@@ -502,6 +503,7 @@
                     loadSwipperGallery('#'+dataid + ' .swipper-gallery')
                     if(modalGallery){
                         modalGallery.classList.remove('hidden');
+                        document.body.classList.add('scroll-disabled')
                     }
                 });
             });
@@ -511,12 +513,66 @@
         loadMenus();
         loadMenuSearch();
         loadMenuSearchDesktop();
+
+        // SEARCH
+        let inputSearch = document.querySelector('.input-close-search');
+        let inputSearchClose = document.querySelector('.button-close-search');
+        if(inputSearch){
+            inputSearch.addEventListener('input', (e) => {
+                if(inputSearchClose){
+                    if(e.target.value && e.target.value != '' && e.target.value.length > 0){
+                        inputSearchClose.classList.remove('hidden');
+                    }
+                    else{
+                        inputSearchClose.classList.add('hidden');
+                    }
+                }
+            });
+        }
+        
+        if(inputSearchClose){
+            inputSearchClose.addEventListener('click', ()=>{
+                if(inputSearch){
+                    inputSearch.value = '';
+                    inputSearchClose.classList.add('hidden');
+                }
+            });
+        }
+
+        // SEARCH MOBILE
+        let inputSearchMobile = document.querySelector('.input-close-search-mobile');
+        let inputSearchCloseMobile = document.querySelector('.button-close-search-mobile');
+        if(inputSearchMobile){
+            inputSearchMobile.addEventListener('input', (e) => {
+                if(inputSearchCloseMobile){
+                    if(e.target.value && e.target.value != '' && e.target.value.length > 0){
+                        inputSearchCloseMobile.classList.remove('hidden');
+                    }
+                    else{
+                        inputSearchCloseMobile.classList.add('hidden');
+                    }
+                }
+            });
+        }
+        
+        if(inputSearchCloseMobile){
+            inputSearchCloseMobile.addEventListener('click', ()=>{
+                if(inputSearchMobile){
+                    inputSearchMobile.value = '';
+                    inputSearchCloseMobile.classList.add('hidden');
+                }
+            });
+        }
     });
 </script>
 <style>
     @media (min-width: 768px) {
         .mt-125 {
             margin-top: 125px !important;
+        }
+
+        .pt-125 {
+            padding-top: 125px !important;
         }
     }
     .header-vs {
