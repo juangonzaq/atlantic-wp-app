@@ -11,8 +11,8 @@ get_header(); ?>
 <style>
 @media (min-width: 768px){
     .md\:header-vs{
-        height: 95px;
-        max-height: 95px;
+        height: 125px;
+        max-height: 125px;
     }
 
     .md\:mt-125 {
@@ -20,7 +20,7 @@ get_header(); ?>
     }
 
     .md\:mt-95 {
-        margin-top: 95px !important;
+        margin-top: 125px !important;
     }
 }
 </style>
@@ -31,7 +31,7 @@ get_header(); ?>
             if ($orderitems == "izquierdo") {
             ?>
                 <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 md:header-vs">
-                    <div class="flex w-full py-0 md:py-5 items-center">
+                    <div class="flex w-full py-0 items-center">
                         <h1 class="text-2xl font-semibold text-white my-auto uppercase text-center w-full md:w-auto">
                             <?php 
                                 $ancestros = get_ancestors($idCategory, 'category');
@@ -115,7 +115,7 @@ get_header(); ?>
                                     $lastitem = count($matchs);
                                     foreach ($matchs as $key => $match) {
                                     ?>
-                            <div class="flex items-center h-full px-4 bombita" id="bombita<?php echo $key; ?>">
+                            <div class="flex items-center h-full px-4 bombita h-full" id="bombita<?php echo $key; ?>" style="height: 100% !important;">
                                 <?php
                                 if(!$match['disable']){
                                     echo $match['iframe'];
@@ -277,12 +277,12 @@ get_header(); ?>
             }
             ?>
             <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
-             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-95 mt-0 md:mt-95"; }?>">
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-125 mt-0 md:mt-125"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>
                 <aside class="w-full md:w-60 relative md:fixed z-10 h-auto md:h-screen left-0">
-                    <div class="bg-gray h-full">
+                    <div class="bg-gray h-full overflow-auto">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
                                 $idcrop = $idCategory;
