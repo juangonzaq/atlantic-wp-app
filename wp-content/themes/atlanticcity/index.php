@@ -19,6 +19,10 @@ get_header(); ?>
         margin-top: 125px !important;
     }
 
+    .md\:pt-125 {
+        padding-top: 125px !important;
+    }
+
     .md\:mt-95 {
         margin-top: 125px !important;
     }
@@ -277,11 +281,11 @@ get_header(); ?>
             }
             ?>
             <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
-             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-125 mt-0 md:mt-125"; }?>">
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside pt-125 mt-0 md:pt-125"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>
-                <aside class="w-full md:w-60 relative md:fixed z-10 h-auto md:h-screen left-0">
+                <aside class="w-full md:w-60 relative md:fixed z-10 h-auto md:h-screen left-0" style="height: calc(100vh - 203px);">
                     <div class="bg-gray h-full overflow-auto">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
