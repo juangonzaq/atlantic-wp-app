@@ -8,15 +8,31 @@ $idCategory = $category->term_id;
 $nameCategory = $category->name;
 get_header(); ?>
 <!-- section index init -->
+<style>
+@media (min-width: 768px){
+    .md\:header-vs{
+        height: 95px;
+        max-height: 95px;
+    }
+
+    .md\:mt-125 {
+        margin-top: 125px !important;
+    }
+
+    .md\:mt-95 {
+        margin-top: 95px !important;
+    }
+}
+</style>
 <div class="bg-dark flex flex-col pb-24 w-full margin-top-header">
     <?php 
         if (property_exists($category, "term_id")){
             $orderitems = get_field( 'orden_de_items', $category );            
             if ($orderitems == "izquierdo") {
             ?>
-                <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 header-vs">
-                    <div class="flex w-full py-5 items-center">
-                        <h1 class="text-2xl font-semibold text-white my-auto">
+                <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 md:header-vs">
+                    <div class="flex w-full py-0 md:py-5 items-center">
+                        <h1 class="text-2xl font-semibold text-white my-auto uppercase text-center w-full md:w-auto">
                             <?php 
                                 $ancestros = get_ancestors($idCategory, 'category');
                                 if ($category->parent) {
@@ -261,7 +277,7 @@ get_header(); ?>
             }
             ?>
             <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
-             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-95 mt-125"; }?>">
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-95 mt-0 md:mt-95"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>

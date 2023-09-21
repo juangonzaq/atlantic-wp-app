@@ -227,7 +227,10 @@
 										<div class="bg-black py-5 w-full h-24">
 											<div class="w-full mx-auto px-12">
 												<div class="block-input relative">
-													<input type="text" placeholder="Buscar..." id="searchMobile" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis">
+													<input type="text" placeholder="Buscar..." id="searchMobile" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis input-close-search-mobile">
+													<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer button-close-search-mobile">
+														<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
+													</span>
 												</div>
 											</div>
 										</div>
@@ -300,8 +303,8 @@
 											<div class="bg-black py-5 w-full h-24">
 												<div class="md:w-1/2 mx-auto">
 													<div class="block-input relative">
-														<input type="text" placeholder="Buscar..." id="search" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light">
-														<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center" id="closeCircle" style="display:none">
+														<input type="text" placeholder="Buscar..." id="search" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light input-close-search">
+														<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer" id="closeCircle">
 															<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 														</span>
 													</div>
