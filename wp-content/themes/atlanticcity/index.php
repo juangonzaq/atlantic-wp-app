@@ -82,11 +82,15 @@ get_header(); ?>
                                         foreach ($cterms as $cterm_id) {
                                             if (empty($encuentros)) {
                                                 $etemp = get_field('encuentros', "category_" . $cterm_id);
-                                                $encuentros = array_merge($encuentros, $etemp);
+                                                if($etemp) {
+                                                    $encuentros = array_merge($encuentros, $etemp);
+                                                }
                                             }
                                             if (empty($matchs)) {
                                                 $mtemp = get_field('matchs', "category_" . $cterm_id);
-                                                $matchs = array_merge($matchs, $mtemp);
+                                                if($mtemp) {
+                                                    $matchs = array_merge($matchs, $mtemp);
+                                                }
                                             }
                                         }
                                     }
@@ -227,11 +231,15 @@ get_header(); ?>
                                         foreach ($cterms as $cterm_id) {
                                             if (empty($encuentros)) {
                                                 $etemp = get_field('encuentros', "category_" . $cterm_id);
-                                                $encuentros = array_merge($encuentros, $etemp);
+                                                if($etemp) {
+                                                    $encuentros = array_merge($encuentros, $etemp);
+                                                }
                                             }
                                             if (empty($matchs)) {
                                                 $mtemp = get_field('matchs', "category_" . $cterm_id);
-                                                $matchs = array_merge($matchs, $mtemp);
+                                                if($mtemp) {
+                                                    $matchs = array_merge($matchs, $mtemp);
+                                                }
                                             }
                                         }
                                     }
