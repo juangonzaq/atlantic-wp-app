@@ -27,7 +27,7 @@
                     $aux = 0;
                     foreach ($iconos as $icon) {
                         ?>
-                        <a href="<?php echo $icon['href']; ?>" class="w-9 h-9 bg-gray rounded-full p-1.5 cursor-pointer mx-2" data="<?php echo $aux."-".count($iconos); ?>">
+                        <a href="<?php echo $icon['href']; ?>" class="w-12 h-12 bg-gray border border-transparent rounded-full p-3 cursor-pointer mx-2 hover:border-primary" data="<?php echo $aux."-".count($iconos); ?>">
                             <img class="h-6 w-6 max-w-none" src="<?php echo $icon['icon']; ?>" alt="">
                         </a>
                         <?php if ($aux == (count($iconos)/2 - 1)) { ?>
@@ -227,7 +227,10 @@
 										<div class="bg-black py-5 w-full h-24">
 											<div class="w-full mx-auto px-12">
 												<div class="block-input relative">
-													<input type="text" placeholder="Buscar..." id="searchMobile" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis">
+													<input type="text" placeholder="Buscar..." id="searchMobile" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis input-close-search-mobile">
+													<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer button-close-search-mobile">
+														<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
+													</span>
 												</div>
 											</div>
 										</div>
@@ -300,8 +303,8 @@
 											<div class="bg-black py-5 w-full h-24">
 												<div class="md:w-1/2 mx-auto">
 													<div class="block-input relative">
-														<input type="text" placeholder="Buscar..." id="search" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light">
-														<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center" id="closeCircle" style="display:none">
+														<input type="text" placeholder="Buscar..." id="search" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light input-close-search">
+														<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer" id="closeCircle">
 															<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 														</span>
 													</div>

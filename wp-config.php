@@ -31,6 +31,7 @@ define( 'DB_PASSWORD', '^v07X4DevbI?' );
 /** Database hostname */
 define( 'DB_HOST', 'dbproduction.cluster-cr1kuwmr3ntp.us-east-2.rds.amazonaws.com:6969' );
 
+
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
 

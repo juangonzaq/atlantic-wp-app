@@ -3,6 +3,13 @@ set_query_var('ENTRY', 'home');
 get_header();
 ?>
 <!-- home content -->
+<style>
+    .scroll-disabled{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+</style>
 <main class="main-container min-h-full bg-dark px-5 md:px-8 py-8 margin-top-header">
     <!-- BANNER -->
     <?php
@@ -56,7 +63,7 @@ get_header();
         if($builder) {
             foreach ($builder as $item) {
     ?>
-    <section class="main-container mx-auto flex flex-col mt-4 gap-x-8 gap-y-8 px-0 md:px-12">
+    <section class="main-container mx-auto flex flex-col mt-4 gap-x-8 gap-y-6 px-0 md:px-12">
         <?php 
             if ($item['title']) {
                 ?>                
@@ -76,7 +83,7 @@ get_header();
                 <?php
             }
         ?>
-        <div class="w-full flex flex-col md:flex-row gap-x-8 gap-y-8 mt-8">
+        <div class="w-full flex flex-col md:flex-row gap-x-8 gap-y-8 mt-0">
             <?php 
                 $left = $item["lado_izquierdo"];
             ?>
@@ -267,12 +274,12 @@ get_header();
     <!-- GALERÍA DE FOTOS -->
 		<section class="main-container mx-auto flex flex-col mt-12 gap-x-8 gap-y-8 px-0 md:px-12">
 			<div class="flex w-full border-solid border-b border-gray-light py-3">
-				<h1 class="text-2xl font-semibold text-white">
+				<h1 class="text-2xl font-semibold text-white pr-2 md:pr-0">
 					GALERÍA DE FOTOS
 				</h1>
-				<span class="border-solid border-l border-primary text-primary ml-5 flex items-center px-5">
-					<a href="<?php echo site_url(); ?>/noticias" class="flex items-center">
-						Ver más de Galería de fotos
+				<span class="border-solid border-l border-primary text-primary ml-0 md:ml-5 flex items-center px-5">
+					<a href="<?php echo site_url(); ?>/noticias" class="flex items-center whitespace-nowrap">
+						VER MÁS
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
 						</svg>						  
