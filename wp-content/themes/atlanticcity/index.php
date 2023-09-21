@@ -26,6 +26,10 @@ get_header(); ?>
     .md\:mt-95 {
         margin-top: 125px !important;
     }
+
+    .h-custom-logs{
+        height: calc(100vh - 203px);
+    }
 }
 </style>
 <div class="bg-dark flex flex-col pb-24 w-full margin-top-header">
@@ -78,11 +82,15 @@ get_header(); ?>
                                         foreach ($cterms as $cterm_id) {
                                             if (empty($encuentros)) {
                                                 $etemp = get_field('encuentros', "category_" . $cterm_id);
-                                                $encuentros = array_merge($encuentros, $etemp);
+                                                if($etemp) {
+                                                    $encuentros = array_merge($encuentros, $etemp);
+                                                }
                                             }
                                             if (empty($matchs)) {
                                                 $mtemp = get_field('matchs', "category_" . $cterm_id);
-                                                $matchs = array_merge($matchs, $mtemp);
+                                                if($mtemp) {
+                                                    $matchs = array_merge($matchs, $mtemp);
+                                                }
                                             }
                                         }
                                     }
@@ -223,11 +231,15 @@ get_header(); ?>
                                         foreach ($cterms as $cterm_id) {
                                             if (empty($encuentros)) {
                                                 $etemp = get_field('encuentros', "category_" . $cterm_id);
-                                                $encuentros = array_merge($encuentros, $etemp);
+                                                if($etemp) {
+                                                    $encuentros = array_merge($encuentros, $etemp);
+                                                }
                                             }
                                             if (empty($matchs)) {
                                                 $mtemp = get_field('matchs', "category_" . $cterm_id);
-                                                $matchs = array_merge($matchs, $mtemp);
+                                                if($mtemp) {
+                                                    $matchs = array_merge($matchs, $mtemp);
+                                                }
                                             }
                                         }
                                     }
@@ -285,7 +297,7 @@ get_header(); ?>
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>
-                <aside class="w-full md:w-60 relative md:fixed z-10 h-auto md:h-screen left-0" style="height: calc(100vh - 203px);">
+                <aside class="w-full md:w-60 relative md:fixed z-10 h-auto md:h-screen left-0 h-custom-logs">
                     <div class="bg-gray h-full overflow-auto">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
