@@ -640,7 +640,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link">
+                    <div class="pag-link px-8">
                         <?php powernature_pagination(); ?>
                     </div>
                     
@@ -1058,7 +1058,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link">
+                    <div class="pag-link px-8">
                         <?php powernature_pagination(); ?>
                     </div>
                     
@@ -1525,7 +1525,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link">
+                    <div class="pag-link px-8">
                         <?php powernature_pagination(); ?>
                     </div>
                    
