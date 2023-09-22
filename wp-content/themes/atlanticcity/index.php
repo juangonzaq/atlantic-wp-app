@@ -59,7 +59,7 @@ get_header(); ?>
                         <!-- SEPARATION -->
                         <span class="separation bg-primary mx-8 hidden md:flex"></span>
                         <!-- END SEPARATION -->
-                        
+                        <p class="text-lg font-normal text-white my-auto hidden md:flex">Próximos encuentros:</p>
                         <div class="hidden md:flex items-center px-4 h-full">
                             <?php 
                                 $aux = 0;
@@ -100,9 +100,7 @@ get_header(); ?>
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
                                 }*/
-                                if ($encuentros && empty($matchs)) { ?>
-                                <p class="text-lg font-normal text-white my-auto hidden md:flex">Próximos encuentros:</p>
-                                <?php
+                                if ($encuentros && empty($matchs)) {
                                     foreach ($encuentros as $enc) {
                                         ?>
                                     <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
@@ -211,7 +209,7 @@ get_header(); ?>
                 </div>
                 <div class="w-full flex justify-center">
                     <div class="flex py-5 flex items-center overflow-auto">
-                        <p class="text-lg font-normal text-white my-auto hidden md:flex">Próximos encuentros:</p>
+                        
                         <div class="hidden md:flex items-center px-4 h-full">
                             <?php 
                                 $aux = 0;
@@ -247,7 +245,9 @@ get_header(); ?>
                                     }
 
                                 }
-                                if ($encuentros && empty($matchs)) {
+                                if ($encuentros && empty($matchs)) { ?>
+                                <p class="text-lg font-normal text-white my-auto hidden md:flex">Próximos encuentros:</p>
+                                <?php
                                     foreach ($encuentros as $enc) {
                                         ?>
                                     <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
@@ -1290,7 +1290,7 @@ get_header(); ?>
                     </div>
                 </aside>
                 <main class="h-full w-full md:w-7/12 px-5 md:px-0">
-                    <div class="flex flex-col w-full py-8 px-8 gap-y-8">
+                    <div class="flex flex-col w-full py-8 px-8 px-8 gap-y-8">
                       
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
