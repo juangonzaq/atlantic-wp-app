@@ -20,6 +20,9 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
+define('FS_METHOD', 'direct');
+
+
 define( 'DB_NAME', 'production' );
 
 /** Database username */
@@ -29,7 +32,7 @@ define( 'DB_USER', 'user_atlantic_db' );
 define( 'DB_PASSWORD', '^v07X4DevbI?' );
 
 /** Database hostname */
-define( 'DB_HOST', 'dbproduction.cluster-cr1kuwmr3ntp.us-east-2.rds.amazonaws.com:6969' );
+define( 'DB_HOST', 'dbproduction-instance-1.cr1kuwmr3ntp.us-east-2.rds.amazonaws.com:6969' );
 
 
 /** Database charset to use in creating database tables. */
