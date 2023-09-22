@@ -353,7 +353,7 @@ get_header(); ?>
                             $orderby      = 'menu_order';
                             $idcrop = $idCategory;
                         ?>
-                    <div class="flex flex-col w-full py-8 gap-y-8">
+                    <div class="flex flex-col w-full py-8 px-8 gap-y-8">
                         <?php                        
                             if ($category->parent) {
                                 $removeBorder = true;
@@ -771,7 +771,7 @@ get_header(); ?>
                     if ($orderitems == "arriba") {
                         ?>
                 <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-8/12"; } else { echo "md:w-12/12"; } ?> pr-5 md:pr-0 pl-3">
-                    <div class="flex flex-col w-full py-8 gap-y-8">
+                    <div class="flex flex-col w-full py-8 px-8 gap-y-8">
                         <?php                        
                             if ($category->parent) {
                                 $removeBorder = true;
@@ -1288,7 +1288,7 @@ get_header(); ?>
                     </div>
                 </aside>
                 <main class="h-full w-full md:w-7/12 px-5 md:px-0">
-                    <div class="flex flex-col w-full py-8 gap-y-8">
+                    <div class="flex flex-col w-full py-8 px-8 gap-y-8">
                       
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
