@@ -59,7 +59,7 @@ get_header(); ?>
                         <!-- SEPARATION -->
                         <span class="separation bg-primary mx-8 hidden md:flex"></span>
                         <!-- END SEPARATION -->
-                        <p class="text-lg font-normal text-white my-auto hidden md:flex">Próximos encuentros:</p>
+                        
                         <div class="hidden md:flex items-center px-4 h-full">
                             <?php 
                                 $aux = 0;
@@ -100,7 +100,9 @@ get_header(); ?>
                                 if ($encuentrosCat) {
                                     $encuentros = $encuentrosCat;
                                 }*/
-                                if ($encuentros && empty($matchs)) {
+                                if ($encuentros && empty($matchs)) { ?>
+                                <p class="text-lg font-normal text-white my-auto hidden md:flex">Próximos encuentros:</p>
+                                <?php
                                     foreach ($encuentros as $enc) {
                                         ?>
                                     <?php if ($aux != 0) {?> <div class="w-px h-12 bg-gray-light"></div> <?php } ?>
