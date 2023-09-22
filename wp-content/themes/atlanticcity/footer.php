@@ -209,8 +209,14 @@
           }
         });
         
+        let countItems = document.getElementById('swiper-card');
+        let countItemsValue = 0;
+        if(countItems){
+            countItemsValue = countItems.dataset.count;
+        }
+
         const swiperCard = new Swiper("#swiper-card", {
-            slidesPerView: width,
+            slidesPerView: (countItemsValue < width)?countItemsValue:width,
             spaceBetween: 4,
             // watchSlidesVisibility: true,
             watchSlidesProgress: true,

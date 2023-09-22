@@ -2,6 +2,11 @@
 set_query_var('ENTRY', 'home');
 get_header();
 ?>
+<style>
+    .swiper-slide.after::after{
+        border-radius: .5rem;
+    }
+</style>
 <div class="min-h-full bg-dark pb-24">
     <div class="py-8">
         <div class="w-full px-4 md:px-8">
@@ -62,7 +67,10 @@ get_header();
                     <!-- END BANNER -->
                 </div>
                 <div class="w-full flex gap-x-8 pl-4 md:pl-20 pr-0 md:pr-20">
-                    <div id="swiper-card" class="swiper relative h-full w-full">
+                    <?php 
+                        $cardCount = get_field("card");
+                    ?>
+                    <div id="swiper-card" class="swiper relative h-full w-full" data-count="<?php echo $cardCount?count($cardCount):0; ?>">
                         <!-- <div class="absolute top-0 right-0 bg-dark w-1/3 h-full z-10 opacity-75"></div> -->
 
                         <!-- Additional required wrapper -->
@@ -73,7 +81,7 @@ get_header();
                                 if ($card) {
                                     foreach ($card as $ca) {
                             ?>
-                            <div class="swiper-slide pr-3">
+                            <div class="swiper-slide after pr-3">
                                 <div class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                                     <img src="<?php echo $ca['imagen']; ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full">
                                     <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>

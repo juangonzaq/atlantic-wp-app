@@ -124,7 +124,7 @@
 												?>
 												<!-- <script>console.log(<?php echo json_encode($url); ?>)</script>
 												<script>console.log(<?php echo json_encode($menu); ?>)</script> -->
-										<li class="flex at-menu-nav <?php echo $active; ?>">
+										<li class="flex <?php echo ($me['menu'])?((count($me['menu']) > 0)?'at-menu-nav':'pr-6'):''; ?>  <?php echo $active; ?>">
 											<a role="button" <?php if (!$me["menu"]){ ?> href="<?php echo $me["link_principal"]; ?>" <?php } ?>class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
 												<?php echo $me['nombre'];?>
 												<?php if ($me["menu"]){ ?> <span class="mdi mdi-chevron-down text-xl flex pt-1"></span><?php } ?>
@@ -387,9 +387,17 @@
 								foreach ($menu as $me) {
 									?>
 							<li>
-								<a href="#" class="menu-item-movil text-white  hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3" aria-current="page">
+								<a href="#" class="<?php echo ($me['menu'])?((count($me['menu']) > 0)?'menu-item-movil':''):''; ?> text-white  hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3" aria-current="page">
 									<?php echo $me['nombre'];?>
-									<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+									<?php
+										if($me['menu']){
+											if(count($me['menu']) > 0){
+												?>
+													<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+												<?php
+											}
+										}
+									?>
 								</a>
 								<div class="menu-content-movil">
 									<ul class="border-b border-gray-light pb-3">
