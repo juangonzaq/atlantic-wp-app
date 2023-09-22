@@ -294,7 +294,7 @@ get_header(); ?>
                 <?php
             }
             ?>
-            <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
+            <div class="flex flex-col md:flex-row gap-x-8 h-full px-8 relative   
              <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside pt-125 mt-0 md:pt-125"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
