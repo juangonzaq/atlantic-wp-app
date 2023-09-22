@@ -648,7 +648,7 @@ get_header(); ?>
                         $publicidad = get_field( 'publicidad', $category );
                         if ($publicidad) {
                     ?>
-                    <div class="flex w-full gap-x-8">
+                    <div class="flex w-full px-8 gap-x-8">
                         <article class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                             <img src="<?php echo $publicidad; ?>" alt="" class="rounded-lg object-cover object-center w-full h-full">
                         </article>
@@ -1066,7 +1066,7 @@ get_header(); ?>
                         $publicidad = get_field( 'publicidad', $category );
                         if ($publicidad) {
                     ?>
-                    <div class="flex w-full gap-x-8">
+                    <div class="flex w-full px-8 gap-x-8">
                         <article class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                             <img src="<?php echo $publicidad; ?>" alt="" class="rounded-lg object-cover object-center w-full h-full">
                         </article>
