@@ -6,6 +6,11 @@ get_header();
     .swiper-slide.after::after{
         border-radius: .5rem;
     }
+
+    .swiper-slide.hide-back.slide-cover::after{
+        display: none !important;
+        content: none !important;
+    }
 </style>
 <div class="min-h-full bg-dark pb-24">
     <div class="py-8">
@@ -81,7 +86,7 @@ get_header();
                                 if ($card) {
                                     foreach ($card as $ca) {
                             ?>
-                            <div class="swiper-slide after pr-3">
+                            <div class="swiper-slide hide-back after pr-3">
                                 <div class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                                     <img src="<?php echo $ca['imagen']; ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full">
                                     <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
