@@ -101,13 +101,11 @@ get_header(); ?>
                         
                         $existList = false;
                         if($encuentros && empty($matchs)){
-                            echo 1;
                             if(count($encuentros) > 0){
                                     $existList = true;
                             }
                         }
                         else if(!empty($matchs)){
-                            echo 2;
                             if(count($matchs) > 0){
                                 $existList = true;
                             }
@@ -341,7 +339,7 @@ get_header(); ?>
                 <?php
             }
             ?>
-            <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
+            <div class="flex flex-col md:flex-row gap-x-8 h-full px-8 relative   
              <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside pt-125 mt-0 md:pt-125"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
@@ -402,7 +400,7 @@ get_header(); ?>
                             $orderby      = 'menu_order';
                             $idcrop = $idCategory;
                         ?>
-                    <div class="flex flex-col w-full py-8 gap-y-8">
+                    <div class="flex flex-col w-full py-8 px-8 gap-y-8">
                         <?php                        
                             if ($category->parent) {
                                 $removeBorder = true;
@@ -687,7 +685,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link">
+                    <div class="pag-link px-8">
                         <?php powernature_pagination(); ?>
                     </div>
                     
@@ -695,7 +693,7 @@ get_header(); ?>
                         $publicidad = get_field( 'publicidad', $category );
                         if ($publicidad) {
                     ?>
-                    <div class="flex w-full gap-x-8">
+                    <div class="flex w-full px-8 gap-x-8">
                         <article class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                             <img src="<?php echo $publicidad; ?>" alt="" class="rounded-lg object-cover object-center w-full h-full">
                         </article>
@@ -820,7 +818,7 @@ get_header(); ?>
                     if ($orderitems == "arriba") {
                         ?>
                 <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-8/12"; } else { echo "md:w-12/12"; } ?> pr-5 md:pr-0 pl-3">
-                    <div class="flex flex-col w-full py-8 gap-y-8">
+                    <div class="flex flex-col w-full py-8 px-8 gap-y-8">
                         <?php                        
                             if ($category->parent) {
                                 $removeBorder = true;
@@ -1105,7 +1103,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link">
+                    <div class="pag-link px-8">
                         <?php powernature_pagination(); ?>
                     </div>
                     
@@ -1113,7 +1111,7 @@ get_header(); ?>
                         $publicidad = get_field( 'publicidad', $category );
                         if ($publicidad) {
                     ?>
-                    <div class="flex w-full gap-x-8">
+                    <div class="flex w-full px-8 gap-x-8">
                         <article class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                             <img src="<?php echo $publicidad; ?>" alt="" class="rounded-lg object-cover object-center w-full h-full">
                         </article>
@@ -1352,7 +1350,7 @@ get_header(); ?>
                     </div>
                 </aside>
                 <main class="h-full w-full md:w-7/12 px-5 md:px-0">
-                    <div class="flex flex-col w-full py-8 gap-y-8">
+                    <div class="flex flex-col w-full py-8 px-8 px-8 gap-y-8">
                       
                         <!--
                         <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
@@ -1587,7 +1585,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link">
+                    <div class="pag-link px-8">
                         <?php powernature_pagination(); ?>
                     </div>
                    
