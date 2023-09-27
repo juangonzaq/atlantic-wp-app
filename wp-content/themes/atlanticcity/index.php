@@ -259,7 +259,7 @@ get_header(); ?>
                                     }
                                     if (empty($matchs)) {
                                         $mtemp = get_field('matchs', "category_" . $cterm_id);
-                                        if($mtemp) {
+                                        if($mtemp && is_array($mtemp) && is_array($matchs)) {
                                             $matchs = array_merge($matchs, $mtemp);
                                         }
                                     }
