@@ -73,9 +73,13 @@ get_header(); ?>
 .notice-html ul li:last-child{
     margin-bottom: none;
 }
+
+.notice-html iframe{
+    max-width: 100%;
+}
 </style>
 <main class="-screen relative flex flex-col bg-dark pb-24">
-    <div class="w-full h-80-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;">
+    <div class="w-full h-80-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;background-position: center;">
         <div class="w-full h-full absolute top-0 lef-0 bg-gradient-dark"></div>
     </div>
     <div class="w-full relative px-4 md:px-0">
