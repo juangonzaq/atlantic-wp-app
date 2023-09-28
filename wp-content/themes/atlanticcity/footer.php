@@ -583,6 +583,26 @@
     });
 </script>
 <style>
+    body.archive.category-futbol-internacional .header-title{
+        height: 56px;
+    }
+
+    body.archive.category-futbol-internacional .header-title-target{
+        padding-top: 56px;
+    }
+
+    body.archive:not(.category-futbol-internacional) .header-title{
+        height: 56px;
+    }
+
+    body.archive:not(.category-futbol-internacional) .header-title-target{
+        padding-top: 12px;
+    }
+    
+    body.archive:not(.category-futbol-internacional) #category-box .separation {
+        display: none;
+    }
+
     @media (min-width: 768px) {
         .mt-125 {
             margin-top: 125px !important;
@@ -590,6 +610,26 @@
 
         .pt-125 {
             padding-top: 125px !important;
+        }
+
+        body.archive.category-futbol-internacional .header-title{
+            height: 125px;
+        }
+
+        body.archive.category-futbol-internacional .header-title-target{
+            padding-top: 125px;
+        }
+
+        body.archive:not(.category-futbol-internacional) .header-title{
+            height: 68px;
+        }
+
+        body.archive:not(.category-futbol-internacional) .header-title-target{
+            padding-top: 68px;
+        }
+        
+        body.archive:not(.category-futbol-internacional) #category-box .separation {
+            display: none;
         }
     }
     .header-vs {
@@ -605,10 +645,8 @@
     body.archive:not(.category-futbol-internacional) #category-box {
         justify-content: center;
     }
+
     
-    body.archive:not(.category-futbol-internacional) #category-box .separation {
-        display: none;
-    }
 
 </style>
 </body>
