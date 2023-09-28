@@ -34,6 +34,10 @@ get_header(); ?>
     .h-custom-logs{
         height: calc(100vh - 203px);
     }
+
+    body.archive:not(.category-futbol-internacional) .h-custom-logs{
+        height: calc(100vh - 68px);
+    }
 }
 </style>
 <div class="bg-dark flex flex-col pb-24 w-full margin-top-header">
