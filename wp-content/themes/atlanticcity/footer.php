@@ -605,6 +605,11 @@
     body.archive:not(.category-futbol-internacional) #category-box {
         justify-content: center;
     }
+    
+    body.archive:not(.category-futbol-internacional) #category-box .separation {
+        display: none;
+    }
+
 </style>
 </body>
 </html>

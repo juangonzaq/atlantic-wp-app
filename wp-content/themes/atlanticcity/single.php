@@ -136,7 +136,7 @@ get_header(); ?>
                             <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                         </a>  
                         
-                        <a class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" href="https://twitter.com/intent/tweet?text=Comparte%20con%20tus%20amigos&url=<?php echo urlencode(get_permalink()); ?>" >
+                        <a class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>" >
                             <span class="mdi mdi-twitter text-white-alt text-xl"></span>
                         </a>
                         
