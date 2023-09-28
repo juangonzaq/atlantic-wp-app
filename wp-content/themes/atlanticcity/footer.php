@@ -602,8 +602,8 @@
     .bombita iframe{
         height: 115px;
     }
-    body.archive:not(.category-futbol-internacional) {
-        
+    body.archive:not(.category-futbol-internacional) #category-box {
+        justify-content: center;
     }
 </style>
 </body>
