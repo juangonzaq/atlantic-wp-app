@@ -65,9 +65,18 @@
 					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Redes sociales</h2>
 					<div class="flex items-center justify-center md:justify-start">
 						<span class=" text-white">
-							<a href="<?php echo get_field('facebook', 'options'); ?>">
-								<span class="mdi mdi-facebook text-4xl"></span>
-							</a>
+                                <?php if( have_rows('social_network', 'options') ): ?>
+                                
+                                <?php while( have_rows('social_network', 'options') ): the_row(); 
+                                    $image = get_sub_field('icon');
+                                    $url = get_sub_field('url');
+                                    ?>
+                                    <a href="<?php echo $url; ?>" target="_blank" class="underline text-white">
+                                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">    
+                                    </a>
+                                <?php endwhile; ?>
+                                
+                            <?php endif; ?>
 						</span>
 					</div>
 				</div>
