@@ -193,6 +193,14 @@
 										<button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 button-profile" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
 											<span class="sr-only">Open user menu</span>
 											<img class="h-8 w-8 rounded-full" src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" alt="">
+											<?php global $current_user; wp_get_current_user(); ?>
+											<?php 
+											if ( is_user_logged_in() ) { 
+												echo 'Username: ' . $current_user->user_login . "\n"; 
+												echo 'User display name: ' . $current_user->display_name . "\n"; 
+											} else { 
+												wp_loginout(); 
+											} ?>
 										</button>
 										</div>
 							
