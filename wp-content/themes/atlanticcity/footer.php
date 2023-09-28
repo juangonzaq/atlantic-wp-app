@@ -1,20 +1,22 @@
 
 <footer class="bg-gray w-full px-8 py-10">
 		<div class="container mx-auto">
-			<div class="md:flex md:justify-between">
-				<div class="w-full md:w-1/4">
+            <div class="flex justify-center py-5">
+                <div class="w-full flex justify-center">
 					<a href="<?php echo site_url(); ?>" class="flex items-center justify-center md:justify-start">
 						<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
 						<img class="hidden h-8 w-auto lg:block w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
 					</a>
 				</div>
+            </div>
+			<div class="md:flex md:justify-center">
                 <?php 
                     $menusfooter = get_field('menu_footer', 'options');
                     $aux = 0;
                     if ($menusfooter) {
                         foreach ($menusfooter as $mn) {
                  ?>
-                 <div class="w-full md:w-1/4">
+                 <div class="w-full md:w-3/12">
 					<h2 class="mb-4 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0"><?php echo $mn['title']; ?></h2>
 					<ul class="text-gray-600 dark:text-gray-400 font-medium">
                         <?php
@@ -46,7 +48,7 @@
                         }
                     }
                 ?>
-				<div class="w-full md:w-1/4">
+				<div class="w-full md:w-3/12">
 					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Contacto</h2>
 					<ul class="text-gray-600 dark:text-gray-400 font-medium">
 						<li class="mb-1 justify-center md:justify-start flex">

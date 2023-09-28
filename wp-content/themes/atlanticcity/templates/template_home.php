@@ -4,10 +4,14 @@ get_header();
 ?>
 <!-- home content -->
 <style>
-    .scroll-disabled{
+.scroll-disabled{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+}
+
+.swipper-gallery .swiper-wrapper .swiper-slide img{
+    object-fit: contain;
 }
 </style>
 <main class="main-container min-h-full bg-dark px-5 md:px-8 py-8 margin-top-header">

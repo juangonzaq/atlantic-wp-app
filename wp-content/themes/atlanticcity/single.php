@@ -7,8 +7,79 @@ $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $d
 $hora = explode("T", get_the_date('c', $idpost))[1];
 $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
 get_header(); ?>
+<style>
+.notice-html a{
+    color: var(--primary);
+}
+
+.notice-html a:hover{
+    text-decoration: underline;
+}
+
+.notice-html iframe{
+    margin: 0 auto;
+}
+
+.notice-html [id^="attachment"].aligncenter{
+    margin: 0 auto;
+}
+
+.notice-html p{
+    color: #dfdfdf;
+}
+
+.notice-html h1{
+    color: #dfdfdf;
+    font-size: 3rem;
+}
+
+.notice-html h2{
+    color: #dfdfdf;
+    font-size: 2.5rem;
+}
+
+.notice-html h3{
+    color: #dfdfdf;
+    font-size: 2rem;
+}
+
+.notice-html h4{
+    color: #dfdfdf;
+    font-size: 1.5rem;
+}
+
+.notice-html h5{
+    color: #dfdfdf;
+    font-size: 1rem;
+}
+
+.notice-html h6{
+    color: #dfdfdf;
+    font-size:.8rem;
+}
+
+.notice-html ul{
+    padding-left: 1.5rem;
+}
+
+.notice-html ul li{
+    color: #dfdfdf;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 300;
+    margin-bottom: .5rem;
+}
+
+.notice-html ul li:last-child{
+    margin-bottom: none;
+}
+
+.notice-html iframe{
+    max-width: 100%;
+}
+</style>
 <main class="-screen relative flex flex-col bg-dark pb-24">
-    <div class="w-full h-80-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;">
+    <div class="w-full h-80-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;background-position: center;">
         <div class="w-full h-full absolute top-0 lef-0 bg-gradient-dark"></div>
     </div>
     <div class="w-full relative px-4 md:px-0">
@@ -48,7 +119,7 @@ get_header(); ?>
                 </div>
             </div>
             <div class="w-full mt-12">
-                <div class="w-full w-full-content">
+                <div class="w-full w-full-content notice-html">
                     <?php the_content(); ?>
                 </div>
             </div>
