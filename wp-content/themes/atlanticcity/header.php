@@ -198,6 +198,7 @@
 											if ( is_user_logged_in() ) { 
 												echo $current_user->display_name; 
 											} else { 
+												
 												wp_loginout(); 
 											} ?>
 										</button>
