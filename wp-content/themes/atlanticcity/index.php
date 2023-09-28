@@ -42,7 +42,7 @@ get_header(); ?>
             $orderitems = get_field( 'orden_de_items', $category );            
             if ($orderitems == "izquierdo") {
             ?>
-                <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 md:header-vs">
+                <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 header-title">
                     <div id="category-box" class="flex w-full py-0 items-center">
                         <h1 class="text-2xl font-semibold text-white my-auto uppercase text-center w-full md:w-auto">
                             <?php 
@@ -340,7 +340,7 @@ get_header(); ?>
             }
             ?>
             <div class="flex flex-col md:flex-row gap-x-8 h-full px-8 relative   
-             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside pt-125 mt-0 md:pt-125"; }?>">
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-0 header-title-target"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>

@@ -63,8 +63,8 @@
 						</li>
 					</ul>
 					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Redes sociales</h2>
-					<div class="flex items-center justify-center md:justify-start">
-						<span class=" text-white">
+					<div class="flex items-center justify-center md:justify-start mt-3">
+						<span class=" text-white  text-white flex gap-x-2">
                                 <?php if( have_rows('social_network', 'options') ): ?>
                                 
                                 <?php while( have_rows('social_network', 'options') ): the_row(); 
@@ -583,6 +583,26 @@
     });
 </script>
 <style>
+    body.archive.category-futbol-internacional .header-title{
+        height: 56px;
+    }
+
+    body.archive.category-futbol-internacional .header-title-target{
+        padding-top: 56px;
+    }
+
+    body.archive:not(.category-futbol-internacional) .header-title{
+        height: 56px;
+    }
+
+    body.archive:not(.category-futbol-internacional) .header-title-target{
+        padding-top: 12px;
+    }
+    
+    body.archive:not(.category-futbol-internacional) #category-box .separation {
+        display: none;
+    }
+
     @media (min-width: 768px) {
         .mt-125 {
             margin-top: 125px !important;
@@ -590,6 +610,26 @@
 
         .pt-125 {
             padding-top: 125px !important;
+        }
+
+        body.archive.category-futbol-internacional .header-title{
+            height: 125px;
+        }
+
+        body.archive.category-futbol-internacional .header-title-target{
+            padding-top: 125px;
+        }
+
+        body.archive:not(.category-futbol-internacional) .header-title{
+            height: 68px;
+        }
+
+        body.archive:not(.category-futbol-internacional) .header-title-target{
+            padding-top: 68px;
+        }
+        
+        body.archive:not(.category-futbol-internacional) #category-box .separation {
+            display: none;
         }
     }
     .header-vs {
@@ -605,10 +645,8 @@
     body.archive:not(.category-futbol-internacional) #category-box {
         justify-content: center;
     }
+
     
-    body.archive:not(.category-futbol-internacional) #category-box .separation {
-        display: none;
-    }
 
 </style>
 </body>
