@@ -602,6 +602,9 @@
     .bombita iframe{
         height: 115px;
     }
+    body.archive:not(.category-futbol-internacional) {
+        
+    }
 </style>
 </body>
 </html>

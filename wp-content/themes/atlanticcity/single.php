@@ -105,13 +105,13 @@ get_header(); ?>
                             <a href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank">
                                 <span class="mdi mdi-facebook text-white-alt text-xl"></span>
                             </a>
-                            <a class="whatsapp-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" href="whatsapp://send?text=Comparte%20con%20tus%20amigos%20<?php echo get_permalink(); ?>" >
+                            <a class="whatsapp-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" href="whatsapp://send?text=Comparte%20con%20tus%20amigos%20<?php echo get_permalink(); ?>" >
                                 <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                             </a>  
-                            <a class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" href="https://twitter.com/share" data-lang="es" data-url="<?php echo get_permalink(); ?>" >
+                            <a class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral"  target="_blank" href="https://twitter.com/share" data-lang="es" data-url="<?php echo get_permalink(); ?>" >
                                 <span class="mdi mdi-twitter text-white-alt text-xl"></span>
                             </a>
-                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
                                 <span class="mdi mdi-linkedin text-white-alt text-xl"></span>
                             </a>
                         </div>
@@ -127,18 +127,23 @@ get_header(); ?>
                 <span class="text-primary text-base font-normal">Compartir artículo:</span>
                 <div class="flex items-center mt-4">
                     <div class="flex items-center gap-x-6">
+                        
                         <a href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank">
                             <span class="mdi mdi-facebook text-white-alt text-xl"></span>
                         </a>
+                        
                         <a class="whatsapp-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" href="whatsapp://send?text=Comparte%20con%20tus%20amigos%20<?php echo get_permalink(); ?>" >
                             <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                         </a>  
-                        <a class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" href="https://twitter.com/share" data-lang="es" data-url="<?php echo get_permalink(); ?>" >
+                        
+                        <a class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" href="https://twitter.com/intent/tweet?text=Comparte%20con%20tus%20amigos&url=<?php echo urlencode(get_permalink()); ?>" >
                             <span class="mdi mdi-twitter text-white-alt text-xl"></span>
                         </a>
+                        
                         <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
                             <span class="mdi mdi-linkedin text-white-alt text-xl"></span>
                         </a>
+
                     </div>
                 </div>
             </div>
