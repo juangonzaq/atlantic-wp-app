@@ -43,7 +43,7 @@ get_header(); ?>
             if ($orderitems == "izquierdo") {
             ?>
                 <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 md:header-vs">
-                    <div class="flex w-full py-0 items-center">
+                    <div id="category-box" class="flex w-full py-0 items-center">
                         <h1 class="text-2xl font-semibold text-white my-auto uppercase text-center w-full md:w-auto">
                             <?php 
                                 $ancestros = get_ancestors($idCategory, 'category');
