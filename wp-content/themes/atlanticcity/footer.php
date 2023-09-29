@@ -670,6 +670,14 @@
     .link-icon-bar:hover::after, .link-icon-bar:focus::after, .link-icon-bar:active::after, .link-icon-bar.active::after{
         background-color: var(--primary);
     }
+    
+    .link-icon-bar .link-icon-bar-circle{
+        border: 1px solid transparent;
+    }
+
+    .link-icon-bar.active .link-icon-bar-circle{
+        border: 1px solid var(--primary);
+    }
 
     .overflow-movil{
         overflow-y: clip;

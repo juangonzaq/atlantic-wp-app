@@ -446,7 +446,7 @@ get_header(); ?>
                                                         }
                                                         ?>                                            
                                                 <a href="<?php echo $link = get_term_link($cc->slug, 'category');; ?>" class=" p-2 cursor-pointer mx-2 h-full link-icon-bar py-4 <?php if($active) { echo "active"; } ?>">
-                                                    <span class="flex justify-center items-center w-12 h-12 bg-gray rounded-full">
+                                                    <span class="flex justify-center items-center w-12 h-12 bg-gray rounded-full link-icon-bar-circle">
                                                         <img class="h-6" src="<?php echo get_field( 'icon', "category_".$cc->term_id ); ?>" alt="">
                                                     </span>
                                                 </a>
