@@ -422,36 +422,41 @@ get_header(); ?>
                                 );
                                 $Newselfcategories = get_categories( $args );
                                 ?>
-                                <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
-                                    <span class="mr-6">
-                                        <img class="w-8" src="<?php echo get_field("icon", "category_".$idcrop); ?>" alt="">
-                                    </span>
-                                    <h1 class="text-xl font-semibold text-white whitespace-nowrap">
-                                        <?php echo get_cat_name($idcrop); ?>
-                                    </h1>
-                                    <div class="w-px h-12 bg-gray-light mx-8"></div>
-                                    <div class="flex items-center">
-                                    <?php 
-                                            $myterm = get_term( $idcrop, 'category' );
-                                            $myterm_link = get_term_link( $myterm );
-                                        ?>
-                                        <a href="<?php echo $myterm_link; ?>" class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</a>                                        
-                                        <div class="flex items-center gap-x-4">
-                                            <?php if ($Newselfcategories) {
-                                                foreach ($Newselfcategories as $cc) {
-                                                    $active = false;
-                                                    if ($idCategory == $cc->term_id) {
-                                                        $active = true;
+                                <div class="w-full overflow-x-auto overflow-y-hidden">
+                                    <div class="flex w-full border-solid border-b border-gray-light flex items-center">
+                                        <span class="mr-6  h-full">
+                                            <img class="w-8" src="<?php echo get_field("icon", "category_".$idcrop); ?>" alt="">
+                                        </span>
+                                        <h1 class="text-xl font-semibold text-white whitespace-nowrap  h-full">
+                                            <?php echo get_cat_name($idcrop); ?>
+                                        </h1>
+                                        <div class="w-px h-12 bg-gray-light mx-8"></div>
+                                        <div class="flex items-center h-full">
+                                        <?php 
+                                                $myterm = get_term( $idcrop, 'category' );
+                                                $myterm_link = get_term_link( $myterm );
+                                            ?>
+                                            <a href="<?php echo $myterm_link; ?>" class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</a>                                        
+                                            <div class="flex items-center gap-x-4 h-full">
+                                                <?php if ($Newselfcategories) {
+                                                    foreach ($Newselfcategories as $cc) {
+                                                        $active = false;
+                                                        if ($idCategory == $cc->term_id) {
+                                                            $active = true;
+                                                        }
+                                                        ?>                                            
+                                                <a href="<?php echo $link = get_term_link($cc->slug, 'category');; ?>" class=" p-2 cursor-pointer mx-2 h-full link-icon-bar py-4 <?php if($active) { echo "active"; } ?>">
+                                                    <span class="flex justify-center items-center w-12 h-12 bg-gray rounded-full">
+                                                        <img class="h-6" src="<?php echo get_field( 'icon', "category_".$cc->term_id ); ?>" alt="">
+                                                    </span>
+                                                </a>
+                                                        <?php
                                                     }
-                                                    ?>                                            
-                                            <a href="<?php echo $link = get_term_link($cc->slug, 'category');; ?>" <?php if($active) { echo "style='background: #121313;'"; } ?> class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                                <img class="w-full max-w-full max-h-full" src="<?php echo get_field( 'icon', "category_".$cc->term_id ); ?>" alt="">
-                                            </a>
-                                                    <?php
-                                                }
-                                            }?>
+                                                }?>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <?php
                             }

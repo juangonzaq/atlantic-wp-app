@@ -631,6 +631,11 @@
         body.archive:not(.category-futbol-internacional) #category-box .separation {
             display: none;
         }
+
+        .overflow-movil{
+            overflow-y: unset !important;
+            overflow-x: unset !important;
+        }
     }
     .header-vs {
         height: 125px;
@@ -646,7 +651,30 @@
         justify-content: center;
     }
 
-    
+    .link-icon-bar{
+        position: relative;
+    }
+
+    .link-icon-bar::after{
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        background-color: transparent;
+        z-index: 100;
+        transition: all .3s;
+    }
+
+    .link-icon-bar:hover::after, .link-icon-bar:focus::after, .link-icon-bar:active::after, .link-icon-bar.active::after{
+        background-color: var(--primary);
+    }
+
+    .overflow-movil{
+        overflow-y: clip;
+        overflow-x: auto;
+    }
 
 </style>
 </body>
