@@ -149,7 +149,7 @@ get_header(); ?>
                 </div>
             </div>
             
-            <div class="w-full flex flex-col justify-center items-center">
+            <div class="w-full flex flex-col">
                 <?php the_tags('<ul class="post-tags"><li>','</li><li>','</li></ul>'); ?>
             </div>
 
