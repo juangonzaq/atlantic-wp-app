@@ -118,10 +118,6 @@ get_header(); ?>
                     </div>
                 </div>
                 
-                <div class="w-full flex flex-col justify-center items-center">
-                    <?php the_tags('<ul class="post-tags"><li>','</li><li>','</li></ul>'); ?>
-                </div>
-
             </div>
             <div class="w-full mt-12">
                 <div class="w-full w-full-content notice-html">
