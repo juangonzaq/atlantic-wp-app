@@ -651,6 +651,15 @@
         justify-content: center;
     }
 
+    body.category-pronostico-futbol-internacional .flex.flex-col.md\:flex-row.w-full.h-full.items-center {
+        justify-content: center;
+    }
+
+    body.category-pronostico-futbol-internacional span.hidden.md\:flex.w-px.bg-primary.h-10.mx-5.my-auto {
+        display: none !important;
+    }
+
+
     .link-icon-bar{
         position: relative;
     }
