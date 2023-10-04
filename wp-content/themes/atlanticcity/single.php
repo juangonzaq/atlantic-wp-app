@@ -108,7 +108,7 @@ get_header(); ?>
                             <a class="whatsapp-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" href="whatsapp://send?text=Comparte%20con%20tus%20amigos%20<?php echo get_permalink(); ?>" >
                                 <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                             </a>  
-                            <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
+                            <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
                                 <span class="mdi mdi-twitter text-white-alt text-xl"></span>
                             </a>
                             <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
@@ -117,13 +117,14 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div class="w-full mt-12">
                 <div class="w-full w-full-content notice-html">
                     <?php the_content(); ?>
                 </div>
             </div>
-            <div class="w-full py-24 flex flex-col justify-center items-center">
+            <div class="w-full py-12 flex flex-col justify-center items-center">
                 <span class="text-primary text-base font-normal">Compartir artículo:</span>
                 <div class="flex items-center mt-4">
                     <div class="flex items-center gap-x-6">
@@ -136,7 +137,7 @@ get_header(); ?>
                             <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                         </a>  
 
-                        <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
+                        <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
                             <span class="mdi mdi-twitter text-white-alt text-xl"></span>
                         </a>
                         
@@ -147,6 +148,11 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
+            
+            <div class="w-full flex flex-col">
+                <?php the_tags('<ul class="post-tags"><li>','</li><li>','</li></ul>'); ?>
+            </div>
+
             <?php 
                 $publicidad = get_field( 'publicidad' );
                 if ($publicidad) {
@@ -288,6 +294,19 @@ get_header(); ?>
     </div>
 </main>
 <style>
+.post-tags {
+    list-style: none;
+    padding: 0;
+}
+
+.post-tags li {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #034132;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 14px;
+}
 .w-full-content p {
     color: #dfdfdf;
     font-size: 1.125rem;
