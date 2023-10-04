@@ -108,7 +108,7 @@ get_header(); ?>
                             <a class="whatsapp-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" href="whatsapp://send?text=Comparte%20con%20tus%20amigos%20<?php echo get_permalink(); ?>" >
                                 <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                             </a>  
-                            <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
+                            <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
                                 <span class="mdi mdi-twitter text-white-alt text-xl"></span>
                             </a>
                             <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
@@ -137,7 +137,7 @@ get_header(); ?>
                             <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                         </a>  
 
-                        <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="twitter-share-button h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
+                        <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
                             <span class="mdi mdi-twitter text-white-alt text-xl"></span>
                         </a>
                         
