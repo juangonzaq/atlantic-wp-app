@@ -16,6 +16,49 @@
 			$classextra = "top-menu";
 		}
     ?>
+	<style>
+		  	.at-menu-nav-nh{
+				margin: 0 !important;
+				padding-right: 1.5rem;
+			}
+
+			.at-menu-nav-nh.active > a{
+				color: var(--primary);
+				border-bottom: 3px solid var(--primary);
+			}
+
+			.at-menu-nav-nh > a{
+				border-bottom: 3px solid transparent;
+				transition: all .3s;
+			}
+
+			.at-menu-nav-nh > a:hover{
+				color: var(--primary);
+				border-bottom: 3px solid var(--primary);
+				background-color: transparent;
+			}
+
+			.at-menu-nav{
+				margin: 0 !important;
+				padding-right: 1.5rem;
+			}
+
+			.at-menu-nav.active > a{
+				color: var(--primary);
+				border-bottom: 3px solid var(--primary);
+			}
+
+			.at-menu-nav > a{
+				border-bottom: 3px solid transparent;
+				transition: all .3s;
+			}
+
+			.at-menu-nav > a:hover{
+				color: var(--primary);
+				border-bottom: 3px solid var(--primary);
+				background-color: transparent;
+			}
+	</style>
 </head>
 <body <?php body_class($classextra); ?>>
     <div class="main-header z-30 w-full fixed top-0 left-0">
@@ -124,10 +167,10 @@
 												?>
 												<!-- <script>console.log(<?php echo json_encode($url); ?>)</script>
 												<script>console.log(<?php echo json_encode($menu); ?>)</script> -->
-										<li class="flex <?php echo ($me['menu'])?((count($me['menu']) > 0)?'at-menu-nav':'pr-6'):''; ?>  <?php echo $active; ?>">
+										<li class="flex <?php echo ($me['menu'])?((count($me['menu']) > 0)?'at-menu-nav':'pr-6'):'at-menu-nav-nh'; ?>  <?php echo $active; ?>">
 											<a role="button" <?php if (!$me["menu"]){ ?> href="<?php echo $me["link_principal"]; ?>" <?php } ?>class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
 												<?php echo $me['nombre'];?>
-												<?php if ($me["menu"]){ ?> <span class="mdi mdi-chevron-down text-xl flex pt-1"></span><?php } ?>
+												<?php if ($me["menu"]){ ?> <span class="mdi mdi-chevron-down text-xl flex pt-1 "></span><?php } ?>
 											</a>
 											<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
 												<div class="bg-gray py-5 at-menu-nav-content-body">
