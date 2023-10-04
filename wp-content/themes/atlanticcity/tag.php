@@ -7,7 +7,13 @@
             <h1 class="text-3xl mb-6 text-white">Tag: <?php single_tag_title(); ?></h1>
 
             <div class="flex flex-col md:flex-row gap-x-8 gap-y-8">
-                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                <?php if (have_posts()) : while (have_posts()) : the_post(); 
+                $myid = get_the_ID();
+                $date = explode("T", get_the_date('c', $myid))[0];
+                $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+                $hora = explode("T", get_the_date('c', $myid))[1];
+                $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+                ?>
                     <div class="w-full md:w-1/2">
                     <article class="w-full notice notice-small">
                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
