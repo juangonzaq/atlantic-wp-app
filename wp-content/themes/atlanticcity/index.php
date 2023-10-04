@@ -34,6 +34,10 @@ get_header(); ?>
     .h-custom-logs{
         height: calc(100vh - 203px);
     }
+
+    body.archive:not(.category-futbol-internacional) .h-custom-logs{
+        height: calc(100vh - 68px);
+    }
 }
 </style>
 <div class="bg-dark flex flex-col pb-24 w-full margin-top-header">
@@ -42,7 +46,7 @@ get_header(); ?>
             $orderitems = get_field( 'orden_de_items', $category );            
             if ($orderitems == "izquierdo") {
             ?>
-                <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 md:header-vs">
+                <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 header-title">
                     <div id="category-box" class="flex w-full py-0 items-center">
                         <h1 class="text-2xl font-semibold text-white my-auto uppercase text-center w-full md:w-auto">
                             <?php 
@@ -340,7 +344,7 @@ get_header(); ?>
             }
             ?>
             <div class="flex flex-col md:flex-row gap-x-8 h-full px-8 relative   
-             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside pt-125 mt-0 md:pt-125"; }?>">
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-0 header-title-target"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>
@@ -418,36 +422,41 @@ get_header(); ?>
                                 );
                                 $Newselfcategories = get_categories( $args );
                                 ?>
-                                <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
-                                    <span class="mr-6">
-                                        <img class="w-8" src="<?php echo get_field("icon", "category_".$idcrop); ?>" alt="">
-                                    </span>
-                                    <h1 class="text-xl font-semibold text-white whitespace-nowrap">
-                                        <?php echo get_cat_name($idcrop); ?>
-                                    </h1>
-                                    <div class="w-px h-12 bg-gray-light mx-8"></div>
-                                    <div class="flex items-center">
-                                    <?php 
-                                            $myterm = get_term( $idcrop, 'category' );
-                                            $myterm_link = get_term_link( $myterm );
-                                        ?>
-                                        <a href="<?php echo $myterm_link; ?>" class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-4">Todos</a>                                        
-                                        <div class="flex items-center gap-x-4">
-                                            <?php if ($Newselfcategories) {
-                                                foreach ($Newselfcategories as $cc) {
-                                                    $active = false;
-                                                    if ($idCategory == $cc->term_id) {
-                                                        $active = true;
+                                <div class="w-full overflow-x-auto overflow-y-hidden">
+                                    <div class="flex w-full border-solid border-b border-gray-light flex items-center">
+                                        <span class="mr-2  h-full">
+                                            <img class="h-8" src="<?php echo get_field("icon", "category_".$idcrop); ?>" alt="">
+                                        </span>
+                                        <h1 class="text-xl font-semibold text-white whitespace-nowrap  h-full">
+                                            <?php echo get_cat_name($idcrop); ?>
+                                        </h1>
+                                        <div class="w-px h-12 bg-gray-light mx-4"></div>
+                                        <div class="flex items-center h-full">
+                                        <?php 
+                                                $myterm = get_term( $idcrop, 'category' );
+                                                $myterm_link = get_term_link( $myterm );
+                                            ?>
+                                            <a href="<?php echo $myterm_link; ?>" class="rounded-3xl border py-2 px-4 text-base font-medium <?php if ($removeBorder) {echo "border-primary text-primary";} else { echo "text-white"; }?> bg-gray-tag mr-2">Todos</a>                                        
+                                            <div class="flex items-center  h-full">
+                                                <?php if ($Newselfcategories) {
+                                                    foreach ($Newselfcategories as $cc) {
+                                                        $active = false;
+                                                        if ($idCategory == $cc->term_id) {
+                                                            $active = true;
+                                                        }
+                                                        ?>                                            
+                                                <a href="<?php echo $link = get_term_link($cc->slug, 'category');; ?>" class=" p-2 cursor-pointer  h-full link-icon-bar py-4 <?php if($active) { echo "active"; } ?>">
+                                                    <span class="flex justify-center items-center w-12 h-12 bg-gray rounded-full link-icon-bar-circle">
+                                                        <img class="h-8" src="<?php echo get_field( 'icon', "category_".$cc->term_id ); ?>" alt="">
+                                                    </span>
+                                                </a>
+                                                        <?php
                                                     }
-                                                    ?>                                            
-                                            <a href="<?php echo $link = get_term_link($cc->slug, 'category');; ?>" <?php if($active) { echo "style='background: #121313;'"; } ?> class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                                <img class="w-full max-w-full max-h-full" src="<?php echo get_field( 'icon', "category_".$cc->term_id ); ?>" alt="">
-                                            </a>
-                                                    <?php
-                                                }
-                                            }?>
+                                                }?>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <?php
                             }
