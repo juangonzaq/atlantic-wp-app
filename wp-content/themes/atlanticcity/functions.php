@@ -306,3 +306,20 @@ function send_mydata(){
     //wp_send_json(  );
 }
 
+
+function wp_title_character_count() {
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $("#titlewrap").append('<span style="display:block; margin-top:5px;" id="title_counter"></span>');
+            $("#title").keyup(function() {
+                var title_length = $("#title").val().length;
+                $("#title_counter").text(title_length + " caracteres");
+            });
+        });
+    </script>
+    <?php
+}
+add_action('admin_head-post.php', 'wp_title_character_count');
+add_action('admin_head-post-new.php', 'wp_title_character_count');
+
