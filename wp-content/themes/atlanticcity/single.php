@@ -308,7 +308,8 @@ get_header(); ?>
     margin-right: 10px;
     background-color: #034132;
     padding: 5px 10px;
-    border-radius: 4px;
+    color: #fff;
+    border-radius: 14px;
 }
 .w-full-content p {
     color: #dfdfdf;
