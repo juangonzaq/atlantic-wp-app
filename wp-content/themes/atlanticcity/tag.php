@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 
 <main class="-screen relative flex flex-col bg-dark pb-24">
-
+    <div class="w-full h-70-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;">
+        <div class="w-full h-full absolute top-0 lef-0 bg-gradient-dark"></div>
+    </div>
     <div class="w-full relative px-4 md:px-0">
         <div class="w-full md:w-9/12 mx-auto z-20 bg-gray py-12 px-8 rounded-xl mt--6">
             <h1 class="text-3xl mb-6 text-white">Tag: <?php single_tag_title(); ?></h1>
