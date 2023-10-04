@@ -170,7 +170,7 @@
 										<li class="flex <?php echo ($me['menu'])?((count($me['menu']) > 0)?'at-menu-nav':'pr-6'):'at-menu-nav-nh'; ?>  <?php echo $active; ?>">
 											<a role="button" <?php if (!$me["menu"]){ ?> href="<?php echo $me["link_principal"]; ?>" <?php } ?>class="at-menu-nav-button text-gray-300 py-2 text-base font-regular flex items-center text-white hover:text-primary h-full z-20">
 												<?php echo $me['nombre'];?>
-												<span class="mdi mdi-chevron-down text-xl flex pt-1 <?php if (!$me["menu"]){ ?> opacity-0 <?php } ?>"></span>
+												<?php if (!$me["menu"]){ ?> <span class="mdi mdi-chevron-down text-xl flex pt-1 "></span><?php } ?>
 											</a>
 											<div class="at-menu-nav-content left-0 bottom-0 z-10 main-submenu max-h-0 overflow-hidden">
 												<div class="bg-gray py-5 at-menu-nav-content-body">
