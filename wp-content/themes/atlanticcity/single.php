@@ -117,13 +117,18 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
+                
+                <div class="w-full flex flex-col justify-center items-center">
+                    <?php the_tags('<ul class="post-tags"><li>','</li><li>','</li></ul>'); ?>
+                </div>
+
             </div>
             <div class="w-full mt-12">
                 <div class="w-full w-full-content notice-html">
                     <?php the_content(); ?>
                 </div>
             </div>
-            <div class="w-full py-24 flex flex-col justify-center items-center">
+            <div class="w-full py-12 flex flex-col justify-center items-center">
                 <span class="text-primary text-base font-normal">Compartir artículo:</span>
                 <div class="flex items-center mt-4">
                     <div class="flex items-center gap-x-6">
@@ -147,6 +152,11 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
+            
+            <div class="w-full flex flex-col justify-center items-center">
+                <?php the_tags('<ul class="post-tags"><li>','</li><li>','</li></ul>'); ?>
+            </div>
+
             <?php 
                 $publicidad = get_field( 'publicidad' );
                 if ($publicidad) {
@@ -288,6 +298,18 @@ get_header(); ?>
     </div>
 </main>
 <style>
+.post-tags {
+    list-style: none;
+    padding: 0;
+}
+
+.post-tags li {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #034132;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
 .w-full-content p {
     color: #dfdfdf;
     font-size: 1.125rem;
