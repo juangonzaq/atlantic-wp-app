@@ -90,7 +90,7 @@ import TweenLite from "gsap/TweenLite";
 								const template = `
 									<div class="w-2/6 px-4">
 										<article class="w-full notice">
-											<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+											<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" style="min-height: 332px !important;">
 												<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
 												<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
 								
@@ -119,7 +119,7 @@ import TweenLite from "gsap/TweenLite";
 								const template = `
 									<div class="w-2/6 px-4">
 										<article class="w-full notice">
-											<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+											<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" style="min-height: 332px !important;">
 												<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
 												<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
 								
@@ -148,7 +148,7 @@ import TweenLite from "gsap/TweenLite";
 								const template = `
 								<div class="w-2/6 px-4">
 									<article class="w-full notice">
-										<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg">
+										<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" style="min-height: 332px !important;">
 											<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
 											<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
 							
