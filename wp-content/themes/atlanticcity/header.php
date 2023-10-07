@@ -142,7 +142,7 @@
 							</a>
 						</div>
 					</div>
-						<div class="flex items-center pr-2 h-full menu-desktop">
+						<div class="flex items-center pr-6 h-full menu-desktop">
 							<!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 h-full"> -->
 							<div class="hidden sm:ml-6 sm:block mr-5 h-full">
 								<ul class="flex space-x-4 h-full">
@@ -239,7 +239,7 @@
 											<?php global $current_user; wp_get_current_user(); ?>
 											<?php 
 											if ( is_user_logged_in() ) { 
-												echo $current_user->display_name; 
+												echo $current_user->user_firstname; 
 											} else { 
 												
 												wp_loginout(); 
@@ -258,13 +258,13 @@
 									?>									
 									<div class="flex items-center">
 										<span>
-											<a href="<?php echo site_url();?>/login" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white hidden md:flex">Iniciar sesión</a>
-											<a href="<?php echo site_url();?>/login" type="button" class="w-10 h-10 rounded-full bg-dark p-2 flex md:hidden justify-center text-primary items-center" style="padding-left: 0.65rem;">
+											<a href="<?php echo site_url();?>/iniciar-sesion" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white hidden md:flex">Iniciar sesión</a>
+											<a href="<?php echo site_url();?>/iniciat-sesion" type="button" class="w-10 h-10 rounded-full bg-dark p-2 flex md:hidden justify-center text-primary items-center" style="padding-left: 0.65rem;">
 												<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6">
 													<path fill-rule="evenodd" d="M8 0.75C5.1084 0.75 2.75 3.1084 2.75 6C2.75 7.80762 3.67285 9.41309 5.07031 10.3594C2.39551 11.5078 0.5 14.1621 0.5 17.25H2C2 13.9277 4.67773 11.25 8 11.25C11.3223 11.25 14 13.9277 14 17.25H15.5C15.5 14.1621 13.6045 11.5078 10.9297 10.3594C12.3271 9.41309 13.25 7.80762 13.25 6C13.25 3.1084 10.8916 0.75 8 0.75ZM8 2.25C10.0801 2.25 11.75 3.91992 11.75 6C11.75 8.08008 10.0801 9.75 8 9.75C5.91992 9.75 4.25 8.08008 4.25 6C4.25 3.91992 5.91992 2.25 8 2.25Z" clip-rule="evenodd"/>
 												</svg>
 
-												<!-- flex justify-center text-primary items-center -->
+												<!-- flex justify-center texnt-primary items-center -->
 											</a>
 										</span>
 									</div>
