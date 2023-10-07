@@ -13,7 +13,15 @@ get_header();
 						<span class="h-1 bg-primary rounded-xl absolute w-1/2 bottom-0 left-0 right-0 mx-auto"></span>
 					</h1>
 					<div class="text-base text-white font-normal text-center mt-8">
-                        <?php the_content(); ?>
+						<?php 
+							if (is_user_logged_in()) {
+								wp_redirect(home_url('/'));
+								exit;
+							} else {
+								the_content();
+							}
+						?>
+                        
                     </div>
                     <?php echo do_shortcode("[xs_social_login]"); ?>					
 				</form>
