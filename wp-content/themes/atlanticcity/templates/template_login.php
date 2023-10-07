@@ -15,7 +15,7 @@ get_header();
 					<div class="text-base text-white font-normal text-center mt-8">
 						<?php 
 							if (is_user_logged_in()) {
-								wp_redirect(home_url());
+								header('Location: ' . home_url());
 								exit;
 							} else {
 								the_content();
