@@ -693,6 +693,10 @@
         overflow-x: auto;
     }
 
+    .search-float .notice > a{
+        max-height: 332px !important;
+        min-height: 332px !important;
+    }
   
 </style>
 </body>
