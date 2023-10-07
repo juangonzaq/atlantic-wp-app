@@ -323,3 +323,11 @@ function wp_title_character_count() {
 add_action('admin_head-post.php', 'wp_title_character_count');
 add_action('admin_head-post-new.php', 'wp_title_character_count');
 
+
+function custom_redirect() {
+    if (is_user_logged_in() && is_page('iniciar-sesion')) {
+        wp_redirect(home_url());
+        exit;
+    }
+}
+add_action('template_redirect', 'custom_redirect');
