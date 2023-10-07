@@ -647,6 +647,21 @@
     .bombita iframe{
         height: 115px;
     }
+    .search-float .allContent .itemContent .addContentJs > div{
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        .search-float .allContent .itemContent .addContentJs > div{
+            width: 33.33%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .search-float .allContent .itemContent .addContentJs > div{
+            width: 25%;
+        }
+    }
     .search-float .notice > a img{ position: absolute;}
     body.archive:not(.category-futbol-internacional) #category-box {
         justify-content: center;
