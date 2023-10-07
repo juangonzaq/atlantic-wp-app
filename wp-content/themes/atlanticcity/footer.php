@@ -647,6 +647,7 @@
     .bombita iframe{
         height: 115px;
     }
+    .search-float .notice > a img{ position: absolute;}
     body.archive:not(.category-futbol-internacional) #category-box {
         justify-content: center;
     }
