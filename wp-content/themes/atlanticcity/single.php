@@ -24,6 +24,10 @@ get_header(); ?>
     margin: 0 auto;
 }
 
+.notice-html * {
+    max-width: 100%;
+}
+
 .notice-html p{
     color: #dfdfdf;
 }
