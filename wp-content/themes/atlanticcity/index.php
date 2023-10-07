@@ -1707,8 +1707,11 @@ get_header(); ?>
 </div>
 <style>
     body.category-liga-1-primera-division-pronostico-futbol-nacional .flex.w-full.border-solid.border-b.border-gray-light.py-3.flex.items-center.overflow-auto {
-    display: none;
-}
+        display: none;
+    }
+    body.category-seleccion-peruana-pronostico-futbol-nacional .flex.w-full.border-solid.border-b.border-gray-light.py-3.flex.items-center.overflow-auto {
+        display: none;
+    }
     .navigation a svg {
     width: 14px;
     height: 14px;
