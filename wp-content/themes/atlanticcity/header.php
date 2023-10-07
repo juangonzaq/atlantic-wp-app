@@ -285,7 +285,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="h-full bg-dark" id="MySearchcontentMobile" style="display:none">
+										<div class="h-full bg-dark search-float-mobile" id="MySearchcontentMobile" style="display:none">
 											<div class="main-container  mx-auto flex flex-col w-full py-3">
 												<div class="w-full flex items-end  px-5">
 													<span class=" text-primary flex items-center w-full">
@@ -361,7 +361,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="h-full bg-gray px-8" id="MySearchcontent" style="display:none">
+											<div class="h-full bg-gray px-8 search-float" id="MySearchcontent" style="display:none">
 												<div class="container  mx-auto flex flex-col w-full py-3">
 													<div class="w-full flex items-end  px-5">
 														<span class=" text-primary flex items-center w-full">
