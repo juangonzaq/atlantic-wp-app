@@ -313,7 +313,7 @@ get_header(); ?>
 
 .post-tags li {
     display: inline-block;
-    margin-right: 10px;
+    margin: 5px;
     background-color: #034132;
     padding: 5px 10px;
     color: #fff;
