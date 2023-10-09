@@ -113,7 +113,11 @@ get_header(); ?>
                                 <span class="mdi mdi-whatsapp text-white-alt text-xl"></span>
                             </a>  
                             <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
-                                <span class="mdi mdi-twitter text-white-alt text-xl"></span>
+                                <span class="">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.3379 19.0664L12.8882 9.66364L12.8992 9.67244L18.7145 2.93311H16.7712L12.0339 8.41844L8.27188 2.93311H3.17521L9.19661 11.7118L9.19588 11.7111L2.84521 19.0664H4.78855L10.0553 12.9636L14.2412 19.0664H19.3379ZM7.50188 4.39977L16.5512 17.5998H15.0112L5.95455 4.39977H7.50188Z" fill="#ADB6BB"/>
+                                    </svg>
+                                </span>
                             </a>
                             <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
                                 <span class="mdi mdi-linkedin text-white-alt text-xl"></span>
@@ -142,7 +146,11 @@ get_header(); ?>
                         </a>  
 
                         <a href="https://twitter.com/intent/tweet?original_referer=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>&amp;url=<?php echo urlencode(get_permalink()); ?>&amp;via=Atlantic City" title="Compartir en Twitter" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral" target="_blank" onclick="fn(this, event, {method:'wopen'})">
-                            <span class="mdi mdi-twitter text-white-alt text-xl"></span>
+                            <span class="">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.3379 19.0664L12.8882 9.66364L12.8992 9.67244L18.7145 2.93311H16.7712L12.0339 8.41844L8.27188 2.93311H3.17521L9.19661 11.7118L9.19588 11.7111L2.84521 19.0664H4.78855L10.0553 12.9636L14.2412 19.0664H19.3379ZM7.50188 4.39977L16.5512 17.5998H15.0112L5.95455 4.39977H7.50188Z" fill="#ADB6BB"/>
+                                </svg>
+                            </span>
                         </a>
                         
                         <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
