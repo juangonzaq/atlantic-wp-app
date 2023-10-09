@@ -1712,6 +1712,9 @@ get_header(); ?>
     body.category-seleccion-peruana-pronostico-futbol-nacional .flex.w-full.border-solid.border-b.border-gray-light.py-3.flex.items-center.overflow-auto {
         display: none;
     }
+    .home {
+        background-color: #181B1E !important;
+    }
     .navigation a svg {
     width: 14px;
     height: 14px;
