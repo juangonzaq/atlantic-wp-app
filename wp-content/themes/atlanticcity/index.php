@@ -343,7 +343,7 @@ get_header(); ?>
                 <?php
             }
             ?>
-            <div class="flex flex-col md:flex-row gap-x-8 h-full px-8 relative   
+            <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
              <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-0 header-title-target"; }?>">
                 <?php 
                     if ($orderitems == "izquierdo") {

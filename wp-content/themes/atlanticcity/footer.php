@@ -588,7 +588,7 @@
     }
 
     body.archive.category-futbol-internacional .header-title-target{
-        padding-top: 56px;
+        padding-top: 0px;
     }
 
     body.archive:not(.category-futbol-internacional) .header-title{
