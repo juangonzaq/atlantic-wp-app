@@ -239,7 +239,8 @@
 											<?php global $current_user; wp_get_current_user(); ?>
 											<?php 
 											if ( is_user_logged_in() ) { 
-												echo $current_user->user_firstname; 
+												$first_name = explode(' ', $current_user->user_firstname)[0];
+    											echo $first_name; 
 											} else { 
 												
 												wp_loginout(); 
