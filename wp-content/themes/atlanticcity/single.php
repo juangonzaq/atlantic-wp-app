@@ -119,9 +119,9 @@ get_header(); ?>
                                     </svg>
                                 </span>
                             </a>
-                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
+                            <!--<a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
                                 <span class="mdi mdi-linkedin text-white-alt text-xl"></span>
-                            </a>
+                            </a>-->
                         </div>
                     </div>
                 </div>
@@ -153,9 +153,9 @@ get_header(); ?>
                             </span>
                         </a>
                         
-                        <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
+                        <!--<a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
                             <span class="mdi mdi-linkedin text-white-alt text-xl"></span>
-                        </a>
+                        </a>-->
 
                     </div>
                 </div>
