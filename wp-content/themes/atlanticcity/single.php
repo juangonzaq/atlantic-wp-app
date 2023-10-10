@@ -287,7 +287,7 @@ get_header(); ?>
                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $relatedid )[0]->name;?></span>
                                     </div>
                                     <h3 class="mt-2  leading-6 text-white">
-                                        <a href="<?php echo get_the_post_thumbnail_url($relatedid);?>" class="text-lg font-semibold text-2xl">
+                                        <a href="<?php echo get_permalink($relatedid);?>" class="text-lg font-semibold text-2xl">
                                         <?php echo get_the_title($myid);?>
                                         </a>
                                     </h3>
