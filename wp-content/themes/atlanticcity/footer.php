@@ -98,6 +98,15 @@
 
 <script>
 
+    document.getElementById('dataConsentCheckbox').addEventListener('change', function() {
+		const loginButton = document.getElementById('loginButton');
+		if (this.checked) {
+			loginButton.removeAttribute('disabled');
+		} else {
+			loginButton.setAttribute('disabled', 'disabled');
+		}
+	});	
+
     function disableMenus(menuSelect){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
 		if(menus){
@@ -583,6 +592,10 @@
     });
 </script>
 <style>
+    a[disabled] {
+		opacity: 0.5;
+		pointer-events: none;
+	}
     body.archive.category-futbol-internacional .header-title{
         height: 56px;
     }
