@@ -98,14 +98,16 @@
 
 <script>
 
-    document.getElementById('dataConsentCheckbox').addEventListener('change', function() {
-        const loginButton = document.getElementById('loginButton');
-        if (this.checked) {
-            loginButton.removeAttribute('disabled');
-        } else {
-            loginButton.setAttribute('disabled', 'disabled');
-        }
-    });
+    setTimeout(function() {
+        document.getElementById('dataConsentCheckbox').addEventListener('change', function() {
+            const loginButton = document.getElementById('loginButton');
+            if (this.checked) {
+                loginButton.removeAttribute('disabled');
+            } else {
+                loginButton.setAttribute('disabled', 'disabled');
+            }
+        });
+    }, 2000);
 
     function disableMenus(menuSelect){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
