@@ -24,7 +24,7 @@
                                 foreach ($mn['submenu'] as $m) {
                                     ?>
                         <li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
-							<a href="<?php echo $m['link']; ?>" class="underline text-white"><?php echo $m['text']; ?></a>
+							<a href="<?php echo $m['link']['url']; ?>" class="underline text-white"><?php echo $m['text']; ?></a>
 						</li>
                                     <?php
                                 }
