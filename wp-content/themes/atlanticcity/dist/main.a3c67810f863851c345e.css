@@ -546,7 +546,7 @@ input.input-primary:focus,input.input-primary:focus-visible,input.input-primary:
     }
 
     .content-logo-mobile ~ .menu-desktop{
-        width: 95%;
+        width: 100%;
         display: flex;
         justify-content: flex-end;
     }
