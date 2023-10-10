@@ -149,7 +149,7 @@
 							</a>
 						</div>
 					</div>
-						<div class="flex items-center pr-14 h-full menu-desktop">
+						<div class="flex items-center pr-16 h-full menu-desktop">
 							<!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 h-full"> -->
 							<div class="hidden sm:ml-6 sm:block mr-5 h-full">
 								<ul class="flex space-x-4 h-full">
