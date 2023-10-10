@@ -342,5 +342,9 @@ get_header(); ?>
     color: white;
     margin-bottom: 10px;
 }
+.comment-notes, .logged-in-as {
+    display: none !important;
+}
+
 </style>
 <?php get_footer(); ?>
