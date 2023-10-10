@@ -431,7 +431,7 @@ get_header();
 			<div class="flex w-full py-3">
 				<h2 class="text-2xl font-semibold text-white mx-auto">
 					Síguenos en 
-					<a href="" class="text-primary text-2xl font-semibold">@atlanticcitysports</a>
+					<a href="https://www.instagram.com/atlanticcityperu/" target="_blank" class="text-primary text-2xl font-semibold">@atlanticcitysports</a>
 				</h2>
 			</div>
 			<div class="w-full flex flex-wrap gap-y-4 mt-8 md:mt-12">
