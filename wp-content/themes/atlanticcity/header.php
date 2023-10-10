@@ -17,9 +17,12 @@
 		}
     ?>
 	<style>
-		.content-logo-mobile ~ .menu-desktop{
-        width: 95% !important;
-    }
+		@media (max-width: 640px) {
+			.content-logo-mobile ~ .menu-desktop{
+				width: 95% !important;
+			}
+		}
+		
 
 		  	.at-menu-nav-nh{
 				margin: 0 !important;
