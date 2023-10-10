@@ -134,7 +134,7 @@
 								</svg>
 							</button>
 						</div>
-						<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start content-logo-mobile mx-24 md:mx-0">
+						<div class="flex flex-1 items-center sm:items-stretch sm:justify-start content-logo-mobile mx-14 md:mx-0">
 						<div class="flex flex-shrink-0 items-center">
 							<a href="<?php echo site_url(); ?>">
 								<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
