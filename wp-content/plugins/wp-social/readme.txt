@@ -1,9 +1,9 @@
-===Wp Social - Social Login and Register, Social Share, & Social Counter===
+=== Wp Social Login and Register Social Counter ===
 Contributors: XpeedStudio, Ataurr, emranio
 Tags: Social login, WordPress Social login and register, Social share,  Social counter, Social,  WooCommerce social login and register
 Requires at least: 4.6
-Tested up to: 6.2
-Stable tag: 2.2.3
+Tested up to: 6.3.1
+Stable tag: 2.2.5
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -163,8 +163,15 @@ Visit [wpmet](https://wpmet.com) to learn more about how to get the best of Word
 
 == Changelog ==
 
+Version 2.2.5 // 2023-09-14
+Fixed: Line app login issue.
+Fixed: Login redirect is not working with the Line App.
+
+Version 2.2.4 // 2023-09-04
+-Fixed: Admin notice display for not admin users issue.
+
 Version 2.2.3 // 2023-06-04
--Fixed: Share settings not working for sigle page and post page
+-Fixed: Share settings not working for single page and post page
 
 Version 2.2.2 // 2023-03-09
 -Fixed: Some translation issues.

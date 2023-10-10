@@ -4,7 +4,7 @@
  * Plugin URI: https://wpmet.com/
  * Description: Wp Social Login / Social Sharing / Social Counter System for Facebook, Google, Twitter, Linkedin, Dribble, Pinterest, Wordpress, Instagram, GitHub, Vkontakte, Reddit and more providers.
  * Author: Wpmet
- * Version: 2.2.3
+ * Version: 2.2.5
  * Author URI: https://wpmet.com/
  * Text Domain: wp-social
  * License: GPL2+
@@ -14,8 +14,8 @@
 
 defined('ABSPATH') || exit;
 
-define('WSLU_VERSION', '2.2.3');
-define('WSLU_VERSION_PREVIOUS_STABLE_VERSION', '2.2.2');
+define('WSLU_VERSION', '2.2.5');
+define('WSLU_VERSION_PREVIOUS_STABLE_VERSION', '2.2.4');
 
 define("WSLU_LOGIN_PLUGIN", plugin_dir_path(__FILE__));
 define("WSLU_LOGIN_PLUGIN_URL", plugin_dir_url(__FILE__));

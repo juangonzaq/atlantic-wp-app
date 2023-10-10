@@ -1,6 +1,7 @@
 <?php
 
 use WP_Social\App\Settings;
+use WP_Social\App\Login_Settings;
 use WP_Social\Lib\Login\Line_App;
 
 defined('ABSPATH') || exit;
@@ -739,8 +740,10 @@ function create_line_app_user($code, $socialType) {
 		die('Please allow line app email permission');
 	}
 
-	$final_redirect = get_site_url() . '/wp-admin';
-
+	$login_settings_obj = new Login_Settings();
+	$login_global_settings    = $login_settings_obj->get_global_settings();
+	$final_redirect = (isset( $login_global_settings['custom_login_url'] ) && isset( $login_global_settings['custom_login_url']['enable'] ) && isset( $login_global_settings['custom_login_url']['data'] )) ? $login_global_settings['custom_login_url']['data'] : get_site_url() . '/wp-admin';
+	
 	$old_user = get_user_by('email', $user->email);
 
 	if ($old_user == false) {
@@ -758,19 +761,23 @@ function create_line_app_user($code, $socialType) {
 			'role'          => $default_role
 		];
 
-		$attach     = save_image_from_url_as_attachment($user->picture);
+		$attach     = isset($user->picture) ? save_image_from_url_as_attachment($user->picture) : '';
 
 		$user_id    = xs_social_create_user($insertData);
 
 		if ($user_id > 0) {
-			if (empty($attach['error'])) {
-
-				update_user_meta($user_id, 'xs_social_register_by', $socialType);
-				update_user_meta($user_id, 'xs_social_profile_image', $attach['url']);
-				update_user_meta($user_id, 'xs_social_profile_image_id', $attach['attachment_id']);
-			} else {
-				update_user_meta($user_id, 'xs_social_profile_image', '');
-				update_user_meta($user_id, 'xs_social_profile_image_error_log', $socialType . '::' . $attach['error']);
+			
+			//if image not save for this user then attach will be empty
+			if( !empty($attach) ){
+				if (empty($attach['error'])) {
+	
+					update_user_meta($user_id, 'xs_social_register_by', $socialType);
+					update_user_meta($user_id, 'xs_social_profile_image', $attach['url']);
+					update_user_meta($user_id, 'xs_social_profile_image_id', $attach['attachment_id']);
+				} else {
+					update_user_meta($user_id, 'xs_social_profile_image', '');
+					update_user_meta($user_id, 'xs_social_profile_image_error_log', $socialType . '::' . $attach['error']);
+				}
 			}
 			$wp_social_login_settings = get_option('xs_global_setting_data');
 
