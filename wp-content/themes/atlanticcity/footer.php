@@ -98,16 +98,31 @@
 
 <script>
 
-    setTimeout(function() {
-        document.getElementById('dataConsentCheckbox').addEventListener('change', function() {
-            const loginButton = document.getElementById('loginButton');
-            if (this.checked) {
-                loginButton.removeAttribute('disabled');
-            } else {
-                loginButton.setAttribute('disabled', 'disabled');
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+            const loginButton = document.querySelector('.xs-login .wslu-color-scheme--google');
+            if (loginButton) {
+                loginButton.style.pointerEvents = "none";
+                loginButton.style.opacity = "0.5";
+
+                document.getElementById('dataConsentCheckbox').addEventListener('change', function() {
+                    if (this.checked) {
+                        loginButton.style.pointerEvents = "all";
+                        loginButton.style.opacity = "1";
+                    } else {
+                        loginButton.style.pointerEvents = "none";
+                        loginButton.style.opacity = "0.5";
+                    }
+                });
+
+                observer.disconnect();
             }
-        });
-    }, 2000);
+        }
+    });
+});
+observer.observe(document.body, { childList: true, subtree: true });
+
 
     function disableMenus(menuSelect){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
