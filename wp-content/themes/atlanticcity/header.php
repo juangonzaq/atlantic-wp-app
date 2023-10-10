@@ -220,7 +220,7 @@
 							</div>
 							
 							<!-- SEARCH MOBILE -->
-							<div class="flex md:hidden h-full">
+							<div class="flex md:hidden pr-2 h-full">
 								<span class="flex at-menu-nav-mobile mr-2">
 									<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white hover:text-primary h-full z-20">
 										<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center icon-search">
