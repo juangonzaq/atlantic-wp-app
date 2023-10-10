@@ -95,7 +95,7 @@
 								foreach ($iconos as $icon) {
 									?>
 									<div class="swiper-slide px-0 md:px-12">
-										<a class="w-9 h-9 bg-gray rounded-full p-1.5 cursor-pointer flex justify-center items-center" data="<?php echo $aux."-".count($iconos); ?>">
+										<a href="<?php echo $icon['href']; ?>" class="w-9 h-9 bg-gray rounded-full p-1.5 cursor-pointer flex justify-center items-center  hover:border-primary" data="<?php echo $aux."-".count($iconos); ?>">
 											<img class="h-6 w-6 max-w-none" src="<?php echo $icon['icon']; ?>" alt="">
 										</a>
 									</div>
