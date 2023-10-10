@@ -12,7 +12,11 @@ get_header();
 						<span class="h-1 bg-primary rounded-xl absolute w-1/2 bottom-0 left-0 right-0 mx-auto"></span>
 					</h1>
 					<div class="text-base text-white font-normal text-center mt-8">
-						<input type="checkbox" id="dataConsentCheckbox"> Estoy de acuerdo en compartir mis datost
+						<label>
+							<input type="checkbox" id="dataConsentCheckbox">
+							Estoy de acuerdo en compartir mis datos
+						</label>
+						
 						<?php 
 							if (is_user_logged_in()) {
 								header('Location: ' . home_url());
