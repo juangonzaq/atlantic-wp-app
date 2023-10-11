@@ -428,13 +428,13 @@ get_header();
         <?php } }?>
     <!-- INSTAGRAM -->
         <section class="main-container mx-auto flex flex-col mt-12 gap-x-8 px-0 md:px-12">
-			<div class="flex w-full py-3">
+			<div class="flex w-full">
 				<h2 class="text-2xl font-semibold text-white mx-auto">
-					Síguenos en 
+					Síguenos en instagram
 					<a href="https://www.instagram.com/atlanticcityperu/" target="_blank" class="text-primary text-2xl font-semibold">@atlanticcitysports</a>
 				</h2>
 			</div>
-			<div class="w-full flex flex-wrap gap-y-4 mt-8 md:mt-12">
+			<div class="w-full flex flex-wrap gap-y-2 mt-4 md:mt-4">
 				<?php echo do_shortcode("[instagram-feed feed=1]"); ?>
 			</div>
 		</section>
