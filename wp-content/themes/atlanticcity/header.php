@@ -322,36 +322,36 @@
 														</div>
 													</span>
 												</div>
-												<!--<div class="allContent">
+												<div class="allContent">
 													<div class="itemContentMobile" id="todos-mobile">
 														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
 														</div>
 														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+															<ahref="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 														</div>
 													</div>
 													<div class="itemContentMobile" id="noticias-mobile" style="display:none">
 														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
 														</div>
 														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+															<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 														</div>
 													</div>
 													<div class="itemContentMobile" id="videos-mobile" style="display:none">
 														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
 														</div>
 														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+															<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 														</div>
 													</div>
 													<div class="itemContentMobile" id="galeria-mobile" style="display:none">
 														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
 														</div>
 														<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+															<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 														</div>
 													</div>
-												</div>-->
+												</div>
 											</div>
 										</div>
 									</div>
