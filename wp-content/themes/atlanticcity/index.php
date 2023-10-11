@@ -204,8 +204,14 @@ get_header(); ?>
                                 $orderby      = 'menu_order';
                                 $empty        = 0;
                                 $idcrop = $idCategory;
-                                if ($category->parent) {
-                                    $idcrop = $category->parent;
+                                if ($category->parent) {                                   
+                                    $ancestros_inside = get_ancestors($idCategory, 'category');
+                                    if (count($ancestros_inside) > 1) {
+                                        $parentaa = get_term( $ancestros_inside[0], 'category');
+                                        $idcrop = $parentaa->parent;
+                                    } else {
+                                        $idcrop = $category->parent;
+                                    } 
                                 }
                                 $args = array(
                                     'taxonomy'     => $taxonomy,
@@ -219,9 +225,15 @@ get_header(); ?>
                                         $link = get_term_link($self->slug, 'category');
                                         $name = $self->name;      
                                         $active = false;
-                                        if($self->term_id == $idCategory) {
-                                            $active = true;
-                                        }                                        
+                                        if (count($ancestros_inside) > 1) {
+                                            if($self->term_id == $parentaa->term_id) {
+                                                $active = true;
+                                            } 
+                                        } else {
+                                            if($self->term_id == $idCategory) {
+                                                $active = true;
+                                            }
+                                        }                                       
                                         ?>
                                         <li class="w-full md:w-auto h-full px-0 md:px-4">
                                             <a href="<?php echo $link; ?>" class="<?php if($active) echo "active"; ?> w-full px-8 md:px-0 py-4 md:py-0 flex items-center h-full font-normal text-base text-white h-full cursor-pointer hover:text-primary nav-link-primary">
@@ -781,7 +793,7 @@ get_header(); ?>
                                         $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
                                         if ($aux < $la['cantidad']) {
                                 ?>
-                                <div class="w-full">
+                                <div class="w-full" id="inthisSection">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                                             <div class="w-2/5 relative overflow-hidden">
@@ -809,7 +821,6 @@ get_header(); ?>
                                 </div>
                                 <?php
                                         }
-                                    $aux++;
                                     endwhile;
                                 endif;
                                 ?>
@@ -917,6 +928,7 @@ get_header(); ?>
                         </div>
                         -->
                         <?php
+                            $arrayIds = array();
                             if ( have_posts() ) : ?>
                             <?php
                             $aux = 0;
@@ -928,6 +940,7 @@ get_header(); ?>
                                 $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
                                 $hora = explode("T", get_the_date('c', $myid))[1];
                                 $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+                                array_push($arrayIds, $myid);
                         ?>
                         <?php 
                             if ($aux == 0) {
@@ -1192,20 +1205,30 @@ get_header(); ?>
                         <?php if ($la['type'] == "posts") { ?> 
                             <div class="w-full flex flex-col gap-y-8">
                                 <?php
-                                    if ( have_posts() ) : ?>
+                                $args = array(
+                                    'post_type' => 'post', // Puedes cambiar 'post' al tipo de publicación que estás consultando.
+                                    'post__not_in' => $arrayIds, // Reemplaza 1, 2, 3 con los IDs que deseas excluir.
+                                    'posts_per_page' => -1, // -1 para mostrar todas las publicaciones, o puedes especificar un número específico.
+                                    'cat' => $idCategory
+                                );
+
+                                $query = new WP_Query($args);
+                                    if ( $query->have_posts() ) : ?>
                                     <?php
                                     $aux = 0;
                                     // Start the loop.
-                                    while ( have_posts() ) :
-                                        the_post();
+                                    while ( $query->have_posts() ) :
+                                        $query->the_post();
                                         $myid = get_the_ID();
                                         $date = explode("T", get_the_date('c', $myid))[0];
                                         $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
                                         $hora = explode("T", get_the_date('c', $myid))[1];
                                         $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+                                        
+                                            
                                         if ($aux < $la['cantidad']) {
                                 ?>
-                                <div class="w-full">
+                                <div class="w-full" id="thisis">
                                     <article class="w-full notice notice-small">
                                         <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
                                             <div class="w-2/5 relative overflow-hidden">
@@ -1232,8 +1255,8 @@ get_header(); ?>
                                     </article>
                                 </div>
                                 <?php
-                                        }
                                     $aux++;
+                                    }
                                     endwhile;
                                 endif;
                                 ?>

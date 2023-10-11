@@ -302,9 +302,59 @@ function send_mydata(){
 		}
 	}*/
 	//print_r($mypostsTitle);
-	wp_send_json(array("posts" => $listPosts, "medias" => $medias, "videos" => $videos));
+	$primerosSeis = array_slice($listPosts, 0, 8);
+	$completerray = array("posts" => $primerosSeis, "medias" => $medias, "videos" => $videos);
+	wp_send_json($completerray);
     //wp_send_json(  );
 }
+
+
+add_action('wp_ajax_nopriv_send_mydatafull', 'send_mydatafull');
+
+// Hook para usuarios logueados
+add_action('wp_ajax_send_mydatafull', 'send_mydatafull');
+
+// Función que procesa la llamada AJAX
+function send_mydatafull(){
+	global $wpdb;
+    // Check parameters
+	$title  = isset( $_POST['value'] ) ? $_POST['value'] : false;
+	//all posts
+	$mypostsTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );	
+	//$mymediasTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );
+	$listPosts = array();
+	$medias = array();
+	$videos = array();
+	foreach ($mypostsTitle as $post) {		
+		$date = explode(" ", $post->post_date)[0];
+		$newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+		$hora = explode(" ", $post->post_date)[1];
+		$newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+		if ($post->post_type == "post") {	
+			array_push($listPosts, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora));
+		}	
+		if ($post->post_type == "foto") {	
+			array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora));
+		}
+		if ($post->post_type == "video") {	
+			array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora));
+		}		
+	}
+	/*foreach ($mymediasTitle as $post) {		
+		if ($post->post_type == "attachment") {
+			if (strpos($post->guid, ".mp4") || strpos($post->guid, ".avi")) {
+				array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
+			} else {
+				array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
+			}		
+		}
+	}*/
+	//print_r($mypostsTitle);
+	$completerray = array("posts" => $listPosts, "medias" => $medias, "videos" => $videos);
+	wp_send_json($completerray);
+    //wp_send_json(  );
+}
+
 
 
 function wp_title_character_count() {
