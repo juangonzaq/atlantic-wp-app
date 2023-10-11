@@ -147,6 +147,12 @@ observer.observe(document.body, { childList: true, subtree: true });
             }
             else{
                 contentSearch.classList.toggle('show');
+                if(contentSearch.classList.contains('show')){
+                    document.body.classList.add('static-body');
+                }
+                else{
+                    document.body.classList.remove('static-body');
+                }
             }
         }
 
@@ -167,6 +173,12 @@ observer.observe(document.body, { childList: true, subtree: true });
             }
             else{
                 contentSearchDesk.classList.toggle('show');
+                if(contentSearchDesk.classList.contains('show')){
+                    document.body.classList.add('static-body');
+                }
+                else{
+                    document.body.classList.remove('static-body');
+                }
             }
         }
 
@@ -744,6 +756,11 @@ observer.observe(document.body, { childList: true, subtree: true });
         min-height: 332px !important;
     }
   
+  .static-body{
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+  }
 </style>
 </body>
 </html>
