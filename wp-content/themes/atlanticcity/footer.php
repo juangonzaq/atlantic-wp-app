@@ -455,11 +455,11 @@ observer.observe(document.body, { childList: true, subtree: true });
         }        
         let widthBody = (document.body.clientWidth > 640)?3.5:1.3;
 
-        setTimeout(() => {
+        // setTimeout(() => {
             loadSwipperCard(widthBody);
             loadSwipperBreads();
             // loadSwipperGallery(".swipper-gallery")
-        }, 500);
+        // }, 50);
 
         const menuItemMovil = document.querySelectorAll('.menu-item-movil');
         if(menuItemMovil){
