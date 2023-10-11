@@ -252,8 +252,8 @@ function powernature_pagination()
         'format' => '?paged=%#%',
         'current' => max(1, get_query_var('paged')),
         'total' => $wp_query->max_num_pages,
-        'prev_text' => __('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32.635 32.635" xml:space="preserve"><g><path d="M32.135,16.817H0.5c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h31.635c0.276,0,0.5,0.224,0.5,0.5 S32.411,16.817,32.135,16.817z"/><path d="M19.598,29.353c-0.128,0-0.256-0.049-0.354-0.146c-0.195-0.195-0.195-0.512,0-0.707l12.184-12.184L19.244,4.136 c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l12.537,12.533c0.094,0.094,0.146,0.221,0.146,0.354 s-0.053,0.26-0.146,0.354L19.951,29.206C19.854,29.304,19.726,29.353,19.598,29.353z"/></g></svg>','decorlux'),
-        'next_text' => __('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32.635 32.635" xml:space="preserve"><g><path d="M32.135,16.817H0.5c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h31.635c0.276,0,0.5,0.224,0.5,0.5 S32.411,16.817,32.135,16.817z"/><path d="M19.598,29.353c-0.128,0-0.256-0.049-0.354-0.146c-0.195-0.195-0.195-0.512,0-0.707l12.184-12.184L19.244,4.136 c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l12.537,12.533c0.094,0.094,0.146,0.221,0.146,0.354 s-0.053,0.26-0.146,0.354L19.951,29.206C19.854,29.304,19.726,29.353,19.598,29.353z"/></g></svg>','decorlux'),
+        'prev_text' => __('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32.635 32.635" xml:space="preserve"><g><path d="M32.135,16.817H0.5c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h31.635c0.276,0,0.5,0.224,0.5,0.5 S32.411,16.817,32.135,16.817z"/><path d="M19.598,29.353c-0.128,0-0.256-0.049-0.354-0.146c-0.195-0.195-0.195-0.512,0-0.707l12.184-12.184L19.244,4.136 c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l12.537,12.533c0.094,0.094,0.146,0.221,0.146,0.354 s-0.053,0.26-0.146,0.354L19.951,29.206C19.854,29.304,19.726,29.353,19.598,29.353z"/></g></svg>','atlanticcity'),
+        'next_text' => __('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32.635 32.635" xml:space="preserve"><g><path d="M32.135,16.817H0.5c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h31.635c0.276,0,0.5,0.224,0.5,0.5 S32.411,16.817,32.135,16.817z"/><path d="M19.598,29.353c-0.128,0-0.256-0.049-0.354-0.146c-0.195-0.195-0.195-0.512,0-0.707l12.184-12.184L19.244,4.136 c-0.195-0.195-0.195-0.512,0-0.707s0.512-0.195,0.707,0l12.537,12.533c0.094,0.094,0.146,0.221,0.146,0.354 s-0.053,0.26-0.146,0.354L19.951,29.206C19.854,29.304,19.726,29.353,19.598,29.353z"/></g></svg>','atlanticcity'),
         'show_all' => false,
         'end_size' => 1,
         'mid_size' => 1
@@ -302,9 +302,59 @@ function send_mydata(){
 		}
 	}*/
 	//print_r($mypostsTitle);
-	wp_send_json(array("posts" => $listPosts, "medias" => $medias, "videos" => $videos));
+	$primerosSeis = array_slice($listPosts, 0, 8);
+	$completerray = array("posts" => $primerosSeis, "medias" => $medias, "videos" => $videos);
+	wp_send_json($completerray);
     //wp_send_json(  );
 }
+
+
+add_action('wp_ajax_nopriv_send_mydatafull', 'send_mydatafull');
+
+// Hook para usuarios logueados
+add_action('wp_ajax_send_mydatafull', 'send_mydatafull');
+
+// Función que procesa la llamada AJAX
+function send_mydatafull(){
+	global $wpdb;
+    // Check parameters
+	$title  = isset( $_POST['value'] ) ? $_POST['value'] : false;
+	//all posts
+	$mypostsTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );	
+	//$mymediasTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );
+	$listPosts = array();
+	$medias = array();
+	$videos = array();
+	foreach ($mypostsTitle as $post) {		
+		$date = explode(" ", $post->post_date)[0];
+		$newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+		$hora = explode(" ", $post->post_date)[1];
+		$newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+		if ($post->post_type == "post") {	
+			array_push($listPosts, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora));
+		}	
+		if ($post->post_type == "foto") {	
+			array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora));
+		}
+		if ($post->post_type == "video") {	
+			array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora));
+		}		
+	}
+	/*foreach ($mymediasTitle as $post) {		
+		if ($post->post_type == "attachment") {
+			if (strpos($post->guid, ".mp4") || strpos($post->guid, ".avi")) {
+				array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
+			} else {
+				array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
+			}		
+		}
+	}*/
+	//print_r($mypostsTitle);
+	$completerray = array("posts" => $listPosts, "medias" => $medias, "videos" => $videos);
+	wp_send_json($completerray);
+    //wp_send_json(  );
+}
+
 
 
 function wp_title_character_count() {
@@ -331,3 +381,5 @@ function custom_redirect() {
     }
 }
 add_action('template_redirect', 'custom_redirect');
+
+

@@ -4,7 +4,7 @@ $frontpage_id = get_option( 'page_on_front' );
 $blog_id = get_option( 'page_for_posts' );
 get_header(); ?>
 <!-- section index init -->
-<main class="-screen relative flex flex-col bg-dark pb-24">
+<main data-page="" class="-screen relative flex flex-col bg-dark pb-24">
     <div class="w-full h-70-screen relative" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>'); background-repeat: no-repeat; background-size: cover;">
         <div class="w-full h-full absolute top-0 lef-0 bg-gradient-dark"></div>
     </div>

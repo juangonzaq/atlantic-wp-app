@@ -119,9 +119,9 @@ get_header(); ?>
                                     </svg>
                                 </span>
                             </a>
-                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
+                            <!--<a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>"  target="_blank" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
                                 <span class="mdi mdi-linkedin text-white-alt text-xl"></span>
-                            </a>
+                            </a>-->
                         </div>
                     </div>
                 </div>
@@ -153,9 +153,9 @@ get_header(); ?>
                             </span>
                         </a>
                         
-                        <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
+                        <!--<a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>" class="h-10 w-10 flex justify-center items-center rounded-full bg-dark-neutral">
                             <span class="mdi mdi-linkedin text-white-alt text-xl"></span>
-                        </a>
+                        </a>-->
 
                     </div>
                 </div>
@@ -287,7 +287,7 @@ get_header(); ?>
                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $relatedid )[0]->name;?></span>
                                     </div>
                                     <h3 class="mt-2  leading-6 text-white">
-                                        <a href="<?php echo get_the_post_thumbnail_url($relatedid);?>" class="text-lg font-semibold text-2xl">
+                                        <a href="<?php echo get_permalink($relatedid);?>" class="text-lg font-semibold text-2xl">
                                         <?php echo get_the_title($myid);?>
                                         </a>
                                     </h3>
@@ -342,5 +342,9 @@ get_header(); ?>
     color: white;
     margin-bottom: 10px;
 }
+.comment-notes, .logged-in-as {
+    display: none !important;
+}
+
 </style>
 <?php get_footer(); ?>

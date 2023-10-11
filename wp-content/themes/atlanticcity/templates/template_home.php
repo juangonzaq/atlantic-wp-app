@@ -276,7 +276,7 @@ get_header();
     <!-- HOME END -->
     <?php }} ?>
     <!-- GALERÍA DE FOTOS -->
-		<section class="main-container mx-auto flex flex-col mt-12 gap-x-8 gap-y-8 px-0 md:px-12">
+		<section class="main-container mx-auto flex flex-col mt-12 gap-x-8 px-0 md:px-12">
 			<div class="flex w-full border-solid border-b border-gray-light py-3">
 				<h1 class="text-2xl font-semibold text-white pr-2 md:pr-0">
 					GALERÍA DE FOTOS
@@ -427,11 +427,11 @@ get_header();
         </div>
         <?php } }?>
     <!-- INSTAGRAM -->
-        <section class="main-container mx-auto flex flex-col mt-12 gap-x-8 gap-y-8 px-0 md:px-12">
+        <section class="main-container mx-auto flex flex-col mt-12 gap-x-8 px-0 md:px-12">
 			<div class="flex w-full py-3">
 				<h2 class="text-2xl font-semibold text-white mx-auto">
 					Síguenos en 
-					<a href="" class="text-primary text-2xl font-semibold">@atlanticcitysports</a>
+					<a href="https://www.instagram.com/atlanticcityperu/" target="_blank" class="text-primary text-2xl font-semibold">@atlanticcitysports</a>
 				</h2>
 			</div>
 			<div class="w-full flex flex-wrap gap-y-4 mt-8 md:mt-12">

@@ -277,6 +277,11 @@ class Notice{
     }
     
     public function get_notice(){
+
+        if(!current_user_can('manage_options')) {
+            return;
+        }
+
         // dismissible conditions
 		if ( 'user' === $this->dismissible) {
 			$expired = get_user_meta( get_current_user_id(), $this->notice_id, true );
@@ -306,7 +311,6 @@ class Notice{
     }
 
     public function  generate_html() {
-
 		?>
         <div 
             id="<?php echo esc_attr($this->notice_id); ?>" 
@@ -389,7 +393,7 @@ class Notice{
 	}
     
 	public static function enqueue_scripts() {
-		?> "
+		?>
 			<script>
                 jQuery(document).ready(function ($) {
                     $( '.wpmet-notice.is-dismissible' ).on( 'click', '.notice-dismiss', function() {

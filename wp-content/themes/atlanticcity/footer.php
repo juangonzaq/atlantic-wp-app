@@ -24,7 +24,7 @@
                                 foreach ($mn['submenu'] as $m) {
                                     ?>
                         <li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
-							<a href="<?php echo $m['link']; ?>" class="underline text-white"><?php echo $m['text']; ?></a>
+							<a href="<?php echo $m['link']['url']; ?>" target="_blank" class="underline text-white"><?php echo $m['text']; ?></a>
 						</li>
                                     <?php
                                 }
@@ -97,6 +97,32 @@
 <script src="<?php echo site_url()?>/wp-content/themes/atlanticcity/plugins/swiper/swiper-bundle.min.js"></script>
 
 <script>
+
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+            const loginButton = document.querySelector('.xs-login .wslu-color-scheme--google');
+            if (loginButton) {
+                loginButton.style.pointerEvents = "none";
+                loginButton.style.opacity = "0.5";
+
+                document.getElementById('dataConsentCheckbox').addEventListener('change', function() {
+                    if (this.checked) {
+                        loginButton.style.pointerEvents = "all";
+                        loginButton.style.opacity = "1";
+                    } else {
+                        loginButton.style.pointerEvents = "none";
+                        loginButton.style.opacity = "0.5";
+                    }
+                });
+
+                observer.disconnect();
+            }
+        }
+    });
+});
+observer.observe(document.body, { childList: true, subtree: true });
+
 
     function disableMenus(menuSelect){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
@@ -583,6 +609,10 @@
     });
 </script>
 <style>
+    .xs-login__item[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
     body.archive.category-futbol-internacional .header-title{
         height: 56px;
     }

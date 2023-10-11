@@ -20,16 +20,20 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'atlanticcity' );
+define('FS_METHOD', 'direct');
+
+
+define( 'DB_NAME', 'production' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'user_atlantic_db' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', '^v07X4DevbI?' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'dbproduction-instance-1.cr1kuwmr3ntp.us-east-2.rds.amazonaws.com:6969' );
+
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -79,7 +83,7 @@ $table_prefix = 'at_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', false);
 
 /* Add any custom values between this line and the "stop editing" line. */
 

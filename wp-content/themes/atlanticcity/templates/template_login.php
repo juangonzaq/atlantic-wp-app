@@ -1,8 +1,7 @@
-<?php /* Template Name: login */
+<?php
 set_query_var('ENTRY', 'home');
 get_header();
 ?>
-<!-- home content -->
 <main class="h-header-screen w-screen relative flex justify-center items-center margin-top-header">
 		<img class="absolute top-0 left-0 object-cover w-full h-full" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
 		<div class="container z-10 pb-24">
@@ -13,6 +12,11 @@ get_header();
 						<span class="h-1 bg-primary rounded-xl absolute w-1/2 bottom-0 left-0 right-0 mx-auto"></span>
 					</h1>
 					<div class="text-base text-white font-normal text-center mt-8">
+						<label>
+							<input type="checkbox" id="dataConsentCheckbox">
+							Estoy de acuerdo en compartir mis datos
+						</label>
+						
 						<?php 
 							if (is_user_logged_in()) {
 								header('Location: ' . home_url());

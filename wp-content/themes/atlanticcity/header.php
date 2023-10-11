@@ -17,6 +17,13 @@
 		}
     ?>
 	<style>
+		@media (max-width: 640px) {
+			.content-logo-mobile ~ .menu-desktop{
+				width: 95% !important;
+			}
+		}
+		
+
 		  	.at-menu-nav-nh{
 				margin: 0 !important;
 				padding-right: 1.5rem;
@@ -134,7 +141,7 @@
 								</svg>
 							</button>
 						</div>
-						<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start content-logo-mobile mx-24 md:mx-0">
+						<div class="flex flex-1 items-center sm:items-stretch sm:justify-start content-logo-mobile mx-14 md:mx-0">
 						<div class="flex flex-shrink-0 items-center">
 							<a href="<?php echo site_url(); ?>">
 								<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
@@ -142,7 +149,7 @@
 							</a>
 						</div>
 					</div>
-						<div class="flex items-center pr-2 h-full menu-desktop">
+						<div class="flex items-center pr-6 h-full menu-desktop">
 							<!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 h-full"> -->
 							<div class="hidden sm:ml-6 sm:block mr-5 h-full">
 								<ul class="flex space-x-4 h-full">
@@ -213,7 +220,7 @@
 							</div>
 							
 							<!-- SEARCH MOBILE -->
-							<div class="flex md:hidden h-full">
+							<div class="flex md:hidden pr-2 h-full">
 								<span class="flex at-menu-nav-mobile mr-2">
 									<span role="button" class="at-menu-nav-button text-gray-300 py-2 text-base font-normal flex items-center text-white hover:text-primary h-full z-20">
 										<span class="w-10 h-10 rounded-full bg-dark p-2 flex justify-center icon-search">
@@ -315,7 +322,7 @@
 														</div>
 													</span>
 												</div>
-												<div class="allContent">
+												<!--<div class="allContent">
 													<div class="itemContentMobile" id="todos-mobile">
 														<div class="flex flex-wrap w-full gap-y-4 mt-8 mobileJsContent">
 														</div>
@@ -344,7 +351,7 @@
 															<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 														</div>
 													</div>
-												</div>
+												</div>-->
 											</div>
 										</div>
 									</div>
@@ -398,28 +405,28 @@
 															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
 															</div>
 															<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-																<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 															</div>
 														</div>
 														<div class="itemContent" id="noticias" style="display:none">
 															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
 															</div>
 															<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-																<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 															</div>
 														</div>
 														<div class="itemContent" id="videos" style="display:none">
 															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
 															</div>
 															<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-																<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 															</div>
 														</div>
 														<div class="itemContent" id="galeria" style="display:none">
 															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
 															</div>
 															<div class="flex justify-center gap-y-8 gap-x-8 mt-8 px-5">
-																<a href="<?php echo site_url() ?>/noticias" class="outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
+																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">VER MÁS</a>
 															</div>
 														</div>
 													</div>
@@ -479,3 +486,133 @@
 			</nav>
 		</header>
 	</div>
+<script>
+function callAjaxFull() {
+jQuery.ajax({
+	type: "post",
+	dataType: "json",
+	url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+	data: {
+		action: "send_mydatafull",
+		value: jQuery("#search").val()
+	},
+	success: function(response) {
+		const posts = response.posts;
+		const medias = response.medias;
+		const videos = response.videos;
+		const lengthtotal = posts.length + medias.length + videos.length;
+		jQuery('.nav-link-search').eq(0).attr("data-result", lengthtotal);
+		jQuery('.nav-link-search').eq(1).attr("data-result", response.posts.length);
+		jQuery('.nav-link-search').eq(2).attr("data-result", response.medias.length);
+		jQuery('.nav-link-search').eq(3).attr("data-result", response.videos.length);
+		jQuery('#resultados').html(lengthtotal);
+		//data
+		const $todos = jQuery('#todos').find('.addContentJs');
+		const $noticias = jQuery('#noticias').find('.addContentJs');
+		const $videos = jQuery('#videos').find('.addContentJs');
+		const $galeria = jQuery('#galeria').find('.addContentJs');
+		$todos.html("");
+		$noticias.html("");
+		$videos.html("");
+		$galeria.html("");
+		if (lengthtotal == 0) {
+			$todos.html("<div class='notresult'>No se encontraron resultados</div>");
+		}
+		if (posts.length > 0) {
+			posts.forEach((post) => {
+				const template = `
+					<div class="w-2/6 px-4">
+						<article class="w-full notice">
+							<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+								<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+								<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+				
+								<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+									<div class="flex items-center gap-x-2 text-white">
+										<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+									</div>
+									<h3 class="mt-2  leading-6 text-white">
+										<span class="text-lg font-medium">
+											${post.name}
+										</span>
+									</h3>
+								</div>
+							</a>
+						</article>
+					</div>
+				`;
+				$noticias.append(template);
+				$todos.append(template);
+			});
+		} else {
+			$noticias.html("<div class='notresult'>No se encontraron resultados</div>");
+		}
+		if (medias.length > 0) { 
+			medias.forEach((post) => {
+				const template = `
+					<div class="w-2/6 px-4">
+						<article class="w-full notice">
+							<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+								<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+								<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+				
+								<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+									<div class="flex items-center gap-x-2 text-white">
+										<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+									</div>
+									<h3 class="mt-2  leading-6 text-white">
+										<span class="text-lg font-medium">
+											${post.name}
+										</span>
+									</h3>
+								</div>
+							</a>
+						</article>
+					</div>
+				`;
+				$galeria.append(template);
+				$todos.append(template);
+			});
+		} else {
+			$galeria.html("<div class='notresult'>No se encontraron resultados</div>");
+		}
+		if (videos.length > 0) {
+			videos.forEach((post) => {
+				const template = `
+				<div class="w-2/6 px-4">
+					<article class="w-full notice">
+						<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+							<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+							<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+			
+							<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+								<div class="flex items-center gap-x-2 text-white">
+									<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+								</div>
+								<h3 class="mt-2  leading-6 text-white">
+									<span class="text-lg font-medium">
+										${post.name}
+									</span>
+								</h3>
+							</div>
+						</a>
+					</article>
+				</div>
+				`;
+				$videos.append(template);
+				$todos.append(template);
+			});
+		} else {
+			$videos.html("<div class='notresult'>No se encontraron resultados</div>");
+		}
+		jQuery("#MySearchcontent").show();
+		//functions
+	}
+});
+}
+
+jQuery('.jsSeeMore').on("click", function() {
+	jQuery(this).hide();
+	callAjaxFull();
+});
+</script>
