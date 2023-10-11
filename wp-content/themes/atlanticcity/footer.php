@@ -761,6 +761,14 @@ observer.observe(document.body, { childList: true, subtree: true });
     max-height: 100vh;
     overflow: hidden;
   }
+
+  .search-float-mobile{
+    overflow: auto;
+  }
+
+  .search-float{
+    overflow: auto;
+  }
 </style>
 </body>
 </html>
