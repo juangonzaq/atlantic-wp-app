@@ -928,32 +928,19 @@ get_header(); ?>
                         </div>
                         -->
                         <?php
-                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                            $posts_per_page = get_option('posts_per_page');
-                            
-                            $args_left = array(
-                                'post_type' => 'post',
-                                'posts_per_page' => $posts_per_page * $paged, // Esto obtendrá todas las publicaciones hasta la página actual.
-                                'cat' => $idCategory,
-                                'paged' => 1 // Esto asegura que obtengas todas las publicaciones desde la primera página hasta la actual.
-                            );
-                            
-                            $query_left = new WP_Query($args_left);
-                            $arrayIds = array(); 
+                            $arrayIds = array();
+                            if ( have_posts() ) : ?>
+                            <?php
                             $aux = 0;
                             // Start the loop.
-                            if ( have_posts() ) :
-                                while ($query_left->have_posts()) : 
-                                    $query_left->the_post();
-                                    $arrayIds[] = get_the_ID();
-
-                                    the_post();
-                                    $myid = get_the_ID();
-                                    $date = explode("T", get_the_date('c', $myid))[0];
-                                    $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
-                                    $hora = explode("T", get_the_date('c', $myid))[1];
-                                    $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
-                                    #array_push($arrayIds, $myid);
+                            while ( have_posts() ) :
+                                the_post();
+                                $myid = get_the_ID();
+                                $date = explode("T", get_the_date('c', $myid))[0];
+                                $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+                                $hora = explode("T", get_the_date('c', $myid))[1];
+                                $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+                                array_push($arrayIds, $myid);
                         ?>
                         <?php 
                             if ($aux == 0) {
@@ -1138,7 +1125,6 @@ get_header(); ?>
                         <?php
                             $aux++;
                             endwhile;
-                            wp_reset_postdata();
                         endif;
                         ?>
                     </div>                    
@@ -1224,7 +1210,6 @@ get_header(); ?>
                                     'post__not_in' => $arrayIds, // Reemplaza 1, 2, 3 con los IDs que deseas excluir.
                                     'posts_per_page' => -1, // -1 para mostrar todas las publicaciones, o puedes especificar un número específico.
                                     'cat' => $idCategory
-                                    'order' => 'DESC'
                                 );
 
                                 $query = new WP_Query($args);
@@ -1272,7 +1257,6 @@ get_header(); ?>
                                 <?php
                                     $aux++;
                                     }
-                                    wp_reset_postdata();
                                     endwhile;
                                 endif;
                                 ?>
