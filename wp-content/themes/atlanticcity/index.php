@@ -928,19 +928,31 @@ get_header(); ?>
                         </div>
                         -->
                         <?php
-                            $arrayIds = array();
-                            if ( have_posts() ) : ?>
-                            <?php
+                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                            $posts_per_page = get_option('posts_per_page');
+                            
+                            $args_left = array(
+                                'post_type' => 'post',
+                                'posts_per_page' => $posts_per_page * $paged, // Esto obtendrá todas las publicaciones hasta la página actual.
+                                'cat' => $idCategory,
+                                'paged' => 1 // Esto asegura que obtengas todas las publicaciones desde la primera página hasta la actual.
+                            );
+                            
+                            $query_left = new WP_Query($args_left);
+                            $arrayIds = array(); 
                             $aux = 0;
                             // Start the loop.
-                            while ( have_posts() ) :
+                            while ($query_left->have_posts()) : 
+                                $query_left->the_post();
+                                $arrayIds[] = get_the_ID();
+
                                 the_post();
                                 $myid = get_the_ID();
                                 $date = explode("T", get_the_date('c', $myid))[0];
                                 $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
                                 $hora = explode("T", get_the_date('c', $myid))[1];
                                 $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
-                                array_push($arrayIds, $myid);
+                                #array_push($arrayIds, $myid);
                         ?>
                         <?php 
                             if ($aux == 0) {
