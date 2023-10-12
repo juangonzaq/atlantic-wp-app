@@ -1223,7 +1223,8 @@ get_header(); ?>
                                     'post_type' => 'post', // Puedes cambiar 'post' al tipo de publicación que estás consultando.
                                     'post__not_in' => $arrayIds, // Reemplaza 1, 2, 3 con los IDs que deseas excluir.
                                     'posts_per_page' => -1, // -1 para mostrar todas las publicaciones, o puedes especificar un número específico.
-                                    'cat' => $idCategory
+                                    'cat' => $idCategory,
+                                    'order' => 'DESC'
                                 );
 
                                 $query = new WP_Query($args);
