@@ -452,7 +452,7 @@
 										if($me['menu']){
 											if(count($me['menu']) > 0){
 												?>
-													<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow"></span>
+													<span class="mdi mdi-chevron-down text-2xl flex pt-1 icon-arrow" data-submenu='True'></span>
 												<?php
 											}
 										}
