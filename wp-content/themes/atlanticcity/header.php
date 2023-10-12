@@ -446,7 +446,7 @@
 								foreach ($menu as $me) {
 									?>
 							<li>
-								<a href="#" class="<?php echo ($me['menu'])?((count($me['menu']) > 0)?'menu-item-movil':''):''; ?> text-white  hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3" aria-current="page">
+								<a href="<?php echo $menu['id']; ?>" class="<?php echo ($me['menu'])?((count($me['menu']) > 0)?'menu-item-movil':''):''; ?> text-white  hover:text-white block px-0 py-2 text-base font-regular flex w-full items-center justify-between border-b border-gray-light mb-3" aria-current="page">
 									<?php echo $me['nombre'];?>
 									<?php
 										if($me['menu']){
