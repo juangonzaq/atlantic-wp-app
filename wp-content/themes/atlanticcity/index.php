@@ -942,17 +942,18 @@ get_header(); ?>
                             $arrayIds = array(); 
                             $aux = 0;
                             // Start the loop.
-                            while ($query_left->have_posts()) : 
-                                $query_left->the_post();
-                                $arrayIds[] = get_the_ID();
+                            if ( have_posts() ) :
+                                while ($query_left->have_posts()) : 
+                                    $query_left->the_post();
+                                    $arrayIds[] = get_the_ID();
 
-                                the_post();
-                                $myid = get_the_ID();
-                                $date = explode("T", get_the_date('c', $myid))[0];
-                                $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
-                                $hora = explode("T", get_the_date('c', $myid))[1];
-                                $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
-                                #array_push($arrayIds, $myid);
+                                    the_post();
+                                    $myid = get_the_ID();
+                                    $date = explode("T", get_the_date('c', $myid))[0];
+                                    $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+                                    $hora = explode("T", get_the_date('c', $myid))[1];
+                                    $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+                                    #array_push($arrayIds, $myid);
                         ?>
                         <?php 
                             if ($aux == 0) {
@@ -1137,6 +1138,7 @@ get_header(); ?>
                         <?php
                             $aux++;
                             endwhile;
+                            wp_reset_postdata();
                         endif;
                         ?>
                     </div>                    
@@ -1269,6 +1271,7 @@ get_header(); ?>
                                 <?php
                                     $aux++;
                                     }
+                                    wp_reset_postdata();
                                     endwhile;
                                 endif;
                                 ?>
