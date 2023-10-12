@@ -383,3 +383,7 @@ function custom_redirect() {
 add_action('template_redirect', 'custom_redirect');
 
 
+function custom_category_list($cat_name, $category) {
+    return $cat_name . ' / ' . $category->slug;
+}
+add_filter('list_cats', 'custom_category_list', 10, 2);
