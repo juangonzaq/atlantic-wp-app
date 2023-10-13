@@ -253,7 +253,7 @@ get_header();
 
                                     <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
                                         <h3 class=" leading-6 text-white mb-12 w-1/2">
-                                            <a href="<?php echo $r['linkpublicidad']; ?>" class="text-2xl font-semibold">
+                                            <a href="<?php echo $r['linkpublicidad']; ?>" target="_blank" class="text-2xl font-semibold">
                                                 <?php echo $r['titlepublicidad']; ?>
                                             </a>
                                         </h3>
