@@ -141,15 +141,15 @@
 								</svg>
 							</button>
 						</div>
-						<div class="flex flex-1 items-center sm:items-stretch sm:justify-start content-logo-mobile mx-14 md:mx-0">
+						<div class="flex flex-1 items-center sm:items-stretch sm:justify-start content-logo-mobile ml-14 md:ml-0 mr-0 md:mr-0">
 						<div class="flex flex-shrink-0 items-center">
 							<a href="<?php echo site_url(); ?>">
-								<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
-								<img class="hidden h-8 w-auto lg:block w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
+								<img class="block h-auto w-auto lg:hidden w-180px mxw-180px" style="width: 160px;" src="<?php echo get_field('logo', 'options'); ?>">
+								<img class="hidden h-auto w-auto lg:block w-180px mxw-180px" style="width: 180px;" src="<?php echo get_field('logo', 'options'); ?>">
 							</a>
 						</div>
 					</div>
-						<div class="flex items-center pr-6 h-full menu-desktop">
+						<div class="flex items-center justify-end h-full menu-desktop w-full" style="width: 100% !important;">
 							<!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 h-full"> -->
 							<div class="hidden sm:ml-6 sm:block mr-5 h-full">
 								<ul class="flex space-x-4 h-full">
@@ -241,17 +241,19 @@
 								<div class="relative ml-3">
 									<div>
 									<!-- rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800  -->
-										<button type="button" class="flex items-center button-profile text-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+										<button type="button" class="flex items-center button-profile text-white" style="width: auto !important;" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
 											<img class="h-8 w-8 rounded-full mr-2" src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" alt="">
 											<?php global $current_user; wp_get_current_user(); ?>
-											<?php 
-											if ( is_user_logged_in() ) { 
-												$first_name = explode(' ', $current_user->user_firstname)[0];
-    											echo $first_name; 
-											} else { 
-												
-												wp_loginout(); 
-											} ?>
+											<span class="hidden md:flex">
+												<?php 
+												if ( is_user_logged_in() ) { 
+													$first_name = explode(' ', $current_user->user_firstname)[0];
+													echo $first_name; 
+												} else { 
+													
+													wp_loginout(); 
+												} ?>
+											</span>
 										</button>
 										</div>
 							

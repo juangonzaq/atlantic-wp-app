@@ -92,7 +92,7 @@ get_header();
                                     <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
             
                                     <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
-                                        <h3 class=" leading-6 text-white mb-12 w-1/2">
+                                        <h3 class=" leading-6 text-white mb-12 w-full md:w-1/2">
                                             <a href="<?php echo $ca['link']; ?>" class="text-xl md:text-2xl font-semibold">
                                             <?php echo $ca['text']; ?>
                                             </a>
