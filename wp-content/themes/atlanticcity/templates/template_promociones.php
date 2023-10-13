@@ -41,7 +41,7 @@ get_header();
                                         <div class="absolute top-0 left-0 w-full md:w-1/3 h-full flex flex-col justify-end md:justify-center px-16 pb-12 md:pb-0">
                                             <h1 class="hidden md:flex text-2xl text-white mb-5 font-bold "><?php echo $ba['title']; ?></h1>
                                             <span class="mx-auto md:mx-0">
-                                            <a href="<?php echo $ba['link']; ?>" class="w-full md:w-auto bg-primary text-primary font-semibold py-3 px-8 rounded text-dark hover:bg-primary hover:text-dark">
+                                            <a href="<?php echo $ba['link']; ?>" target="_blank" class="w-full md:w-auto bg-primary text-primary font-semibold py-3 px-8 rounded text-dark hover:bg-primary hover:text-dark">
                                              <?php echo $ba['link_text']; ?>
                                             </a>
                                             </span>
