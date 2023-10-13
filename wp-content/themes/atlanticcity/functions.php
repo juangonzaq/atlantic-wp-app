@@ -383,7 +383,22 @@ function custom_redirect() {
 add_action('template_redirect', 'custom_redirect');
 
 
-function custom_category_list($cat_name, $category) {
-    return $cat_name . ' / ' . $category->slug;
+require_once(ABSPATH . 'wp-admin/includes/template.php');
+function custom_category_checklist_args($args) {
+    $args['walker'] = new Custom_Walker_Category_Checklist;
+    return $args;
 }
-add_filter('list_cats', 'custom_category_list', 10, 2);
+add_filter('wp_terms_checklist_args', 'custom_category_checklist_args');
+
+class Custom_Walker_Category_Checklist extends Walker_Category_Checklist {
+    function start_el(&$output, $category, $depth = 0, $args = array(), $id = 0) {
+        extract($args);
+        if (empty($taxonomy)) {
+            $taxonomy = 'category';
+        }
+
+        $name = 'tax_input[' . $taxonomy . ']';
+        $class = in_array($category->term_id, $popular_cats) ? ' class="popular-category"' : '';
+        $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="' . $name . '[]" id="in-' . $taxonomy . '-' . $category->term_id . '"' . checked(in_array($category->term_id, $selected_cats), true, false) . disabled(empty($args['disabled']), false, false) . ' /> ' . esc_html(apply_filters('the_category', $category->name)) . ' (' . $category->slug . ')</label>';
+    }
+}
