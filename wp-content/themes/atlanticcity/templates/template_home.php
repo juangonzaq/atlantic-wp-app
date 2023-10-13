@@ -430,7 +430,7 @@ get_header();
         <section class="main-container mx-auto flex flex-col mt-12 gap-x-8 px-0 md:px-12">
 			<div class="flex w-full">
 				<h2 class="text-2xl font-semibold text-white mx-auto text-center">
-					Síguenos en INSTAGRAM
+					Síguenos en Instagram
 					<a href="https://www.instagram.com/atlanticcityperu/" target="_blank" class="text-primary text-2xl font-semibold">@atlanticcitysports</a>
 				</h2>
 			</div>
