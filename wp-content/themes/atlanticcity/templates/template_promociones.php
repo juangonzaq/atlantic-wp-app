@@ -98,7 +98,7 @@ get_header();
                                             </a>
                                         </h3>
                                         <span class="mx-auto">
-                                            <a href="<?php echo $ca['link']; ?>" class="outline outline-2 outline-primary text-primary font-medium py-2 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">MÁS INFORMACIÓN</A>
+                                            <a href="<?php echo $ca['link']; ?>" target="_blank"  class="outline outline-2 outline-primary text-primary font-medium py-2 px-4 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white">MÁS INFORMACIÓN</A>
                                         </span>
                                     </div>
                                 </div>
