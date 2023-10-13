@@ -766,7 +766,7 @@ get_header(); ?>
             
                                     <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
                                         <h3 class=" leading-6 text-white mb-12 w-1/2">
-                                            <a href="<?php echo $la['publicidad_link']; ?>" class="text-2xl font-semibold">
+                                            <a href="<?php echo $la['publicidad_link']; ?>" target="_blank" class="text-2xl font-semibold">
                                                 <?php echo $la['publicidad_title']; ?>
                                             </a>
                                         </h3>
@@ -1191,7 +1191,7 @@ get_header(); ?>
             
                                     <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
                                         <h3 class=" leading-6 text-white mb-12 w-1/2">
-                                            <a href="<?php echo $la['publicidad_link']; ?>" class="text-2xl font-semibold">
+                                            <a href="<?php echo $la['publicidad_link']; ?>" target="_blank" class="text-2xl font-semibold">
                                                 <?php echo $la['publicidad_title']; ?>
                                             </a>
                                         </h3>
@@ -1656,7 +1656,7 @@ get_header(); ?>
                         <?php if ($la['type'] == "publicidad") { ?> 
                             <div class="w-full">
                                 <div class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                    <img src="<?php echo $la['publicidad_imagen']; ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full">
+                                    <img src="<?php echo $la['publicidad_imagen']; ?>" target="_blank" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full">
                                     <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
             
                                     <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
