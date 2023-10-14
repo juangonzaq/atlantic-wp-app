@@ -903,6 +903,7 @@ get_header(); ?>
                             }
                         ?>
                         <?php
+                            $arrayIds = [];
                             $first_six_ids = array_slice($ids_posts, 0, 6);
                             $args_first_six = array(
                                 'post_type' => 'post',
