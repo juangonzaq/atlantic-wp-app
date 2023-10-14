@@ -917,6 +917,7 @@ get_header(); ?>
                                 $aux = 0;
                                 while ($query_first_six->have_posts()):
                                     $query_first_six->the_post();
+                                    $myid = get_the_ID();
                                     $date = explode("T", get_the_date('c'))[0];
                                     $newdate = explode("-", $date)[2] . "/" . explode("-", $date)[1] . "/" . explode("-", $date)[0];
                                     $hora = explode("T", get_the_date('c'))[1];
