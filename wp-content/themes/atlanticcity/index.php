@@ -911,18 +911,15 @@ get_header(); ?>
                             );
                             $query_first_six = new WP_Query($args_first_six);
 
-                            if ( $query_first_six->have_posts() ) : ?>
-                            <?php
+                            if ($query_first_six->have_posts()) :
                                 $aux = 0;
                                 while ($query_first_six->have_posts()) : $query_first_six->the_post();
-                                    the_post();
-                                    $myid = get_the_ID();
-                                    $date = explode("T", get_the_date('c', $myid))[0];
-                                    $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
-                                    $hora = explode("T", get_the_date('c', $myid))[1];
-                                    $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
-                                    array_push($arrayIds, $myid);
-                            ?>
+                                    $date = explode("T", get_the_date('c'))[0];
+                                    $newdate = explode("-", $date)[2] . "/" . explode("-", $date)[1] . "/" . explode("-", $date)[0];
+                                    $hora = explode("T", get_the_date('c'))[1];
+                                    $newhora = explode(":", $hora)[0] . ":" . explode(":", $hora)[1];
+                                    array_push($arrayIds, get_the_ID());
+                        ?>
                         <?php 
                             if ($aux == 0) {
                                 ?>
