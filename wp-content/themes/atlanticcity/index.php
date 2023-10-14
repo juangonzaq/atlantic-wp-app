@@ -410,6 +410,7 @@ get_header(); ?>
                         </ul>
                     </div>
                 </aside>
+
                 <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-7/12"; } else { echo "md:w-12/12"; } ?> px-5 md:px-0">
                     <?php 
                             $taxonomy     = 'category';
@@ -721,6 +722,7 @@ get_header(); ?>
                     </div>
                     <?php } ?>
                 </main>
+                
                 <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { ?>
                 <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
                     <div class="w-full flex flex-col py-8 gap-y-8">                        
@@ -837,6 +839,7 @@ get_header(); ?>
                     }
                     if ($orderitems == "arriba") {
                         ?>
+                
                 <main class="h-full w-full <?php if (!get_field("desactivar_lateral", "category_".$idCategory)) { echo "md:w-8/12"; } else { echo "md:w-12/12"; } ?> pr-5 md:pr-0 pl-3">
                     <div class="flex flex-col w-full py-8 px-0 md:px-8 gap-y-8">
                         <?php                        
@@ -890,58 +893,36 @@ get_header(); ?>
                                 <?php
                             }
                         ?>
-                        <!--
-                        <div class="flex w-full border-solid border-b border-gray-light py-3 flex items-center overflow-auto">
-                            <span class="mr-6">
-                                <img class="w-8" src="assets/img/icons/menu-4.svg" alt="">
-                            </span>
-                            <h1 class="text-xl font-semibold text-white whitespace-nowrap">
-                                SERIE A
-                            </h1>
-                            <div class="w-px h-12 bg-gray-light mx-8"></div>
-                            <div class="flex items-center">
-                                <span class="rounded-3xl border border-primary py-2 px-4 text-base font-medium text-primary bg-gray-tag mr-4">Todos</span>
-                                <div class="flex items-center gap-x-4">
-                                    <a class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                        <img class="w-full max-w-full max-h-full" src="assets/img/icons/sub-1.svg" alt="">
-                                    </a>
-                                    <a class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                        <img class="w-full max-w-full max-h-full" src="assets/img/icons/sub-2.svg" alt="">
-                                    </a>
-                                    <a class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                        <img class="w-full max-w-full max-h-full" src="assets/img/icons/sub-3.svg" alt="">
-                                    </a>
-                                    <a class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                        <img class="w-full max-w-full max-h-full" src="assets/img/icons/sub-4.svg" alt="">
-                                    </a>
-                                    <a class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                        <img class="w-full max-w-full max-h-full" src="assets/img/icons/sub-6.svg" alt="">
-                                    </a>
-                                    <a class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                        <img class="w-full max-w-full max-h-full" src="assets/img/icons/sub-7.svg" alt="">
-                                    </a>
-                                    <a class="w-12 h-12 bg-gray rounded-full p-2 cursor-pointer mx-2">
-                                        <img class="w-full max-w-full max-h-full" src="assets/img/icons/sub-8.svg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        -->
                         <?php
-                            $arrayIds = array();
-                            if ( have_posts() ) : ?>
-                            <?php
-                            $aux = 0;
-                            // Start the loop.
-                            while ( have_posts() ) :
-                                the_post();
-                                $myid = get_the_ID();
-                                $date = explode("T", get_the_date('c', $myid))[0];
-                                $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
-                                $hora = explode("T", get_the_date('c', $myid))[1];
-                                $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
-                                array_push($arrayIds, $myid);
+                            $ids_posts = array();
+                            if ( have_posts() ) {
+                                while ( have_posts() ) {
+                                    the_post();
+                                    array_push($ids_posts, get_the_ID());
+                                }
+                            }
                         ?>
+                        <?php
+                            $first_six_ids = array_slice($ids_posts, 0, 6);
+                            $args_first_six = array(
+                                'post_type' => 'post',
+                                'post__in' => $first_six_ids,
+                                'orderby' => 'post__in',
+                            );
+                            $query_first_six = new WP_Query($args_first_six);
+
+                            if ( $query_first_six->have_posts() ) : ?>
+                            <?php
+                                $aux = 0;
+                                while ($query_first_six->have_posts()) : $query_first_six->the_post();
+                                    the_post();
+                                    $myid = get_the_ID();
+                                    $date = explode("T", get_the_date('c', $myid))[0];
+                                    $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+                                    $hora = explode("T", get_the_date('c', $myid))[1];
+                                    $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+                                    array_push($arrayIds, $myid);
+                            ?>
                         <?php 
                             if ($aux == 0) {
                                 ?>
@@ -1148,22 +1129,22 @@ get_header(); ?>
                 <!-- izquierda -->
                 <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
                     <div class="w-full flex flex-col py-8 gap-y-8">                        
-                    <?php 
-                        $lateral = get_field( 'lateral', 'options');
-                        $idcropCat2 = $idCategory;
-                        if ($category->parent) {
-                            $idcropCat2 = $category->parent;
-                        }
-                        $lateralCat = get_field( 'lateral', "category_".$idCategory );    
-                                                   
-                        if ($lateralCat) {
-                            $lateral = $lateralCat;
-                        }
+                        <?php 
+                            $lateral = get_field( 'lateral', 'options');
+                            $idcropCat2 = $idCategory;
+                            if ($category->parent) {
+                                $idcropCat2 = $category->parent;
+                            }
+                            $lateralCat = get_field( 'lateral', "category_".$idCategory );    
+                                                    
+                            if ($lateralCat) {
+                                $lateral = $lateralCat;
+                            }
 
 
-                        if ($lateral) {
-                            foreach ($lateral as $la) {
-                                ?>                        
+                            if ($lateral) {
+                                foreach ($lateral as $la) {
+                        ?>                        
                         <?php if ($la['type'] == "clasificacion") { ?>  
                             <style>#iframeContent p{color: white;} #iframeContent iframe{ width: 100%;} #iframeContent{color: white;}</style>
                             <div class="w-full bg-gray rounded-xl">
