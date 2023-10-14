@@ -910,11 +910,13 @@ get_header(); ?>
                                 'post__in' => $first_six_ids,
                                 'orderby' => 'post__in',
                             );
+                            
                             $query_first_six = new WP_Query($args_first_six);
 
                             if ($query_first_six->have_posts()) :
                                 $aux = 0;
-                                while ($query_first_six->have_posts()) : $query_first_six->the_post();
+                                while ($query_first_six->have_posts()):
+                                    $query_first_six->the_post();
                                     $date = explode("T", get_the_date('c'))[0];
                                     $newdate = explode("-", $date)[2] . "/" . explode("-", $date)[1] . "/" . explode("-", $date)[0];
                                     $hora = explode("T", get_the_date('c'))[1];
@@ -1104,7 +1106,6 @@ get_header(); ?>
                         <?php
                             $aux++;
                             endwhile;
-                            wp_reset_postdata();
                         endif;
                         ?>
                     </div>                    
