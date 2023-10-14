@@ -1106,6 +1106,7 @@ get_header(); ?>
                         <?php
                             $aux++;
                             endwhile;
+                            wp_reset_postdata();
                         endif;
                         ?>
                     </div>                    
