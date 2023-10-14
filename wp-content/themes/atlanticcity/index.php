@@ -1108,6 +1108,9 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
+                    <div class="pag-link px-8 py-8">
+                        <?php powernature_pagination(); ?>
+                    </div>
                     
                     <?php 
                         $publicidad = get_field( 'publicidad', $category );
@@ -1250,11 +1253,6 @@ get_header(); ?>
                         <?php
                     }
                 ?>
-
-                <div class="pag-link px-8 py-8">
-                    <?php powernature_pagination(); ?>
-                </div>
-
             </div>
             <?php
         } else {
