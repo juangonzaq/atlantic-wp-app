@@ -1187,9 +1187,10 @@ get_header(); ?>
                         <?php if ($la['type'] == "posts") { ?> 
                             <div class="w-full flex flex-col gap-y-8">
                                 <?php
+                                $next_four_ids = array_slice($arrayIds, 6, 4);
                                 $args = array(
                                     'post_type' => 'post', // Puedes cambiar 'post' al tipo de publicación que estás consultando.
-                                    'post__not_in' => $arrayIds, // Reemplaza 1, 2, 3 con los IDs que deseas excluir.
+                                    'post__in' => $next_four_ids,
                                     'posts_per_page' => -1, // -1 para mostrar todas las publicaciones, o puedes especificar un número específico.
                                     'cat' => $idCategory
                                 );
