@@ -903,6 +903,7 @@ get_header(); ?>
                             }
                         ?>
                         <?php
+                            $arrayIds = [];
                             $first_six_ids = array_slice($ids_posts, 0, 6);
                             $args_first_six = array(
                                 'post_type' => 'post',
@@ -915,12 +916,14 @@ get_header(); ?>
                             if ($query_first_six->have_posts()) :
                                 $aux = 0;
                                 while ($query_first_six->have_posts()):
+                                    
                                     $query_first_six->the_post();
                                     $myid = get_the_ID();
                                     $date = explode("T", get_the_date('c'))[0];
                                     $newdate = explode("-", $date)[2] . "/" . explode("-", $date)[1] . "/" . explode("-", $date)[0];
                                     $hora = explode("T", get_the_date('c'))[1];
                                     $newhora = explode(":", $hora)[0] . ":" . explode(":", $hora)[1];
+                                    array_push($arrayIds, $myid);
                         ?>
                         <?php 
                             if ($aux == 0) {
@@ -1185,10 +1188,11 @@ get_header(); ?>
                         <?php if ($la['type'] == "posts") { ?> 
                             <div class="w-full flex flex-col gap-y-8">
                                 <?php
-                                $next_four_ids = array_slice($ids_posts, 6, 4);
+                                $next_four_ids = array_slice($ids_posts, 6, 5);
                                 $args = array(
                                     'post_type' => 'post', // Puedes cambiar 'post' al tipo de publicación que estás consultando.
                                     'post__in' => $next_four_ids,
+                                    'post__not_in' => $arrayIds,
                                     'posts_per_page' => -1, // -1 para mostrar todas las publicaciones, o puedes especificar un número específico.
                                     'cat' => $idCategory
                                 );
