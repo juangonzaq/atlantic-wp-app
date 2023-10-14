@@ -903,7 +903,6 @@ get_header(); ?>
                             }
                         ?>
                         <?php
-                            $arrayIds = [];
                             $first_six_ids = array_slice($ids_posts, 0, 6);
                             $args_first_six = array(
                                 'post_type' => 'post',
@@ -922,7 +921,6 @@ get_header(); ?>
                                     $newdate = explode("-", $date)[2] . "/" . explode("-", $date)[1] . "/" . explode("-", $date)[0];
                                     $hora = explode("T", get_the_date('c'))[1];
                                     $newhora = explode(":", $hora)[0] . ":" . explode(":", $hora)[1];
-                                    array_push($arrayIds, get_the_ID());
                         ?>
                         <?php 
                             if ($aux == 0) {
@@ -1187,7 +1185,7 @@ get_header(); ?>
                         <?php if ($la['type'] == "posts") { ?> 
                             <div class="w-full flex flex-col gap-y-8">
                                 <?php
-                                $next_four_ids = array_slice($arrayIds, 6, 4);
+                                $next_four_ids = array_slice($ids_posts, 6, 4);
                                 $args = array(
                                     'post_type' => 'post', // Puedes cambiar 'post' al tipo de publicación que estás consultando.
                                     'post__in' => $next_four_ids,
