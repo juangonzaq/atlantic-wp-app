@@ -281,14 +281,14 @@ get_header();
 				<h1 class="text-2xl font-semibold text-white pr-2 md:pr-0">
 					GALERÍA DE FOTOS
 				</h1>
-				<span class="border-solid border-l border-primary text-primary ml-0 md:ml-5 flex items-center px-5">
+				<!--<span class="border-solid border-l border-primary text-primary ml-0 md:ml-5 flex items-center px-5">
 					<a href="<?php echo site_url(); ?>/noticias" class="flex items-center whitespace-nowrap">
 						VER MÁS
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
 						</svg>						  
 					</a>
-				</span>
+				</span>-->
 			</div>
 
 			<div class="w-full flex gap-x-8 gap-y-8 mt-8">
