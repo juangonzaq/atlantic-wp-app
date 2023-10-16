@@ -1184,7 +1184,7 @@ get_header(); ?>
                         <?php if ($la['type'] == "posts") { ?> 
                             <div class="w-full flex flex-col gap-y-8">
                                 <?php
-                                $next_four_ids = array_slice($ids_posts, 6, 5);
+                                $next_four_ids = array_slice($ids_posts, 6, 7);
                                 $args = array(
                                     'post_type' => 'post', // Puedes cambiar 'post' al tipo de publicación que estás consultando.
                                     'post__in' => $next_four_ids,
