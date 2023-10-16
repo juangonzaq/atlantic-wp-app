@@ -1027,19 +1027,22 @@ get_header(); ?>
                                 <!-- una columna -->
                                 <div class="flex flex-col gap-y-8">
                                     <article class="w-full notice notice-small">
-                                        <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-64">
+                                        <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg h-auto md:h-64">
                                             <div class="w-5/12 relative overflow-hidden">
                                                 <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                             </div>
                                             <div class="w-7/12">
-                                                <div class="h-full w-full flex flex-col justify-center p-7">
+                                                <div class="h-full w-full flex flex-col justify-between md:justify-center p-7">
+                                                    <div class="items-center gap-x-2 text-white flex md:hidden">
+                                                        <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
+                                                    </div>
                                                     <h3 class="text-2xl font-medium leading-6 text-white mb-8">
-                                                        <span class="text-2xl font-medium">
+                                                        <span class="text-lg md:text-2xl font-normal md:font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
                                                     </h3>
                                                     <div class="flex items-center gap-x-2 text-sm text-white mt-2">
-                                                        <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>|<span class="leading-none text-sm"><?php echo $newdate; ?></span>|<span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
+                                                        <span class="text-warning leading-none text-sm hidden md:flex"><?php echo get_the_category( $myid )[0]->name;?></span><span class="hidden md:flex">|</span><span class="leading-none text-sm"><?php echo $newdate; ?></span>|<span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1051,23 +1054,25 @@ get_header(); ?>
                             if ($aux == 4 || $aux == 5) {
                                 ?>
                                     <?php if ($aux == 4) { ?>                                
-                                    <div class="gap-x-8 hidden md:flex">
-                                        <div class="w-1/2">
+                                    <div class="gap-x-8 gap-y-8 flex flex-col md:flex-row">
+                                        <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
-                                                <a href="<?php echo get_permalink($myid); ?>" class="flex bg-gray w-full flex-col items-start justify-between rounded-lg">
-                                                    <div class="w-full relative overflow-hidden h-56">
+                                                <a href="<?php echo get_permalink($myid); ?>" class="flex bg-gray w-full flex-row md:flex-col items-start justify-between rounded-lg h-56 md:h-auto">
+                                                    <div class="w-5/12 md:w-full relative overflow-hidden h-56">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                 
-                                                    <div class="w-full h-full flex flex-col justify-end p-7">
-                                                        <div class="flex items-center gap-x-2 text-white">
-                                                            <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
+                                                    <div class="w-7/12 md:w-full h-full flex flex-col justify-between md:justify-end p-7">
+                                                        <div class="w-full d-flex flex-col">
+                                                            <div class="flex items-center gap-x-2 text-white">
+                                                                <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
+                                                            </div>
+                                                            <h3 class="mt-2  leading-6 text-white">
+                                                                <span class="text-lg font-normal">
+                                                                <?php echo get_the_title($myid);?>
+                                                                </span>
+                                                            </h3>
                                                         </div>
-                                                        <h3 class="mt-2  leading-6 text-white">
-                                                            <span class="text-lg font-normal">
-                                                            <?php echo get_the_title($myid);?>
-                                                            </span>
-                                                        </h3>
                                                         <div class="flex items-center gap-x-2 text-white mt-3 text-sm">
                                                             <span class="leading-none text-sm"><?php echo $newdate; ?></span>|<span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
                                                         </div>
@@ -1077,22 +1082,24 @@ get_header(); ?>
                                         </div>
                                         <?php } ?>
                                         <?php if ($aux == 5) { ?>
-                                        <div class="w-1/2">
+                                        <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
-                                                <a href="<?php echo get_permalink($myid); ?>" class="flex bg-gray w-full flex-col items-start justify-between rounded-lg">
-                                                    <div class="w-full relative overflow-hidden h-56">
+                                                <a href="<?php echo get_permalink($myid); ?>" class="flex bg-gray w-full flex-row md:flex-col items-start justify-between rounded-lg h-56 md:h-auto">
+                                                    <div class="w-5/12 md:w-full relative overflow-hidden h-56">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                 
-                                                    <div class="w-full h-full flex flex-col justify-end p-7">
-                                                        <div class="flex items-center gap-x-2 text-white">
-                                                            <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
+                                                    <div class="w-7/12 md:w-full h-full flex flex-col justify-between md:justify-end p-7">
+                                                        <div class="w-full d-flex flex-col">
+                                                            <div class="flex items-center gap-x-2 text-white">
+                                                                <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
+                                                            </div>
+                                                            <h3 class="mt-2  leading-6 text-white">
+                                                                <span class="text-lg font-normal">
+                                                                <?php echo get_the_title($myid);?>
+                                                                </span>
+                                                            </h3>
                                                         </div>
-                                                        <h3 class="mt-2  leading-6 text-white">
-                                                            <span class="text-lg font-normal">
-                                                            <?php echo get_the_title($myid);?>
-                                                            </span>
-                                                        </h3>
                                                         <div class="flex items-center gap-x-2 text-white mt-3 text-sm">
                                                             <span class="leading-none text-sm"><?php echo $newdate; ?></span>|<span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
                                                         </div>
