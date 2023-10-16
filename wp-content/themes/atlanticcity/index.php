@@ -1085,7 +1085,7 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex w-full flex relative bg-gray overflow-hidden h-auto rounded-lg flex-row md:flex-col justify-between items-none md:items-start ">
-                                                    <div class="w-5/12 md:w-full relative overflow-hidden">
+                                                    <div class="w-5/12 md:w-full relative overflow-hidden h-56">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                 
@@ -1228,8 +1228,8 @@ get_header(); ?>
                                                         <div class="flex items-center gap-x-2 ">
                                                             <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                         </div>
-                                                        <h3 class="mt-2 leading-6 text-white">
-                                                            <span class="text-xl font-medium">
+                                                        <h3 class="mt-2 leading-6 text-white" title="<?php echo get_the_title($myid);?>">
+                                                            <span class="text-lg md:text-xl font-normal md:font-medium paragraph-cut-4">
                                                             <?php echo get_the_title($myid);?>
                                                             </span>
                                                         </h3>
