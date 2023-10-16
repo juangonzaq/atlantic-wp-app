@@ -1058,11 +1058,11 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex bg-gray w-full flex-row md:flex-col items-start justify-between rounded-lg h-56 md:h-auto">
-                                                    <div class="w-full relative overflow-hidden h-56">
+                                                    <div class="w-5/12 md:w-full relative overflow-hidden h-56">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                 
-                                                    <div class="w-full h-full flex flex-col justify-between md:justify-end p-7">
+                                                    <div class="w-7/12 md:w-full h-full flex flex-col justify-between md:justify-end p-7">
                                                         <div class="w-full d-flex flex-col">
                                                             <div class="flex items-center gap-x-2 text-white">
                                                                 <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
@@ -1085,11 +1085,11 @@ get_header(); ?>
                                         <div class="w-full md:w-1/2">
                                             <article class="w-full notice notice-small">
                                                 <a href="<?php echo get_permalink($myid); ?>" class="flex bg-gray w-full flex-row md:flex-col items-start justify-between rounded-lg h-56 md:h-auto">
-                                                    <div class="w-full relative overflow-hidden h-56">
+                                                    <div class="w-5/12 md:w-full relative overflow-hidden h-56">
                                                         <img src="<?php echo get_the_post_thumbnail_url($myid); ?>" alt="" class="rounded-tl-lg rounded-tr-lg object-cover object-center w-full h-full notice-image absolute left-0 top-0">
                                                     </div>
                                 
-                                                    <div class="w-full h-full flex flex-col justify-between md:justify-end p-7">
+                                                    <div class="w-7/12 md:w-full h-full flex flex-col justify-between md:justify-end p-7">
                                                         <div class="w-full d-flex flex-col">
                                                             <div class="flex items-center gap-x-2 text-white">
                                                                 <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
