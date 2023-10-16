@@ -1133,7 +1133,7 @@ get_header(); ?>
 
                 <!-- izquierda -->
                 <section class="h-full w-full md:w-4/12 pl-5 md:pl-0 pr-5 md:pr-4">
-                    <div class="w-full flex flex-col py-8 gap-y-8">                        
+                    <div class="w-full flex flex-col py-0 md:py-8 gap-y-8">                        
                         <?php 
                             $lateral = get_field( 'lateral', 'options');
                             $idcropCat2 = $idCategory;
