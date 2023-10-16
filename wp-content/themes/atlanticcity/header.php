@@ -4,6 +4,15 @@
     <meta charset="<?php bloginfo( 'charset' ) ?>">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">    	
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-NP5VR2X');</script>
+	<!-- End Google Tag Manager -->
+
     <link href="<?php echo site_url()?>/wp-content/themes/atlanticcity/plugins/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="<?php echo site_url()?>/wp-content/themes/atlanticcity/plugins/material-icons/materialdesignicons.min.css" rel="stylesheet">
     <link href="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/tailwind.min.css" rel="stylesheet">
@@ -68,6 +77,11 @@
 	</style>
 </head>
 <body <?php body_class($classextra); ?>>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP5VR2X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
     <div class="main-header z-30 w-full fixed top-0 left-0">
 		<?php if (is_front_page()) { ?>
 		<div class="main-menu px-2 md:px-8 h-main-menu bg-dark flex items-center">
