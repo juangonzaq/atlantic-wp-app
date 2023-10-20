@@ -163,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</a>
 						</div>
 					</div>
-						<div class="flex items-center justify-end h-full menu-desktop w-full" style="width: 100% !important; z-index: 20;" >
+						<div class="flex items-center justify-end h-full menu-desktop ml-auto" style="width: auto !important; z-index: 20;" >
 							<!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 h-full"> -->
 							<div class="hidden sm:ml-6 sm:block mr-5 h-full">
 								<ul class="flex space-x-4 h-full">
