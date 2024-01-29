@@ -23,16 +23,16 @@
 define('FS_METHOD', 'direct');
 
 
-define( 'DB_NAME', 'atlanticcity' );
+define( 'DB_NAME', 'production' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'user_atlantic_db' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', '^v07X4DevbI?' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'dbproduction-instance-1.cr1kuwmr3ntp.us-east-2.rds.amazonaws.com:6969');
 
 
 /** Database charset to use in creating database tables. */
