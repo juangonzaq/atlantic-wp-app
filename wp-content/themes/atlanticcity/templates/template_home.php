@@ -373,7 +373,7 @@ get_header();
                             <span class=" mdi mdi-close text-primary text-xl font-normal hover:underline cursor-pointer ml-2"></span>
                         </button>
                     </div>
-                    <div class="w-full mb-12 md:mb-4 mt-20 md:mt-0" style="width: 83.5%;">
+                    <div class="w-full mb-12 md:mb-4 mt-20 md:mt-0" style="width: 72%;">
                         <p class="text-base font-medium text-white"><?php echo get_the_title($id); ?></p>
                     </div>
                     <div class="swiper swipper-gallery max-h-full flex items-center w-full" data-modal-id="swiper-<?php echo $id; ?>">
@@ -391,7 +391,7 @@ get_header();
                             ?>
                         </div>
                     </div>
-                    <div class="w-full py-8" style="width: 83.5%;">
+                    <div class="w-full py-8" style="width: 71.5%;">
                         <div class="w-full flex justify-between items-start">
                             <div class="flex mr-0 md:mr-8 content-white pr-3 md:pr-80">
                                 <p class="text-base font-normal text-white-modal">
