@@ -378,6 +378,7 @@ observer.observe(document.body, { childList: true, subtree: true });
         let swiperGallery = new Swiper(id, {
             slidesPerView: 1.2,
             centeredSlides: true,
+            loop: true,
             spaceBetween: 0,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
