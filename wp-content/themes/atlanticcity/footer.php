@@ -1,94 +1,97 @@
 
-<footer class="bg-gray w-full px-8 py-10">
-		<div class="container mx-auto">
-            <div class="flex justify-center py-5">
-                <div class="w-full flex justify-center">
-					<a href="<?php echo site_url(); ?>" class="flex items-center justify-center md:justify-start">
-						<img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
-						<img class="hidden h-8 w-auto lg:block w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
-					</a>
-				</div>
-            </div>
-			<div class="md:flex md:justify-center">
-                <?php 
-                    $menusfooter = get_field('menu_footer', 'options');
-                    $aux = 0;
-                    if ($menusfooter) {
-                        foreach ($menusfooter as $mn) {
-                 ?>
-                 <div class="w-full md:w-3/12">
-					<h2 class="mb-4 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0"><?php echo $mn['title']; ?></h2>
-					<ul class="text-gray-600 dark:text-gray-400 font-medium">
-                        <?php
-                            if ($mn['submenu']) {
-                                foreach ($mn['submenu'] as $m) {
-                                    ?>
-                        <li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
-							<a href="<?php echo $m['link']['url']; ?>" target="_blank" class="underline text-white"><?php echo $m['text']; ?></a>
-						</li>
-                                    <?php
+<div class="w-full flex flex-col main-footer relative z-10">
+    <footer class="bg-gray w-full px-8 py-10">
+            <div class="container mx-auto">
+                <div class="flex justify-center py-5">
+                    <div class="w-full flex justify-center">
+                        <a href="<?php echo site_url(); ?>" class="flex items-center justify-center md:justify-start">
+                            <img class="block h-8 w-auto lg:hidden w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
+                            <img class="hidden h-8 w-auto lg:block w-180px mxw-180px" src="<?php echo get_field('logo', 'options'); ?>">
+                        </a>
+                    </div>
+                </div>
+                <div class="md:flex md:justify-center">
+                    <?php 
+                        $menusfooter = get_field('menu_footer', 'options');
+                        $aux = 0;
+                        if ($menusfooter) {
+                            foreach ($menusfooter as $mn) {
+                     ?>
+                     <div class="w-full md:w-3/12">
+                        <h2 class="mb-4 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0"><?php echo $mn['title']; ?></h2>
+                        <ul class="text-gray-600 dark:text-gray-400 font-medium">
+                            <?php
+                                if ($mn['submenu']) {
+                                    foreach ($mn['submenu'] as $m) {
+                                        ?>
+                            <li class="mb-1 justify-center md:justify-start flex py-2 md:py-1">
+                                <a href="<?php echo $m['link']['url']; ?>" target="_blank" class="underline text-white"><?php echo $m['text']; ?></a>
+                            </li>
+                                        <?php
+                                    }
                                 }
+                            ?>
+                        </ul>
+                        <?php
+                            if ($aux == 1) {
+                                ?>
+                                <div class="w-full mt-5 flex items-center justify-center md:justify-start my-4 md:my-4">
+                                    <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/Captura de Pantalla 2022-07-01 a la(s) 17.15 1.png" alt="Atlantic"></div>
+                                    <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/XMgroup1.png" alt="Atlantic"></div>
+                                    <div class="max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/x34 4 18Plus movie.png" alt="Atlantic"></div>
+                                </div>
+                                <?php
                             }
                         ?>
-					</ul>
-                    <?php
-                        if ($aux == 1) {
-                            ?>
-                            <div class="w-full mt-5 flex items-center justify-center md:justify-start my-4 md:my-4">
-                                <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/Captura de Pantalla 2022-07-01 a la(s) 17.15 1.png" alt="Atlantic"></div>
-                                <div class="mr-2 max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/XMgroup1.png" alt="Atlantic"></div>
-                                <div class="max-w-36"><img src="<?php echo site_url()?>/wp-content/themes/atlanticcity/css/x34 4 18Plus movie.png" alt="Atlantic"></div>
-                            </div>
-                            <?php
+                    </div>
+                     <?php
+                        $aux++;
+                            }
                         }
                     ?>
-				</div>
-                 <?php
-                    $aux++;
-                        }
-                    }
-                ?>
-				<div class="w-full md:w-3/12">
-					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Contacto</h2>
-					<ul class="text-gray-600 dark:text-gray-400 font-medium">
-						<li class="mb-1 justify-center md:justify-start flex">
-							<a href="<?php echo get_field('telefono_link', 'options'); ?>" class="underline text-white">
-                                <?php echo get_field('telefono', 'options'); ?>
-                            </a>
-						</li>
-						<li class="mb-1 justify-center md:justify-start flex">
-							<a href="<?php echo get_field('mailto', 'options'); ?>" class="underline text-white">
-                            <?php echo get_field('mail', 'options'); ?>
-                            </a>
-						</li>
-					</ul>
-					<h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Redes sociales</h2>
-					<div class="flex items-center justify-center md:justify-start mt-3">
-						<span class=" text-white  text-white flex gap-x-2">
-                                <?php if( have_rows('social_network', 'options') ): ?>
-                                
-                                <?php while( have_rows('social_network', 'options') ): the_row(); 
-                                    $image = get_sub_field('icon');
-                                    $url = get_sub_field('url');
-                                    ?>
-                                    <a href="<?php echo $url; ?>" target="_blank" class="underline text-white">
-                                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">    
-                                    </a>
-                                <?php endwhile; ?>
-                                
-                            <?php endif; ?>
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	
-	<div class="copyrigth w-full">
-		<div class="w-full py-4 px-5 flex justify-center bg-primary-dark">
-			<p class="m-0 text-white font-medium text-center">2022 © Atlantic City. Todos los derechos reservados.</p>
-		</div>
-	</div>
+                    <div class="w-full md:w-3/12">
+                        <h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Contacto</h2>
+                        <ul class="text-gray-600 dark:text-gray-400 font-medium">
+                            <li class="mb-1 justify-center md:justify-start flex">
+                                <a href="<?php echo get_field('telefono_link', 'options'); ?>" class="underline text-white">
+                                    <?php echo get_field('telefono', 'options'); ?>
+                                </a>
+                            </li>
+                            <li class="mb-1 justify-center md:justify-start flex">
+                                <a href="<?php echo get_field('mailto', 'options'); ?>" class="underline text-white">
+                                <?php echo get_field('mail', 'options'); ?>
+                                </a>
+                            </li>
+                        </ul>
+                        <h2 class="mb-6 text-xl font-semibold text-white text-center md:text-left mt-8 md:mb-0">Redes sociales</h2>
+                        <div class="flex items-center justify-center md:justify-start mt-3">
+                            <span class=" text-white  text-white flex gap-x-2">
+                                    <?php if( have_rows('social_network', 'options') ): ?>
+                                    
+                                    <?php while( have_rows('social_network', 'options') ): the_row(); 
+                                        $image = get_sub_field('icon');
+                                        $url = get_sub_field('url');
+                                        ?>
+                                        <a href="<?php echo $url; ?>" target="_blank" class="underline text-white">
+                                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">    
+                                        </a>
+                                    <?php endwhile; ?>
+                                    
+                                <?php endif; ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <div class="copyrigth w-full">
+            <div class="w-full py-4 px-5 flex justify-center bg-primary-dark">
+                <p class="m-0 text-white font-medium text-center">2022 © Atlantic City. Todos los derechos reservados.</p>
+            </div>
+        </div>
+</div>
+
 <script>
     var ajaxUrl = '<?php echo site_url()?>/wp-admin/admin-ajax.php';
 </script>
@@ -776,39 +779,83 @@ observer.observe(document.body, { childList: true, subtree: true });
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-}
+    }
 
-.paragraph-cut-2{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
+    .paragraph-cut-2{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
 
-.paragraph-cut-3{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
+    .paragraph-cut-3{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
 
-.paragraph-cut-4{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-}
+    .paragraph-cut-4{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
 
-.paragraph-cut-5{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-}
+    .paragraph-cut-5{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+</style>
+
+<script>
+    function setSizesHeight(){
+        let asideContentMenu = document.querySelector('.aside-content-menu');
+        let mainFooter = document.querySelector('.main-footer');
+        let windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        let documentHeight = document.body.clientHeight;
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        let footerHeight = mainFooter.offsetHeight;
+        let visibleFooterHeight = Math.min(windowHeight + scrollTop, documentHeight) - Math.max(documentHeight - footerHeight, scrollTop);
+        let diff = 0;
+        if(visibleFooterHeight < 343){
+            diff = 100;
+        }
+
+        asideContentMenu.style.maxHeight = `calc(100% - ${visibleFooterHeight - diff}px)`;
+    }
+
+    function generateActions(){
+        let asideContentMenu = document.querySelector('.aside-content-menu');
+        let mainFooter = document.querySelector('.main-footer');
+        
+        if(asideContentMenu && mainFooter){
+            document.addEventListener('scroll', () => {
+                setSizesHeight();
+            })
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        setTimeout(() => {
+            setSizesHeight();
+            generateActions();
+        }, 5000);
+    });
+</script>
+
+<style>
+    .modal-gallery{
+        height: 100vh !important;
+        top: 0 !important;
+        z-index: 30 !important;
+    }
 </style>
 </body>
 </html>

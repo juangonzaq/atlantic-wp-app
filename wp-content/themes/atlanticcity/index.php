@@ -361,7 +361,7 @@ get_header(); ?>
                     if ($orderitems == "izquierdo") {
                         ?>
                 <aside class="w-full md:w-60 relative md:fixed z-10 h-auto md:h-screen left-0 h-custom-logs">
-                    <div class="bg-gray h-full overflow-auto no-scrollbar">
+                    <div class="bg-gray h-full m-h- overflow-auto no-scrollbar aside-content-menu">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
                                 $idcrop = $idCategory;
@@ -1726,53 +1726,53 @@ get_header(); ?>
 </div>
 <style>
     body.category-liga-1-primera-division-pronostico-futbol-nacional .flex.w-full.border-solid.border-b.border-gray-light.py-3.flex.items-center.overflow-auto {
-        display: none;
+            display: none;
+        }
+        body.category-seleccion-peruana-pronostico-futbol-nacional .flex.w-full.border-solid.border-b.border-gray-light.py-3.flex.items-center.overflow-auto {
+            display: none;
+        }
+        .home {
+            background-color: #181B1E !important;
+        }
+        .navigation a svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+        position: relative;
+        top: 3px;
+        left: 4px;
     }
-    body.category-seleccion-peruana-pronostico-futbol-nacional .flex.w-full.border-solid.border-b.border-gray-light.py-3.flex.items-center.overflow-auto {
-        display: none;
+    .navigation a svg path {
+        fill: white;
+        stroke: white;
     }
-    .home {
-        background-color: #181B1E !important;
+    .navigation a {
+        color: white;
+        border: solid 1px #4fc1a7;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        line-height: 24px;
+        font-size: 16px;
+        border-radius: 50%;
+        margin: 0px 5px;
     }
-    .navigation a svg {
-    width: 14px;
-    height: 14px;
-    display: block;
-    position: relative;
-    top: 3px;
-    left: 4px;
-}
-.navigation a svg path {
-    fill: white;
-    stroke: white;
-}
-.navigation a {
-    color: white;
-    border: solid 1px #4fc1a7;
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    line-height: 24px;
-    font-size: 16px;
-    border-radius: 50%;
-    margin: 0px 5px;
-}
-.navigation span.current {
-    background: #4fc1a7;
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    line-height: 24px;
-    font-size: 16px;
-    border-radius: 50%;
-    color: white;
-    border: solid 1px #4fc1a7;
-    margin: 0px 5px;
-}
-.navigation {
-    display: flex;
-    margin-bottom: 20px;
-}
+    .navigation span.current {
+        background: #4fc1a7;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        line-height: 24px;
+        font-size: 16px;
+        border-radius: 50%;
+        color: white;
+        border: solid 1px #4fc1a7;
+        margin: 0px 5px;
+    }
+    .navigation {
+        display: flex;
+        margin-bottom: 20px;
+    }
 </style>
 <!-- section index end -->
 <?php get_footer(); ?>

@@ -180,7 +180,6 @@ import TweenLite from "gsap/TweenLite";
 		}
 	});
 	$('#searchMobile').on('keyup', function() {
-		console.log(1)
 		const $this = $(this);
 		const value = $this.val();
 		if (value.length > 2) {
