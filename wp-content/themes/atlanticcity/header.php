@@ -502,6 +502,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</nav>
 		</header>
 	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <script>
 function callAjaxFull() {
 
@@ -631,48 +633,44 @@ jQuery.ajax({
 jQuery('.jsSeeMore').on("click", function() {
 	jQuery(this).hide();
 	// callAjaxFull();
-});
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-        $('#search-new').on('keyup', (event) => {
-            const value = event.target.value;
-            if (value.length > 2) {
-                setTimeout(function(){
-                    jQuery.ajax({
-                        type: "post",
-                        dataType: "json",
-                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
-                        data: {
-                            action: "send_mydata",
-                            value: value
-                        },
-                        success: function(response) {
-                            const all = response.all;
-                            const posts = response.posts;
-                            const medias = response.medias;
-                            const videos = response.videos;
+	document.addEventListener('DOMContentLoaded', ()=>{
+		$('#search-new').on('keyup', (event) => {
+			const value = event.target.value;
+			if (value.length > 2) {
+				setTimeout(function(){
+					jQuery.ajax({
+						type: "post",
+						dataType: "json",
+						url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+						data: {
+							action: "send_mydata",
+							value: value
+						},
+						success: function(response) {
+							const all = response.all;
+							const posts = response.posts;
+							const medias = response.medias;
+							const videos = response.videos;
 							const postsCount = response.postsCount;
-                            const mediasCount = response.mediasCount;
-                            const videosCount = response.videosCount;
-                            const lengthtotal = posts.length + medias.length + videos.length;
-                            const countTotal = postsCount + mediasCount + videosCount;
-                            $('#MySearchcontent .nav-link-search').eq(0).attr("data-result", (lengthtotal > 8)?8:lengthtotal);
-                            $('#MySearchcontent .nav-link-search').eq(1).attr("data-result", response.posts.length);
-                            $('#MySearchcontent .nav-link-search').eq(2).attr("data-result", response.videos.length);
-                            $('#MySearchcontent .nav-link-search').eq(3).attr("data-result", response.medias.length);
-                            $('#resultados').html((lengthtotal > 8)?8:lengthtotal);
-                            //data
-                            const $todos = $('#todos').find('.addContentJs');
-                            const $noticias = $('#noticias').find('.addContentJs');
-                            const $videos = $('#videos').find('.addContentJs');
-                            const $galeria = $('#galeria').find('.addContentJs');
-                            $todos.html("");
-                            $noticias.html("");
-                            $videos.html("");
-                            $galeria.html("");
-
+							const mediasCount = response.mediasCount;
+							const videosCount = response.videosCount;
+							const lengthtotal = posts.length + medias.length + videos.length;
+							const countTotal = postsCount + mediasCount + videosCount;
+							$('#MySearchcontent .nav-link-search').eq(0).attr("data-result", (lengthtotal > 8)?8:lengthtotal);
+							$('#MySearchcontent .nav-link-search').eq(1).attr("data-result", response.posts.length);
+							$('#MySearchcontent .nav-link-search').eq(2).attr("data-result", response.videos.length);
+							$('#MySearchcontent .nav-link-search').eq(3).attr("data-result", response.medias.length);
+							$('#resultados').html((lengthtotal > 8)?8:lengthtotal);
+							//data
+							const $todos = $('#todos').find('.addContentJs');
+							const $noticias = $('#noticias').find('.addContentJs');
+							const $videos = $('#videos').find('.addContentJs');
+							const $galeria = $('#galeria').find('.addContentJs');
+							$todos.html("");
+							$noticias.html("");
+							$videos.html("");
+							$galeria.html("");
+	
 							if(countTotal > 8){
 								$('#todos').find('.buttonMore').removeClass('hidden');
 								$('#todos').find('.buttonMore').attr('data-page', 1);
@@ -680,7 +678,7 @@ jQuery('.jsSeeMore').on("click", function() {
 							else{
 								$('#todos').find('.buttonMore').addClass('hidden');
 							}
-
+	
 							if(postsCount > 8){
 								$('#noticias').find('.buttonMore').removeClass('hidden');
 								$('#noticias').find('.buttonMore').attr('data-page', 1);
@@ -696,7 +694,7 @@ jQuery('.jsSeeMore').on("click", function() {
 							else{
 								$('#galeria').find('.buttonMore').addClass('hidden');
 							}
-
+	
 							if(videosCount > 8){
 								$('#videos').find('.buttonMore').removeClass('hidden');
 								$('#videos').find('.buttonMore').attr('data-page', 1);
@@ -704,11 +702,11 @@ jQuery('.jsSeeMore').on("click", function() {
 							else{
 								$('#videos').find('.buttonMore').addClass('hidden');
 							}
-
-                            if (lengthtotal == 0) {
-                                $todos.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-
+	
+							if (lengthtotal == 0) {
+								$todos.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+	
 							if(all.length > 0){
 								all.forEach(post => {
 									if(post.type == 'post'){
@@ -786,136 +784,136 @@ jQuery('.jsSeeMore').on("click", function() {
 								});
 							}
 							
-                            if (posts.length > 0) {
-                                posts.forEach((post) => {
-                                    const template = `
-                                        <div class="w-2/6 px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
-                                                    <img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
-                                                    <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
-                                    
-                                                    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
-                                                        <div class="flex items-center gap-x-2 text-white">
-                                                            <span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                        </div>
-                                                        <h3 class="mt-2  leading-6 text-white">
-                                                            <span class="text-lg font-medium">
-                                                                ${post.name}
-                                                            </span>
-                                                        </h3>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>
-                                    `;
-                                    $noticias.append(template);
-                                });
-                            } else {
-                                $noticias.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            if (medias.length > 0) { 
-                                medias.forEach((post) => {
-                                    const template = `
-                                        <div class="w-2/6 px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
-                                                    <img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
-                                                    <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
-                                    
-                                                    <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
-                                                        <div class="flex items-center gap-x-2 text-white">
-                                                            <span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                        </div>
-                                                        <h3 class="mt-2  leading-6 text-white">
-                                                            <span class="text-lg font-medium">
-                                                                ${post.name}
-                                                            </span>
-                                                        </h3>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>
-                                    `;
-                                    $galeria.append(template);
-                                });
-                            } else {
-                                $galeria.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            if (videos.length > 0) {
-                                videos.forEach((post) => {
-                                    const template = `
-                                    <div class="w-2/6 px-4">
-                                        <article class="w-full notice">
-                                            <a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
-                                                <img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
-                                                <div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
-                                
-                                                <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
-                                                    <div class="flex items-center gap-x-2 text-white">
-                                                        <span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                    </div>
-                                                    <h3 class="mt-2  leading-6 text-white">
-                                                        <span class="text-lg font-medium">
-                                                            ${post.name}
-                                                        </span>
-                                                    </h3>
-                                                </div>
-                                            </a>
-                                        </article>
-                                    </div>
-                                    `;
-                                    $videos.append(template);
-                                });
-                            } else {
-                                $videos.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            $("#MySearchcontent").show();
-                            //functions
-                        }
-                    });
-                }, 500);
-            }
-        });
-
-        $('#searchMobile-new').on('keyup', function() {
+							if (posts.length > 0) {
+								posts.forEach((post) => {
+									const template = `
+										<div class="w-2/6 px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+													<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+													<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+									
+													<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+														<div class="flex items-center gap-x-2 text-white">
+															<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+														</div>
+														<h3 class="mt-2  leading-6 text-white">
+															<span class="text-lg font-medium">
+																${post.name}
+															</span>
+														</h3>
+													</div>
+												</a>
+											</article>
+										</div>
+									`;
+									$noticias.append(template);
+								});
+							} else {
+								$noticias.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+							if (medias.length > 0) { 
+								medias.forEach((post) => {
+									const template = `
+										<div class="w-2/6 px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+													<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+													<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+									
+													<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+														<div class="flex items-center gap-x-2 text-white">
+															<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+														</div>
+														<h3 class="mt-2  leading-6 text-white">
+															<span class="text-lg font-medium">
+																${post.name}
+															</span>
+														</h3>
+													</div>
+												</a>
+											</article>
+										</div>
+									`;
+									$galeria.append(template);
+								});
+							} else {
+								$galeria.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+							if (videos.length > 0) {
+								videos.forEach((post) => {
+									const template = `
+									<div class="w-2/6 px-4">
+										<article class="w-full notice">
+											<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+												<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+												<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+								
+												<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+													<div class="flex items-center gap-x-2 text-white">
+														<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+													</div>
+													<h3 class="mt-2  leading-6 text-white">
+														<span class="text-lg font-medium">
+															${post.name}
+														</span>
+													</h3>
+												</div>
+											</a>
+										</article>
+									</div>
+									`;
+									$videos.append(template);
+								});
+							} else {
+								$videos.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+							$("#MySearchcontent").show();
+							//functions
+						}
+					});
+				}, 500);
+			}
+		});
+	
+		$('#searchMobile-new').on('keyup', function() {
 			const value = event.target.value;
-            if (value.length > 2) {
-                setTimeout(function(){
-                    jQuery.ajax({
-                        type: "post",
-                        dataType: "json",
-                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
-                        data: {
-                            action: "send_mydata",
-                            value: value
-                        },
-                        success: function(response) {
+			if (value.length > 2) {
+				setTimeout(function(){
+					jQuery.ajax({
+						type: "post",
+						dataType: "json",
+						url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+						data: {
+							action: "send_mydata",
+							value: value
+						},
+						success: function(response) {
 							const all = response.all;
-                            const posts = response.posts;
-                            const medias = response.medias;
-                            const videos = response.videos;
+							const posts = response.posts;
+							const medias = response.medias;
+							const videos = response.videos;
 							const postsCount = response.postsCount;
-                            const mediasCount = response.mediasCount;
-                            const videosCount = response.videosCount;
-                            const lengthtotal = posts.length + medias.length + videos.length;
-                            const countTotal = postsCount + mediasCount + videosCount;
-
+							const mediasCount = response.mediasCount;
+							const videosCount = response.videosCount;
+							const lengthtotal = posts.length + medias.length + videos.length;
+							const countTotal = postsCount + mediasCount + videosCount;
+	
 							$('# MySearchcontentMobile.nav-link-search-mobile').eq(0).attr("data-result", (lengthtotal > 8)?8:lengthtotal);
-                            $('# MySearchcontentMobile.nav-link-search-mobile').eq(1).attr("data-result", response.posts.length);
-                            $('# MySearchcontentMobile.nav-link-search-mobile').eq(2).attr("data-result", response.videos.length);
-                            $('# MySearchcontentMobile.nav-link-search-mobile').eq(3).attr("data-result", response.medias.length);
-                            $('#resultados-mobile').html((lengthtotal > 8)?8:lengthtotal);
-
+							$('# MySearchcontentMobile.nav-link-search-mobile').eq(1).attr("data-result", response.posts.length);
+							$('# MySearchcontentMobile.nav-link-search-mobile').eq(2).attr("data-result", response.videos.length);
+							$('# MySearchcontentMobile.nav-link-search-mobile').eq(3).attr("data-result", response.medias.length);
+							$('#resultados-mobile').html((lengthtotal > 8)?8:lengthtotal);
+	
 							const $todos = $('#todos-mobile').find('.mobileJsContent');
-                            const $noticias = $('#noticias-mobile').find('.mobileJsContent');
-                            const $videos = $('#videos-mobile').find('.mobileJsContent');
-                            const $galeria = $('#galeria-mobile').find('.mobileJsContent');
-                            $todos.html("");
-                            $noticias.html("");
-                            $videos.html("");
-                            $galeria.html("");
-
+							const $noticias = $('#noticias-mobile').find('.mobileJsContent');
+							const $videos = $('#videos-mobile').find('.mobileJsContent');
+							const $galeria = $('#galeria-mobile').find('.mobileJsContent');
+							$todos.html("");
+							$noticias.html("");
+							$videos.html("");
+							$galeria.html("");
+	
 							if(countTotal > 8){
 								$('#todos-mobile').find('.buttonMore-mobile').removeClass('hidden');
 								$('#todos-mobile').find('.buttonMore-mobile').attr('data-page', 1);
@@ -923,7 +921,7 @@ jQuery('.jsSeeMore').on("click", function() {
 							else{
 								$('#todos-mobile').find('.buttonMore-mobile').addClass('hidden');
 							}
-
+	
 							if(postsCount > 8){
 								$('#noticias-mobile').find('.buttonMore-mobile').removeClass('hidden');
 								$('#noticias-mobile').find('.buttonMore-mobile').attr('data-page', 1);
@@ -939,7 +937,7 @@ jQuery('.jsSeeMore').on("click", function() {
 							else{
 								$('#galeria-mobile').find('.buttonMore-mobile').addClass('hidden');
 							}
-
+	
 							if(videosCount > 8){
 								$('#videos-mobile').find('.buttonMore-mobile').removeClass('hidden');
 								$('#videos-mobile').find('.buttonMore-mobile').attr('data-page', 1);
@@ -947,11 +945,11 @@ jQuery('.jsSeeMore').on("click", function() {
 							else{
 								$('#videos-mobile').find('.buttonMore-mobile').addClass('hidden');
 							}
-
-                            if (lengthtotal == 0) {
-                                $todos.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-
+	
+							if (lengthtotal == 0) {
+								$todos.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+	
 							if(all.length > 0){
 								all.forEach(post => {
 									if(post.type == 'post'){
@@ -1050,141 +1048,141 @@ jQuery('.jsSeeMore').on("click", function() {
 								});
 							}
 							
-                            if (posts.length > 0) {
-                                posts.forEach((post) => {
-                                    const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
-                                    $noticias.append(template);
-                                });
-                            } else {
-                                $noticias.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            if (medias.length > 0) { 
-                                medias.forEach((post) => {
-                                    const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
-                                    $galeria.append(template);
-                                });
-                            } else {
-                                $galeria.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            if (videos.length > 0) {
-                                videos.forEach((post) => {
-                                    const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
-                                    $videos.append(template);
-                                });
-                            } else {
-                                $videos.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            
-                            $("#MySearchcontentMobile").show();
-                        }
-                    });
-                }, 500);
-            }
-        });
-
+							if (posts.length > 0) {
+								posts.forEach((post) => {
+									const template = `
+										<div class="w-full px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+													<div class="w-2/5 relative">
+														<img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+													</div>
+													<div class="w-3/5">
+														<div class="h-full w-full flex flex-col justify-between p-7">
+															<div class="w-full">
+																<div class="flex items-center gap-x-2 ">
+																	<span class="text-warning leading-none text-sm">${post.category}</span>
+																</div>
+																<h3 class="mt-2 leading-6 text-white">
+																	<span class="text-xl font-medium">
+																	${post.name}
+																	</span>
+																</h3>
+															</div>
+															<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+															</div>
+														</div>
+													</div>
+												</a>
+											</article>
+										</div>									
+									`;
+									$noticias.append(template);
+								});
+							} else {
+								$noticias.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+							if (medias.length > 0) { 
+								medias.forEach((post) => {
+									const template = `
+										<div class="w-full px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+													<div class="w-2/5 relative">
+														<img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+													</div>
+													<div class="w-3/5">
+														<div class="h-full w-full flex flex-col justify-between p-7">
+															<div class="w-full">
+																<div class="flex items-center gap-x-2 ">
+																	<span class="text-warning leading-none text-sm">${post.category}</span>
+																</div>
+																<h3 class="mt-2 leading-6 text-white">
+																	<span class="text-xl font-medium">
+																	${post.name}
+																	</span>
+																</h3>
+															</div>
+															<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+															</div>
+														</div>
+													</div>
+												</a>
+											</article>
+										</div>									
+									`;
+									$galeria.append(template);
+								});
+							} else {
+								$galeria.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+							if (videos.length > 0) {
+								videos.forEach((post) => {
+									const template = `
+										<div class="w-full px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+													<div class="w-2/5 relative">
+														<img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+													</div>
+													<div class="w-3/5">
+														<div class="h-full w-full flex flex-col justify-between p-7">
+															<div class="w-full">
+																<div class="flex items-center gap-x-2 ">
+																	<span class="text-warning leading-none text-sm">${post.category}</span>
+																</div>
+																<h3 class="mt-2 leading-6 text-white">
+																	<span class="text-xl font-medium">
+																	${post.name}
+																	</span>
+																</h3>
+															</div>
+															<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+															</div>
+														</div>
+													</div>
+												</a>
+											</article>
+										</div>									
+									`;
+									$videos.append(template);
+								});
+							} else {
+								$videos.html("<div class='notresult'>No se encontraron resultados</div>");
+							}
+							
+							$("#MySearchcontentMobile").show();
+						}
+					});
+				}, 500);
+			}
+		});
+	
 		$('.buttonMore').each(function(index, value) {
 			$(this).on('click', (e) => {
 				const value = $('#search-new').val();
 				const type = e.target.dataset.type;
 				const page = parseInt(e.target.dataset.page) + 1;
 				jQuery.ajax({
-                    type: "post",
-                    dataType: "json",
-                    url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
-                    data: {
-                        action: "find_posts",
+					type: "post",
+					dataType: "json",
+					url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+					data: {
+						action: "find_posts",
 						value: value,
-                        type: type,
-                        page: page
-                    },
-                    success: function(response) {
+						type: type,
+						page: page
+					},
+					success: function(response) {
 						const data = response.data;
 						const $todos = $('#todos').find('.addContentJs');
-                        const $noticias = $('#noticias').find('.addContentJs');
-                        const $videos = $('#videos').find('.addContentJs');
-                        const $galeria = $('#galeria').find('.addContentJs');
-
+						const $noticias = $('#noticias').find('.addContentJs');
+						const $videos = $('#videos').find('.addContentJs');
+						const $galeria = $('#galeria').find('.addContentJs');
+	
 						if(type == 'all'){
 							$('.nav-link-search').eq(0).attr("data-result", response.current);
 							if(response.pending <= 0){
@@ -1365,32 +1363,32 @@ jQuery('.jsSeeMore').on("click", function() {
 							});
 						}
 					}
-                });
+				});
 			});
 		});
-
+	
 		$('.buttonMore-mobile').each(function(index, value) {
 			$(this).on('click', (e) => {
 				const value = $('#searchMobile-new').val();
 				const type = e.target.dataset.type;
 				const page = parseInt(e.target.dataset.page) + 1;
 				jQuery.ajax({
-                    type: "post",
-                    dataType: "json",
-                    url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
-                    data: {
-                        action: "find_posts",
+					type: "post",
+					dataType: "json",
+					url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+					data: {
+						action: "find_posts",
 						value: value,
-                        type: type,
-                        page: page
-                    },
-                    success: function(response) {
+						type: type,
+						page: page
+					},
+					success: function(response) {
 						const data = response.data;
 						const $todos = $('#todos-mobile').find('.mobileJsContent');
-                        const $noticias = $('#noticias-mobile').find('.mobileJsContent');
-                        const $videos = $('#videos-mobile').find('.mobileJsContent');
-                        const $galeria = $('#galeria-mobile').find('.mobileJsContent');
-
+						const $noticias = $('#noticias-mobile').find('.mobileJsContent');
+						const $videos = $('#videos-mobile').find('.mobileJsContent');
+						const $galeria = $('#galeria-mobile').find('.mobileJsContent');
+	
 						if(type == 'all'){
 							$('.nav-link-search-mobile').eq(0).attr("data-result", response.current);
 							if(response.pending <= 0){
@@ -1519,102 +1517,105 @@ jQuery('.jsSeeMore').on("click", function() {
 								}
 								else if(type == 'post'){
 									const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
+										<div class="w-full px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+													<div class="w-2/5 relative">
+														<img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+													</div>
+													<div class="w-3/5">
+														<div class="h-full w-full flex flex-col justify-between p-7">
+															<div class="w-full">
+																<div class="flex items-center gap-x-2 ">
+																	<span class="text-warning leading-none text-sm">${post.category}</span>
+																</div>
+																<h3 class="mt-2 leading-6 text-white">
+																	<span class="text-xl font-medium">
+																	${post.name}
+																	</span>
+																</h3>
+															</div>
+															<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+															</div>
+														</div>
+													</div>
+												</a>
+											</article>
+										</div>									
+									`;
 									$noticias.append(template);
 								}
 								else if(type == 'video'){
 									const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
+										<div class="w-full px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+													<div class="w-2/5 relative">
+														<img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+													</div>
+													<div class="w-3/5">
+														<div class="h-full w-full flex flex-col justify-between p-7">
+															<div class="w-full">
+																<div class="flex items-center gap-x-2 ">
+																	<span class="text-warning leading-none text-sm">${post.category}</span>
+																</div>
+																<h3 class="mt-2 leading-6 text-white">
+																	<span class="text-xl font-medium">
+																	${post.name}
+																	</span>
+																</h3>
+															</div>
+															<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+															</div>
+														</div>
+													</div>
+												</a>
+											</article>
+										</div>									
+									`;
 									$videos.append(template);
 								}
 								else if(type == 'foto'){
 									const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
+										<div class="w-full px-4">
+											<article class="w-full notice">
+												<a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
+													<div class="w-2/5 relative">
+														<img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
+													</div>
+													<div class="w-3/5">
+														<div class="h-full w-full flex flex-col justify-between p-7">
+															<div class="w-full">
+																<div class="flex items-center gap-x-2 ">
+																	<span class="text-warning leading-none text-sm">${post.category}</span>
+																</div>
+																<h3 class="mt-2 leading-6 text-white">
+																	<span class="text-xl font-medium">
+																	${post.name}
+																	</span>
+																</h3>
+															</div>
+															<div class="flex items-center gap-x-2 text-white text-sm mt-2">
+																<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+															</div>
+														</div>
+													</div>
+												</a>
+											</article>
+										</div>									
+									`;
 									$galeria.append(template);
 								}
 							});
 						}
 					}
-                });
+				});
 			});
 		});
-    })
+	})
+});
+</script>
+<script>
 </script>
