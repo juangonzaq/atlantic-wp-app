@@ -270,7 +270,7 @@ add_action('wp_ajax_send_mydata', 'send_mydata');
 function send_mydata(){
 	global $wpdb;
 
-    $pagination  = isset( $_POST['pagination'] ) ? (bool)$_POST['pagination'] : null;
+    $pagination  = isset( $_POST['pagination'] ) ? $_POST['pagination'] : null;
 
     if($pagination == 1){
         $value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
@@ -307,7 +307,7 @@ function send_mydata(){
         
         wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
     }
-    else{
+    else if($pagination == 0){
         // Check parameters
         $title  = isset( $_POST['value'] ) ? $_POST['value'] : false;
         //all posts
@@ -360,6 +360,22 @@ function send_mydata(){
         );
         wp_send_json($completerray);
         //wp_send_json(  );
+    }
+    else if($pagination == 2){
+        $value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
+        $queryPost = "SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s' AND post_type IN ('post', 'foto', 'video') LIMIT 6";
+    
+        $mypostsTitle = $wpdb->get_results( $wpdb->prepare($queryPost, '%'. $wpdb->esc_like( $value ) .'%') );	
+        $data = array();
+    
+        foreach ($mypostsTitle as $post) {		
+            $date = explode(" ", $post->post_date)[0];
+            $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+            $hora = explode(" ", $post->post_date)[1];
+            $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+            array_push($data, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));		
+        }
+        wp_send_json(array('data' => $data));
     }
 
 }

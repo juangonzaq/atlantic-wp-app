@@ -300,13 +300,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 						<div class="at-menu-nav-content-search left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
 										<div class="bg-black py-5 w-full h-24">
-											<div class="w-full mx-auto px-12">
+											<div class="w-full mx-auto px-12 relative">
 												<div class="block-input relative">
 													<input type="text" placeholder="Buscar..." id="searchMobile-new" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis input-close-search-mobile">
 													<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer button-close-search-mobile">
 														<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 													</span>
 												</div>
+
+												<!-- AUTOCOMPLETE -->
+												<div class="w-full absolute right-0 z-10 mt-2 origin-top-right search-autocomplete-mobile" style="display:none">
+													<div class=" w-full  divide-y divide-gray-100 rounded-md bg-dark-bold shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none search-autocomplete-content-mobile" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+													</div>
+												</div>
+												<!-- END AUTOCOMPLETE -->
 											</div>
 										</div>
 										<div class="h-full bg-dark search-float-mobile" id="MySearchcontentMobile" style="display:none">
@@ -376,15 +383,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 						<div class="at-menu-nav-content-search-desktop left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
 											<div class="bg-black py-5 w-full h-24">
-												<div class="md:w-1/2 mx-auto">
+												<div class="md:w-1/2 mx-auto relative">
 													<div class="block-input relative">
 														<input type="text" placeholder="Buscar..." id="search-new" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light input-close-search">
 														<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer" id="closeCircle">
 															<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 														</span>
 													</div>
+
+													<!-- AUTOCOMPLETE -->
+													<div class="w-full absolute right-0 z-10 mt-2 origin-top-right search-autocomplete" style="display:none">
+														<div class=" w-full  rounded-md shadow-lg  focus:outline-none search-autocomplete-content bg-dark-bold" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+														</div>
+													</div>
+													<!-- END AUTOCOMPLETE -->
+
 												</div>
 											</div>
+
 											<div class="h-full bg-gray px-8 search-float" id="MySearchcontent" style="display:none">
 												<div class="container  mx-auto flex flex-col w-full py-3">
 													<div class="w-full flex items-end  px-5">
@@ -508,7 +524,7 @@ function callAjaxFull() {
 	jQuery.ajax({
 		type: "post",
 		dataType: "json",
-		url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+		url: ajaxUrl,
 		data: {
 			action: "send_mydatafull",
 			value: jQuery("#search").val()
@@ -635,6 +651,7 @@ jQuery('.jsSeeMore').on("click", function() {
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
+	// "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php"
     document.addEventListener('DOMContentLoaded', ()=>{
         $('#search-new').on('keyup', (event) => {
             const value = event.target.value;
@@ -643,7 +660,7 @@ jQuery('.jsSeeMore').on("click", function() {
                     $.ajax({
                         type: "post",
                         dataType: "json",
-                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+                        url: ajaxUrl,
                         data: {
                             action: "send_mydata",
 							pagination: 0,
@@ -876,7 +893,62 @@ jQuery('.jsSeeMore').on("click", function() {
                         }
                     });
                 }, 500);
+
+				setTimeout(function(){
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: ajaxUrl,
+                        data: {
+                            action: "send_mydata",
+							pagination: 2,
+                            value: value
+                        },
+                        success: function(response) {
+							const $content = $('.search-autocomplete .search-autocomplete-content');
+							$(".search-autocomplete").hide();
+							$content.html('');
+
+							if(response.data.length > 0){
+								response.data.forEach(item => {
+									let icon = 'mdi-dot';
+									if(item.type == 'post'){
+										icon = 'mdi-newspaper-variant-outline';
+									}
+									else if(item.type == 'foto'){
+										icon = 'mdi-image-outline';
+									}
+									else if(item.type == 'video'){
+										icon = 'mdi-video-outline';
+									}
+
+									const template = `<div class="" role="none">
+												<a href="${item.link}" class="w-full flex justify-between items-center text-white block px-4 py-2 text-base hover:bg-dark py-3 rounded-tl-md rounded-tr-md cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">
+													<span class="flex items-center">
+														<span class="">${item.name}</span>
+													</span>
+													<span class="mdi mdi-chevron-right text-3xl"></span>
+												</a>
+											</div>`;
+									$content.append(template);
+								});
+							}
+							else{
+								$content.html(`<div class="" role="none">
+												<a href="#" class="w-full flex justify-center items-center text-white block px-4 py-2 text-base hover:bg-dark py-3 rounded-tl-md rounded-tr-md cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">
+													<span>Sin resultados</span>
+												</a>
+											</div>`);
+							}
+							
+							$(".search-autocomplete").show();
+                        }
+                    });
+                }, 500);
             }
+			else{
+				$('.search-autocomplete').hide();
+			}
         });
 
         $('#searchMobile-new').on('keyup', function() {
@@ -887,7 +959,7 @@ jQuery('.jsSeeMore').on("click", function() {
                         type: "post",
                         dataType: "json",
 						pagination: 0,
-                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+                        url: ajaxUrl,
                         data: {
                             action: "send_mydata",
                             value: value
@@ -1162,7 +1234,62 @@ jQuery('.jsSeeMore').on("click", function() {
                         }
                     });
                 }, 500);
+
+				setTimeout(function(){
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: ajaxUrl,
+                        data: {
+                            action: "send_mydata",
+							pagination: 2,
+                            value: value
+                        },
+                        success: function(response) {
+							const $content = $('.search-autocomplete-mobile .search-autocomplete-content-mobile');
+							$(".search-autocomplete-mobile").hide();
+							$content.html('');
+
+							if(response.data.length > 0){
+								response.data.forEach(item => {
+									let icon = 'mdi-dot';
+									if(item.type == 'post'){
+										icon = 'mdi-newspaper-variant-outline';
+									}
+									else if(item.type == 'foto'){
+										icon = 'mdi-image-outline';
+									}
+									else if(item.type == 'video'){
+										icon = 'mdi-video-outline';
+									}
+
+									const template = `<div class="" role="none">
+												<a href="${item.link}" class="w-full flex justify-between items-center text-white block px-4 py-2 text-base hover:bg-dark py-3 rounded-tl-md rounded-tr-md cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">
+													<span class="flex items-center">
+														<span class="">${item.name}</span>
+													</span>
+													<span class="mdi mdi-chevron-right text-3xl"></span>
+												</a>
+											</div>`;
+									$content.append(template);
+								});
+							}
+							else{
+								$content.html(`<div class="" role="none">
+												<a href="#" class="w-full flex justify-center items-center text-white block px-4 py-2 text-base hover:bg-dark py-3 rounded-tl-md rounded-tr-md cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">
+													<span>Sin resultados</span>
+												</a>
+											</div>`);
+							}
+							
+							$(".search-autocomplete-mobile").show();
+                        }
+                    });
+                }, 500);
             }
+			else{
+				$('.search-autocomplete-mobile').hide();
+			}
         });
 
 		$('.buttonMore').each(function(index, value) {
@@ -1173,7 +1300,7 @@ jQuery('.jsSeeMore').on("click", function() {
 				$.ajax({
                     type: "post",
                     dataType: "json",
-                    url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+                    url: ajaxUrl,
                     data: {
                         action: "send_mydata",
 						pagination: 1,
@@ -1380,7 +1507,7 @@ jQuery('.jsSeeMore').on("click", function() {
 				$.ajax({
                     type: "post",
                     dataType: "json",
-                    url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+                    url: ajaxUrl,
                     data: {
                         action: "send_mydata",
 						pagination: 1,
@@ -1620,10 +1747,54 @@ jQuery('.jsSeeMore').on("click", function() {
                 });
 			});
 		});
+
+		$(document).click(function(event) { 
+			if(!$(event.target).closest('.search-autocomplete').length && !$(event.target).is('#search-new')) {
+				if($('.search-autocomplete').is(":visible")) {
+					$('.search-autocomplete').hide();
+				}
+			}    
+			
+			if(!$(event.target).closest('.search-autocomplete-mobile').length && !$(event.target).is('#searchMobile-new')) {
+				if($('.search-autocomplete-mobile').is(":visible")) {
+					$('.search-autocomplete-mobile').hide();
+				}
+			}    
+		});
+
+		$('#search-new').on('focus', (event) => {
+			const value = event.target.value;
+			if(value.length > 2){
+				$('.search-autocomplete').show();
+			}
+		});
+
+		$('#searchMobile-new').on('focus', (event) => {
+			const value = event.target.value;
+			if(value.length > 2){
+				$('.search-autocomplete-mobile').show();
+			}
+		});
     })
 </script>
 <style>
 	.search-float .allContent .itemContent .addContentJs > div.notresult{
 		width: 100% !important;
+	}
+	
+	.search-autocomplete-content > div{
+		border-bottom: 1px solid #2C3238;
+	}
+
+	.search-autocomplete-content > div:last-child{
+		border-bottom: none;
+	}
+
+	.search-autocomplete-mobile-content > div{
+		border-bottom: 1px solid #2C3238;
+	}
+
+	.search-autocomplete-mobile-content > div:last-child{
+		border-bottom: none;
 	}
 </style>
