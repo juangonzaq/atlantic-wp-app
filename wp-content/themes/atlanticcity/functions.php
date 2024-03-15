@@ -269,58 +269,99 @@ add_action('wp_ajax_send_mydata', 'send_mydata');
 // Función que procesa la llamada AJAX
 function send_mydata(){
 	global $wpdb;
-    // Check parameters
-	$title  = isset( $_POST['value'] ) ? $_POST['value'] : false;
-	//all posts
-	$mypostsTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );	
-	//$mymediasTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );
-	$listPosts = array();
-	$medias = array();
-	$videos = array();
-	foreach ($mypostsTitle as $post) {		
-		$date = explode(" ", $post->post_date)[0];
-		$newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
-		$hora = explode(" ", $post->post_date)[1];
-		$newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
 
-		if ($post->post_type == "post") {	
-			array_push($listPosts, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));
-		}	
-		if ($post->post_type == "foto") {	
-			array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));
-		}
-		if ($post->post_type == "video") {	
-			array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));
-		}		
-	}
-	/*foreach ($mymediasTitle as $post) {		
-		if ($post->post_type == "attachment") {
-			if (strpos($post->guid, ".mp4") || strpos($post->guid, ".avi")) {
-				array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
-			} else {
-				array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
-			}		
-		}
-	}*/
-	//print_r($mypostsTitle);
-    $all = array_merge($listPosts, $medias, $videos);
-    $postsCount = count($listPosts);
-    $mediasCount = count($medias);
-    $videosCount = count($videos);
-	$primerosSeis = array_slice($listPosts, 0, 8);
-	$medias = array_slice($medias, 0, 8);
-	$videos = array_slice($videos, 0, 8);
-	$completerray = array(
-        "all" => array_slice($all, 0, 8),
-        "posts" => $primerosSeis, 
-        "medias" => $medias, 
-        "videos" => $videos,
-        "postsCount" => $postsCount,
-        "mediasCount" => $mediasCount,
-        "videosCount" => $videosCount
-    );
-	wp_send_json($completerray);
-    //wp_send_json(  );
+    $pagination  = isset( $_POST['pagination'] ) ? $_POST['pagination'] : false;
+
+    if($pagination){
+        $value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
+        $type  = isset( $_POST['type'] ) ? $_POST['type'] : 'post';
+        $page  = isset( $_POST['page'] ) ? $_POST['page'] : 1;
+        $offset = ($page - 1) * 8;
+    
+        $query = "SELECT COUNT(*) as total FROM $wpdb->posts WHERE post_title LIKE '%s'";
+        $queryPost = "SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'";
+    
+        if($type == 'all'){
+            $query .= " AND post_type IN ('post', 'foto', 'video')";
+            $queryPost .= " AND post_type IN ('post', 'foto', 'video')";
+        }
+        else{
+            $query .= " AND post_type = '".$type."'";
+            $queryPost .= " AND post_type = '".$type."'";
+        }
+    
+    
+        $mypostsTitleCount = $wpdb->get_results( $wpdb->prepare($query, '%'. $wpdb->esc_like( $value ) .'%') );	
+        $mypostsTitle = $wpdb->get_results( $wpdb->prepare($queryPost." LIMIT 8 OFFSET ".$offset, '%'. $wpdb->esc_like( $value ) .'%') );	
+        $data = array();
+    
+        foreach ($mypostsTitle as $post) {		
+            $date = explode(" ", $post->post_date)[0];
+            $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+            $hora = explode(" ", $post->post_date)[1];
+            $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+            array_push($data, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));		
+        }
+    
+        $pending = (int)$mypostsTitleCount[0]->total - ($offset + count($data));
+        
+        wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
+    }
+    else{
+        // Check parameters
+        $title  = isset( $_POST['value'] ) ? $_POST['value'] : false;
+        //all posts
+        $mypostsTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );	
+        //$mymediasTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );
+        $listPosts = array();
+        $medias = array();
+        $videos = array();
+        foreach ($mypostsTitle as $post) {		
+            $date = explode(" ", $post->post_date)[0];
+            $newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+            $hora = explode(" ", $post->post_date)[1];
+            $newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+    
+            if ($post->post_type == "post") {	
+                array_push($listPosts, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));
+            }	
+            if ($post->post_type == "foto") {	
+                array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));
+            }
+            if ($post->post_type == "video") {	
+                array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));
+            }		
+        }
+        /*foreach ($mymediasTitle as $post) {		
+            if ($post->post_type == "attachment") {
+                if (strpos($post->guid, ".mp4") || strpos($post->guid, ".avi")) {
+                    array_push($videos, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
+                } else {
+                    array_push($medias, array('id' => $post->ID, 'name' => $post->post_title, "link" => $post->guid));
+                }		
+            }
+        }*/
+        //print_r($mypostsTitle);
+        $all = array_merge($listPosts, $medias, $videos);
+        $postsCount = count($listPosts);
+        $mediasCount = count($medias);
+        $videosCount = count($videos);
+        $primerosSeis = array_slice($listPosts, 0, 8);
+        $medias = array_slice($medias, 0, 8);
+        $videos = array_slice($videos, 0, 8);
+        $completerray = array(
+            "all" => array_slice($all, 0, 8),
+            "posts" => $primerosSeis, 
+            "medias" => $medias, 
+            "videos" => $videos,
+            "postsCount" => $postsCount,
+            "mediasCount" => $mediasCount,
+            "videosCount" => $videosCount
+        );
+        wp_send_json($completerray);
+        //wp_send_json(  );
+    }
+
 }
 
 
@@ -378,7 +419,7 @@ add_action('wp_ajax_find_posts', 'find_posts');
 
 // Función que procesa la llamada AJAX
 function find_posts(){
-	/* global $wpdb;
+	global $wpdb;
 	$value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
 	$type  = isset( $_POST['type'] ) ? $_POST['type'] : 'post';
 	$page  = isset( $_POST['page'] ) ? $_POST['page'] : 1;
@@ -411,8 +452,7 @@ function find_posts(){
 
     $pending = (int)$mypostsTitleCount[0]->total - ($offset + count($data));
     
-	wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data)))); */
-    wp_send_json(array('pending' => 2));
+	wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
 }
 
 

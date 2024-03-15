@@ -646,6 +646,7 @@ jQuery('.jsSeeMore').on("click", function() {
                         url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                         data: {
                             action: "send_mydata",
+							pagination: false,
                             value: value
                         },
                         success: function(response) {
@@ -885,6 +886,7 @@ jQuery('.jsSeeMore').on("click", function() {
                     $.ajax({
                         type: "post",
                         dataType: "json",
+						pagination: false,
                         url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                         data: {
                             action: "send_mydata",
@@ -1173,7 +1175,8 @@ jQuery('.jsSeeMore').on("click", function() {
                     dataType: "json",
                     url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                     data: {
-                        action: "find_posts",
+                        action: "send_mydata",
+						pagination: true,
 						value: value,
                         type: type,
                         page: page
@@ -1379,7 +1382,8 @@ jQuery('.jsSeeMore').on("click", function() {
                     dataType: "json",
                     url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                     data: {
-                        action: "find_posts",
+                        action: "send_mydata",
+						pagination: true,
 						value: value,
                         type: type,
                         page: page
