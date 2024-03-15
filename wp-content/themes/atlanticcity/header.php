@@ -1623,7 +1623,7 @@ jQuery('.jsSeeMore').on("click", function() {
     })
 </script>
 <style>
-	.search-float .allContent .itemContent .addContentJs > div{
+	.search-float .allContent .itemContent .addContentJs > div.notresult{
 		width: 100% !important;
 	}
 </style>
