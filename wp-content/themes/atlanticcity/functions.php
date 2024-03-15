@@ -370,6 +370,50 @@ function send_mydatafull(){
     //wp_send_json(  );
 }
 
+// FIND POST
+add_action('wp_ajax_nopriv_find_posts', 'find_posts');
+
+// Hook para usuarios logueados
+add_action('wp_ajax_find_posts', 'find_posts');
+
+// Función que procesa la llamada AJAX
+function find_posts(){
+	global $wpdb;
+	$value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
+	$type  = isset( $_POST['type'] ) ? $_POST['type'] : 'post';
+	$page  = isset( $_POST['page'] ) ? $_POST['page'] : 1;
+    $offset = ($page - 1) * 8;
+
+    $query = "SELECT COUNT(*) as total FROM $wpdb->posts WHERE post_title LIKE '%s'";
+    $queryPost = "SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'";
+
+    if($type == 'all'){
+        $query .= " AND post_type IN ('post', 'foto', 'video')";
+        $queryPost .= " AND post_type IN ('post', 'foto', 'video')";
+    }
+    else{
+        $query .= " AND post_type = '".$type."'";
+        $queryPost .= " AND post_type = '".$type."'";
+    }
+
+
+	$mypostsTitleCount = $wpdb->get_results( $wpdb->prepare($query, '%'. $wpdb->esc_like( $value ) .'%') );	
+	$mypostsTitle = $wpdb->get_results( $wpdb->prepare($queryPost." LIMIT 8 OFFSET ".$offset, '%'. $wpdb->esc_like( $value ) .'%') );	
+	$data = array();
+
+	foreach ($mypostsTitle as $post) {		
+		$date = explode(" ", $post->post_date)[0];
+		$newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
+		$hora = explode(" ", $post->post_date)[1];
+		$newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
+		array_push($data, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));		
+	}
+
+    $pending = (int)$mypostsTitleCount[0]->total - ($offset + count($data));
+    
+	wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
+}
+
 
 
 function wp_title_character_count() {
@@ -416,48 +460,4 @@ class Custom_Walker_Category_Checklist extends Walker_Category_Checklist {
         $class = in_array($category->term_id, $popular_cats) ? ' class="popular-category"' : '';
         $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="' . $name . '[]" id="in-' . $taxonomy . '-' . $category->term_id . '"' . checked(in_array($category->term_id, $selected_cats), true, false) . disabled(empty($args['disabled']), false, false) . ' /> ' . esc_html(apply_filters('the_category', $category->name)) . ' (' . $category->slug . ')</label>';
     }
-}
-
-// FIND POST
-add_action('wp_ajax_nopriv_find_posts', 'find_posts');
-
-// Hook para usuarios logueados
-add_action('wp_ajax_find_posts', 'find_posts');
-
-// Función que procesa la llamada AJAX
-function find_posts(){
-	global $wpdb;
-	$value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
-	$type  = isset( $_POST['type'] ) ? $_POST['type'] : 'post';
-	$page  = isset( $_POST['page'] ) ? $_POST['page'] : 1;
-    $offset = ($page - 1) * 8;
-
-    $query = "SELECT COUNT(*) as total FROM $wpdb->posts WHERE post_title LIKE '%s'";
-    $queryPost = "SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'";
-
-    if($type == 'all'){
-        $query .= " AND post_type IN ('post', 'foto', 'video')";
-        $queryPost .= " AND post_type IN ('post', 'foto', 'video')";
-    }
-    else{
-        $query .= " AND post_type = '".$type."'";
-        $queryPost .= " AND post_type = '".$type."'";
-    }
-
-
-	$mypostsTitleCount = $wpdb->get_results( $wpdb->prepare($query, '%'. $wpdb->esc_like( $value ) .'%') );	
-	$mypostsTitle = $wpdb->get_results( $wpdb->prepare($queryPost." LIMIT 8 OFFSET ".$offset, '%'. $wpdb->esc_like( $value ) .'%') );	
-	$data = array();
-
-	foreach ($mypostsTitle as $post) {		
-		$date = explode(" ", $post->post_date)[0];
-		$newdate = explode("-", $date)[2]."/".explode("-", $date)[1]."/".explode("-", $date)[0];
-		$hora = explode(" ", $post->post_date)[1];
-		$newhora = explode(":", $hora)[0].":".explode(":", $hora)[1];
-		array_push($data, array('id' => $post->ID, 'name' => $post->post_title, "link" => get_permalink($post->ID), "imagen" => get_the_post_thumbnail_url($post->ID), "category" => get_the_category( $post->ID )[0]->name, "dia" => $newdate, "hora" => $newhora, "type" => $post->post_type));		
-	}
-
-    $pending = (int)$mypostsTitleCount[0]->total - ($offset + count($data));
-    
-	wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
 }
