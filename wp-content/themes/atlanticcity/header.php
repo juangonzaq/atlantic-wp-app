@@ -503,7 +503,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</header>
 	</div>
 <script>
-/* function callAjaxFull() {
+function callAjaxFull() {
 
 jQuery.ajax({
 	type: "post",
@@ -630,8 +630,8 @@ jQuery.ajax({
 
 jQuery('.jsSeeMore').on("click", function() {
 	jQuery(this).hide();
-	callAjaxFull();
-}); */
+	// callAjaxFull();
+});
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
