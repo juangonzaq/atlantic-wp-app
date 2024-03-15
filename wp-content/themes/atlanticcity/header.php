@@ -533,7 +533,7 @@ jQuery.ajax({
 		$videos.html("");
 		$galeria.html("");
 		if (lengthtotal == 0) {
-			$todos.html("<div class='notresult'>No se encontraron resultados</div>");
+			$todos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
 		}
 		if (posts.length > 0) {
 			posts.forEach((post) => {
@@ -562,7 +562,7 @@ jQuery.ajax({
 				$todos.append(template);
 			});
 		} else {
-			$noticias.html("<div class='notresult'>No se encontraron resultados</div>");
+			$noticias.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
 		}
 		if (medias.length > 0) { 
 			medias.forEach((post) => {
@@ -591,7 +591,7 @@ jQuery.ajax({
 				$todos.append(template);
 			});
 		} else {
-			$galeria.html("<div class='notresult'>No se encontraron resultados</div>");
+			$galeria.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
 		}
 		if (videos.length > 0) {
 			videos.forEach((post) => {
@@ -620,7 +620,7 @@ jQuery.ajax({
 				$todos.append(template);
 			});
 		} else {
-			$videos.html("<div class='notresult'>No se encontraron resultados</div>");
+			$videos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
 		}
 		jQuery("#MySearchcontent").show();
 		//functions
@@ -707,7 +707,7 @@ jQuery('.jsSeeMore').on("click", function() {
 							}
 
                             if (lengthtotal == 0) {
-                                $todos.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $todos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
 
 							if(all.length > 0){
@@ -813,7 +813,7 @@ jQuery('.jsSeeMore').on("click", function() {
                                     $noticias.append(template);
                                 });
                             } else {
-                                $noticias.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $noticias.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
                             if (medias.length > 0) { 
                                 medias.forEach((post) => {
@@ -841,7 +841,7 @@ jQuery('.jsSeeMore').on("click", function() {
                                     $galeria.append(template);
                                 });
                             } else {
-                                $galeria.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $galeria.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
                             if (videos.length > 0) {
                                 videos.forEach((post) => {
@@ -869,7 +869,7 @@ jQuery('.jsSeeMore').on("click", function() {
                                     $videos.append(template);
                                 });
                             } else {
-                                $videos.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $videos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
                             $("#MySearchcontent").show();
                             //functions
@@ -951,7 +951,7 @@ jQuery('.jsSeeMore').on("click", function() {
 							}
 
                             if (lengthtotal == 0) {
-                                $todos.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $todos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
 
 							if(all.length > 0){
@@ -1085,7 +1085,7 @@ jQuery('.jsSeeMore').on("click", function() {
                                     $noticias.append(template);
                                 });
                             } else {
-                                $noticias.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $noticias.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
                             if (medias.length > 0) { 
                                 medias.forEach((post) => {
@@ -1120,7 +1120,7 @@ jQuery('.jsSeeMore').on("click", function() {
                                     $galeria.append(template);
                                 });
                             } else {
-                                $galeria.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $galeria.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
                             if (videos.length > 0) {
                                 videos.forEach((post) => {
@@ -1155,7 +1155,7 @@ jQuery('.jsSeeMore').on("click", function() {
                                     $videos.append(template);
                                 });
                             } else {
-                                $videos.html("<div class='notresult'>No se encontraron resultados</div>");
+                                $videos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
                             }
                             
                             $("#MySearchcontentMobile").show();
