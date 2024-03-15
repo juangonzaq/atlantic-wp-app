@@ -831,7 +831,7 @@ observer.observe(document.body, { childList: true, subtree: true });
             diff = 100;
         }
 
-        asideContentMenu.style.maxHeight = `calc(100% - ${visibleFooterHeight - diff}px)`;
+        asideContentMenu?.style?.maxHeight = `calc(100% - ${visibleFooterHeight - diff}px)`;
     }
 
     function generateActions(){
