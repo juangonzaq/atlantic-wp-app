@@ -640,7 +640,7 @@ jQuery('.jsSeeMore').on("click", function() {
             const value = event.target.value;
             if (value.length > 2) {
                 setTimeout(function(){
-                    $.ajax({
+                    jQuery.ajax({
                         type: "post",
                         dataType: "json",
                         url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
@@ -882,7 +882,7 @@ jQuery('.jsSeeMore').on("click", function() {
 			const value = event.target.value;
             if (value.length > 2) {
                 setTimeout(function(){
-                    $.ajax({
+                    jQuery.ajax({
                         type: "post",
                         dataType: "json",
                         url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
@@ -1168,7 +1168,7 @@ jQuery('.jsSeeMore').on("click", function() {
 				const value = $('#search-new').val();
 				const type = e.target.dataset.type;
 				const page = parseInt(e.target.dataset.page) + 1;
-				$.ajax({
+				jQuery.ajax({
                     type: "post",
                     dataType: "json",
                     url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
@@ -1374,7 +1374,7 @@ jQuery('.jsSeeMore').on("click", function() {
 				const value = $('#searchMobile-new').val();
 				const type = e.target.dataset.type;
 				const page = parseInt(e.target.dataset.page) + 1;
-				$.ajax({
+				jQuery.ajax({
                     type: "post",
                     dataType: "json",
                     url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
