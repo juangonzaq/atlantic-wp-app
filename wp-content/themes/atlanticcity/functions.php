@@ -378,7 +378,7 @@ add_action('wp_ajax_find_posts', 'find_posts');
 
 // Función que procesa la llamada AJAX
 function find_posts(){
-	global $wpdb;
+	/* global $wpdb;
 	$value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
 	$type  = isset( $_POST['type'] ) ? $_POST['type'] : 'post';
 	$page  = isset( $_POST['page'] ) ? $_POST['page'] : 1;
@@ -411,7 +411,8 @@ function find_posts(){
 
     $pending = (int)$mypostsTitleCount[0]->total - ($offset + count($data));
     
-	wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
+	wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data)))); */
+    wp_send_json(array('pending' => 2));
 }
 
 
