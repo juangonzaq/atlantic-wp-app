@@ -505,39 +505,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 function callAjaxFull() {
 
-jQuery.ajax({
-	type: "post",
-	dataType: "json",
-	url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
-	data: {
-		action: "send_mydatafull",
-		value: jQuery("#search").val()
-	},
-	success: function(response) {
-		const posts = response.posts;
-		const medias = response.medias;
-		const videos = response.videos;
-		const lengthtotal = posts.length + medias.length + videos.length;
-		jQuery('.nav-link-search').eq(0).attr("data-result", lengthtotal);
-		jQuery('.nav-link-search').eq(1).attr("data-result", response.posts.length);
-		jQuery('.nav-link-search').eq(2).attr("data-result", response.medias.length);
-		jQuery('.nav-link-search').eq(3).attr("data-result", response.videos.length);
-		jQuery('#resultados').html(lengthtotal);
-		//data
-		const $todos = jQuery('#todos').find('.addContentJs');
-		const $noticias = jQuery('#noticias').find('.addContentJs');
-		const $videos = jQuery('#videos').find('.addContentJs');
-		const $galeria = jQuery('#galeria').find('.addContentJs');
-		$todos.html("");
-		$noticias.html("");
-		$videos.html("");
-		$galeria.html("");
-		if (lengthtotal == 0) {
-			$todos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
-		}
-		if (posts.length > 0) {
-			posts.forEach((post) => {
-				const template = `
+	jQuery.ajax({
+		type: "post",
+		dataType: "json",
+		url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+		data: {
+			action: "send_mydatafull",
+			value: jQuery("#search").val()
+		},
+		success: function(response) {
+			const posts = response.posts;
+			const medias = response.medias;
+			const videos = response.videos;
+			const lengthtotal = posts.length + medias.length + videos.length;
+			jQuery('.nav-link-search').eq(0).attr("data-result", lengthtotal);
+			jQuery('.nav-link-search').eq(1).attr("data-result", response.posts.length);
+			jQuery('.nav-link-search').eq(2).attr("data-result", response.medias.length);
+			jQuery('.nav-link-search').eq(3).attr("data-result", response.videos.length);
+			jQuery('#resultados').html(lengthtotal);
+			//data
+			const $todos = jQuery('#todos').find('.addContentJs');
+			const $noticias = jQuery('#noticias').find('.addContentJs');
+			const $videos = jQuery('#videos').find('.addContentJs');
+			const $galeria = jQuery('#galeria').find('.addContentJs');
+			$todos.html("");
+			$noticias.html("");
+			$videos.html("");
+			$galeria.html("");
+			if (lengthtotal == 0) {
+				$todos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			}
+			if (posts.length > 0) {
+				posts.forEach((post) => {
+					const template = `
+						<div class="w-2/6 px-4">
+							<article class="w-full notice">
+								<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+									<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+									<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+					
+									<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+										<div class="flex items-center gap-x-2 text-white">
+											<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+										</div>
+										<h3 class="mt-2  leading-6 text-white">
+											<span class="text-lg font-medium">
+												${post.name}
+											</span>
+										</h3>
+									</div>
+								</a>
+							</article>
+						</div>
+					`;
+					$noticias.append(template);
+					$todos.append(template);
+				});
+			} else {
+				$noticias.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			}
+			if (medias.length > 0) { 
+				medias.forEach((post) => {
+					const template = `
+						<div class="w-2/6 px-4">
+							<article class="w-full notice">
+								<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
+									<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
+									<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
+					
+									<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
+										<div class="flex items-center gap-x-2 text-white">
+											<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
+										</div>
+										<h3 class="mt-2  leading-6 text-white">
+											<span class="text-lg font-medium">
+												${post.name}
+											</span>
+										</h3>
+									</div>
+								</a>
+							</article>
+						</div>
+					`;
+					$galeria.append(template);
+					$todos.append(template);
+				});
+			} else {
+				$galeria.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			}
+			if (videos.length > 0) {
+				videos.forEach((post) => {
+					const template = `
 					<div class="w-2/6 px-4">
 						<article class="w-full notice">
 							<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
@@ -557,76 +615,18 @@ jQuery.ajax({
 							</a>
 						</article>
 					</div>
-				`;
-				$noticias.append(template);
-				$todos.append(template);
-			});
-		} else {
-			$noticias.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+					`;
+					$videos.append(template);
+					$todos.append(template);
+				});
+			} else {
+				$videos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			}
+			jQuery("#MySearchcontent").show();
+			//functions
 		}
-		if (medias.length > 0) { 
-			medias.forEach((post) => {
-				const template = `
-					<div class="w-2/6 px-4">
-						<article class="w-full notice">
-							<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
-								<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
-								<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
-				
-								<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
-									<div class="flex items-center gap-x-2 text-white">
-										<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-									</div>
-									<h3 class="mt-2  leading-6 text-white">
-										<span class="text-lg font-medium">
-											${post.name}
-										</span>
-									</h3>
-								</div>
-							</a>
-						</article>
-					</div>
-				`;
-				$galeria.append(template);
-				$todos.append(template);
-			});
-		} else {
-			$galeria.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
-		}
-		if (videos.length > 0) {
-			videos.forEach((post) => {
-				const template = `
-				<div class="w-2/6 px-4">
-					<article class="w-full notice">
-						<a href="${post.link}" class="flex w-full flex-col items-start justify-between relative overflow-hidden max-h-96 rounded-lg" >
-							<img src="${post.imagen}" alt="" class="rounded-lg object-cover object-center w-full h-full notice-image">
-							<div class="absolute top-0 left-0 w-full h-full from-dark rounded-lg"></div>
-			
-							<div class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-7">
-								<div class="flex items-center gap-x-2 text-white">
-									<span class="text-warning leading-none text-sm">${post.category}</span>|<span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-								</div>
-								<h3 class="mt-2  leading-6 text-white">
-									<span class="text-lg font-medium">
-										${post.name}
-									</span>
-								</h3>
-							</div>
-						</a>
-					</article>
-				</div>
-				`;
-				$videos.append(template);
-				$todos.append(template);
-			});
-		} else {
-			$videos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
-		}
-		jQuery("#MySearchcontent").show();
-		//functions
+	});
 	}
-});
-}
 
 jQuery('.jsSeeMore').on("click", function() {
 	jQuery(this).hide();
@@ -1622,3 +1622,8 @@ jQuery('.jsSeeMore').on("click", function() {
 		});
     })
 </script>
+<style>
+	.search-float .allContent .itemContent .addContentJs > div{
+		width: 100% !important;
+	}
+</style>
