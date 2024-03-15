@@ -270,9 +270,9 @@ add_action('wp_ajax_send_mydata', 'send_mydata');
 function send_mydata(){
 	global $wpdb;
 
-    $pagination  = isset( $_POST['pagination'] ) ? (bool)$_POST['pagination'] : false;
+    $pagination  = isset( $_POST['pagination'] ) ? (bool)$_POST['pagination'] : null;
 
-    if($pagination){
+    if($pagination == 1){
         $value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
         $type  = isset( $_POST['type'] ) ? $_POST['type'] : 'post';
         $page  = isset( $_POST['page'] ) ? $_POST['page'] : 1;
