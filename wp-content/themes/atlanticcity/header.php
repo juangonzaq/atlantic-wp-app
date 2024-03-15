@@ -643,7 +643,7 @@ jQuery('.jsSeeMore').on("click", function() {
                     $.ajax({
                         type: "post",
                         dataType: "json",
-                        url: ajaxUrl,
+                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                         data: {
                             action: "send_mydata",
                             value: value
@@ -878,158 +878,6 @@ jQuery('.jsSeeMore').on("click", function() {
             }
         });
 
-		$('#searchMobile').on('keyup', function() {
-			console.log("ENTRO")
-            const $this = $(this);
-            const value = $this.val();
-            if (value.length > 2) {
-                setTimeout(function(){
-                    $.ajax({
-                        type: "post",
-                        dataType: "json",
-                        url: ajaxUrl,
-                        data: {
-                            action: "send_mydata",
-                            value: value
-                        },
-                        success: function(response) {
-                            const posts = response.posts;
-                            const medias = response.medias;
-                            const videos = response.videos;
-                            const lengthtotal = posts.length + medias.length + videos.length;
-                            $('.nav-link-search-mobile').eq(0).attr("data-result", lengthtotal);
-                            $('.nav-link-search-mobile').eq(1).attr("data-result", response.posts.length);
-                            $('.nav-link-search-mobile').eq(2).attr("data-result", response.medias.length);
-                            $('.nav-link-search-mobile').eq(3).attr("data-result", response.videos.length);
-                            $('#resultados-mobile').html(lengthtotal);
-                            //data
-                            const $todos = $('#todos-mobile').find('.mobileJsContent');
-                            const $noticias = $('#noticias-mobile').find('.mobileJsContent');
-                            const $videos = $('#videos-mobile').find('.mobileJsContent');
-                            const $galeria = $('#galeria-mobile').find('.mobileJsContent');
-                            $todos.html("");
-                            $noticias.html("");
-                            $videos.html("");
-                            $galeria.html("");
-                            if (lengthtotal == 0) {
-                                $todos.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            if (posts.length > 0) {
-                                posts.forEach((post) => {
-                                    const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
-                                    $noticias.append(template);
-                                    $todos.append(template);
-                                });
-                            } else {
-                                $noticias.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            if (medias.length > 0) { 
-                                medias.forEach((post) => {
-                                    const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
-                                    $galeria.append(template);
-                                    $todos.append(template);
-                                });
-                            } else {
-                                $galeria.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            if (videos.length > 0) {
-                                videos.forEach((post) => {
-                                    const template = `
-                                        <div class="w-full px-4">
-                                            <article class="w-full notice">
-                                                <a href="${post.link}" class="flex w-full flex relative overflow-hidden bg-gray rounded-lg">
-                                                    <div class="w-2/5 relative">
-                                                        <img src="${post.imagen}" alt="" class="rounded-tl-lg rounded-bl-lg object-cover object-center w-full h-full notice-image">
-                                                    </div>
-                                                    <div class="w-3/5">
-                                                        <div class="h-full w-full flex flex-col justify-between p-7">
-                                                            <div class="w-full">
-                                                                <div class="flex items-center gap-x-2 ">
-                                                                    <span class="text-warning leading-none text-sm">${post.category}</span>
-                                                                </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
-                                                                    <span class="text-xl font-medium">
-                                                                    ${post.name}
-                                                                    </span>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="flex items-center gap-x-2 text-white text-sm mt-2">
-                                                                <span class="leading-none text-sm">${post.dia}</span>|<span class="leading-none text-sm">${post.hora} hrs.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        </div>									
-                                    `;
-                                    $videos.append(template);
-                                    $todos.append(template);
-                                });
-                            } else {
-                                $videos.html("<div class='notresult'>No se encontraron resultados</div>");
-                            }
-                            $("#MySearchcontentMobile").show();
-                            //functions
-                        }
-                    });
-                }, 500);
-            }
-        });
-
         $('#searchMobile-new').on('keyup', function() {
 			const value = event.target.value;
             if (value.length > 2) {
@@ -1037,7 +885,7 @@ jQuery('.jsSeeMore').on("click", function() {
                     $.ajax({
                         type: "post",
                         dataType: "json",
-                        url: ajaxUrl,
+                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                         data: {
                             action: "send_mydata",
                             value: value
@@ -1323,7 +1171,7 @@ jQuery('.jsSeeMore').on("click", function() {
 				$.ajax({
                     type: "post",
                     dataType: "json",
-                    url: ajaxUrl,
+                    url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                     data: {
                         action: "find_posts",
 						value: value,
@@ -1529,7 +1377,7 @@ jQuery('.jsSeeMore').on("click", function() {
 				$.ajax({
                     type: "post",
                     dataType: "json",
-                    url: ajaxUrl,
+                    url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
                     data: {
                         action: "find_posts",
 						value: value,
