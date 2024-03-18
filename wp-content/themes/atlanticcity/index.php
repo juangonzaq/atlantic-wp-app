@@ -362,7 +362,7 @@ get_header(); ?>
                     if ($orderitems == "izquierdo") {
                         ?>
                         <!-- h-custom-logs  z-10 -->
-                <aside class="w-full md:w-60 relative md:flex h-auto md:h-screen left-0 ">
+                <aside class="w-full md:w-80 relative md:flex h-auto md:h-auto ">
                     <div class="bg-gray h-full m-h- overflow-auto no-scrollbar aside-content-menu">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
@@ -709,7 +709,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link px-8 py-8">
+                    <div class="pag-link px-8 py-8 1">
                         <?php powernature_pagination(); ?>
                     </div>
                     
@@ -1263,7 +1263,7 @@ get_header(); ?>
                     }
                 ?>
             </div>
-            <div class="pag-link px-8 py-8">
+            <div class="pag-link px-8 py-8 2">
                 <?php powernature_pagination(); ?>
             </div>
             <?php
@@ -1615,7 +1615,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link px-8 py-8">
+                    <div class="pag-link px-8 py-8 3">
                         <?php powernature_pagination(); ?>
                     </div>
                    
