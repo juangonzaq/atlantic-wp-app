@@ -660,7 +660,7 @@ jQuery('.jsSeeMore').on("click", function() {
                             const lengthtotal = posts.length + medias.length + videos.length;
                             const countTotal = postsCount + mediasCount + videosCount;
 							const allCount = response.allCount;
-                            $('#MySearchcontent .nav-link-search').eq(0).attr("data-result", (lengthtotal > 8)?8:lengthtotal);
+                            $('#MySearchcontent .nav-link-search').eq(0).attr("data-result", allCount);
                             $('#MySearchcontent .nav-link-search').eq(1).attr("data-result", postsCount);
                             $('#MySearchcontent .nav-link-search').eq(2).attr("data-result", mediasCount);
                             $('#MySearchcontent .nav-link-search').eq(3).attr("data-result", videosCount);
@@ -904,10 +904,10 @@ jQuery('.jsSeeMore').on("click", function() {
                             const lengthtotal = posts.length + medias.length + videos.length;
                             const countTotal = postsCount + mediasCount + videosCount;
 
-							$('# MySearchcontentMobile .nav-link-search-mobile').eq(0).attr("data-result", lengthtotal);
-                            $('# MySearchcontentMobile .nav-link-search-mobile').eq(1).attr("data-result", postsCount);
-                            $('# MySearchcontentMobile .nav-link-search-mobile').eq(2).attr("data-result", mediasCount);
-                            $('# MySearchcontentMobile .nav-link-search-mobile').eq(3).attr("data-result", videosCount);
+							$('#MySearchcontentMobile .nav-link-search-mobile').eq(0).attr("data-result", lengthtotal);
+                            $('#MySearchcontentMobile .nav-link-search-mobile').eq(1).attr("data-result", postsCount);
+                            $('#MySearchcontentMobile .nav-link-search-mobile').eq(2).attr("data-result", mediasCount);
+                            $('#MySearchcontentMobile .nav-link-search-mobile').eq(3).attr("data-result", videosCount);
                             $('#resultados-mobile').html(lengthtotal);
 
 							const $todos = $('#todos-mobile').find('.mobileJsContent');
