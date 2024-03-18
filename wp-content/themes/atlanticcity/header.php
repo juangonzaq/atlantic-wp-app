@@ -1659,7 +1659,7 @@ jQuery('.jsSeeMore').on("click", function() {
 		height: calc(100vh - var(--h-main-menu) - var(--height-header) + 3px);
 	}
 
-	.navigation a{
+	.pag-link .navigation a{
 		border: none;
 		margin: 0 8px;
 	}
