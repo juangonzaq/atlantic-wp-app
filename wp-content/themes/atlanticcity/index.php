@@ -709,7 +709,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link px-8 py-8 1">
+                    <div class="pag-link px-8 py-8 flex justify-center items-center 1">
                         <?php powernature_pagination(); ?>
                     </div>
                     
@@ -1615,7 +1615,7 @@ get_header(); ?>
                         endif;
                         ?>
                     </div>                    
-                    <div class="pag-link px-8 py-8 3">
+                    <div class="pag-link px-8 py-8 flex justify-center items-center 3">
                         <?php powernature_pagination(); ?>
                     </div>
                    

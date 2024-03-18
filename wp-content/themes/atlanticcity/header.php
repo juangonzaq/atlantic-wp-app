@@ -1658,4 +1658,9 @@ jQuery('.jsSeeMore').on("click", function() {
 	.top-menu .main-submenu{
 		height: calc(100vh - var(--h-main-menu) - var(--height-header) + 3px);
 	}
+
+	.navigation a{
+		border: none;
+		margin: 0 8px;
+	}
 </style>
