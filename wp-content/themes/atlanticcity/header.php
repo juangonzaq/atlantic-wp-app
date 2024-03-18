@@ -904,11 +904,11 @@ jQuery('.jsSeeMore').on("click", function() {
                             const lengthtotal = posts.length + medias.length + videos.length;
                             const countTotal = postsCount + mediasCount + videosCount;
 
-							$('# MySearchcontentMobile.nav-link-search-mobile').eq(0).attr("data-result", (lengthtotal > 8)?8:lengthtotal);
-                            $('# MySearchcontentMobile.nav-link-search-mobile').eq(1).attr("data-result", response.posts.length);
-                            $('# MySearchcontentMobile.nav-link-search-mobile').eq(2).attr("data-result", response.videos.length);
-                            $('# MySearchcontentMobile.nav-link-search-mobile').eq(3).attr("data-result", response.medias.length);
-                            $('#resultados-mobile').html((lengthtotal > 8)?8:lengthtotal);
+							$('# MySearchcontentMobile .nav-link-search-mobile').eq(0).attr("data-result", lengthtotal);
+                            $('# MySearchcontentMobile .nav-link-search-mobile').eq(1).attr("data-result", postsCount);
+                            $('# MySearchcontentMobile .nav-link-search-mobile').eq(2).attr("data-result", mediasCount);
+                            $('# MySearchcontentMobile .nav-link-search-mobile').eq(3).attr("data-result", videosCount);
+                            $('#resultados-mobile').html(lengthtotal);
 
 							const $todos = $('#todos-mobile').find('.mobileJsContent');
                             const $noticias = $('#noticias-mobile').find('.mobileJsContent');
