@@ -1673,13 +1673,5 @@ jQuery('.jsSeeMore').on("click", function() {
 	.pag-link .navigation a.next{
 	}
 
-	@media (min-width: 768px){
-		body.archive.category-futbol-internacional .header-title{
-			height: 86px;
-		}
 	
-		body.archive.category-futbol-internacional .header-title-target{
-			height: 86px;
-		}
-	}
 </style>

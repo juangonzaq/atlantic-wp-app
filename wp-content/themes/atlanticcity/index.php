@@ -1778,3 +1778,14 @@ get_header(); ?>
 </style>
 <!-- section index end -->
 <?php get_footer(); ?>
+<style>
+    @media (min-width: 768px){
+		body.archive.category-futbol-internacional .header-title{
+			height: 86px;
+		}
+	
+		body.archive.category-futbol-internacional .header-title-target{
+			height: 86px;
+		}
+	}
+</style>
