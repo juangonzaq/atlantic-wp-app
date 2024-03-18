@@ -904,11 +904,11 @@ jQuery('.jsSeeMore').on("click", function() {
                             const lengthtotal = posts.length + medias.length + videos.length;
                             const countTotal = postsCount + mediasCount + videosCount;
 
-							$('#MySearchcontentMobile .nav-link-search-mobile').eq(0).attr("data-result", lengthtotal);
+							$('#MySearchcontentMobile .nav-link-search-mobile').eq(0).attr("data-result", allCount);
                             $('#MySearchcontentMobile .nav-link-search-mobile').eq(1).attr("data-result", postsCount);
                             $('#MySearchcontentMobile .nav-link-search-mobile').eq(2).attr("data-result", mediasCount);
                             $('#MySearchcontentMobile .nav-link-search-mobile').eq(3).attr("data-result", videosCount);
-                            $('#resultados-mobile').html(lengthtotal);
+                            $('#resultados-mobile').html(allCount);
 
 							const $todos = $('#todos-mobile').find('.mobileJsContent');
                             const $noticias = $('#noticias-mobile').find('.mobileJsContent');
@@ -1220,7 +1220,6 @@ jQuery('.jsSeeMore').on("click", function() {
 						
 						if(data.length > 0){
 							data.forEach(post => {
-								console.log(post)
 								if(type == 'all'){
 									let template = '';
 									if(post.type == 'post'){
@@ -1427,7 +1426,6 @@ jQuery('.jsSeeMore').on("click", function() {
 						
 						if(data.length > 0){
 							data.forEach(post => {
-								console.log(post)
 								if(type == 'all'){
 									let template = '';
 									if(post.type == 'post'){
