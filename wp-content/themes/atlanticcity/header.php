@@ -1667,7 +1667,7 @@ jQuery('.jsSeeMore').on("click", function() {
 	.pag-link .navigation a.prev{
 		transform: rotate(180deg);
 		display: flex;
-		align-items: end;
+		align-items: center;
 	}
 
 	.pag-link .navigation a.next{
