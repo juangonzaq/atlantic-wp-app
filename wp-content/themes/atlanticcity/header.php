@@ -1663,4 +1663,8 @@ jQuery('.jsSeeMore').on("click", function() {
 		border: none;
 		margin: 0 8px;
 	}
+
+	.pag-link .navigation a.prev{
+		transform: rotate(180deg);
+	}
 </style>
