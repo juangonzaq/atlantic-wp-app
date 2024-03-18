@@ -373,9 +373,9 @@ get_header();
                             <span class=" mdi mdi-close text-primary text-xl font-normal hover:underline cursor-pointer ml-2"></span>
                         </button>
                     </div> -->
-                    <div class="w-full mb-12 md:mb-4 mt-20 md:mt-0 flex justify-between items-center" style="width: 72%;">
-                        <p class="text-base font-medium text-white"><?php echo get_the_title($id); ?></p>
-                        <button href="" class="flex items-center close ml-5"  data-id="swiper-<?php echo $id; ?>">
+                    <div class="w-full mb-12 md:mb-4 mt-20 md:mt-0 flex flex-col md:flex-row justify-between items-center" style="width: 72%;">
+                        <p class="text-base font-medium text-white order-1 md:order-2"><?php echo get_the_title($id); ?></p>
+                        <button href="" class="flex items-center close ml-5 mb-5 md:mb-0"  data-id="swiper-<?php echo $id; ?>">
                             <span class="text-primary text-lg font-normal  hover:underline cursor-pointer">Cerrar</span>
                             <span class=" mdi mdi-close text-primary text-xl font-normal hover:underline cursor-pointer ml-2"></span>
                         </button>
