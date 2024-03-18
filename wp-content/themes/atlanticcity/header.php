@@ -1636,7 +1636,7 @@ jQuery('.jsSeeMore').on("click", function() {
 		$('#closeSearch').on('click', function(){
 			let contentSearchDesk = document.querySelector('.at-menu-nav-content-search-desktop');
 			contentSearchDesk.classList.remove('show');
-			$('.menu-desktop').find('.at-menu-nav').removeClass('active');
+			$('.menu-desktop').find('.at-menu-nav-desktop').removeClass('active');
 		});
 		
 		$('#closeSearchMobile').on('click', function(){
