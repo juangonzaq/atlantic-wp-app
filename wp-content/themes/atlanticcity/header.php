@@ -903,6 +903,7 @@ jQuery('.jsSeeMore').on("click", function() {
                             const videosCount = response.videosCount;
                             const lengthtotal = posts.length + medias.length + videos.length;
                             const countTotal = postsCount + mediasCount + videosCount;
+							const allCount = response.allCount;
 
 							$('#MySearchcontentMobile .nav-link-search-mobile').eq(0).attr("data-result", allCount);
                             $('#MySearchcontentMobile .nav-link-search-mobile').eq(1).attr("data-result", postsCount);
