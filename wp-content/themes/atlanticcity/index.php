@@ -48,7 +48,7 @@ get_header(); ?>
             ?>
                 <div class="w-full bg-dark-bold flex items-center px-8 justify-center md:justify-start relative md:fixed z-10 h-16 header-title">
                     <div id="category-box" class="flex w-full py-0 items-center">
-                        <h1 class="text-2xl font-semibold text-white my-auto uppercase text-center w-full md:w-auto">
+                        <h1 class="text-2xl font-semibold text-white my-auto uppercase text-center w-full md:w-auto mx-auto">
                             <?php 
                                 $ancestros = get_ancestors($idCategory, 'category');
                                 if ($category->parent) {
@@ -65,7 +65,7 @@ get_header(); ?>
                             ?>
                         </h1>
                         <!-- SEPARATION -->
-                        <span class="separation bg-primary mx-8 hidden md:flex"></span>
+                        <!-- <span class="separation bg-primary mx-8 hidden md:flex"></span> -->
                         <!-- END SEPARATION -->
                         <?php
                         $aux = 0;
