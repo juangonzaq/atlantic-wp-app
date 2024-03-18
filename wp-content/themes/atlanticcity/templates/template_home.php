@@ -367,14 +367,18 @@ get_header();
             <!-- class="gallery-content w-full h-full bg-dark flex justify-center overflow-auto" -->
             <div class="flex flex-col justify-center items-center w-full h-full bg-dark">
                 <div class="relative w-full h-full max-h-full flex flex-col items-center justify-center">
-                    <div class="w-full flex justify-end mb-4 items-center pr-14">
+                    <!-- <div class="w-full flex justify-end mb-4 items-center pr-14">
                         <button href="" class="flex items-center close"  data-id="swiper-<?php echo $id; ?>">
                             <span class="text-primary text-lg font-normal  hover:underline cursor-pointer">Cerrar</span>
                             <span class=" mdi mdi-close text-primary text-xl font-normal hover:underline cursor-pointer ml-2"></span>
                         </button>
-                    </div>
+                    </div> -->
                     <div class="w-full mb-12 md:mb-4 mt-20 md:mt-0" style="width: 72%;">
                         <p class="text-base font-medium text-white"><?php echo get_the_title($id); ?></p>
+                        <button href="" class="flex items-center close ml-5"  data-id="swiper-<?php echo $id; ?>">
+                            <span class="text-primary text-lg font-normal  hover:underline cursor-pointer">Cerrar</span>
+                            <span class=" mdi mdi-close text-primary text-xl font-normal hover:underline cursor-pointer ml-2"></span>
+                        </button>
                     </div>
                     <div class="swiper swipper-gallery max-h-full flex items-center w-full" data-modal-id="swiper-<?php echo $id; ?>">
                         <div class="swiper-wrapper h-full max-h-full">
