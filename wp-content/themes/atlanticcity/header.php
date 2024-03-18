@@ -300,13 +300,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 						<div class="at-menu-nav-content-search left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
 										<div class="bg-black py-5 w-full h-24">
-											<div class="w-full mx-auto px-12">
+											<div class="w-full mx-auto px-12 flex items-center">
 												<div class="block-input relative">
 													<input type="text" placeholder="Buscar..." id="searchMobile-new" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light pr-12 text-ellipsis input-close-search-mobile">
 													<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer button-close-search-mobile">
 														<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 													</span>
 												</div>
+												<button id="closeSearchMobile" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded-full transition-all duration-3 text-white hover:bg-primary hover:text-white hidden md:flex ml-8">Cancelar</button>
 											</div>
 										</div>
 										<div class="h-full bg-dark search-float-mobile" id="MySearchcontentMobile" style="display:none">
@@ -376,13 +377,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 						<div class="at-menu-nav-content-search-desktop left-0 bottom-0 z-10 main-submenu max-h-0 flex flex-col overflow-auto">
 											<div class="bg-black py-5 w-full h-24">
-												<div class="md:w-1/2 mx-auto">
+												<div class="md:w-1/2 mx-auto flex items-center">
 													<div class="block-input relative">
 														<input type="text" placeholder="Buscar..." id="search-new" class="w-full h-12 bg-black text-primary placeholder-white text-xl border-l-none border-t-none border-r-none outline-none border-b border-solid border-gray-light input-close-search">
 														<span class="absolute top-1 right-1 font-bold rounded-full flex justify-center items-center button-close-search hidden cursor-pointer" id="closeCircle">
 															<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 														</span>
 													</div>
+													<button id="closeSearch" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded-full transition-all duration-3 text-white hover:bg-primary hover:text-white hidden md:flex ml-8">Cancelar</button>
 												</div>
 											</div>
 											<div class="h-full bg-gray px-8 search-float" id="MySearchcontent" style="display:none">
@@ -1629,6 +1631,16 @@ jQuery('.jsSeeMore').on("click", function() {
 					}
                 });
 			});
+		});
+
+		$('#closeSearch').on('click', function(){
+			let contentSearch = document.querySelector('.at-menu-nav-content-search');
+			contentSearch.classList.remove('show');
+		});
+
+		$('#closeSearchMobile').on('click', function(){
+			let contentSearchDesk = document.querySelector('.at-menu-nav-content-search-desktop');
+			contentSearchDesk.classList.remove('show');
 		});
     })
 </script>
