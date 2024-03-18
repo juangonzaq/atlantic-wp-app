@@ -1626,4 +1626,12 @@ jQuery('.jsSeeMore').on("click", function() {
 	.search-float .allContent .itemContent .addContentJs > div.notresult{
 		width: 100% !important;
 	}
+
+	.at-menu-nav-content-search.show{
+		max-height: calc(100vh - var(--height-header) + 3px);
+	}
+
+	.top-menu .main-submenu{
+		height: calc(100vh - var(--h-main-menu) - var(--height-header) + 3px);
+	}
 </style>
