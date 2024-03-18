@@ -1634,15 +1634,13 @@ jQuery('.jsSeeMore').on("click", function() {
 		});
 
 		$('#closeSearch').on('click', function(){
-			console.log("click")
-			let contentSearch = document.querySelector('.at-menu-nav-content-search');
-			contentSearch.classList.remove('show');
-		});
-
-		$('#closeSearchMobile').on('click', function(){
-			console.log("click")
 			let contentSearchDesk = document.querySelector('.at-menu-nav-content-search-desktop');
 			contentSearchDesk.classList.remove('show');
+		});
+		
+		$('#closeSearchMobile').on('click', function(){
+			let contentSearch = document.querySelector('.at-menu-nav-content-search');
+			contentSearch.classList.remove('show');
 		});
     })
 </script>
