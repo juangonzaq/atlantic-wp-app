@@ -674,8 +674,9 @@ jQuery('.jsSeeMore').on("click", function() {
                             $noticias.html("");
                             $videos.html("");
                             $galeria.html("");
-
+console.log(response)
 							if(countTotal > 8){
+								console.log("MOSTRAR")
 								$('#todos').find('.buttonMore').removeClass('hidden');
 								$('#todos').find('.buttonMore').attr('data-page', 1);
 							}
