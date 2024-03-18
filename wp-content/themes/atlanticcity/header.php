@@ -636,6 +636,11 @@ jQuery('.jsSeeMore').on("click", function() {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', ()=>{
+		$('#todos').find('.buttonMore').hide();
+		$('#noticias').find('.buttonMore').hide();
+		$('#galeria').find('.buttonMore').hide();
+		$('#videos').find('.buttonMore').hide();
+
         $('#search-new').on('keyup', (event) => {
             const value = event.target.value;
             if (value.length > 2) {
@@ -677,35 +682,35 @@ jQuery('.jsSeeMore').on("click", function() {
 console.log(response)
 							if(countTotal > 8){
 								console.log("MOSTRAR")
-								$('#todos').find('.buttonMore').removeClass('hidden');
+								$('#todos').find('.buttonMore').show();
 								$('#todos').find('.buttonMore').attr('data-page', 1);
 							}
 							else{
-								$('#todos').find('.buttonMore').addClass('hidden');
+								$('#todos').find('.buttonMore').hide();
 							}
 
 							if(postsCount > 8){
-								$('#noticias').find('.buttonMore').removeClass('hidden');
+								$('#noticias').find('.buttonMore').show();
 								$('#noticias').find('.buttonMore').attr('data-page', 1);
 							}
 							else{
-								$('#noticias').find('.buttonMore').addClass('hidden');
+								$('#noticias').find('.buttonMore').hide();
 							}
 							
 							if(mediasCount > 8){
-								$('#galeria').find('.buttonMore').removeClass('hidden');
+								$('#galeria').find('.buttonMore').show();
 								$('#galeria').find('.buttonMore').attr('data-page', 1);
 							}
 							else{
-								$('#galeria').find('.buttonMore').addClass('hidden');
+								$('#galeria').find('.buttonMore').hide();
 							}
 
 							if(videosCount > 8){
-								$('#videos').find('.buttonMore').removeClass('hidden');
+								$('#videos').find('.buttonMore').show();
 								$('#videos').find('.buttonMore').attr('data-page', 1);
 							}
 							else{
-								$('#videos').find('.buttonMore').addClass('hidden');
+								$('#videos').find('.buttonMore').hide();
 							}
 
                             if (lengthtotal == 0) {
