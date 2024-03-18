@@ -1263,9 +1263,9 @@ get_header(); ?>
                     }
                 ?>
             </div>
-            <div class="pag-link px-8 py-8 2">
+            <!-- <div class="pag-link px-8 py-8 2">
                 <?php powernature_pagination(); ?>
-            </div>
+            </div> -->
             <?php
         } else {
             ?>
