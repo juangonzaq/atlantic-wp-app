@@ -640,6 +640,11 @@ jQuery('.jsSeeMore').on("click", function() {
 		$('#noticias').find('.buttonMore').hide();
 		$('#galeria').find('.buttonMore').hide();
 		$('#videos').find('.buttonMore').hide();
+		
+		$('#todos-mobile').find('.buttonMore-mobile').hide();
+		$('#noticias-mobile').find('.buttonMore-mobile').hide();
+		$('#galeria-mobile').find('.buttonMore-mobile').hide();
+		$('#videos-mobile').find('.buttonMore-mobile').hide();
 
         $('#search-new').on('keyup', (event) => {
             const value = event.target.value;
@@ -679,9 +684,8 @@ jQuery('.jsSeeMore').on("click", function() {
                             $noticias.html("");
                             $videos.html("");
                             $galeria.html("");
-console.log(response)
+
 							if(countTotal > 8){
-								console.log("MOSTRAR")
 								$('#todos').find('.buttonMore').show();
 								$('#todos').find('.buttonMore').attr('data-page', 1);
 							}
@@ -927,35 +931,35 @@ console.log(response)
                             $galeria.html("");
 
 							if(countTotal > 8){
-								$('#todos-mobile').find('.buttonMore-mobile').removeClass('hidden');
+								$('#todos-mobile').find('.buttonMore-mobile').show();
 								$('#todos-mobile').find('.buttonMore-mobile').attr('data-page', 1);
 							}
 							else{
-								$('#todos-mobile').find('.buttonMore-mobile').addClass('hidden');
+								$('#todos-mobile').find('.buttonMore-mobile').hide();
 							}
 
 							if(postsCount > 8){
-								$('#noticias-mobile').find('.buttonMore-mobile').removeClass('hidden');
+								$('#noticias-mobile').find('.buttonMore-mobile').show();
 								$('#noticias-mobile').find('.buttonMore-mobile').attr('data-page', 1);
 							}
 							else{
-								$('#noticias-mobile').find('.buttonMore-mobile').addClass('hidden');
+								$('#noticias-mobile').find('.buttonMore-mobile').hide();
 							}
 							
 							if(mediasCount > 8){
-								$('#galeria-mobile').find('.buttonMore-mobile').removeClass('hidden');
+								$('#galeria-mobile').find('.buttonMore-mobile').show();
 								$('#galeria-mobile').find('.buttonMore-mobile').attr('data-page', 1);
 							}
 							else{
-								$('#galeria-mobile').find('.buttonMore-mobile').addClass('hidden');
+								$('#galeria-mobile').find('.buttonMore-mobile').hide();
 							}
 
 							if(videosCount > 8){
-								$('#videos-mobile').find('.buttonMore-mobile').removeClass('hidden');
+								$('#videos-mobile').find('.buttonMore-mobile').show();
 								$('#videos-mobile').find('.buttonMore-mobile').attr('data-page', 1);
 							}
 							else{
-								$('#videos-mobile').find('.buttonMore-mobile').addClass('hidden');
+								$('#videos-mobile').find('.buttonMore-mobile').hide();
 							}
 
                             if (lengthtotal == 0) {
