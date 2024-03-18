@@ -1785,7 +1785,7 @@ get_header(); ?>
 		}
 	
 		body.archive.category-futbol-internacional .header-title-target{
-			height: 86px;
+			padding-top: 86px;
 		}
 	}
 </style>
