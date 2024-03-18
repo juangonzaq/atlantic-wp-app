@@ -305,13 +305,13 @@ function send_mydata(){
     
         $pending = (int)$mypostsTitleCount[0]->total - ($offset + count($data));
         
-        wp_send_json(array('pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
+        wp_send_json(array('allCount' => $mypostsTitleCount[0]->total, 'pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
     }
     else{
         // Check parameters
         $title  = isset( $_POST['value'] ) ? $_POST['value'] : false;
         //all posts
-        $mypostsTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );	
+        $mypostsTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_title LIKE '%s' AND post_type IN ('post', 'foto', 'video')", '%'. $wpdb->esc_like( $title ) .'%') );	
         //$mymediasTitle = $wpdb->get_results( $wpdb->prepare("SELECT * FROM $wpdb->posts WHERE guid LIKE '%s'", '%'. $wpdb->esc_like( $title ) .'%') );
         $listPosts = array();
         $medias = array();
@@ -350,6 +350,7 @@ function send_mydata(){
         $medias = array_slice($medias, 0, 8);
         $videos = array_slice($videos, 0, 8);
         $completerray = array(
+            'allCount' => count($mypostsTitle),
             "all" => array_slice($all, 0, 8),
             "posts" => $primerosSeis, 
             "medias" => $medias, 

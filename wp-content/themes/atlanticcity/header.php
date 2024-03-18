@@ -659,11 +659,12 @@ jQuery('.jsSeeMore').on("click", function() {
                             const videosCount = response.videosCount;
                             const lengthtotal = posts.length + medias.length + videos.length;
                             const countTotal = postsCount + mediasCount + videosCount;
+							const allCount = response.allCount;
                             $('#MySearchcontent .nav-link-search').eq(0).attr("data-result", (lengthtotal > 8)?8:lengthtotal);
                             $('#MySearchcontent .nav-link-search').eq(1).attr("data-result", response.posts.length);
                             $('#MySearchcontent .nav-link-search').eq(2).attr("data-result", response.videos.length);
                             $('#MySearchcontent .nav-link-search').eq(3).attr("data-result", response.medias.length);
-                            $('#resultados').html((lengthtotal > 8)?8:lengthtotal);
+                            $('#resultados').html(allCount);
                             //data
                             const $todos = $('#todos').find('.addContentJs');
                             const $noticias = $('#noticias').find('.addContentJs');
