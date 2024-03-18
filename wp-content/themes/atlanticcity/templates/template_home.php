@@ -366,7 +366,7 @@ get_header();
         <div class="modal-gallery fixed z-19 top-modal-header h-with-head left-0 w-screen hidden" id="swiper-<?php echo $id; ?>" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <!-- class="gallery-content w-full h-full bg-dark flex justify-center overflow-auto" -->
             <div class="flex flex-col justify-center items-center w-full h-full bg-dark">
-                <div class="relative w-full h-full max-h-full flex flex-col items-center justify-center">
+                <div class="relative w-full h-full max-h-full flex flex-col items-start md:items-center justify-center">
                     <!-- <div class="w-full flex justify-end mb-4 items-center pr-14">
                         <button href="" class="flex items-center close"  data-id="swiper-<?php echo $id; ?>">
                             <span class="text-primary text-lg font-normal  hover:underline cursor-pointer">Cerrar</span>
