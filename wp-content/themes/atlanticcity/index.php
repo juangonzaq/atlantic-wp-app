@@ -40,7 +40,7 @@ get_header(); ?>
     }
 }
 </style>
-<div class="bg-dark flex flex-col pb-24 w-full margin-top-header">
+<div class="bg-dark flex flex-col w-full margin-top-header">
     <?php 
         if (property_exists($category, "term_id")){
             $orderitems = get_field( 'orden_de_items', $category );            
@@ -356,11 +356,13 @@ get_header(); ?>
             }
             ?>
             <div class="flex flex-col md:flex-row gap-x-8 h-full relative   
-             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "pl-aside mt-0 header-title-target"; }?>">
+             <?php if ($orderitems == "arriba") { echo "pl-0"; } else { echo "mt-0 header-title-target"; }?>">
+             <!-- pl-aside  -->
                 <?php 
                     if ($orderitems == "izquierdo") {
                         ?>
-                <aside class="w-full md:w-60 relative md:fixed z-10 h-auto md:h-screen left-0 h-custom-logs">
+                        <!-- h-custom-logs  z-10 -->
+                <aside class="w-full md:w-60 relative md:flex h-auto md:h-screen left-0 ">
                     <div class="bg-gray h-full m-h- overflow-auto no-scrollbar aside-content-menu">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
