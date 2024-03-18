@@ -307,7 +307,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 													</span>
 												</div>
-												<button id="closeSearchMobile" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded-full transition-all duration-3 text-white hover:bg-primary hover:text-white hidden md:flex ml-8">Cancelar</button>
+												<button id="closeSearchMobile" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded-full transition-all duration-3 text-white hover:bg-primary hover:text-white flex ml-8">Cancelar</button>
 											</div>
 										</div>
 										<div class="h-full bg-dark search-float-mobile" id="MySearchcontentMobile" style="display:none">
@@ -384,7 +384,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 															<span class="mdi mdi-close-circle text-3xl text-primary bg-black"></span>
 														</span>
 													</div>
-													<button id="closeSearch" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded-full transition-all duration-3 text-white hover:bg-primary hover:text-white hidden md:flex ml-8">Cancelar</button>
+													<button id="closeSearch" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded-full transition-all duration-3 text-white hover:bg-primary hover:text-white flex ml-8">Cancelar</button>
 												</div>
 											</div>
 											<div class="h-full bg-gray px-8 search-float" id="MySearchcontent" style="display:none">
