@@ -677,8 +677,8 @@ jQuery('.jsSeeMore').on("click", function() {
 							const allCount = response.allCount;
                             $('#MySearchcontent .nav-link-search').eq(0).attr("data-result", allCount);
                             $('#MySearchcontent .nav-link-search').eq(1).attr("data-result", postsCount);
-                            $('#MySearchcontent .nav-link-search').eq(2).attr("data-result", mediasCount);
-                            $('#MySearchcontent .nav-link-search').eq(3).attr("data-result", videosCount);
+                            $('#MySearchcontent .nav-link-search').eq(2).attr("data-result", videosCount);
+                            $('#MySearchcontent .nav-link-search').eq(3).attr("data-result", mediasCount);
                             $('#resultados').html(allCount);
                             //data
                             const $todos = $('#todos').find('.addContentJs');
@@ -1369,7 +1369,8 @@ jQuery('.jsSeeMore').on("click", function() {
                         const $noticias = $('#noticias').find('.addContentJs');
                         const $videos = $('#videos').find('.addContentJs');
                         const $galeria = $('#galeria').find('.addContentJs');
-
+console.log(type)
+console.log(response)
 						if(type == 'all'){
 							$('.nav-link-search').eq(0).attr("data-result", response.current);
 							if(response.pending <= 0){
