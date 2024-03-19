@@ -1799,12 +1799,5 @@ get_header(); ?>
 		}
 	}
 
-    .swipper-gallery .swiper-wrapper .swiper-slide img{
-		position: relative;
-		height: 100%;
-		width: 100%;
-		min-width: 100%;
-		object-fit: unset !important;
-		height: auto;
-	}
+    
 </style>
