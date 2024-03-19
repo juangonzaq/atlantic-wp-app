@@ -658,7 +658,7 @@ jQuery('.jsSeeMore').on("click", function() {
 		$.ajax({
                         type: "post",
                         dataType: "json",
-                        url: "http://atlantic.test/wp-admin/admin-ajax.php",
+                        url: urlSearch,
                         data: {
                             action: "send_mydata",
 							pagination: 0,
