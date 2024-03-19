@@ -1837,12 +1837,14 @@ jQuery('.jsSeeMore').on("click", function() {
 			let contentSearchDesk = document.querySelector('.at-menu-nav-content-search-desktop');
 			contentSearchDesk.classList.remove('show');
 			$('.menu-desktop').find('.at-menu-nav-desktop').removeClass('active');
+			$('body').removeClass('static-body');
 		});
 		
 		$('#closeSearchMobile').on('click', function(){
 			let contentSearch = document.querySelector('.at-menu-nav-content-search');
 			contentSearch.classList.remove('show');
 			$('.menu-desktop').find('.at-menu-nav-mobile').removeClass('active');
+			$('body').removeClass('static-body');
 		});
     })
 </script>
