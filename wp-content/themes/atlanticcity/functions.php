@@ -317,7 +317,7 @@ function send_mydata(){
         
         $tags = get_terms($args);
         wp_send_json([
-            'tags' => $tags
+            'tags' => array_slice($tags, 0, 6)
         ]);
         /* if ( !empty($tags) && !is_wp_error($tags) ) {
             // Si se encontraron etiquetas y no hay error, las procesamos
