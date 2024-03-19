@@ -631,13 +631,18 @@ get_header(); ?>
                                             </div>
                                             <div class="w-7/12">
                                                 <div class="h-full w-full flex flex-col justify-center p-7">
+                                                    <span class="flex md:hidden text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                     <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-2xl font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
                                                     </h3>
                                                     <div class="flex items-center gap-x-2 text-sm text-white mt-2">
-                                                        <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>|<span class="leading-none text-sm"><?php echo $newdate; ?></span>|<span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
+                                                        <span class="hidden md:flex text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
+                                                        <span class="hidden md:flex ">|</span>
+                                                        <span class="leading-none text-sm"><?php echo $newdate; ?></span>
+                                                        <span>|</span>
+                                                        <span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1537,13 +1542,18 @@ get_header(); ?>
                                             </div>
                                             <div class="w-7/12">
                                                 <div class="h-full w-full flex flex-col justify-center p-7">
+                                                    <span class="flex md:hidden text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                     <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-2xl font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
                                                     </h3>
                                                     <div class="flex items-center gap-x-2 text-sm text-white mt-2">
-                                                        <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>|<span class="leading-none text-sm"><?php echo $newdate; ?></span>|<span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
+                                                        <span class="hidden md:flex text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
+                                                        <span class="hidden md:flex ">|</span>
+                                                        <span class="leading-none text-sm"><?php echo $newdate; ?></span>
+                                                        <span>|</span>
+                                                        <span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
                                                     </div>
                                                 </div>
                                             </div>
