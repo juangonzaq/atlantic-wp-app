@@ -1942,4 +1942,13 @@ jQuery('.jsSeeMore').on("click", function() {
 	.hover\:bg-gray:hover, .focus\:bg-gray:focus, .active\:bg-gray:active{
 		background-color: var(--gray);
 	}
+	
+	.swipper-gallery .swiper-wrapper .swiper-slide img{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		min-width: 100%;
+		object-fit: unset;
+		height: auto;
+	}
 </style>
