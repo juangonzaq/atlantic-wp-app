@@ -270,7 +270,8 @@ add_action('wp_ajax_send_mydata', 'send_mydata');
 function send_mydata(){
 	global $wpdb;
 
-    $pagination  = isset( $_POST['pagination'] ) ? (bool)$_POST['pagination'] : null;
+    $pagination  = isset( $_POST['pagination'] ) ? $_POST['pagination'] : null;
+    $patron  = isset( $_POST['patron'] ) ? $_POST['patron'] : null;
 
     if($pagination == 1){
         $value  = isset( $_POST['value'] ) ? $_POST['value'] : '';
@@ -306,6 +307,26 @@ function send_mydata(){
         $pending = (int)$mypostsTitleCount[0]->total - ($offset + count($data));
         
         wp_send_json(array('allCount' => $mypostsTitleCount[0]->total, 'pending' => $pending, 'data' => $data, 'current' => ($offset + count($data))));
+    }
+    else if($pagination == 4){
+        $args = array(
+            'taxonomy'   => 'post_tag', // Especifica que queremos buscar en las etiquetas de los posts
+            'hide_empty' => false,      // Incluir etiquetas que no están asignadas a ningún post
+            'name__like' => $patron     // Usa el patrón de búsqueda aquí
+        );
+        
+        $tags = get_terms($args);
+        wp_send_json([
+            'tags' => $tags
+        ]);
+        /* if ( !empty($tags) && !is_wp_error($tags) ) {
+            // Si se encontraron etiquetas y no hay error, las procesamos
+            foreach ($tags as $tag) {
+                echo '<p>' . $tag->name . '</p>'; // Muestra el nombre de la etiqueta
+            }
+        } else {
+            echo 'No se encontraron etiquetas con ese patrón.';
+        } */
     }
     else{
         // Check parameters

@@ -311,7 +311,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											</div>
 										</div>
 										<div class="h-full bg-dark search-float-mobile" id="MySearchcontentMobile" style="display:none">
-											<div class="main-container  mx-auto flex flex-col w-full py-3">
+											<div class="main-container  mx-auto flex flex-col w-full pb-3">
+												<div class="w-full" style="display: none;" id="main-tags-mobile">
+													<div class="w-full bg-gray py-5 px-8 flex justify-center items-center">
+														<div class="flex items-center overflow-auto " id="content-tags-mobile"></div>
+													</div>
+												</div>
 												<div class="w-full flex items-end  px-5">
 													<span class=" text-primary flex items-center w-full">
 														<div class="text-sm font-medium text-center text-gray-500 w-full">
@@ -387,64 +392,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 													<button id="closeSearch" type="button" class="outline outline-2 outline-primary text-primary font-medium py-1.5 px-4 rounded-full transition-all duration-3 text-white hover:bg-primary hover:text-white flex ml-8">Cancelar</button>
 												</div>
 											</div>
-											<div class="h-full bg-gray px-8 search-float" id="MySearchcontent" style="display:none">
-												<div class="container  mx-auto flex flex-col w-full py-3">
-													<div class="w-full flex items-end  px-5">
-														<span class=" text-primary flex items-center w-full">
-															<div class="text-sm font-medium text-center text-gray-500 w-full">
-																<ul class="flex flex-wrap -mb-px border-gray-light border-b border-solid">
-																	<!-- border-b border-gray-200 dark:text-gray-400 dark:border-gray-700  -->
-																	<li class="relative">
-																		<a class="inline-block py-4 pr-8 text-white text-base font-medium"><span id="resultados"></span> Resultados</a>
-																		<span class="absolute bottom-4 right-0 h-2/5 border border-solid border-gray-border border-r flex"></span>
-																	</li>
-																	<li class="relative">
-																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light active" 
-																		data-id="#todos" data-result="">Todos</a>
-																	</li>
-																	<li class="relative">
-																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light "
-																		data-id="#noticias" data-result="">Noticias</a>
-																	</li>
-																	<li class="relative">
-																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light "
-																		data-id="#videos" data-result="">Videos</a>
-																	</li>
-																	<li class="relative">
-																		<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light "
-																		data-id="#galeria" data-result="">Galería de fotos</a>
-																	</li>
-																</ul>
-															</div>
-														</span>
+											<div class="h-full bg-dark search-float" id="MySearchcontent" style="display:none">
+												<div class="w-full" style="display: none;" id="main-tags">
+													<div class="w-full bg-gray py-5 px-5 md:px-8 flex justify-center items-center">
+														<span class="text-primary text-m font-medium pb-0.5">Sugerencias:</span>
+														<div class="flex items-center flex-wrap" id="content-tags"></div>
 													</div>
-													<div class="allContent">
-														<div class="itemContent" id="todos">
-															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
-															</div>
-															<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
-																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="all">VER MÁS</a>
-															</div>
+												</div>
+												<div class="w-full  px-8">
+													<div class="container  mx-auto flex flex-col w-full py-3">
+														<div class="w-full flex items-end  px-5">
+															<span class=" text-primary flex items-center w-full">
+																<div class="text-sm font-medium text-center text-gray-500 w-full">
+																	<ul class="flex flex-wrap -mb-px border-gray-light border-b border-solid">
+																		<!-- border-b border-gray-200 dark:text-gray-400 dark:border-gray-700  -->
+																		<li class="relative">
+																			<a class="inline-block py-4 pr-8 text-white text-base font-medium"><span id="resultados"></span> Resultados</a>
+																			<span class="absolute bottom-4 right-0 h-2/5 border border-solid border-gray-border border-r flex"></span>
+																		</li>
+																		<li class="relative">
+																			<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light active" 
+																			data-id="#todos" data-result="">Todos</a>
+																		</li>
+																		<li class="relative">
+																			<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light "
+																			data-id="#noticias" data-result="">Noticias</a>
+																		</li>
+																		<li class="relative">
+																			<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light "
+																			data-id="#videos" data-result="">Videos</a>
+																		</li>
+																		<li class="relative">
+																			<a href="#" class="nav-link-search inline-block py-4 px-8 text-white text-base font-light "
+																			data-id="#galeria" data-result="">Galería de fotos</a>
+																		</li>
+																	</ul>
+																</div>
+															</span>
 														</div>
-														<div class="itemContent" id="noticias" style="display:none">
-															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
+														<div class="allContent">
+															<div class="itemContent" id="todos">
+																<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
+																</div>
+																<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
+																	<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="all">VER MÁS</a>
+																</div>
 															</div>
-															<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
-																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="post">VER MÁS</a>
+															<div class="itemContent" id="noticias" style="display:none">
+																<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
+																</div>
+																<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
+																	<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="post">VER MÁS</a>
+																</div>
 															</div>
-														</div>
-														<div class="itemContent" id="videos" style="display:none">
-															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
+															<div class="itemContent" id="videos" style="display:none">
+																<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
+																</div>
+																<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
+																	<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="video">VER MÁS</a>
+																</div>
 															</div>
-															<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
-																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="video">VER MÁS</a>
-															</div>
-														</div>
-														<div class="itemContent" id="galeria" style="display:none">
-															<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
-															</div>
-															<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
-																<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="foto">VER MÁS</a>
+															<div class="itemContent" id="galeria" style="display:none">
+																<div class="flex flex-wrap w-full gap-y-8 mt-8 addContentJs">
+																</div>
+																<div class="flex justify-center gap-y-8 gap-x-8 my-12 px-5">
+																	<a href="javascript:void(0)" class="jsSeeMore outline outline-2 outline-primary text-primary font-medium py-3 px-12 rounded transition-all duration-3 text-white hover:bg-primary hover:text-white buttonMore" data-type="foto">VER MÁS</a>
+																</div>
 															</div>
 														</div>
 													</div>
@@ -637,25 +650,15 @@ jQuery('.jsSeeMore').on("click", function() {
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-		$('#todos').find('.buttonMore').hide();
-		$('#noticias').find('.buttonMore').hide();
-		$('#galeria').find('.buttonMore').hide();
-		$('#videos').find('.buttonMore').hide();
+	const urlSearch = "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php";
+	// const urlSearch = "http://atlantic.test/wp-admin/admin-ajax.php";
 
-		$('#todos-mobile').find('.buttonMore-mobile').hide();
-		$('#noticias-mobile').find('.buttonMore-mobile').hide();
-		$('#galeria-mobile').find('.buttonMore-mobile').hide();
-		$('#videos-mobile').find('.buttonMore-mobile').hide();
-
-        $('#search-new').on('keyup', (event) => {
-            const value = event.target.value;
-            if (value.length > 2) {
-                setTimeout(function(){
-                    $.ajax({
+	function searchContent(){
+		const value = $('#search-new').val();
+		$.ajax({
                         type: "post",
                         dataType: "json",
-                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+                        url: "http://atlantic.test/wp-admin/admin-ajax.php",
                         data: {
                             action: "send_mydata",
 							pagination: 0,
@@ -888,19 +891,15 @@ jQuery('.jsSeeMore').on("click", function() {
                             //functions
                         }
                     });
-                }, 500);
-            }
-        });
+	}
 
-        $('#searchMobile-new').on('keyup', function() {
-			const value = event.target.value;
-            if (value.length > 2) {
-                setTimeout(function(){
-                    $.ajax({
+	function searchContentMobile(){
+		const value = $('#searchMobile-new').val();
+		$.ajax({
                         type: "post",
                         dataType: "json",
 						pagination: 0,
-                        url: "https://blog.casinoatlanticcity.com/wp-admin/admin-ajax.php",
+                        url: urlSearch,
                         data: {
                             action: "send_mydata",
                             value: value
@@ -1173,6 +1172,175 @@ jQuery('.jsSeeMore').on("click", function() {
                             }
                             
                             $("#MySearchcontentMobile").show();
+                        }
+                    });
+	}
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+		$('#todos').find('.buttonMore').hide();
+		$('#noticias').find('.buttonMore').hide();
+		$('#galeria').find('.buttonMore').hide();
+		$('#videos').find('.buttonMore').hide();
+
+		$('#todos-mobile').find('.buttonMore-mobile').hide();
+		$('#noticias-mobile').find('.buttonMore-mobile').hide();
+		$('#galeria-mobile').find('.buttonMore-mobile').hide();
+		$('#videos-mobile').find('.buttonMore-mobile').hide();
+
+		$('.button-close-search').on('click', function(){
+			$('#search-new').val('');
+
+			$('#MySearchcontent .nav-link-search').eq(0).attr("data-result", 0);
+            $('#MySearchcontent .nav-link-search').eq(1).attr("data-result", 0);
+            $('#MySearchcontent .nav-link-search').eq(2).attr("data-result", 0);
+            $('#MySearchcontent .nav-link-search').eq(3).attr("data-result", 0);
+            $('#resultados').html(0);
+                           
+            const $todos = $('#todos').find('.addContentJs');
+            const $noticias = $('#noticias').find('.addContentJs');
+            const $videos = $('#videos').find('.addContentJs');
+            const $galeria = $('#galeria').find('.addContentJs');
+			
+            $todos.html("");
+            $noticias.html("");
+            $videos.html("");
+            $galeria.html("");
+
+			$todos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			$noticias.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			$galeria.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			$videos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+
+			$('#todos').find('.buttonMore').hide();
+			$('#noticias').find('.buttonMore').hide();
+			$('#galeria').find('.buttonMore').hide();
+			$('#videos').find('.buttonMore').hide();
+		})
+
+		$('.button-close-search-mobile').on('click', function(){
+			$('#searchMobile-new').val('');
+
+			$('#MySearchcontentMobile .nav-link-search-mobile').eq(0).attr("data-result", 0);
+            $('#MySearchcontentMobile .nav-link-search-mobile').eq(1).attr("data-result", 0);
+            $('#MySearchcontentMobile .nav-link-search-mobile').eq(2).attr("data-result", 0);
+            $('#MySearchcontentMobile .nav-link-search-mobile').eq(3).attr("data-result", 0);
+            $('#resultados-mobile').html(0);
+
+			const $todos = $('#todos-mobile').find('.mobileJsContent');
+            const $noticias = $('#noticias-mobile').find('.mobileJsContent');
+            const $videos = $('#videos-mobile').find('.mobileJsContent');
+            const $galeria = $('#galeria-mobile').find('.mobileJsContent');
+
+            $todos.html("");
+            $noticias.html("");
+            $videos.html("");
+            $galeria.html("");
+			
+			$todos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			$noticias.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			$galeria.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+			$videos.html("<div class='notresult w-full flex justify-center'>No se encontraron resultados</div>");
+
+			$('#todos-mobile').find('.buttonMore-mobile').hide();
+			$('#noticias-mobile').find('.buttonMore-mobile').hide();
+			$('#galeria-mobile').find('.buttonMore-mobile').hide();
+			$('#videos-mobile').find('.buttonMore-mobile').hide();
+		})
+
+        $('#search-new').on('keyup', (event) => {
+            const value = event.target.value;
+
+			if(value.length > 0){
+				$('.button-close-search').show();
+			}
+			else{
+				$('.button-close-search').hide();
+			}
+
+            if (value.length > 2) {
+                setTimeout(function(){
+                    searchContent();
+                }, 500);
+
+				setTimeout(function(){
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: urlSearch,
+                        data: {
+                            action: "send_mydata",
+							pagination: 4,
+                            patron: value
+                        },
+                        success: function(response) {
+							if(response.tags.length > 0){
+								const $content = $('#main-tags').find('#content-tags');
+								$content.html("");
+								response.tags.forEach((tag, index) => {
+									const template = `
+										<span class="text-sxl font-normal text-white px-5 cursor-pointer tag-reference ${(index < (response.tags.length - 1))?'border-r border-solid border-white':''}" data-search="${tag.name}">${tag.name}</span>
+									`;
+                                    $content.append(template);
+								});
+
+								$('.tag-reference').on('click', function(event){
+									$('#search-new').val(event.target.dataset.search);
+									searchContent();
+									$('#main-tags').hide();
+								});
+
+								$('#main-tags').show();
+							}
+							else{
+								$('#main-tags').hide();
+							}
+
+                        }
+                    });
+                }, 500);
+            }
+        });
+
+        $('#searchMobile-new').on('keyup', function() {
+			const value = event.target.value;
+            if (value.length > 2) {
+                setTimeout(function(){
+                    searchContentMobile();
+                }, 500);
+
+				setTimeout(function(){
+                    $.ajax({
+                        type: "post",
+                        dataType: "json",
+                        url: urlSearch,
+                        data: {
+                            action: "send_mydata",
+							pagination: 4,
+                            patron: value
+                        },
+                        success: function(response) {
+							if(response.tags.length > 0){
+								const $content = $('#main-tags-mobile').find('#content-tags-mobile');
+								$content.html("");
+								response.tags.forEach((tag, index) => {
+									const template = `
+										<span class="text-sxl font-normal text-white px-5 cursor-pointer tag-reference-mobile text-nowrap ${(index < (response.tags.length - 1))?'border-r border-solid border-white':''}" data-search="${tag.name}">${tag.name}</span>
+									`;
+                                    $content.append(template);
+								});
+
+								$('.tag-reference-mobile').on('click', function(event){
+									$('#searchMobile-new').val(event.target.dataset.search);
+									searchContent();
+									$('#main-tags-mobile').hide();
+								});
+
+								$('#main-tags-mobile').show();
+							}
+							else{
+								$('#main-tags-mobile').hide();
+							}
+
                         }
                     });
                 }, 500);
@@ -1673,5 +1841,19 @@ jQuery('.jsSeeMore').on("click", function() {
 	.pag-link .navigation a.next{
 	}
 
-	
+	.tag-separation{
+		position: relative;
+	}
+
+	.main-submenu{
+		height: calc(100vh - var(--height-header) + 2px);
+	}
+
+	.at-menu-nav-content-search-desktop.show{
+		max-height: calc(100vh - var(--height-header) + 12px);
+	}
+
+	.text-nowrap{
+		text-wrap: nowrap;
+	}
 </style>
