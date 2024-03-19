@@ -394,7 +394,7 @@ get_header(); ?>
                                         }
                                         ?>
                                         <li class="w-full py-2 md:py-0 px-1 md:px-0" data-id="<?php echo $self->term_id; ?>">
-                                            <a href="<?php echo $link; ?>" style="<?php echo $actives;?>" class="bg-dark md:bg-transparent w-full text-white flex items-center py-4 hover:bg-gray focus:bg-gray active:bg-gray duration-3 transition-all px-8 rounded-full md:rounded-none">
+                                            <a href="<?php echo $link; ?>" style="<?php echo $actives;?>" class="bg-dark md:bg-transparent w-full text-white flex items-center py-4 hover:bg-gray focus:bg-gray active:bg-gray md:hover:bg-gray md:focus:bg-gray md:active:bg-gray duration-3 transition-all px-8 rounded-full md:rounded-none">
                                                 <?php
                                                     if (get_field( 'icon', "category_".$self->term_id )) {
                                                         ?>
