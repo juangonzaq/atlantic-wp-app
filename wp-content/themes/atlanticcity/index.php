@@ -1804,7 +1804,7 @@ get_header(); ?>
 		height: 100%;
 		width: 100%;
 		min-width: 100%;
-		object-fit: unset;
+		object-fit: unset !important;
 		height: auto;
 	}
 </style>
