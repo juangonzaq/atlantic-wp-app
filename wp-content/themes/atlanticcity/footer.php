@@ -1,6 +1,6 @@
 
 <div class="w-full flex flex-col main-footer relative z-10">
-    <footer class="bg-gray w-full px-8 py-10">
+    <footer class="w-full px-8 py-10" style="background-color: #0e0e0e;">
             <div class="container mx-auto">
                 <div class="flex justify-center py-5">
                     <div class="w-full flex justify-center">
