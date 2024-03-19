@@ -1369,8 +1369,7 @@ jQuery('.jsSeeMore').on("click", function() {
                         const $noticias = $('#noticias').find('.addContentJs');
                         const $videos = $('#videos').find('.addContentJs');
                         const $galeria = $('#galeria').find('.addContentJs');
-console.log(type)
-console.log(response)
+
 						if(type == 'all'){
 							$('.nav-link-search').eq(0).attr("data-result", response.current);
 							if(response.pending > 0){
@@ -1383,21 +1382,30 @@ console.log(response)
 						}
 						else if(type == 'post'){
 							$('.nav-link-search').eq(1).attr("data-result", response.current);
-							if(response.pending <= 0){
+							if(response.pending > 0){
+								$('#noticias').find('.buttonMore').show();
+							}
+							else{
 								$('#noticias').find('.buttonMore').hide();
 							}
 							$('#noticias').find('.buttonMore').attr('data-page', page);
 						}
 						else if(type == 'video'){
 							$('.nav-link-search').eq(3).attr("data-result", response.current);
-							if(response.pending <= 0){
+							if(response.pending > 0){
+								$('#videos').find('.buttonMore').show();
+							}
+							else{
 								$('#videos').find('.buttonMore').hide();
 							}
 							$('#videos').find('.buttonMore').attr('data-page', page);
 						}
 						else if(type == 'foto'){
 							$('.nav-link-search').eq(2).attr("data-result", response.current);
-							if(response.pending <= 0){
+							if(response.pending > 0){
+								$('#galeria').find('.buttonMore').show();
+							}
+							else{
 								$('#galeria').find('.buttonMore').hide();
 							}
 							$('#galeria').find('.buttonMore').attr('data-page', page);
@@ -1582,28 +1590,40 @@ console.log(response)
 
 						if(type == 'all'){
 							$('.nav-link-search-mobile').eq(0).attr("data-result", response.current);
-							if(response.pending <= 0){
+							if(response.pending > 0){
+								$('#todos-mobile').find('.buttonMore-mobile').show();
+							}
+							else{
 								$('#todos-mobile').find('.buttonMore-mobile').hide();
 							}
 							$('#todos-mobile').find('.buttonMore-mobile').attr('data-page', page);
 						}
 						else if(type == 'post'){
 							$('.nav-link-search-mobile').eq(1).attr("data-result", response.current);
-							if(response.pending <= 0){
+							if(response.pending > 0){
+								$('#noticias-mobile').find('.buttonMore-mobile').show();
+							}
+							else{
 								$('#noticias-mobile').find('.buttonMore-mobile').hide();
 							}
 							$('#noticias-mobile').find('.buttonMore-mobile').attr('data-page', page);
 						}
 						else if(type == 'video'){
 							$('.nav-link-search-mobile').eq(3).attr("data-result", response.current);
-							if(response.pending <= 0){
+							if(response.pending > 0){
+								$('#videos-mobile').find('.buttonMore-mobile').show();
+							}
+							else{
 								$('#videos-mobile').find('.buttonMore-mobile').hide();
 							}
 							$('#videos-mobile').find('.buttonMore-mobile').attr('data-page', page);
 						}
 						else if(type == 'foto'){
 							$('.nav-link-search-mobile').eq(2).attr("data-result", response.current);
-							if(response.pending <= 0){
+							if(response.pending > 0){
+								$('#galeria-mobile').find('.buttonMore-mobile').show();
+							}
+							else{
 								$('#galeria-mobile').find('.buttonMore-mobile').hide();
 							}
 							$('#galeria-mobile').find('.buttonMore-mobile').attr('data-page', page);
