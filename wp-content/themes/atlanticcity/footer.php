@@ -861,12 +861,15 @@ observer.observe(document.body, { childList: true, subtree: true });
     }
 
     .swipper-gallery .swiper-wrapper .swiper-slide img{
-		position: relative;
-		height: 100%;
-		width: 100%;
-		min-width: 100%;
-		object-fit: unset !important;
 		height: auto;
+        left: 0;
+        max-width: none;
+        position: absolute;
+        top: 0;
+        transform: translateZ(0) scale(1, 1);
+        width: 100%;
+        backface-visibility: hidden;
+        display: block;
 	}
 </style>
 

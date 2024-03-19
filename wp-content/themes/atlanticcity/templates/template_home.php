@@ -387,7 +387,9 @@ get_header();
                                     foreach (get_field('fotos', $id) as $foto) {
                                         ?>
                                     <div class="swiper-slide">
-                                        <img src="<?php echo $foto['foto'];?>" />
+                                        <figure>
+                                            <img src="<?php echo $foto['foto'];?>" />
+                                        </figure>
                                     </div>
                                         <?php
                                     }
