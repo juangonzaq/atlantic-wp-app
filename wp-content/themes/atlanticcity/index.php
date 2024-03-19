@@ -632,7 +632,7 @@ get_header(); ?>
                                             <div class="w-7/12">
                                                 <div class="h-full w-full flex flex-col justify-center p-7">
                                                     <span class="flex md:hidden text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
-                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
+                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2 mt-2 mt-md-0" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-2xl font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
@@ -1543,7 +1543,7 @@ get_header(); ?>
                                             <div class="w-7/12">
                                                 <div class="h-full w-full flex flex-col justify-center p-7">
                                                     <span class="flex md:hidden text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
-                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
+                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2 mt-2 mt-md-0" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-2xl font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
