@@ -156,7 +156,7 @@ get_header();
                                                         <div class="flex items-center gap-x-2 ">
                                                             <span class="text-warning leading-none text-sm"><?php echo get_the_category( $idnoticia )[0]->name;?></span>
                                                         </div>
-                                                        <h3 class="mt-2 leading-6 text-white">
+                                                        <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($idnoticia);?>">
                                                             <span class="text-xl font-medium">
                                                             <?php echo get_the_title($idnoticia);?>
                                                             </span>

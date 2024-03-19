@@ -575,7 +575,7 @@ get_header(); ?>
                                                                 <div class="flex items-center gap-x-2 ">
                                                                     <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                                 </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
+                                                                <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                     <span class="text-xl font-medium">
                                                                     <?php echo get_the_title($myid);?>
                                                                     </span>
@@ -603,7 +603,7 @@ get_header(); ?>
                                                                 <div class="flex items-center gap-x-2 ">
                                                                     <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                                 </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
+                                                                <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                     <span class="text-xl font-medium">
                                                                     <?php echo get_the_title($myid);?>
                                                                     </span>
@@ -631,7 +631,7 @@ get_header(); ?>
                                             </div>
                                             <div class="w-7/12">
                                                 <div class="h-full w-full flex flex-col justify-center p-7">
-                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8">
+                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-2xl font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
@@ -661,7 +661,7 @@ get_header(); ?>
                                                             <div class="flex items-center gap-x-2 text-white">
                                                                 <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                             </div>
-                                                            <h3 class="mt-2  leading-6 text-white">
+                                                            <h3 class="mt-2  leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                 <span class="text-lg font-normal">
                                                                 <?php echo get_the_title($myid);?>
                                                                 </span>
@@ -686,7 +686,7 @@ get_header(); ?>
                                                             <div class="flex items-center gap-x-2 text-white">
                                                                 <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                             </div>
-                                                            <h3 class="mt-2  leading-6 text-white">
+                                                            <h3 class="mt-2  leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                 <span class="text-lg font-normal">
                                                                 <?php echo get_the_title($myid);?>
                                                                 </span>
@@ -809,7 +809,7 @@ get_header(); ?>
                                                         <div class="flex items-center gap-x-2 ">
                                                             <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                         </div>
-                                                        <h3 class="mt-2 leading-6 text-white">
+                                                        <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                             <span class="text-xl font-medium">
                                                             <?php echo get_the_title($myid);?>
                                                             </span>
@@ -978,7 +978,7 @@ get_header(); ?>
                                                                     <div class="flex items-center gap-x-2 ">
                                                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                                     </div>
-                                                                    <h3 class="mt-2 leading-6 text-white">
+                                                                    <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                         <span class="text-xl font-medium">
                                                                         <?php echo get_the_title($myid);?>
                                                                         </span>
@@ -1006,7 +1006,7 @@ get_header(); ?>
                                                                     <div class="flex items-center gap-x-2 ">
                                                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                                     </div>
-                                                                    <h3 class="mt-2 leading-6 text-white">
+                                                                    <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                         <span class="text-xl font-medium">
                                                                         <?php echo get_the_title($myid);?>
                                                                         </span>
@@ -1038,7 +1038,7 @@ get_header(); ?>
                                                     <div class="items-center gap-x-2 text-white flex md:hidden">
                                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                     </div>
-                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8">
+                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-lg md:text-2xl font-normal md:font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
@@ -1069,7 +1069,7 @@ get_header(); ?>
                                                             <div class="flex items-center gap-x-2 text-white">
                                                                 <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                             </div>
-                                                            <h3 class="mt-0 md:mt-2  leading-6 text-white mb-8 md:mb-0">
+                                                            <h3 class="mt-0 md:mt-2  leading-6 text-white mb-8 md:mb-0 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                 <span class="text-lg font-normal">
                                                                 <?php echo get_the_title($myid);?>
                                                                 </span>
@@ -1096,7 +1096,7 @@ get_header(); ?>
                                                             <div class="flex items-center gap-x-2 text-white">
                                                                 <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                             </div>
-                                                            <h3 class="mt-0 md:mt-2  leading-6 text-white mb-8 md:mb-0">
+                                                            <h3 class="mt-0 md:mt-2  leading-6 text-white mb-8 md:mb-0 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                 <span class="text-lg font-normal">
                                                                 <?php echo get_the_title($myid);?>
                                                                 </span>
@@ -1230,7 +1230,7 @@ get_header(); ?>
                                                         <div class="flex items-center gap-x-2 ">
                                                             <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                         </div>
-                                                        <h3 class="mt-2 leading-6 text-white" title="<?php echo get_the_title($myid);?>">
+                                                        <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                             <span class="text-lg md:text-xl font-normal md:font-medium paragraph-cut-4">
                                                             <?php echo get_the_title($myid);?>
                                                             </span>
@@ -1449,7 +1449,7 @@ get_header(); ?>
                                                     <span class="hidden md:flex">|</span>
                                                     <span class="leading-none hidden md:flex"><?php echo $newhora; ?> hrs.</span>
                                                 </div>
-                                                <h3 class="mt-2  leading-6 text-white">
+                                                <h3 class="mt-2  leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                     <span class="text-2xl md:text-4xl font-semibold">
                                                     <?php echo get_the_title($myid);?>
                                                     </span>
@@ -1481,7 +1481,7 @@ get_header(); ?>
                                                                 <div class="flex items-center gap-x-2 ">
                                                                     <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                                 </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
+                                                                <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                     <span class="text-xl font-medium">
                                                                     <?php echo get_the_title($myid);?>
                                                                     </span>
@@ -1509,7 +1509,7 @@ get_header(); ?>
                                                                 <div class="flex items-center gap-x-2 ">
                                                                     <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                                 </div>
-                                                                <h3 class="mt-2 leading-6 text-white">
+                                                                <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                                     <span class="text-xl font-medium">
                                                                     <?php echo get_the_title($myid);?>
                                                                     </span>
@@ -1537,7 +1537,7 @@ get_header(); ?>
                                             </div>
                                             <div class="w-7/12">
                                                 <div class="h-full w-full flex flex-col justify-center p-7">
-                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8">
+                                                    <h3 class="text-2xl font-medium leading-6 text-white mb-8 paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-2xl font-medium">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
@@ -1567,7 +1567,7 @@ get_header(); ?>
                                                     <div class="flex items-center gap-x-2 text-white">
                                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                     </div>
-                                                    <h3 class="mt-2  leading-6 text-white">
+                                                    <h3 class="mt-2  leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-lg font-normal">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
@@ -1592,7 +1592,7 @@ get_header(); ?>
                                                     <div class="flex items-center gap-x-2 text-white">
                                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                     </div>
-                                                    <h3 class="mt-2  leading-6 text-white">
+                                                    <h3 class="mt-2  leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                         <span class="text-lg font-normal">
                                                         <?php echo get_the_title($myid);?>
                                                         </span>
@@ -1693,7 +1693,7 @@ get_header(); ?>
                                                         <div class="flex items-center gap-x-2 ">
                                                             <span class="text-warning leading-none text-sm"><?php echo get_the_category( $myid )[0]->name;?></span>
                                                         </div>
-                                                        <h3 class="mt-2 leading-6 text-white">
+                                                        <h3 class="mt-2 leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($myid);?>">
                                                             <span class="text-xl font-medium">
                                                             <?php echo get_the_title($myid);?>
                                                             </span>
