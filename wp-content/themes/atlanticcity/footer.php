@@ -874,12 +874,7 @@ observer.observe(document.body, { childList: true, subtree: true });
 
     .swipper-gallery .swiper-wrapper .swiper-slide figure{
         display: block;
-        height: 1px;
-        margin: 0;
-        overflow: hidden;
-        padding: 75% 0 0 0;
         position: relative;
-
     }
 </style>
 
