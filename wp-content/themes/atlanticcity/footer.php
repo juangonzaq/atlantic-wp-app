@@ -883,6 +883,10 @@ observer.observe(document.body, { childList: true, subtree: true });
         padding-top: 66.7%;
         box-sizing: border-box;
     }
+
+    .swipper-gallery{
+        height: auto;
+    }
 </style>
 
 </body>
