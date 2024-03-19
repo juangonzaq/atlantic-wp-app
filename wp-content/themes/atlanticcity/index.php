@@ -363,7 +363,7 @@ get_header(); ?>
                         ?>
                         <!-- h-custom-logs  z-10 -->
                 <aside class="w-full md:w-80 relative md:flex h-auto md:h-auto ">
-                    <div class="bg-gray h-full m-h- overflow-auto no-scrollbar aside-content-menu">
+                    <div class="h-full m-h- overflow-auto no-scrollbar aside-content-menu" style="background-color: #0e0e0e;">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
                                 $idcrop = $idCategory;
