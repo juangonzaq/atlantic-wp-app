@@ -221,7 +221,7 @@ get_header();
                                             </div>
                                             <div class="w-3/5 md:w-2/3">
                                                 <div class="h-full w-full flex flex-col justify-between p-7">
-                                                    <div class="flex md:hidden">
+                                                    <div class="flex">
                                                         <span class="text-warning leading-none text-sm"><?php echo get_the_category( $idnoticia )[0]->name;?></span>
                                                     </div>
                                                     <h3 class="text-lg font-semibold leading-6 text-white paragraph-cut-2" title="<?php echo get_the_title($idnoticia);?>">
@@ -230,8 +230,8 @@ get_header();
                                                         </span>
                                                     </h3>
                                                     <div class="flex items-center gap-x-2 text-sm text-white mt-2">
-                                                        <span class="text-warning leading-none text-sm hidden md:flex"><?php echo get_the_category( $idnoticia )[0]->name;?></span>
-                                                        <span class=" hidden md:flex">|</span>
+                                                        <!-- <span class="text-warning leading-none text-sm hidden md:flex"><?php echo get_the_category( $idnoticia )[0]->name;?></span>
+                                                        <span class=" hidden md:flex">|</span> -->
                                                         <span class="leading-none text-sm"><?php echo $newdate; ?></span>
                                                         <span class="">|</span>
                                                         <span class="leading-none text-sm"><?php echo $newhora; ?> hrs.</span>
