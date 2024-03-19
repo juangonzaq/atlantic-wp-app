@@ -861,17 +861,27 @@ observer.observe(document.body, { childList: true, subtree: true });
     }
 
     .swipper-gallery .swiper-wrapper .swiper-slide img{
-		position: relative;
-		height: 100%;
-		width: 100%;
-		min-width: 100%;
-		object-fit: unset !important;
-		height: auto;
+		display: block;
+        height: auto;
+        left: 0;
+        max-width: none;
+        position: absolute;
+        top: 0;
+        transform: translateZ(0) scale(1, 1);
+        width: 100%;
+        backface-visibility: hidden;
+        transition: opacity 1000ms ease-out;
 	}
 
     .swipper-gallery .swiper-wrapper .swiper-slide figure{
         display: block;
+        height: 1px;
+        margin: 0;
+        overflow: hidden;
+        padding: 75% 0 0 0;
         position: relative;
+        padding-top: 66.7%;
+        box-sizing: border-box;
     }
 </style>
 
