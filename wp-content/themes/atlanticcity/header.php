@@ -1215,6 +1215,10 @@ jQuery('.jsSeeMore').on("click", function() {
 			$('#noticias').find('.buttonMore').hide();
 			$('#galeria').find('.buttonMore').hide();
 			$('#videos').find('.buttonMore').hide();
+
+			const $content = $('#main-tags').find('#content-tags');
+			$content.html("");
+			$('#main-tags').hide();
 		})
 
 		$('.button-close-search-mobile').on('click', function(){
@@ -1245,6 +1249,10 @@ jQuery('.jsSeeMore').on("click", function() {
 			$('#noticias-mobile').find('.buttonMore-mobile').hide();
 			$('#galeria-mobile').find('.buttonMore-mobile').hide();
 			$('#videos-mobile').find('.buttonMore-mobile').hide();
+
+			const $content = $('#main-tags-mobile').find('#content-tags-mobile');
+			$content.html("");
+			$('#main-tags-mobile').hide();
 		})
 
         $('#search-new').on('keyup', (event) => {
