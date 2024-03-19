@@ -363,7 +363,7 @@ get_header(); ?>
                         ?>
                         <!-- h-custom-logs  z-10 -->
                 <aside class="w-full md:w-80 relative md:flex h-auto md:h-auto ">
-                    <div class="h-full m-h- overflow-auto no-scrollbar aside-content-menu" style="background-color: #0e0e0e;">
+                    <div class="bg-gray h-full m-h- overflow-auto no-scrollbar aside-content-menu">
                         <ul class="w-full flex flex-row md:flex-col flex-nowrap md:flex-wrap overflow-auto py-0 md:py-4">
                             <?php 
                                 $idcrop = $idCategory;
@@ -394,7 +394,7 @@ get_header(); ?>
                                         }
                                         ?>
                                         <li class="w-full py-2 md:py-0 px-1 md:px-0" data-id="<?php echo $self->term_id; ?>">
-                                            <a href="<?php echo $link; ?>" style="<?php echo $actives;?>" class="bg-dark md:bg-transparent w-full text-white flex items-center py-4 hover:bg-gray focus:bg-gray active:bg-gray duration-3 transition-all px-8 rounded-full md:rounded-none">
+                                            <a href="<?php echo $link; ?>" style="<?php echo $actives;?>" class="bg-dark md:bg-transparent w-full text-white flex items-center py-4 hover:bg-gray focus:bg-gray active:bg-dark-bold duration-3 transition-all px-8 rounded-full md:rounded-none">
                                                 <?php
                                                     if (get_field( 'icon', "category_".$self->term_id )) {
                                                         ?>
