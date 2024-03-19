@@ -1374,6 +1374,7 @@ console.log(response)
 						if(type == 'all'){
 							$('.nav-link-search').eq(0).attr("data-result", response.current);
 							if(response.pending <= 0){
+								console.log("HIDE")
 								$('#todos').find('.buttonMore').hide();
 							}
 							$('#todos').find('.buttonMore').attr('data-page', page);
