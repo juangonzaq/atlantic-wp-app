@@ -1373,8 +1373,10 @@ console.log(type)
 console.log(response)
 						if(type == 'all'){
 							$('.nav-link-search').eq(0).attr("data-result", response.current);
-							if(response.pending <= 0){
-								console.log("HIDE")
+							if(response.pending > 0){
+								$('#todos').find('.buttonMore').show();
+							}
+							else{
 								$('#todos').find('.buttonMore').hide();
 							}
 							$('#todos').find('.buttonMore').attr('data-page', page);
