@@ -1938,4 +1938,8 @@ jQuery('.jsSeeMore').on("click", function() {
 		-webkit-line-clamp: 5;
 		-webkit-box-orient: vertical;
 	}
+
+	.hover\:bg-gray:hover, .focus\:bg-gray:focus, .active\:bg-gray:active{
+		background-color: var(--gray);
+	}
 </style>
