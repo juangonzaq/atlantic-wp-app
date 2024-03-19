@@ -1798,4 +1798,13 @@ get_header(); ?>
 			padding-top: 86px;
 		}
 	}
+
+    .swipper-gallery .swiper-wrapper .swiper-slide img{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		min-width: 100%;
+		object-fit: unset;
+		height: auto;
+	}
 </style>

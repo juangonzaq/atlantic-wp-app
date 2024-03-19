@@ -1943,12 +1943,5 @@ jQuery('.jsSeeMore').on("click", function() {
 		background-color: var(--gray);
 	}
 	
-	.swipper-gallery .swiper-wrapper .swiper-slide img{
-		position: relative;
-		height: 100%;
-		width: 100%;
-		min-width: 100%;
-		object-fit: unset;
-		height: auto;
-	}
+	
 </style>
