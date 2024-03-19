@@ -377,7 +377,7 @@ get_header();
                         <!-- <p class="text-base font-medium text-white order-2 md:order-1"><?php echo get_the_title($id); ?></p> -->
                         <button href="" class="flex items-center close ml-auto md:ml-5 mb-5 md:mb-0 order-1 md:order-2"  data-id="swiper-<?php echo $id; ?>">
                             <!-- <span class="text-primary text-2xl md:text-lg font-normal  hover:underline cursor-pointer">Cerrar</span> -->
-                            <span class=" mdi mdi-close text-primary text-2xl font-normal hover:underline cursor-pointer ml-2"></span>
+                            <span class=" mdi mdi-close text-primary text-4xl font-normal hover:underline cursor-pointer ml-2"></span>
                         </button>
                     </div>
                     <div class="swiper swipper-gallery max-h-full flex items-center w-full" data-modal-id="swiper-<?php echo $id; ?>">
