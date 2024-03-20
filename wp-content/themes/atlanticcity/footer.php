@@ -375,9 +375,9 @@ observer.observe(document.body, { childList: true, subtree: true });
         }
     }
 
-    function loadSwipperGallery(id){
+    function loadSwipperGallery(id, perView = null){
         let swiperGallery = new Swiper(id, {
-            slidesPerView: 1.4,
+            slidesPerView: perView?perView:1.4,
             centeredSlides: true,
             spaceBetween: 0,
             watchSlidesVisibility: true,
@@ -428,19 +428,19 @@ observer.observe(document.body, { childList: true, subtree: true });
     function reloadSwipperHeight(){
         let height = document.body.clientHeight;
         let gallery = $('.modal-gallery').not('.hidden');
-console.log(gallery.attr('id'))
+
         if(height != mainHeigth){
             if(height < 200){
                 
             }
             else if(height < 500){
-                
             }
             else if(height < 800){
+                loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery', 1.7)
 
             }
             else{
-
+                loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery')
             }
         }
     }
