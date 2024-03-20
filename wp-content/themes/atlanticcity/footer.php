@@ -424,7 +424,7 @@ observer.observe(document.body, { childList: true, subtree: true });
                 }
             },
         });
-        swippers.push({id: id.split(' ')[0], swipper: swiperGallery});
+        swippers.push({id: id.split(' ')[0].substr(1), swipper: swiperGallery});
     }
 
     function reloadSwipperHeight(){
@@ -432,10 +432,10 @@ observer.observe(document.body, { childList: true, subtree: true });
         let gallery = $('.modal-gallery').not('.hidden');
         let indexSwipper = -1;
         console.log(swippers)
-        console.log(gallery.attr('id').substr(1))
+        console.log(gallery.attr('id'))
         swippers.forEach((item, index) => {
             console.log(item.id)
-            if(item.id == gallery.attr('id').substr(1)){
+            if(item.id == gallery.attr('id')){
                 indexSwipper = index;
             }
         })
