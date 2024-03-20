@@ -126,6 +126,7 @@ const observer = new MutationObserver(function(mutations) {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
+    var mainHeigth = 0;
 
     function disableMenus(menuSelect){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
@@ -424,6 +425,26 @@ observer.observe(document.body, { childList: true, subtree: true });
         });
     }
 
+    function reloadSwipperHeight(){
+        let height = document.body.clientHeight;
+        let gallery = $('.modal-gallery').not('.hidden');
+console.log(gallery)
+        if(height != mainHeigth){
+            if(height < 200){
+                
+            }
+            else if(height < 500){
+                
+            }
+            else if(height < 800){
+
+            }
+            else{
+
+            }
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', ()=>{
         window.addEventListener('resize', (e)=>{
             setPositionMenus()
@@ -434,6 +455,8 @@ observer.observe(document.body, { childList: true, subtree: true });
             }
             loadSwipperCard(width);
             loadSwipperBreads();
+
+            reloadSwipperHeight();
         });
 
         // AVATAR
