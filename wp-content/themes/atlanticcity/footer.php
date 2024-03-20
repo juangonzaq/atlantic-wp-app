@@ -424,7 +424,7 @@ observer.observe(document.body, { childList: true, subtree: true });
                 }
             },
         });
-        swippers.push({id: id, swipper: swiperGallery});
+        swippers.push({id: id.split(' ')[0], swipper: swiperGallery});
     }
 
     function reloadSwipperHeight(){
