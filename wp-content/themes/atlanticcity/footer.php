@@ -381,7 +381,6 @@ observer.observe(document.body, { childList: true, subtree: true });
             spaceBetween: 0,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
-            autoHeight: true,
             loop: false,
             navigation: {
                 prevEl: ".swiper-gallery-button-prev",
