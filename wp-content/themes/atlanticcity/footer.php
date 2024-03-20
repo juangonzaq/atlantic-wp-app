@@ -431,10 +431,8 @@ observer.observe(document.body, { childList: true, subtree: true });
         let height = document.body.clientHeight;
         let gallery = $('.modal-gallery').not('.hidden');
         let indexSwipper = -1;
-        console.log(swippers)
-        console.log(gallery.attr('id'))
+
         swippers.forEach((item, index) => {
-            console.log(item.id)
             if(item.id == gallery.attr('id')){
                 indexSwipper = index;
             }
@@ -442,21 +440,19 @@ observer.observe(document.body, { childList: true, subtree: true });
         console.log(indexSwipper)
 
         if(indexSwipper >= 0){
-            console.log(swippers[indexSwipper])
             if(height != mainHeigth){
+                swippers.splice(indexSwipper, 1)
                 if(height < 200){
                     
                 }
                 else if(height < 500){
                 }
                 else if(height < 800){
-                    swippers[indexSwipper].swipper.params.slidesPerView = 1.7;
-                    // loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery', 1.7)
+                    // swippers[indexSwipper].swipper.params.slidesPerView = 1.7;
     
                 }
                 else{
-                    swippers[indexSwipper].swipper.params.slidesPerView = 1.4;
-                    // loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery')
+                    // swippers[indexSwipper].swipper.params.slidesPerView = 1.4;
                 }
             }
         }
