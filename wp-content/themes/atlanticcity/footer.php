@@ -127,6 +127,7 @@ const observer = new MutationObserver(function(mutations) {
 observer.observe(document.body, { childList: true, subtree: true });
 
     var mainHeigth = 0;
+    var swippers = [];
 
     function disableMenus(menuSelect){
 		let menus = document.querySelectorAll('.menu-desktop .at-menu-nav');
@@ -376,7 +377,6 @@ observer.observe(document.body, { childList: true, subtree: true });
     }
 
     function loadSwipperGallery(id, perView = null){
-        console.log(perView)
         let swiperGallery = new Swiper(id, {
             slidesPerView: perView?perView:1.4,
             centeredSlides: true,
@@ -424,6 +424,7 @@ observer.observe(document.body, { childList: true, subtree: true });
                 }
             },
         });
+        swippers.push({id: id, swipper: swiperGallery});
     }
 
     function reloadSwipperHeight(){
@@ -431,18 +432,30 @@ observer.observe(document.body, { childList: true, subtree: true });
         let gallery = $('.modal-gallery').not('.hidden');
 console.log(height)
 console.log('#'+gallery.attr('id'))
-        if(height != mainHeigth){
-            if(height < 200){
-                
-            }
-            else if(height < 500){
-            }
-            else if(height < 800){
-                loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery', 1.7)
 
+        let indexSwipper = -1;
+        swippers.forEach((item, index) => {
+            if(item.id == gallery.attr('id')){
+                indexSwipper = index;
             }
-            else{
-                loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery')
+        })
+
+        if(indexSwipper >= 0){
+            if(height != mainHeigth){
+                if(height < 200){
+                    
+                }
+                else if(height < 500){
+                }
+                else if(height < 800){
+                    swippers[indexSwipper].params.slidesPerView = 1.7;
+                    // loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery', 1.7)
+    
+                }
+                else{
+                    swippers[indexSwipper].params.slidesPerView = 1.4;
+                    // loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery')
+                }
             }
         }
     }
