@@ -428,7 +428,7 @@ observer.observe(document.body, { childList: true, subtree: true });
     }
 
     function reloadSwipperHeight(){
-        let height = document.body.clientHeight;
+        /* let height = document.body.clientHeight;
         let gallery = $('.modal-gallery').not('.hidden');
         let indexSwipper = -1;
 
@@ -455,7 +455,7 @@ observer.observe(document.body, { childList: true, subtree: true });
                     // swippers[indexSwipper].swipper.params.slidesPerView = 1.4;
                 }
             }
-        }
+        } */
     }
 
     document.addEventListener('DOMContentLoaded', ()=>{
