@@ -441,6 +441,7 @@ console.log('#'+gallery.attr('id'))
         })
 
         if(indexSwipper >= 0){
+            console.log(swippers[indexSwipper])
             if(height != mainHeigth){
                 if(height < 200){
                     
