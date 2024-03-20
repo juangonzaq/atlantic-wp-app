@@ -432,7 +432,7 @@ observer.observe(document.body, { childList: true, subtree: true });
         let gallery = $('.modal-gallery').not('.hidden');
         let indexSwipper = -1;
         swippers.forEach((item, index) => {
-            if(item.id == gallery.attr('id')){
+            if(item.id == gallery.attr('id').substr(1)){
                 indexSwipper = index;
             }
         })
