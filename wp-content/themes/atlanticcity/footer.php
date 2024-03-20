@@ -428,7 +428,7 @@ observer.observe(document.body, { childList: true, subtree: true });
     function reloadSwipperHeight(){
         let height = document.body.clientHeight;
         let gallery = $('.modal-gallery').not('.hidden');
-console.log(gallery)
+console.log(gallery.attr('id'))
         if(height != mainHeigth){
             if(height < 200){
                 
