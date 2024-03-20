@@ -376,6 +376,7 @@ observer.observe(document.body, { childList: true, subtree: true });
     }
 
     function loadSwipperGallery(id, perView = null){
+        console.log(perView)
         let swiperGallery = new Swiper(id, {
             slidesPerView: perView?perView:1.4,
             centeredSlides: true,
@@ -428,7 +429,8 @@ observer.observe(document.body, { childList: true, subtree: true });
     function reloadSwipperHeight(){
         let height = document.body.clientHeight;
         let gallery = $('.modal-gallery').not('.hidden');
-
+console.log(height)
+console.log('#'+gallery.attr('id'))
         if(height != mainHeigth){
             if(height < 200){
                 
