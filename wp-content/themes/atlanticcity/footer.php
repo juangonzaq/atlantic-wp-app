@@ -430,15 +430,13 @@ observer.observe(document.body, { childList: true, subtree: true });
     function reloadSwipperHeight(){
         let height = document.body.clientHeight;
         let gallery = $('.modal-gallery').not('.hidden');
-console.log(height)
-console.log('#'+gallery.attr('id'))
-
         let indexSwipper = -1;
         swippers.forEach((item, index) => {
             if(item.id == gallery.attr('id')){
                 indexSwipper = index;
             }
         })
+        console.log(indexSwipper)
 
         if(indexSwipper >= 0){
             console.log(swippers[indexSwipper])
