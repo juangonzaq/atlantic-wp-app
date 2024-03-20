@@ -450,12 +450,12 @@ observer.observe(document.body, { childList: true, subtree: true });
                 else if(height < 500){
                 }
                 else if(height < 800){
-                    swippers[indexSwipper].params.slidesPerView = 1.7;
+                    swippers[indexSwipper].swipper.params.slidesPerView = 1.7;
                     // loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery', 1.7)
     
                 }
                 else{
-                    swippers[indexSwipper].params.slidesPerView = 1.4;
+                    swippers[indexSwipper].swipper.params.slidesPerView = 1.4;
                     // loadSwipperGallery('#'+gallery.attr('id') + ' .swipper-gallery')
                 }
             }
